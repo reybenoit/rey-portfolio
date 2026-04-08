@@ -1000,21 +1000,61 @@ footer {
   text-wrap: balance;
 }
 
+/* Asymmetric 5-column bento grid */
 .org-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
   background: var(--mid);
   border: 1px solid var(--mid);
 }
 
+/* Zigzag spans: wide-narrow / narrow-wide / narrow-wide */
+.org-card:nth-child(1) { grid-column: span 3; }
+.org-card:nth-child(2) { grid-column: span 2; }
+.org-card:nth-child(3) { grid-column: span 2; }
+.org-card:nth-child(4) { grid-column: span 3; }
+.org-card:nth-child(5) { grid-column: span 2; }
+.org-card:nth-child(6) { grid-column: span 3; }
+
 .org-card {
   background: var(--bg);
-  padding: 40px;
+  padding: 44px 40px;
   transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.org-card:hover { background: #fff; }
+.org-card:not(.is-dark):hover { background: #fff; }
+
+/* Dark image card variant */
+.org-card.is-dark {
+  background: #0d1526;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.org-card.is-dark img.org-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.16;
+  filter: grayscale(20%);
+  z-index: 0;
+}
+
+.org-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.org-card.is-dark .org-tag  { color: rgba(247,246,242,0.38); }
+.org-card.is-dark h3        { color: var(--text-light); }
+.org-card.is-dark p         { color: rgba(247,246,242,0.48); }
 
 .org-tag {
   display: block;
@@ -1054,23 +1094,47 @@ footer {
 .team-header { margin-bottom: 40px; }
 .team-header .label { margin-bottom: 0; }
 
+/* Belief statement — large display type */
 .team-belief {
   font-family: var(--font-d);
-  font-size: clamp(18px, 2.2vw, 27px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.45;
+  font-size: clamp(24px, 3.2vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
   color: var(--text);
-  max-width: 800px;
-  margin-bottom: 80px;
-  padding-left: 24px;
-  border-left: 3px solid var(--accent);
+  max-width: 960px;
+  margin-bottom: 0;
+  padding: 0;
+  border: none;
   text-wrap: balance;
 }
 
-.team-section {
-  padding: 52px 0;
+.team-belief em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* Belief wrapper with top/bottom hairlines */
+.team-belief-wrap {
+  padding: 64px 0;
+  margin-bottom: 0;
   border-top: 1px solid var(--mid);
+  border-bottom: 1px solid var(--mid);
+}
+
+/* Sub-section: sticky title left | rows right */
+.team-section {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 80px;
+  padding: 60px 0;
+  border-top: 1px solid var(--mid);
+  align-items: start;
+}
+
+.team-section-head {
+  position: sticky;
+  top: 80px; /* clears the fixed nav */
 }
 
 .team-section-label {
@@ -1083,7 +1147,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 14px;
 }
 
 .team-section-label::after {
@@ -1095,15 +1159,23 @@ footer {
   opacity: 0.5;
 }
 
+.team-section-title {
+  font-family: var(--font-d);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
 .team-rows { display: flex; flex-direction: column; }
 
 .team-row {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   padding: 22px 0;
   border-top: 1px solid var(--mid);
-  align-items: start;
 }
 
 .team-row:first-child { border-top: none; }
@@ -1114,7 +1186,6 @@ footer {
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text);
-  padding-top: 2px;
 }
 
 .team-row-desc {
@@ -1132,8 +1203,15 @@ footer {
   .hero-right { display: none; }
   .hero-left { padding: 120px 32px 80px; justify-content: flex-end; }
 
-  .org-grid { grid-template-columns: 1fr; }
-  .team-row { grid-template-columns: 1fr; gap: 8px; }
+  .org-grid { grid-template-columns: 1fr 1fr; }
+  .org-card:nth-child(1),
+  .org-card:nth-child(2),
+  .org-card:nth-child(3),
+  .org-card:nth-child(4),
+  .org-card:nth-child(5),
+  .org-card:nth-child(6) { grid-column: span 1; }
+  .team-section { grid-template-columns: 1fr; gap: 32px; }
+  .team-section-head { position: static; }
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .about-bio { padding-right: 0; }
   .about-why { border-left: none; padding-left: 0; padding-top: 0; border-top: 1px solid var(--mid); padding-top: 56px; }
@@ -1151,6 +1229,8 @@ footer {
   .impact-stat { padding-right: 20px; }
   .cs-metrics { gap: 24px; }
   .footer-nav { display: none; }
+  .org-grid { grid-template-columns: 1fr; }
+  .org-card.is-dark { min-height: 240px; }
 }
 
 /* ── text-wrap balance on headlines ── */
@@ -1557,36 +1637,48 @@ footer {
     </div>
     <div class="org-grid">
 
+      <!-- Card 1: Education — wide (3/5), image -->
+      <div class="org-card is-dark">
+        <img class="org-bg" src="https://picsum.photos/seed/university-lecture-classroom/1200/700" alt="" aria-hidden="true" loading="lazy">
+        <div class="org-card-content">
+          <span class="org-tag">Education</span>
+          <h3>Adjunct professor, Pace University</h3>
+          <p>Designed and taught a graduate UX curriculum from scratch, earning a 4.57/5 student rating across diverse cohorts.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Systems — narrow (2/5) -->
       <div class="org-card">
         <span class="org-tag">Systems</span>
         <h3>OKR framework architect</h3>
         <p>Built the first UX-integrated OKR system that formally tied design goals to engineering milestones across the org.</p>
       </div>
 
-      <div class="org-card">
-        <span class="org-tag">AI Innovation</span>
-        <h3>One-click AI deployment</h3>
-        <p>Pioneered an AI-assisted deployment concept that ranked #2 of 36 entries in a product-wide ideathon, earning executive interest for org-wide rollout.</p>
+      <!-- Card 3: AI Innovation — narrow (2/5), image -->
+      <div class="org-card is-dark">
+        <img class="org-bg" src="https://picsum.photos/seed/abstract-technology-ai-digital/1200/700" alt="" aria-hidden="true" loading="lazy">
+        <div class="org-card-content">
+          <span class="org-tag">AI Innovation</span>
+          <h3>One-click AI deployment</h3>
+          <p>Pioneered an AI-assisted deployment concept that ranked #2 of 36 entries in a product-wide ideathon, earning executive interest for org-wide rollout.</p>
+        </div>
       </div>
 
-      <div class="org-card">
-        <span class="org-tag">Education</span>
-        <h3>Adjunct professor, Pace University</h3>
-        <p>Designed and taught a graduate UX curriculum from scratch, earning a 4.57/5 student rating across diverse cohorts.</p>
-      </div>
-
+      <!-- Card 4: Strategy — wide (3/5) -->
       <div class="org-card">
         <span class="org-tag">Strategy</span>
         <h3>Risk identification & action</h3>
         <p>Identified 21 critical risks in a high-profile launch plan, secured cross-functional buy-in for a new direction, and established the foundation for a successful GA release.</p>
       </div>
 
+      <!-- Card 5: Craft — narrow (2/5) -->
       <div class="org-card">
         <span class="org-tag">Craft</span>
         <h3>Design quality bar</h3>
         <p>Established shared standards and critique culture that raised the craft ceiling across a multi-product, globally distributed team.</p>
       </div>
 
+      <!-- Card 6: Research — wide (3/5) -->
       <div class="org-card">
         <span class="org-tag">Research</span>
         <h3>Customer insight pipeline</h3>
@@ -1605,13 +1697,18 @@ footer {
       <div class="label">Team management</div>
     </div>
 
-    <p class="team-belief">
-      "Good design teams don't just ship products — they raise the floor for everyone. A manager's job is to make sure every designer has clear ownership, room to grow, and a team that makes them better."
-    </p>
+    <div class="team-belief-wrap">
+      <p class="team-belief">
+        "Good design teams don't just ship products — they <em>raise the floor</em> for everyone. A manager's job is to make sure every designer has clear ownership, room to grow, and a team that makes them better."
+      </p>
+    </div>
 
     <!-- 7b: How I structure teams -->
     <div class="team-section">
-      <div class="team-section-label">How I structure teams</div>
+      <div class="team-section-head">
+        <div class="team-section-label">Structure</div>
+        <div class="team-section-title">How I build teams</div>
+      </div>
       <div class="team-rows">
         <div class="team-row">
           <div class="team-row-label">Clear ownership</div>
@@ -1630,7 +1727,10 @@ footer {
 
     <!-- 7c: Hiring & onboarding -->
     <div class="team-section">
-      <div class="team-section-label">Hiring & onboarding</div>
+      <div class="team-section-head">
+        <div class="team-section-label">Hiring</div>
+        <div class="team-section-title">Finding & landing the right people</div>
+      </div>
       <div class="team-rows">
         <div class="team-row">
           <div class="team-row-label">Making the case</div>
@@ -1649,7 +1749,10 @@ footer {
 
     <!-- 7d: Growing people -->
     <div class="team-section">
-      <div class="team-section-label">Growing people</div>
+      <div class="team-section-head">
+        <div class="team-section-label">Growth</div>
+        <div class="team-section-title">Developing people over time</div>
+      </div>
       <div class="team-rows">
         <div class="team-row">
           <div class="team-row-label">Mentorship</div>
