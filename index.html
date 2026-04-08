@@ -4,11 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rey Benoit — Designer. Strategist. Builder.</title>
+<meta name="description" content="Rey Benoit is a designer, strategist, and builder with 17 years across music, enterprise software, and AI — most recently at Google Cloud and as founder of HEARD.">
+<meta property="og:title" content="Rey Benoit — Designer. Strategist. Builder.">
+<meta property="og:description" content="17 years of design across music, enterprise, and AI. Google Cloud, Warner Music, HEARD.">
+<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
 /* ── Reset & Root ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Accessibility ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 999;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 16px;
+  font-family: var(--font-d);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 
 :root {
   --bg:        #F7F6F2;
@@ -133,7 +161,7 @@ nav {
 /* ── HERO ── */
 .hero {
   background: var(--bg-dark);
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -363,29 +391,44 @@ nav {
 
 .values .label { margin-bottom: 48px; }
 
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--mid);
-  border: 1px solid var(--mid);
+.values-list {
+  display: flex;
+  flex-direction: column;
 }
 
 .value-item {
-  background: var(--bg);
-  padding: 48px 40px;
-  transition: background 0.3s;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 48px;
+  padding: 52px 0;
+  border-top: 1px solid var(--mid);
+  align-items: start;
 }
 
-.value-item:hover { background: white; }
+.value-item:last-child { border-bottom: 1px solid var(--mid); }
+
+.value-num {
+  font-family: var(--font-d);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--mid-text);
+  padding-top: 10px;
+}
+
+.value-content {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 80px;
+  align-items: start;
+}
 
 .value-word {
   font-family: var(--font-d);
-  font-size: 32px;
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text);
-  margin-bottom: 16px;
   line-height: 1;
 }
 
@@ -394,9 +437,10 @@ nav {
 }
 
 .value-def {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 300;
   color: var(--mid-text);
+  padding-top: 6px;
   line-height: 1.7;
 }
 
@@ -815,7 +859,8 @@ footer {
   :root { --pad: 32px; }
 
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
-  .values-grid { grid-template-columns: 1fr; }
+  .value-item { grid-template-columns: 48px 1fr; gap: 24px; }
+  .value-content { grid-template-columns: 1fr; gap: 16px; }
   .impact-grid { grid-template-columns: 1fr 1fr; }
   .cs-inner { grid-template-columns: 1fr; gap: 32px; }
   .chapter-break-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -827,9 +872,45 @@ footer {
   .cs-metrics { gap: 24px; }
 }
 
+/* ── text-wrap balance on headlines ── */
+.hero-name,
+.about-bio h2,
+.about-why-q,
+.work-header h2,
+.cs-title,
+.chapter-break-text,
+.contact h2 {
+  text-wrap: balance;
+}
+
+/* ── Tabular figures on stat numbers ── */
+.impact-value,
+.cs-metric-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Active/press states ── */
+.hero-cta:active    { transform: scale(0.97); }
+.cs-link:active     { transform: scale(0.97); }
+.contact-email:active { transform: scale(0.98); }
+
+/* ── Case study tags: square not pill ── */
+.cs-tag { border-radius: 3px; }
+
+/* ── Case study images ── */
+.cs-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#work">Skip to content</a>
 
 <!-- ── NAV ── -->
 <nav>
@@ -847,7 +928,7 @@ footer {
 <section class="hero" id="home">
   <div class="hero-ghost">RB</div>
   <div class="container hero-inner">
-    <div class="hero-label fade-up">Portfolio · 2025</div>
+    <div class="hero-label fade-up">Portfolio · 2026</div>
     <h1 class="hero-name fade-up">Rey<br>Benoit</h1>
     <div class="hero-roles fade-up">
       <span class="hero-role active">Designer</span>
@@ -910,21 +991,30 @@ footer {
 <section class="values">
   <div class="container">
     <div class="label">What I stand for</div>
-    <div class="values-grid">
+    <div class="values-list">
 
       <div class="value-item">
-        <div class="value-word">Access<span>.</span></div>
-        <div class="value-def">Making technology genuinely usable for the people who need it most — closing the gap between what tools promise and what users actually experience.</div>
+        <div class="value-num">01</div>
+        <div class="value-content">
+          <div class="value-word">Access<span>.</span></div>
+          <div class="value-def">Making technology genuinely usable for the people who need it most — closing the gap between what tools promise and what users actually experience.</div>
+        </div>
       </div>
 
       <div class="value-item">
-        <div class="value-word">Mastery<span>.</span></div>
-        <div class="value-def">Holding a high standard for the craft, and raising the bar for everyone I work with — because excellence compounds when it's shared.</div>
+        <div class="value-num">02</div>
+        <div class="value-content">
+          <div class="value-word">Mastery<span>.</span></div>
+          <div class="value-def">Holding a high standard for the craft, and raising the bar for everyone I work with — because excellence compounds when it's shared.</div>
+        </div>
       </div>
 
       <div class="value-item">
-        <div class="value-word">Camaraderie<span>.</span></div>
-        <div class="value-def">Investing in the people around me — building trust, creating space for honest collaboration, and making the team stronger through the work we share.</div>
+        <div class="value-num">03</div>
+        <div class="value-content">
+          <div class="value-word">Camaraderie<span>.</span></div>
+          <div class="value-def">Investing in the people around me — building trust, creating space for honest collaboration, and making the team stronger through the work we share.</div>
+        </div>
       </div>
 
     </div>
@@ -971,7 +1061,7 @@ footer {
   <div class="container">
     <div class="work-header">
       <div class="label">Selected work</div>
-      <h2>Six projects.<br>One through-line.</h2>
+      <h2>Four projects.<br>One through-line.</h2>
     </div>
   </div>
 
@@ -1007,7 +1097,7 @@ footer {
           </div>
           <a class="cs-link" href="https://tryheardfree.com" target="_blank">View Case Study →</a>
           <div class="cs-image">
-            <span class="cs-image-placeholder">HEARD — Product Screenshot</span>
+            <img src="https://picsum.photos/seed/heard-music-interface/1200/525" alt="HEARD — AI music generator interface showing lyric input and audio playback" loading="lazy">
           </div>
         </div>
       </div>
@@ -1048,9 +1138,9 @@ footer {
               <div class="cs-metric-label">Fastest-growing DB on Cloud</div>
             </div>
           </div>
-          <a class="cs-link" href="#">View Case Study →</a>
+          <a class="cs-link coming-soon" href="#">View Case Study →</a>
           <div class="cs-image">
-            <span class="cs-image-placeholder">AlloyDB — UX Process & Final Designs</span>
+            <img src="https://picsum.photos/seed/alloydb-cloud-database/1200/525" alt="AlloyDB — UX process documentation and final interface designs" loading="lazy">
           </div>
         </div>
       </div>
@@ -1098,9 +1188,9 @@ footer {
               <div class="cs-metric-label">New ARR generated</div>
             </div>
           </div>
-          <a class="cs-link" href="#">View Case Study →</a>
+          <a class="cs-link coming-soon" href="#">View Case Study →</a>
           <div class="cs-image">
-            <span class="cs-image-placeholder">Cloud SQL — UX Process & Designs</span>
+            <img src="https://picsum.photos/seed/cloudsql-enterprise-ux/1200/525" alt="Cloud SQL — UX process and SQL Server launch design" loading="lazy">
           </div>
         </div>
       </div>
@@ -1137,9 +1227,9 @@ footer {
               <div class="cs-metric-label">Engagement</div>
             </div>
           </div>
-          <a class="cs-link" href="#">View Case Study →</a>
+          <a class="cs-link coming-soon" href="#">View Case Study →</a>
           <div class="cs-image">
-            <span class="cs-image-placeholder">Warner Music Group — Platform Design</span>
+            <img src="https://picsum.photos/seed/warner-music-data-platform/1200/525" alt="Warner Music Group — data analytics platform design across 100+ sources" loading="lazy">
           </div>
         </div>
       </div>
@@ -1148,67 +1238,6 @@ footer {
 
 </section>
 
-<!-- Chapter Break 2 -->
-<div class="chapter-break">
-  <div class="container chapter-break-inner">
-    <div class="chapter-break-text">More work<br><em>on the way.</em></div>
-    <div class="chapter-break-label">Coming soon</div>
-  </div>
-</div>
-
-<section style="padding: 0;">
-
-  <!-- CS 5: Placeholder A -->
-  <div class="cs" style="opacity: 0.5;">
-    <div class="container">
-      <div class="cs-inner">
-        <div class="cs-left">
-          <div class="cs-meta">
-            <div class="cs-number">Case Study 05</div>
-            <div class="cs-tags">
-              <span class="cs-tag">Coming Soon</span>
-            </div>
-          </div>
-          <div class="cs-title">TBD</div>
-          <div class="cs-company">— · —</div>
-        </div>
-        <div class="cs-right">
-          <p class="cs-hook">This case study is currently in progress. Check back soon.</p>
-          <a class="cs-link coming-soon" href="#">Coming Soon</a>
-          <div class="cs-image">
-            <span class="cs-image-placeholder">Coming Soon</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CS 6: Placeholder B -->
-  <div class="cs" style="opacity: 0.5;">
-    <div class="container">
-      <div class="cs-inner">
-        <div class="cs-left">
-          <div class="cs-meta">
-            <div class="cs-number">Case Study 06</div>
-            <div class="cs-tags">
-              <span class="cs-tag">Coming Soon</span>
-            </div>
-          </div>
-          <div class="cs-title">TBD</div>
-          <div class="cs-company">— · —</div>
-        </div>
-        <div class="cs-right">
-          <p class="cs-hook">This case study is currently in progress. Check back soon.</p>
-          <a class="cs-link coming-soon" href="#">Coming Soon</a>
-          <div class="cs-image">
-            <span class="cs-image-placeholder">Coming Soon</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
 
 <!-- ── CONTACT ── -->
 <section class="contact" id="contact">
@@ -1230,7 +1259,7 @@ footer {
 <footer>
   <div class="container footer-inner">
     <div class="footer-name">Rey Benoit</div>
-    <div class="footer-right">Portfolio · 2025</div>
+    <div class="footer-right">Portfolio · 2026</div>
   </div>
 </footer>
 
