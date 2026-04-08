@@ -982,6 +982,148 @@ footer {
   color: rgba(247,246,242,0.25);
 }
 
+/* ── ORG CONTRIBUTIONS ── */
+.org {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--mid);
+}
+
+.org-header { margin-bottom: 64px; }
+.org-header .label { margin-bottom: 20px; }
+
+.org-header h2 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  text-wrap: balance;
+}
+
+.org-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--mid);
+  border: 1px solid var(--mid);
+}
+
+.org-card {
+  background: var(--bg);
+  padding: 40px;
+  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.org-card:hover { background: #fff; }
+
+.org-tag {
+  display: block;
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.org-card h3 {
+  font-family: var(--font-d);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 12px;
+  text-wrap: balance;
+}
+
+.org-card p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--mid-text);
+  line-height: 1.72;
+}
+
+/* ── TEAM MANAGEMENT ── */
+.team {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--mid);
+}
+
+.team-header { margin-bottom: 40px; }
+.team-header .label { margin-bottom: 0; }
+
+.team-belief {
+  font-family: var(--font-d);
+  font-size: clamp(18px, 2.2vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  color: var(--text);
+  max-width: 800px;
+  margin-bottom: 80px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+  text-wrap: balance;
+}
+
+.team-section {
+  padding: 52px 0;
+  border-top: 1px solid var(--mid);
+}
+
+.team-section-label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.team-section-label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+.team-rows { display: flex; flex-direction: column; }
+
+.team-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  padding: 22px 0;
+  border-top: 1px solid var(--mid);
+  align-items: start;
+}
+
+.team-row:first-child { border-top: none; }
+
+.team-row-label {
+  font-family: var(--font-d);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  padding-top: 2px;
+}
+
+.team-row-desc {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--mid-text);
+  line-height: 1.72;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   :root { --pad: 32px; }
@@ -990,6 +1132,8 @@ footer {
   .hero-right { display: none; }
   .hero-left { padding: 120px 32px 80px; justify-content: flex-end; }
 
+  .org-grid { grid-template-columns: 1fr; }
+  .team-row { grid-template-columns: 1fr; gap: 8px; }
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .about-bio { padding-right: 0; }
   .about-why { border-left: none; padding-left: 0; padding-top: 0; border-top: 1px solid var(--mid); padding-top: 56px; }
@@ -1394,6 +1538,135 @@ footer {
     </div>
   </div>
 
+</section>
+
+<!-- Chapter Break: Beyond the product -->
+<div class="chapter-break">
+  <div class="container chapter-break-inner">
+    <div class="chapter-break-text">Beyond the<br><em>product.</em></div>
+    <div class="chapter-break-label">Org Impact · Leadership</div>
+  </div>
+</div>
+
+<!-- ── SECTION 6: ORG CONTRIBUTIONS ── -->
+<section class="org">
+  <div class="container">
+    <div class="org-header">
+      <div class="label">Organizational contributions</div>
+      <h2>The work inside the work.</h2>
+    </div>
+    <div class="org-grid">
+
+      <div class="org-card">
+        <span class="org-tag">Systems</span>
+        <h3>OKR framework architect</h3>
+        <p>Built the first UX-integrated OKR system that formally tied design goals to engineering milestones across the org.</p>
+      </div>
+
+      <div class="org-card">
+        <span class="org-tag">AI Innovation</span>
+        <h3>One-click AI deployment</h3>
+        <p>Pioneered an AI-assisted deployment concept that ranked #2 of 36 entries in a product-wide ideathon, earning executive interest for org-wide rollout.</p>
+      </div>
+
+      <div class="org-card">
+        <span class="org-tag">Education</span>
+        <h3>Adjunct professor, Pace University</h3>
+        <p>Designed and taught a graduate UX curriculum from scratch, earning a 4.57/5 student rating across diverse cohorts.</p>
+      </div>
+
+      <div class="org-card">
+        <span class="org-tag">Strategy</span>
+        <h3>Risk identification & action</h3>
+        <p>Identified 21 critical risks in a high-profile launch plan, secured cross-functional buy-in for a new direction, and established the foundation for a successful GA release.</p>
+      </div>
+
+      <div class="org-card">
+        <span class="org-tag">Craft</span>
+        <h3>Design quality bar</h3>
+        <p>Established shared standards and critique culture that raised the craft ceiling across a multi-product, globally distributed team.</p>
+      </div>
+
+      <div class="org-card">
+        <span class="org-tag">Research</span>
+        <h3>Customer insight pipeline</h3>
+        <p>Partnered with PM to translate direct customer calls into a design-informed product roadmap, protecting a $XXM/year account.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 7: TEAM MANAGEMENT ── -->
+<section class="team">
+  <div class="container">
+
+    <div class="team-header">
+      <div class="label">Team management</div>
+    </div>
+
+    <p class="team-belief">
+      "Good design teams don't just ship products — they raise the floor for everyone. A manager's job is to make sure every designer has clear ownership, room to grow, and a team that makes them better."
+    </p>
+
+    <!-- 7b: How I structure teams -->
+    <div class="team-section">
+      <div class="team-section-label">How I structure teams</div>
+      <div class="team-rows">
+        <div class="team-row">
+          <div class="team-row-label">Clear ownership</div>
+          <div class="team-row-desc">Each designer owns a product area end-to-end. Accountability creates confidence, not pressure.</div>
+        </div>
+        <div class="team-row">
+          <div class="team-row-label">T-shaped craft</div>
+          <div class="team-row-desc">Strong generalists with depth in one area — research, systems, interaction. I hire for range and grow for depth.</div>
+        </div>
+        <div class="team-row">
+          <div class="team-row-label">Embedded collaboration</div>
+          <div class="team-row-desc">Designers sit inside xfn pods (PM, Eng, QA) so context doesn't get lost in handoffs.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7c: Hiring & onboarding -->
+    <div class="team-section">
+      <div class="team-section-label">Hiring & onboarding</div>
+      <div class="team-rows">
+        <div class="team-row">
+          <div class="team-row-label">Making the case</div>
+          <div class="team-row-desc">Built the business case that secured new design headcount for AlloyDB. Framed it as a risk argument, not a resource ask.</div>
+        </div>
+        <div class="team-row">
+          <div class="team-row-label">Recruiting</div>
+          <div class="team-row-desc">Led full hiring process including job definition, portfolio review, and leveling calibration.</div>
+        </div>
+        <div class="team-row">
+          <div class="team-row-label">Onboarding</div>
+          <div class="team-row-desc">New designer contributed to live design work within the first 3 months of joining.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7d: Growing people -->
+    <div class="team-section">
+      <div class="team-section-label">Growing people</div>
+      <div class="team-rows">
+        <div class="team-row">
+          <div class="team-row-label">Mentorship</div>
+          <div class="team-row-desc">1:1 coaching on craft, career trajectory, and navigating ambiguity inside large organizations.</div>
+        </div>
+        <div class="team-row">
+          <div class="team-row-label">Teaching</div>
+          <div class="team-row-desc">Adjunct professor at Pace University. Built curriculum from scratch. Brought the same rigor to students as to ICs.</div>
+        </div>
+        <div class="team-row">
+          <div class="team-row-label">Feedback culture</div>
+          <div class="team-row-desc">Ran design critiques that normalized honest, specific feedback — shifting culture from "looks good" to "here's what the data says."</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 
