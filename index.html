@@ -93,20 +93,25 @@ body {
 
 /* ── Fade-in animations ── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 .fade-up {
   opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .fade-up:nth-child(1) { animation-delay: 0.1s; }
-.fade-up:nth-child(2) { animation-delay: 0.25s; }
-.fade-up:nth-child(3) { animation-delay: 0.4s; }
-.fade-up:nth-child(4) { animation-delay: 0.55s; }
-.fade-up:nth-child(5) { animation-delay: 0.7s; }
+.fade-up:nth-child(2) { animation-delay: 0.22s; }
+.fade-up:nth-child(3) { animation-delay: 0.36s; }
+.fade-up:nth-child(4) { animation-delay: 0.5s; }
+.fade-up:nth-child(5) { animation-delay: 0.64s; }
 
 /* ── NAV ── */
 nav {
@@ -162,16 +167,10 @@ nav {
 .hero {
   background: var(--bg-dark);
   min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 100px;
-  padding-top: 160px;
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle grid texture on hero */
 .hero::before {
   content: '';
   position: absolute;
@@ -183,24 +182,57 @@ nav {
   pointer-events: none;
 }
 
-/* Large ghost text top right */
+/* Ambient glow behind name */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(ellipse at bottom left, rgba(58,107,196,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .hero-ghost {
   position: absolute;
-  top: 80px;
-  right: -20px;
+  bottom: -80px;
+  right: -16px;
   font-family: var(--font-d);
-  font-size: clamp(120px, 16vw, 220px);
+  font-size: clamp(200px, 26vw, 380px);
   font-weight: 900;
   letter-spacing: -0.04em;
-  color: rgba(58,107,196,0.07);
+  color: rgba(58,107,196,0.04);
   line-height: 1;
   pointer-events: none;
   user-select: none;
 }
 
-.hero-inner {
+/* ── Two-column asymmetric grid ── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  min-height: 100dvh;
   position: relative;
   z-index: 1;
+  padding-top: 60px; /* nav height */
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px var(--pad) 88px;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px 40px 88px;
+  border-left: 1px solid rgba(247,246,242,0.07);
+  opacity: 0;
+  animation: fadeRight 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
 }
 
 .hero-label {
@@ -210,55 +242,27 @@ nav {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
 .hero-name {
   font-family: var(--font-d);
-  font-size: clamp(56px, 8vw, 112px);
+  font-size: clamp(68px, 10.5vw, 148px);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
   color: var(--text-light);
-  margin-bottom: 32px;
-}
-
-.hero-roles {
-  display: flex;
-  gap: 0;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.hero-role {
-  font-family: var(--font-d);
-  font-size: clamp(16px, 2vw, 22px);
-  font-weight: 300;
-  color: rgba(247,246,242,0.5);
-  letter-spacing: 0.01em;
-}
-
-.hero-role.active {
-  color: var(--text-light);
-  font-weight: 500;
-}
-
-.hero-role-sep {
-  font-family: var(--font-d);
-  font-size: clamp(16px, 2vw, 22px);
-  font-weight: 300;
-  color: var(--accent);
-  margin: 0 10px;
+  margin-bottom: 44px;
 }
 
 .hero-statement {
   font-family: var(--font-b);
   font-size: clamp(15px, 1.4vw, 18px);
-  font-weight: 300;
-  color: rgba(247,246,242,0.55);
-  max-width: 520px;
-  line-height: 1.65;
-  margin-bottom: 48px;
+  font-weight: 400;
+  color: rgba(247,246,242,0.48);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 56px;
 }
 
 .hero-cta {
@@ -274,7 +278,7 @@ nav {
   text-decoration: none;
   border-bottom: 1px solid rgba(247,246,242,0.2);
   padding-bottom: 4px;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.25s, color 0.25s, gap 0.25s;
 }
 
 .hero-cta:hover {
@@ -284,21 +288,82 @@ nav {
 
 .hero-cta-arrow {
   font-size: 16px;
-  transition: transform 0.2s;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+.hero-cta:hover .hero-cta-arrow { transform: translateX(5px); }
 
-/* scroll indicator */
+/* ── Right panel: disciplines ── */
+.hero-disciplines {
+  margin-bottom: 36px;
+}
+
+.hero-discipline-item {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(247,246,242,0.08);
+}
+
+.hero-discipline-item:last-child {
+  border-bottom: 1px solid rgba(247,246,242,0.08);
+}
+
+.hero-discipline-num {
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(247,246,242,0.2);
+  flex-shrink: 0;
+}
+
+.hero-discipline-word {
+  font-family: var(--font-d);
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-light);
+}
+
+/* ── Availability pulse ── */
+.hero-avail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.hero-avail-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  animation: pulseDot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.45; transform: scale(0.65); }
+}
+
+.hero-avail-text {
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.25);
+}
+
+/* ── Scroll indicator (inside right panel) ── */
 .hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  right: var(--pad);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  opacity: 0.3;
 }
 
 .hero-scroll span {
@@ -307,20 +372,19 @@ nav {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-light);
-  writing-mode: vertical-rl;
+  color: rgba(247,246,242,0.18);
 }
 
 .hero-scroll-line {
   width: 1px;
-  height: 48px;
-  background: var(--text-light);
+  height: 40px;
+  background: rgba(247,246,242,0.18);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(1); }
-  50% { opacity: 0.8; transform: scaleY(0.6); }
+  0%, 100% { opacity: 0.4; transform: scaleY(1); transform-origin: top; }
+  50%       { opacity: 1;   transform: scaleY(0.5); transform-origin: top; }
 }
 
 /* ── ABOUT ── */
@@ -858,6 +922,10 @@ footer {
 @media (max-width: 900px) {
   :root { --pad: 32px; }
 
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 120px 32px 80px; justify-content: flex-end; }
+
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .value-item { grid-template-columns: 48px 1fr; gap: 24px; }
   .value-content { grid-template-columns: 1fr; gap: 16px; }
@@ -926,27 +994,48 @@ footer {
 
 <!-- ── HERO ── -->
 <section class="hero" id="home">
-  <div class="hero-ghost">RB</div>
-  <div class="container hero-inner">
-    <div class="hero-label fade-up">Portfolio · 2026</div>
-    <h1 class="hero-name fade-up">Rey<br>Benoit</h1>
-    <div class="hero-roles fade-up">
-      <span class="hero-role active">Designer</span>
-      <span class="hero-role-sep">·</span>
-      <span class="hero-role active">Strategist</span>
-      <span class="hero-role-sep">·</span>
-      <span class="hero-role active">Builder</span>
+  <div class="hero-ghost" aria-hidden="true">RB</div>
+
+  <div class="hero-grid">
+
+    <!-- Left: primary content -->
+    <div class="hero-left">
+      <div class="hero-label fade-up">Portfolio · 2026</div>
+      <h1 class="hero-name fade-up">Rey<br>Benoit.</h1>
+      <p class="hero-statement fade-up">
+        I define the problem, prototype the solution, and lead teams to do the same — through craft, collaboration, and genuine service to the people using what we build.
+      </p>
+      <a class="hero-cta fade-up" href="#contact">
+        Get in touch <span class="hero-cta-arrow">→</span>
+      </a>
     </div>
-    <p class="hero-statement fade-up">
-      I define the problem, prototype the solution, and lead teams to do the same — through craft, collaboration, and genuine service to the people using what we build.
-    </p>
-    <a class="hero-cta fade-up" href="mailto:rbenoit@">
-      Get in touch <span class="hero-cta-arrow">→</span>
-    </a>
-  </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-    <span>Scroll</span>
+
+    <!-- Right: disciplines + availability + scroll -->
+    <div class="hero-right">
+      <div class="hero-disciplines">
+        <div class="hero-discipline-item">
+          <span class="hero-discipline-num">01</span>
+          <span class="hero-discipline-word">Designer</span>
+        </div>
+        <div class="hero-discipline-item">
+          <span class="hero-discipline-num">02</span>
+          <span class="hero-discipline-word">Strategist</span>
+        </div>
+        <div class="hero-discipline-item">
+          <span class="hero-discipline-num">03</span>
+          <span class="hero-discipline-word">Builder</span>
+        </div>
+      </div>
+      <div class="hero-avail">
+        <span class="hero-avail-dot"></span>
+        <span class="hero-avail-text">Open to new roles</span>
+      </div>
+      <div class="hero-scroll">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
