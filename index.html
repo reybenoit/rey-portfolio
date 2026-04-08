@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rey Benoit — Designer. Strategist. Builder.</title>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── Reset & Root ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:        #F7F6F2;
+  --bg-dark:   #1A1A2E;
+  --text:      #1A1A2E;
+  --text-light:#F7F6F2;
+  --accent:    #3A6BC4;
+  --mid:       #E8E6E0;
+  --mid-text:  #6B6A66;
+  --font-d:    'Epilogue', sans-serif;
+  --font-b:    'Inter', sans-serif;
+  --max:       1200px;
+  --pad:       80px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utility ── */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+/* ── Fade-in animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.fade-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-up:nth-child(2) { animation-delay: 0.25s; }
+.fade-up:nth-child(3) { animation-delay: 0.4s; }
+.fade-up:nth-child(4) { animation-delay: 0.55s; }
+.fade-up:nth-child(5) { animation-delay: 0.7s; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(247,246,242,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--mid);
+  transition: border-color 0.3s;
+}
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-d);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--bg-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 100px;
+  padding-top: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid texture on hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+/* Large ghost text top right */
+.hero-ghost {
+  position: absolute;
+  top: 80px;
+  right: -20px;
+  font-family: var(--font-d);
+  font-size: clamp(120px, 16vw, 220px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: rgba(58,107,196,0.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+.hero-name {
+  font-family: var(--font-d);
+  font-size: clamp(56px, 8vw, 112px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+.hero-roles {
+  display: flex;
+  gap: 0;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-role {
+  font-family: var(--font-d);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  color: rgba(247,246,242,0.5);
+  letter-spacing: 0.01em;
+}
+
+.hero-role.active {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.hero-role-sep {
+  font-family: var(--font-d);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  color: var(--accent);
+  margin: 0 10px;
+}
+
+.hero-statement {
+  font-family: var(--font-b);
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 300;
+  color: rgba(247,246,242,0.55);
+  max-width: 520px;
+  line-height: 1.65;
+  margin-bottom: 48px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(247,246,242,0.2);
+  padding-bottom: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.hero-cta:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.hero-cta-arrow {
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+
+/* scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  right: var(--pad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.3;
+}
+
+.hero-scroll span {
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  writing-mode: vertical-rl;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 48px;
+  background: var(--text-light);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 0.8; transform: scaleY(0.6); }
+}
+
+/* ── ABOUT ── */
+.about {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--mid);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-bio .label { margin-bottom: 28px; }
+
+.about-bio h2 {
+  font-family: var(--font-d);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.about-bio p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--mid-text);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.about-bio p:last-child { margin-bottom: 0; }
+
+.about-why {
+  padding-top: 8px;
+}
+
+.about-why .label { margin-bottom: 28px; }
+
+.about-why-q {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.about-why p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--mid-text);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.about-why p:last-child { margin-bottom: 0; }
+
+/* ── VALUES ── */
+.values {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--mid);
+}
+
+.values .label { margin-bottom: 48px; }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--mid);
+  border: 1px solid var(--mid);
+}
+
+.value-item {
+  background: var(--bg);
+  padding: 48px 40px;
+  transition: background 0.3s;
+}
+
+.value-item:hover { background: white; }
+
+.value-word {
+  font-family: var(--font-d);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.value-word span {
+  color: var(--accent);
+}
+
+.value-def {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--mid-text);
+  line-height: 1.7;
+}
+
+/* ── IMPACT ── */
+.impact {
+  background: var(--bg-dark);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.impact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.impact-inner { position: relative; z-index: 1; }
+
+.impact .label { margin-bottom: 48px; }
+.impact .label { color: var(--accent); }
+.impact .label::after { background: var(--accent); }
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(247,246,242,0.08);
+  border: 1px solid rgba(247,246,242,0.08);
+}
+
+.impact-stat {
+  background: var(--bg-dark);
+  padding: 40px 32px;
+  transition: background 0.3s;
+}
+
+.impact-stat:hover { background: rgba(58,107,196,0.08); }
+
+.impact-value {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-light);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.impact-value em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.impact-context {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(247,246,242,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-d);
+}
+
+/* ── WORK ── */
+.work {
+  padding: 120px 0 0;
+}
+
+.work-header {
+  margin-bottom: 80px;
+}
+
+.work-header .label { margin-bottom: 20px; }
+
+.work-header h2 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Case study section */
+.cs {
+  border-top: 3px solid var(--accent);
+  padding: 64px 0;
+  border-bottom: 1px solid var(--mid);
+  transition: background 0.3s;
+}
+
+.cs:hover { background: rgba(58,107,196,0.02); }
+
+.cs-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cs-left {}
+
+.cs-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cs-number {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+}
+
+.cs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cs-tag {
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 10px;
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+.cs-title {
+  font-family: var(--font-d);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.cs-company {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--mid-text);
+  letter-spacing: 0.04em;
+}
+
+.cs-right {}
+
+.cs-hook {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--mid-text);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.cs-role-label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+  margin-bottom: 6px;
+}
+
+.cs-role-value {
+  font-family: var(--font-d);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.cs-metrics {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.cs-metric {}
+
+.cs-metric-value {
+  font-family: var(--font-d);
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.cs-metric-label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+}
+
+.cs-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-d);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(58,107,196,0.3);
+  padding-bottom: 3px;
+  transition: border-color 0.2s, gap 0.2s;
+}
+
+.cs-link:hover {
+  border-color: var(--accent);
+  gap: 14px;
+}
+
+.cs-link.coming-soon {
+  color: var(--mid-text);
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* placeholder image */
+.cs-image {
+  margin-top: 48px;
+  aspect-ratio: 16/7;
+  background: var(--mid);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.cs-image-placeholder {
+  font-family: var(--font-d);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(107,106,102,0.4);
+}
+
+/* Chapter break */
+.chapter-break {
+  background: var(--bg-dark);
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter-break::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.chapter-break-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chapter-break-text {
+  font-family: var(--font-d);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-light);
+  line-height: 1.1;
+}
+
+.chapter-break-text em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.chapter-break-label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.25);
+}
+
+/* ── CONTACT ── */
+.contact {
+  background: var(--bg-dark);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.contact .label { margin-bottom: 32px; }
+.contact .label { color: var(--accent); }
+.contact .label::after { background: var(--accent); }
+
+.contact h2 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.contact-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(247,246,242,0.5);
+  line-height: 1.65;
+  margin-bottom: 48px;
+}
+
+.contact-email {
+  font-family: var(--font-d);
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid rgba(58,107,196,0.3);
+  padding-bottom: 4px;
+  transition: border-color 0.2s, gap 0.2s;
+}
+
+.contact-email:hover {
+  border-color: var(--accent);
+  gap: 20px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--bg-dark);
+  border-top: 1px solid rgba(247,246,242,0.07);
+  padding: 32px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-name {
+  font-family: var(--font-d);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: -0.01em;
+}
+
+.footer-right {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.25);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  :root { --pad: 32px; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 56px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .cs-inner { grid-template-columns: 1fr; gap: 32px; }
+  .chapter-break-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .impact-grid { grid-template-columns: 1fr; }
+  .cs-metrics { gap: 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Rey Benoit</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-ghost">RB</div>
+  <div class="container hero-inner">
+    <div class="hero-label fade-up">Portfolio · 2025</div>
+    <h1 class="hero-name fade-up">Rey<br>Benoit</h1>
+    <div class="hero-roles fade-up">
+      <span class="hero-role active">Designer</span>
+      <span class="hero-role-sep">·</span>
+      <span class="hero-role active">Strategist</span>
+      <span class="hero-role-sep">·</span>
+      <span class="hero-role active">Builder</span>
+    </div>
+    <p class="hero-statement fade-up">
+      I define the problem, prototype the solution, and lead teams to do the same — through craft, collaboration, and genuine service to the people using what we build.
+    </p>
+    <a class="hero-cta fade-up" href="mailto:rbenoit@">
+      Get in touch <span class="hero-cta-arrow">→</span>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-bio">
+        <div class="label">About</div>
+        <h2>17 years of design — across music, enterprise, and the AI frontier.</h2>
+        <p>
+          I started in the creative industry — designing for Warner Music Group, building digital experiences for Taco Bell and American Express. From there I moved into product: seven years at Google Cloud, progressing from IC to design manager, leading UX for a portfolio responsible for two-thirds of the organization's revenue.
+        </p>
+        <p>
+          Most recently I built HEARD — an AI music generator for lyricists — from zero to a live product with real users. I identified the gap, designed the experience, coded the stack, and shipped it. That's how I work: end-to-end, with mastery of the craft and genuine care for the people on the team and the people using what we make.
+        </p>
+        <p>
+          I'm most energized where the technology is new, the team is curious, and the work expands what's possible.
+        </p>
+      </div>
+
+      <div class="about-why">
+        <div class="label">My Why</div>
+        <div class="about-why-q">Why design?</div>
+        <p>
+          Because design is the practice of making things accessible — not just usable, but genuinely within reach for the people who need them most. The best work I've done has always lived at that gap: between what a technology promises and what a real person can actually experience.
+        </p>
+        <p>
+          I was drawn to this field because I believe tools should expand people's capabilities, not require expertise to operate. That conviction has followed me from consumer apps to enterprise infrastructure to AI products. The domain changes. The question stays the same: who's being left out, and how do we close that distance?
+        </p>
+        <p>
+          I lead with that question, and I build teams that ask it too.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ── -->
+<section class="values">
+  <div class="container">
+    <div class="label">What I stand for</div>
+    <div class="values-grid">
+
+      <div class="value-item">
+        <div class="value-word">Access<span>.</span></div>
+        <div class="value-def">Making technology genuinely usable for the people who need it most — closing the gap between what tools promise and what users actually experience.</div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-word">Mastery<span>.</span></div>
+        <div class="value-def">Holding a high standard for the craft, and raising the bar for everyone I work with — because excellence compounds when it's shared.</div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-word">Camaraderie<span>.</span></div>
+        <div class="value-def">Investing in the people around me — building trust, creating space for honest collaboration, and making the team stronger through the work we share.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── IMPACT ── -->
+<section class="impact">
+  <div class="container impact-inner">
+    <div class="label" style="color:var(--accent);">Impact at a glance</div>
+    <div class="impact-grid">
+
+      <div class="impact-stat">
+        <div class="impact-value">Fastest<em>-</em>growing</div>
+        <div class="impact-context">Database on Google Cloud · AlloyDB</div>
+      </div>
+
+      <div class="impact-stat">
+        <div class="impact-value">80<em>%</em></div>
+        <div class="impact-context">Users onboarded via redesigned flow · AlloyDB</div>
+      </div>
+
+      <div class="impact-stat">
+        <div class="impact-value">9 <em>mo</em></div>
+        <div class="impact-context">Zero to v1 shipped · AlloyDB</div>
+      </div>
+
+      <div class="impact-stat">
+        <div class="impact-value">Weeks <em>→</em> Min</div>
+        <div class="impact-context">Time to listenable demo · HEARD</div>
+      </div>
+
+      <div class="impact-stat">
+        <div class="impact-value">Live<em>.</em></div>
+        <div class="impact-context">Real users in private preview · HEARD</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WORK ── -->
+<section class="work" id="work">
+  <div class="container">
+    <div class="work-header">
+      <div class="label">Selected work</div>
+      <h2>Six projects.<br>One through-line.</h2>
+    </div>
+  </div>
+
+  <!-- CS 1: HEARD -->
+  <div class="cs">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 01</div>
+            <div class="cs-tags">
+              <span class="cs-tag">AI Product</span>
+              <span class="cs-tag">Founder</span>
+              <span class="cs-tag">End-to-End</span>
+            </div>
+          </div>
+          <div class="cs-title">HEARD</div>
+          <div class="cs-company">Founder & Designer · 2026</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">Lyricists have words. They rarely have a way to hear them. HEARD is an AI music generator that turns lyrics into listenable tracks — designed, built, and shipped solo from zero to live product.</p>
+          <div class="cs-role-label">My Role</div>
+          <div class="cs-role-value">Founder · Designer · Engineer · Researcher</div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">Weeks → Min</div>
+              <div class="cs-metric-label">Time to demo track</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">Live</div>
+              <div class="cs-metric-label">Private preview</div>
+            </div>
+          </div>
+          <a class="cs-link" href="https://tryheardfree.com" target="_blank">View Case Study →</a>
+          <div class="cs-image">
+            <span class="cs-image-placeholder">HEARD — Product Screenshot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CS 2: AlloyDB -->
+  <div class="cs">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 02</div>
+            <div class="cs-tags">
+              <span class="cs-tag">Design Leadership</span>
+              <span class="cs-tag">Strategy</span>
+              <span class="cs-tag">0 → 1</span>
+            </div>
+          </div>
+          <div class="cs-title">AlloyDB</div>
+          <div class="cs-company">Google Cloud · 2022–2023</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">Google needed to take on legacy database giants with a new open-source product. I led UX from early concept through GA — navigating differentiation, shipping under pressure, and building the team to do it.</p>
+          <div class="cs-role-label">My Role</div>
+          <div class="cs-role-value">Design Lead · UX Strategy · Team Leadership</div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">9 mo</div>
+              <div class="cs-metric-label">Zero to v1</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">80%</div>
+              <div class="cs-metric-label">Onboarded via new flow</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">#1</div>
+              <div class="cs-metric-label">Fastest-growing DB on Cloud</div>
+            </div>
+          </div>
+          <a class="cs-link" href="#">View Case Study →</a>
+          <div class="cs-image">
+            <span class="cs-image-placeholder">AlloyDB — UX Process & Final Designs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Chapter Break 1 -->
+<div class="chapter-break">
+  <div class="container chapter-break-inner">
+    <div class="chapter-break-text">Enterprise design.<br><em>At scale.</em></div>
+    <div class="chapter-break-label">Google Cloud · 2018–2025</div>
+  </div>
+</div>
+
+<section style="padding: 0;">
+
+  <!-- CS 3: Cloud SQL -->
+  <div class="cs">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 03</div>
+            <div class="cs-tags">
+              <span class="cs-tag">Strategy</span>
+              <span class="cs-tag">Rapid Execution</span>
+            </div>
+          </div>
+          <div class="cs-title">Cloud SQL</div>
+          <div class="cs-company">Google Cloud · 2021–2022</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">A critical enterprise deal was on the line. I drove UX for a 6-month SQL Server launch — prioritizing ruthlessly to unblock engineering and protect a revenue milestone that mattered.</p>
+          <div class="cs-role-label">My Role</div>
+          <div class="cs-role-value">Design Lead · UX Strategy</div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">6 mo</div>
+              <div class="cs-metric-label">Concept to launch</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">$XXM</div>
+              <div class="cs-metric-label">New ARR generated</div>
+            </div>
+          </div>
+          <a class="cs-link" href="#">View Case Study →</a>
+          <div class="cs-image">
+            <span class="cs-image-placeholder">Cloud SQL — UX Process & Designs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CS 4: Warner Music Group -->
+  <div class="cs">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 04</div>
+            <div class="cs-tags">
+              <span class="cs-tag">Product Vision</span>
+              <span class="cs-tag">Creative Industry</span>
+              <span class="cs-tag">Executive Pitch</span>
+            </div>
+          </div>
+          <div class="cs-title">Warner Music Group</div>
+          <div class="cs-company">Lead UX Designer · 2014</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">One of the world's largest music companies needed to make sense of over 100 data sources for their marketing teams. I defined the product vision, led a cross-functional team, and secured executive funding across two continents.</p>
+          <div class="cs-role-label">My Role</div>
+          <div class="cs-role-value">Lead UX Designer · Product Vision · Executive Pitch</div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">100+</div>
+              <div class="cs-metric-label">Data sources synthesized</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">9 mo</div>
+              <div class="cs-metric-label">Engagement</div>
+            </div>
+          </div>
+          <a class="cs-link" href="#">View Case Study →</a>
+          <div class="cs-image">
+            <span class="cs-image-placeholder">Warner Music Group — Platform Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Chapter Break 2 -->
+<div class="chapter-break">
+  <div class="container chapter-break-inner">
+    <div class="chapter-break-text">More work<br><em>on the way.</em></div>
+    <div class="chapter-break-label">Coming soon</div>
+  </div>
+</div>
+
+<section style="padding: 0;">
+
+  <!-- CS 5: Placeholder A -->
+  <div class="cs" style="opacity: 0.5;">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 05</div>
+            <div class="cs-tags">
+              <span class="cs-tag">Coming Soon</span>
+            </div>
+          </div>
+          <div class="cs-title">TBD</div>
+          <div class="cs-company">— · —</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">This case study is currently in progress. Check back soon.</p>
+          <a class="cs-link coming-soon" href="#">Coming Soon</a>
+          <div class="cs-image">
+            <span class="cs-image-placeholder">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CS 6: Placeholder B -->
+  <div class="cs" style="opacity: 0.5;">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 06</div>
+            <div class="cs-tags">
+              <span class="cs-tag">Coming Soon</span>
+            </div>
+          </div>
+          <div class="cs-title">TBD</div>
+          <div class="cs-company">— · —</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">This case study is currently in progress. Check back soon.</p>
+          <a class="cs-link coming-soon" href="#">Coming Soon</a>
+          <div class="cs-image">
+            <span class="cs-image-placeholder">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="label" style="color:var(--accent);">Let's talk</div>
+      <h2>Good work starts with a conversation.</h2>
+      <p class="contact-sub">
+        I'm currently open to senior design and design leadership roles — particularly in AI, consumer products, and creative tools. If the work is new and the team is curious, I'd love to hear from you.
+      </p>
+      <a class="contact-email" href="mailto:rbenoit@">
+        rbenoit@ <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-name">Rey Benoit</div>
+    <div class="footer-right">Portfolio · 2025</div>
+  </div>
+</footer>
+
+</body>
+</html>
