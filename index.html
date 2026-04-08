@@ -158,10 +158,23 @@ nav {
   text-transform: uppercase;
   color: var(--mid-text);
   text-decoration: none;
-  transition: color 0.2s;
+  position: relative;
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
 
 /* ── HERO ── */
 .hero {
@@ -213,6 +226,9 @@ nav {
   display: grid;
   grid-template-columns: 1fr 280px;
   min-height: 100dvh;
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
   position: relative;
   z-index: 1;
   padding-top: 60px; /* nav height */
@@ -391,29 +407,34 @@ nav {
 .about {
   padding: 120px 0;
   border-bottom: 1px solid var(--mid);
+  scroll-margin-top: 60px;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 0;
   align-items: start;
 }
 
 .about-bio .label { margin-bottom: 28px; }
 
+.about-bio {
+  padding-right: 64px;
+}
+
 .about-bio h2 {
   font-family: var(--font-d);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   margin-bottom: 24px;
 }
 
 .about-bio p {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--mid-text);
   line-height: 1.75;
   margin-bottom: 16px;
@@ -422,24 +443,26 @@ nav {
 .about-bio p:last-child { margin-bottom: 0; }
 
 .about-why {
-  padding-top: 8px;
+  padding-top: 0;
+  padding-left: 64px;
+  border-left: 1px solid var(--mid);
 }
 
 .about-why .label { margin-bottom: 28px; }
 
 .about-why-q {
   font-family: var(--font-d);
-  font-size: clamp(22px, 2.5vw, 32px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   margin-bottom: 24px;
   color: var(--text);
 }
 
 .about-why p {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--mid-text);
   line-height: 1.75;
   margin-bottom: 16px;
@@ -536,27 +559,30 @@ nav {
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: rgba(247,246,242,0.08);
-  border: 1px solid rgba(247,246,242,0.08);
+  border-top: 1px solid rgba(247,246,242,0.1);
 }
 
 .impact-stat {
-  background: var(--bg-dark);
-  padding: 40px 32px;
-  transition: background 0.3s;
+  padding: 48px 48px 0 0;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.impact-stat:hover { background: rgba(58,107,196,0.08); }
+.impact-stat:not(:first-child) {
+  padding-left: 48px;
+  padding-right: 0;
+  border-left: 1px solid rgba(247,246,242,0.07);
+}
+
+.impact-stat:hover { opacity: 0.6; }
 
 .impact-value {
   font-family: var(--font-d);
-  font-size: clamp(22px, 2.5vw, 32px);
+  font-size: clamp(26px, 3vw, 40px);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--text-light);
-  line-height: 1.1;
-  margin-bottom: 10px;
+  line-height: 1.05;
+  margin-bottom: 12px;
 }
 
 .impact-value em {
@@ -576,6 +602,7 @@ nav {
 /* ── WORK ── */
 .work {
   padding: 120px 0 0;
+  scroll-margin-top: 60px;
 }
 
 .work-header {
@@ -586,10 +613,10 @@ nav {
 
 .work-header h2 {
   font-family: var(--font-d);
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: clamp(36px, 4.5vw, 60px);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
 }
 
 /* Case study section */
@@ -668,7 +695,7 @@ nav {
 
 .cs-hook {
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--mid-text);
   line-height: 1.7;
   margin-bottom: 32px;
@@ -733,12 +760,12 @@ nav {
   text-decoration: none;
   border-bottom: 1px solid rgba(58,107,196,0.3);
   padding-bottom: 3px;
-  transition: border-color 0.2s, gap 0.2s;
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cs-link:hover {
   border-color: var(--accent);
-  gap: 14px;
+  gap: 16px;
 }
 
 .cs-link.coming-soon {
@@ -825,9 +852,10 @@ nav {
 /* ── CONTACT ── */
 .contact {
   background: var(--bg-dark);
-  padding: 120px 0;
+  padding: 140px 0;
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 60px;
 }
 
 .contact::before {
@@ -838,6 +866,22 @@ nav {
     linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
   background-size: 64px 64px;
+  pointer-events: none;
+}
+
+/* Ghost decorative element */
+.contact::after {
+  content: '→';
+  position: absolute;
+  bottom: -80px;
+  right: -20px;
+  font-family: var(--font-d);
+  font-size: clamp(220px, 30vw, 420px);
+  font-weight: 900;
+  color: rgba(58,107,196,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
 .contact-inner {
@@ -852,25 +896,25 @@ nav {
 
 .contact h2 {
   font-family: var(--font-d);
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(36px, 4.5vw, 64px);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   color: var(--text-light);
   margin-bottom: 24px;
 }
 
 .contact-sub {
   font-size: 17px;
-  font-weight: 300;
-  color: rgba(247,246,242,0.5);
-  line-height: 1.65;
-  margin-bottom: 48px;
+  font-weight: 400;
+  color: rgba(247,246,242,0.48);
+  line-height: 1.7;
+  margin-bottom: 52px;
 }
 
 .contact-email {
   font-family: var(--font-d);
-  font-size: clamp(20px, 2.5vw, 32px);
+  font-size: clamp(20px, 2.5vw, 34px);
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--accent);
@@ -878,14 +922,14 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  border-bottom: 2px solid rgba(58,107,196,0.3);
+  border-bottom: 2px solid rgba(58,107,196,0.25);
   padding-bottom: 4px;
-  transition: border-color 0.2s, gap 0.2s;
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-email:hover {
   border-color: var(--accent);
-  gap: 20px;
+  gap: 22px;
 }
 
 /* ── FOOTER ── */
@@ -899,6 +943,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
 }
 
 .footer-name {
@@ -908,6 +953,25 @@ footer {
   color: var(--text-light);
   letter-spacing: -0.01em;
 }
+
+.footer-nav {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.footer-nav a {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.28);
+  text-decoration: none;
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-nav a:hover { color: rgba(247,246,242,0.7); }
 
 .footer-right {
   font-family: var(--font-d);
@@ -927,6 +991,8 @@ footer {
   .hero-left { padding: 120px 32px 80px; justify-content: flex-end; }
 
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
+  .about-bio { padding-right: 0; }
+  .about-why { border-left: none; padding-left: 0; padding-top: 0; border-top: 1px solid var(--mid); padding-top: 56px; }
   .value-item { grid-template-columns: 48px 1fr; gap: 24px; }
   .value-content { grid-template-columns: 1fr; gap: 16px; }
   .impact-grid { grid-template-columns: 1fr 1fr; }
@@ -936,8 +1002,11 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .impact-grid { grid-template-columns: 1fr; }
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .impact-stat:not(:first-child) { padding-left: 20px; }
+  .impact-stat { padding-right: 20px; }
   .cs-metrics { gap: 24px; }
+  .footer-nav { display: none; }
 }
 
 /* ── text-wrap balance on headlines ── */
@@ -1348,6 +1417,11 @@ footer {
 <footer>
   <div class="container footer-inner">
     <div class="footer-name">Rey Benoit</div>
+    <ul class="footer-nav">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
     <div class="footer-right">Portfolio · 2026</div>
   </div>
 </footer>
