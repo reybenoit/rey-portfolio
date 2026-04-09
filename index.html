@@ -1000,89 +1000,163 @@ footer {
   text-wrap: balance;
 }
 
-/* Asymmetric 5-column bento grid */
-.org-grid {
+/* Feature + compact list layout */
+.org-split {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
-  background: var(--mid);
+  grid-template-columns: 3fr 2fr;
   border: 1px solid var(--mid);
 }
 
-/* Zigzag spans: wide-narrow / narrow-wide / narrow-wide */
-.org-card:nth-child(1) { grid-column: span 3; }
-.org-card:nth-child(2) { grid-column: span 2; }
-.org-card:nth-child(3) { grid-column: span 2; }
-.org-card:nth-child(4) { grid-column: span 3; }
-.org-card:nth-child(5) { grid-column: span 2; }
-.org-card:nth-child(6) { grid-column: span 3; }
-
-.org-card {
-  background: var(--bg);
-  padding: 44px 40px;
-  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+/* Left: large anchoring image card */
+.org-feature {
   position: relative;
   overflow: hidden;
-}
-
-.org-card:not(.is-dark):hover { background: #fff; }
-
-/* Dark image card variant */
-.org-card.is-dark {
-  background: #0d1526;
-  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding: 48px;
+  background: #0d1526;
+  border-right: 1px solid rgba(247,246,242,0.07);
 }
 
-.org-card.is-dark img.org-bg {
+.org-feature-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.16;
-  filter: grayscale(20%);
+  opacity: 0.15;
+  filter: grayscale(15%);
   z-index: 0;
 }
 
-.org-card-content {
-  position: relative;
+/* Bottom gradient so text is always legible */
+.org-feature::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,21,38,0.92) 0%, rgba(13,21,38,0.3) 60%, transparent 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
-.org-card.is-dark .org-tag  { color: rgba(247,246,242,0.38); }
-.org-card.is-dark h3        { color: var(--text-light); }
-.org-card.is-dark p         { color: rgba(247,246,242,0.48); }
+.org-feature-content {
+  position: relative;
+  z-index: 2;
+}
 
-.org-tag {
-  display: block;
+.org-feature-tag {
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.38);
+  margin-bottom: 20px;
+}
+
+.org-feature-headline {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+
+.org-feature-desc {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(247,246,242,0.48);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.org-feature-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.org-feature-metric-value {
+  font-family: var(--font-d);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text-light);
+  font-variant-numeric: tabular-nums;
+}
+
+.org-feature-metric-label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.3);
+}
+
+/* Right: compact numbered list */
+.org-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.org-list-item {
+  padding: 28px 36px;
+  border-bottom: 1px solid var(--mid);
+  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.org-list-item:last-child { border-bottom: none; }
+.org-list-item:hover { background: rgba(58,107,196,0.03); }
+
+.org-list-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.org-list-num {
   font-family: var(--font-d);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.2em;
+  color: var(--mid-text);
+  opacity: 0.6;
+}
+
+.org-list-tag {
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 16px;
 }
 
-.org-card h3 {
+.org-list-headline {
   font-family: var(--font-d);
-  font-size: clamp(17px, 1.8vw, 21px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   color: var(--text);
-  margin-bottom: 12px;
-  text-wrap: balance;
 }
 
-.org-card p {
-  font-size: 14px;
+.org-list-desc {
+  font-size: 13px;
   font-weight: 400;
   color: var(--mid-text);
-  line-height: 1.72;
+  line-height: 1.65;
 }
 
 /* ── TEAM MANAGEMENT ── */
@@ -1203,13 +1277,9 @@ footer {
   .hero-right { display: none; }
   .hero-left { padding: 120px 32px 80px; justify-content: flex-end; }
 
-  .org-grid { grid-template-columns: 1fr 1fr; }
-  .org-card:nth-child(1),
-  .org-card:nth-child(2),
-  .org-card:nth-child(3),
-  .org-card:nth-child(4),
-  .org-card:nth-child(5),
-  .org-card:nth-child(6) { grid-column: span 1; }
+  .org-split { grid-template-columns: 1fr; }
+  .org-feature { min-height: 360px; }
+  .org-feature::after { background: linear-gradient(to top, rgba(13,21,38,0.95) 0%, rgba(13,21,38,0.4) 70%, transparent 100%); }
   .team-section { grid-template-columns: 1fr; gap: 32px; }
   .team-section-head { position: static; }
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
@@ -1635,54 +1705,70 @@ footer {
       <div class="label">Organizational contributions</div>
       <h2>The work inside the work.</h2>
     </div>
-    <div class="org-grid">
+    <div class="org-split">
 
-      <!-- Card 1: Education — wide (3/5), image -->
-      <div class="org-card is-dark">
-        <img class="org-bg" src="https://picsum.photos/seed/university-lecture-classroom/1200/700" alt="" aria-hidden="true" loading="lazy">
-        <div class="org-card-content">
-          <span class="org-tag">Education</span>
-          <h3>Adjunct professor, Pace University</h3>
-          <p>Designed and taught a graduate UX curriculum from scratch, earning a 4.57/5 student rating across diverse cohorts.</p>
+      <!-- Left: Featured contribution (Education) -->
+      <div class="org-feature">
+        <img class="org-feature-img" src="https://picsum.photos/seed/university-lecture-teaching-classroom/1400/900" alt="" aria-hidden="true" loading="lazy">
+        <div class="org-feature-content">
+          <div class="org-feature-tag">Education</div>
+          <h3 class="org-feature-headline">Adjunct professor,<br>Pace University</h3>
+          <p class="org-feature-desc">Designed and taught a graduate UX curriculum from scratch, earning top marks across diverse cohorts.</p>
+          <div class="org-feature-metric">
+            <span class="org-feature-metric-value">4.57</span>
+            <span class="org-feature-metric-label">/ 5 student rating</span>
+          </div>
         </div>
       </div>
 
-      <!-- Card 2: Systems — narrow (2/5) -->
-      <div class="org-card">
-        <span class="org-tag">Systems</span>
-        <h3>OKR framework architect</h3>
-        <p>Built the first UX-integrated OKR system that formally tied design goals to engineering milestones across the org.</p>
-      </div>
+      <!-- Right: Compact numbered list -->
+      <div class="org-list">
 
-      <!-- Card 3: AI Innovation — narrow (2/5), image -->
-      <div class="org-card is-dark">
-        <img class="org-bg" src="https://picsum.photos/seed/abstract-technology-ai-digital/1200/700" alt="" aria-hidden="true" loading="lazy">
-        <div class="org-card-content">
-          <span class="org-tag">AI Innovation</span>
-          <h3>One-click AI deployment</h3>
-          <p>Pioneered an AI-assisted deployment concept that ranked #2 of 36 entries in a product-wide ideathon, earning executive interest for org-wide rollout.</p>
+        <div class="org-list-item">
+          <div class="org-list-meta">
+            <span class="org-list-num">01</span>
+            <span class="org-list-tag">Systems</span>
+          </div>
+          <div class="org-list-headline">OKR framework architect</div>
+          <div class="org-list-desc">Built the first UX-integrated OKR system tying design goals to engineering milestones across the org.</div>
         </div>
-      </div>
 
-      <!-- Card 4: Strategy — wide (3/5) -->
-      <div class="org-card">
-        <span class="org-tag">Strategy</span>
-        <h3>Risk identification & action</h3>
-        <p>Identified 21 critical risks in a high-profile launch plan, secured cross-functional buy-in for a new direction, and established the foundation for a successful GA release.</p>
-      </div>
+        <div class="org-list-item">
+          <div class="org-list-meta">
+            <span class="org-list-num">02</span>
+            <span class="org-list-tag">AI Innovation</span>
+          </div>
+          <div class="org-list-headline">One-click AI deployment</div>
+          <div class="org-list-desc">Ranked #2 of 36 entries in a product-wide ideathon. Earned executive interest for org-wide rollout.</div>
+        </div>
 
-      <!-- Card 5: Craft — narrow (2/5) -->
-      <div class="org-card">
-        <span class="org-tag">Craft</span>
-        <h3>Design quality bar</h3>
-        <p>Established shared standards and critique culture that raised the craft ceiling across a multi-product, globally distributed team.</p>
-      </div>
+        <div class="org-list-item">
+          <div class="org-list-meta">
+            <span class="org-list-num">03</span>
+            <span class="org-list-tag">Strategy</span>
+          </div>
+          <div class="org-list-headline">Risk identification & action</div>
+          <div class="org-list-desc">Identified 21 critical risks, secured cross-functional buy-in, and laid the foundation for a successful GA release.</div>
+        </div>
 
-      <!-- Card 6: Research — wide (3/5) -->
-      <div class="org-card">
-        <span class="org-tag">Research</span>
-        <h3>Customer insight pipeline</h3>
-        <p>Partnered with PM to translate direct customer calls into a design-informed product roadmap, protecting a $XXM/year account.</p>
+        <div class="org-list-item">
+          <div class="org-list-meta">
+            <span class="org-list-num">04</span>
+            <span class="org-list-tag">Craft</span>
+          </div>
+          <div class="org-list-headline">Design quality bar</div>
+          <div class="org-list-desc">Raised the craft ceiling across a multi-product, globally distributed team through shared standards and critique culture.</div>
+        </div>
+
+        <div class="org-list-item">
+          <div class="org-list-meta">
+            <span class="org-list-num">05</span>
+            <span class="org-list-tag">Research</span>
+          </div>
+          <div class="org-list-headline">Customer insight pipeline</div>
+          <div class="org-list-desc">Translated direct customer calls into a design-informed roadmap, protecting a $XXM/year account.</div>
+        </div>
+
       </div>
 
     </div>
