@@ -91,7 +91,7 @@ body {
   opacity: 0.5;
 }
 
-/* ── Fade-in animations ── */
+/* ── Animations ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -195,7 +195,6 @@ nav {
   pointer-events: none;
 }
 
-/* Ambient glow behind name */
 .hero::after {
   content: '';
   position: absolute;
@@ -221,7 +220,6 @@ nav {
   user-select: none;
 }
 
-/* ── Two-column asymmetric grid ── */
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -231,7 +229,7 @@ nav {
   width: 100%;
   position: relative;
   z-index: 1;
-  padding-top: 60px; /* nav height */
+  padding-top: 60px;
 }
 
 .hero-left {
@@ -268,47 +266,28 @@ nav {
   letter-spacing: -0.04em;
   line-height: 0.9;
   color: var(--text-light);
-  margin-bottom: 44px;
+  margin-bottom: 32px;
+  text-wrap: balance;
 }
 
-.hero-statement {
-  font-family: var(--font-b);
-  font-size: clamp(15px, 1.4vw, 18px);
-  font-weight: 400;
-  color: rgba(247,246,242,0.48);
-  max-width: 480px;
-  line-height: 1.7;
-  margin-bottom: 56px;
-}
-
-.hero-cta {
-  display: inline-flex;
-  align-self: flex-start;
-  align-items: center;
-  gap: 10px;
+.hero-role {
   font-family: var(--font-d);
-  font-size: 12px;
+  font-size: clamp(17px, 1.6vw, 22px);
   font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(247,246,242,0.72);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.hero-descriptor {
+  font-family: var(--font-d);
+  font-size: 11px;
+  font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-light);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(247,246,242,0.2);
-  padding-bottom: 4px;
-  transition: border-color 0.25s, color 0.25s, gap 0.25s;
+  color: rgba(247,246,242,0.28);
 }
-
-.hero-cta:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.hero-cta-arrow {
-  font-size: 16px;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-cta:hover .hero-cta-arrow { transform: translateX(5px); }
 
 /* ── Right panel: disciplines ── */
 .hero-disciplines {
@@ -375,7 +354,7 @@ nav {
   color: rgba(247,246,242,0.25);
 }
 
-/* ── Scroll indicator (inside right panel) ── */
+/* ── Scroll indicator ── */
 .hero-scroll {
   display: flex;
   flex-direction: column;
@@ -404,132 +383,73 @@ nav {
   50%       { opacity: 1;   transform: scaleY(0.5); transform-origin: top; }
 }
 
-/* ── ABOUT ── */
-.about {
+/* ── WHO I AM ── */
+.who {
   padding: 120px 0;
   border-bottom: 1px solid var(--mid);
   scroll-margin-top: 60px;
 }
 
-.about-grid {
+.who-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+  grid-template-columns: 1fr 340px;
+  gap: 88px;
   align-items: start;
 }
 
-.about-bio .label { margin-bottom: 28px; }
-
-.about-bio {
-  padding-right: 64px;
+.who-body .label {
+  margin-bottom: 40px;
 }
 
-.about-bio h2 {
-  font-family: var(--font-d);
-  font-size: clamp(28px, 3vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 24px;
-}
-
-.about-bio p {
-  font-size: 16px;
+.who-lede {
+  font-family: var(--font-b);
+  font-size: clamp(17px, 1.6vw, 20px);
   font-weight: 400;
-  color: var(--mid-text);
-  line-height: 1.75;
-  margin-bottom: 16px;
-}
-
-.about-bio p:last-child { margin-bottom: 0; }
-
-.about-why {
-  padding-top: 0;
-  padding-left: 64px;
-  border-left: 1px solid var(--mid);
-}
-
-.about-why .label { margin-bottom: 28px; }
-
-.about-why-q {
-  font-family: var(--font-d);
-  font-size: clamp(22px, 2.5vw, 34px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 24px;
   color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 24px;
+  max-width: 560px;
 }
 
-.about-why p {
+.who-body p {
   font-size: 16px;
   font-weight: 400;
   color: var(--mid-text);
-  line-height: 1.75;
-  margin-bottom: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 560px;
 }
 
-.about-why p:last-child { margin-bottom: 0; }
+.who-body p:last-child { margin-bottom: 0; }
 
-/* ── VALUES ── */
-.values {
-  padding: 100px 0;
-  border-bottom: 1px solid var(--mid);
+.who-portrait {
+  aspect-ratio: 3 / 4;
+  background: var(--mid);
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid var(--accent);
 }
 
-.values .label { margin-bottom: 48px; }
-
-.values-list {
-  display: flex;
-  flex-direction: column;
+.who-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.value-item {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 48px;
-  padding: 52px 0;
-  border-top: 1px solid var(--mid);
-  align-items: start;
-}
-
-.value-item:last-child { border-bottom: 1px solid var(--mid); }
-
-.value-num {
+.who-portrait-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(to top, rgba(26,26,46,0.7) 0%, transparent 100%);
   font-family: var(--font-d);
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--mid-text);
-  padding-top: 10px;
-}
-
-.value-content {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.value-word {
-  font-family: var(--font-d);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  line-height: 1;
-}
-
-.value-word span {
-  color: var(--accent);
-}
-
-.value-def {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--mid-text);
-  padding-top: 6px;
-  line-height: 1.7;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.45);
 }
 
 /* ── IMPACT ── */
@@ -577,12 +497,13 @@ nav {
 
 .impact-value {
   font-family: var(--font-d);
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(24px, 2.6vw, 38px);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--text-light);
   line-height: 1.05;
   margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
 }
 
 .impact-value em {
@@ -597,9 +518,162 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-family: var(--font-d);
+  line-height: 1.5;
 }
 
-/* ── WORK ── */
+/* ── HOW I WORK (CAPABILITY PANELS) ── */
+.capability {
+  border-bottom: 1px solid var(--mid);
+}
+
+.cap-header {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid var(--mid);
+}
+
+.cap-header .label { margin-bottom: 20px; }
+
+.cap-header h2 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  text-wrap: balance;
+}
+
+.cap-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 640px;
+  border-bottom: 1px solid var(--mid);
+}
+
+.cap-panel:last-child { border-bottom: none; }
+
+/* Even panels: image moves to right */
+.cap-panel:nth-child(even) .cap-image { order: 2; }
+.cap-panel:nth-child(even) .cap-content { order: 1; }
+
+.cap-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--mid);
+}
+
+.cap-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-panel:hover .cap-image img {
+  transform: scale(1.04);
+}
+
+.cap-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,26,46,0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cap-content {
+  padding: 72px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.cap-num {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cap-num::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--mid-text);
+  opacity: 0.4;
+}
+
+.cap-title {
+  font-family: var(--font-d);
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 12px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+  text-wrap: balance;
+}
+
+.cap-body {
+  margin-top: 28px;
+}
+
+.cap-body p {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--mid-text);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  max-width: 480px;
+}
+
+.cap-body p:last-child { margin-bottom: 0; }
+
+.cap-metric {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--mid);
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cap-metric-value {
+  font-family: var(--font-d);
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cap-metric-value em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.cap-metric-label {
+  font-family: var(--font-d);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+}
+
+/* ── WORK (CASE STUDIES) ── */
 .work {
   padding: 120px 0 0;
   scroll-margin-top: 60px;
@@ -617,9 +691,9 @@ nav {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.0;
+  text-wrap: balance;
 }
 
-/* Case study section */
 .cs {
   border-top: 3px solid var(--accent);
   padding: 64px 0;
@@ -667,7 +741,7 @@ nav {
   color: var(--accent);
   border: 1px solid var(--accent);
   padding: 3px 10px;
-  border-radius: 100px;
+  border-radius: 3px;
   opacity: 0.8;
 }
 
@@ -679,6 +753,7 @@ nav {
   line-height: 1.05;
   color: var(--text);
   margin-bottom: 6px;
+  text-wrap: balance;
 }
 
 .cs-company {
@@ -724,12 +799,13 @@ nav {
 
 .cs-metric-value {
   font-family: var(--font-d);
-  font-size: clamp(24px, 2.5vw, 36px);
+  font-size: clamp(22px, 2.2vw, 32px);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text);
   line-height: 1;
   margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
 }
 
 .cs-metric-label {
@@ -744,6 +820,7 @@ nav {
 .cs-link {
   display: inline-flex;
   align-items: center;
+  align-self: flex-start;
   gap: 8px;
   font-family: var(--font-d);
   font-size: 11px;
@@ -769,79 +846,80 @@ nav {
   pointer-events: none;
 }
 
-/* placeholder image */
 .cs-image {
   margin-top: 48px;
   aspect-ratio: 16/7;
   background: var(--mid);
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   position: relative;
 }
 
-.cs-image-placeholder {
-  font-family: var(--font-d);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(107,106,102,0.4);
-}
-
-/* Chapter break */
-.chapter-break {
-  background: var(--bg-dark);
-  padding: 80px 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.chapter-break::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-.chapter-break-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.cs-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
 }
 
-.chapter-break-text {
+/* ── NOTABLE CLIENTS ── */
+.clients {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--mid);
+}
+
+.clients .label { margin-bottom: 36px; }
+
+.clients-names {
   font-family: var(--font-d);
-  font-size: clamp(28px, 3.5vw, 48px);
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 400;
+  color: var(--mid-text);
+  line-height: 2.2;
+  letter-spacing: 0.01em;
+  max-width: 800px;
+}
+
+.clients-names span {
+  color: var(--mid);
+  margin: 0 8px;
+  font-weight: 300;
+}
+
+/* ── WHY I DESIGN ── */
+.why {
+  padding: 140px 0;
+  border-bottom: 1px solid var(--mid);
+}
+
+.why-inner {
+  max-width: 720px;
+}
+
+.why .label { margin-bottom: 40px; }
+
+.why-q {
+  font-family: var(--font-d);
+  font-size: clamp(28px, 3.2vw, 48px);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-light);
+  letter-spacing: -0.03em;
   line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 36px;
+  text-wrap: balance;
 }
 
-.chapter-break-text em {
-  color: var(--accent);
-  font-style: normal;
+.why-body p {
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 400;
+  color: var(--mid-text);
+  line-height: 1.85;
+  margin-bottom: 20px;
+  max-width: 640px;
 }
 
-.chapter-break-label {
-  font-family: var(--font-d);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(247,246,242,0.25);
-}
+.why-body p:last-child { margin-bottom: 0; }
 
 /* ── CONTACT ── */
 .contact {
@@ -863,9 +941,8 @@ nav {
   pointer-events: none;
 }
 
-/* Ghost decorative element */
 .contact::after {
-  content: '→';
+  content: '';
   position: absolute;
   bottom: -80px;
   right: -20px;
@@ -895,6 +972,7 @@ nav {
   line-height: 1.05;
   color: var(--text-light);
   margin-bottom: 24px;
+  text-wrap: balance;
 }
 
 .contact-sub {
@@ -903,6 +981,7 @@ nav {
   color: rgba(247,246,242,0.48);
   line-height: 1.7;
   margin-bottom: 52px;
+  max-width: 520px;
 }
 
 .contact-email {
@@ -975,292 +1054,21 @@ footer {
   color: rgba(247,246,242,0.25);
 }
 
-/* ── ORG CONTRIBUTIONS ── */
-.org {
-  padding: 100px 0;
-  border-bottom: 1px solid var(--mid);
-}
+/* ── Active / press states ── */
+.contact-email:active { transform: scale(0.98); }
+.cs-link:active       { transform: scale(0.97); }
 
-.org-header { margin-bottom: 64px; }
-.org-header .label { margin-bottom: 20px; }
+/* ── Tabular figures ── */
+.impact-value,
+.cap-metric-value,
+.cs-metric-value { font-variant-numeric: tabular-nums; }
 
-.org-header h2 {
-  font-family: var(--font-d);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.0;
-  text-wrap: balance;
-}
-
-/* Feature + compact list layout */
-.org-split {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  border: 1px solid var(--mid);
-}
-
-/* Left: large anchoring image card */
-.org-feature {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 48px;
-  background: #0d1526;
-  border-right: 1px solid rgba(247,246,242,0.07);
-}
-
-.org-feature-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.15;
-  filter: grayscale(15%);
-  z-index: 0;
-}
-
-/* Bottom gradient so text is always legible */
-.org-feature::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(13,21,38,0.92) 0%, rgba(13,21,38,0.3) 60%, transparent 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.org-feature-content {
-  position: relative;
-  z-index: 2;
-}
-
-.org-feature-tag {
-  font-family: var(--font-d);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(247,246,242,0.38);
-  margin-bottom: 20px;
-}
-
-.org-feature-headline {
-  font-family: var(--font-d);
-  font-size: clamp(22px, 2.8vw, 36px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--text-light);
-  margin-bottom: 16px;
-  text-wrap: balance;
-}
-
-.org-feature-desc {
-  font-size: 15px;
-  font-weight: 400;
-  color: rgba(247,246,242,0.48);
-  line-height: 1.7;
-  margin-bottom: 40px;
-  max-width: 480px;
-}
-
-.org-feature-metric {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-
-.org-feature-metric-value {
-  font-family: var(--font-d);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--text-light);
-  font-variant-numeric: tabular-nums;
-}
-
-.org-feature-metric-label {
-  font-family: var(--font-d);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(247,246,242,0.3);
-}
-
-/* Right: compact numbered list */
-.org-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.org-list-item {
-  padding: 28px 36px;
-  border-bottom: 1px solid var(--mid);
-  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
-
-.org-list-item:last-child { border-bottom: none; }
-.org-list-item:hover { background: rgba(58,107,196,0.03); }
-
-.org-list-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.org-list-num {
-  font-family: var(--font-d);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--mid-text);
-  opacity: 0.6;
-}
-
-.org-list-tag {
-  font-family: var(--font-d);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.org-list-headline {
-  font-family: var(--font-d);
-  font-size: clamp(14px, 1.4vw, 17px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  color: var(--text);
-}
-
-.org-list-desc {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--mid-text);
-  line-height: 1.65;
-}
-
-/* ── TEAM MANAGEMENT ── */
-.team {
-  padding: 100px 0;
-  border-bottom: 1px solid var(--mid);
-}
-
-.team-header { margin-bottom: 40px; }
-.team-header .label { margin-bottom: 0; }
-
-/* Belief statement — large display type */
-.team-belief {
-  font-family: var(--font-d);
-  font-size: clamp(24px, 3.2vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  color: var(--text);
-  max-width: 960px;
-  margin-bottom: 0;
-  padding: 0;
-  border: none;
-  text-wrap: balance;
-}
-
-.team-belief em {
-  color: var(--accent);
-  font-style: normal;
-}
-
-/* Belief wrapper with top/bottom hairlines */
-.team-belief-wrap {
-  padding: 64px 0;
-  margin-bottom: 0;
-  border-top: 1px solid var(--mid);
-  border-bottom: 1px solid var(--mid);
-}
-
-/* Sub-section: sticky title left | rows right */
-.team-section {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 80px;
-  padding: 60px 0;
-  border-top: 1px solid var(--mid);
-  align-items: start;
-}
-
-.team-section-head {
-  position: sticky;
-  top: 80px; /* clears the fixed nav */
-}
-
-.team-section-label {
-  font-family: var(--font-d);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.team-section-label::after {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--accent);
-  opacity: 0.5;
-}
-
-.team-section-title {
-  font-family: var(--font-d);
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--text);
-}
-
-.team-rows { display: flex; flex-direction: column; }
-
-.team-row {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 22px 0;
-  border-top: 1px solid var(--mid);
-}
-
-.team-row:first-child { border-top: none; }
-
-.team-row-label {
-  font-family: var(--font-d);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.team-row-desc {
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--mid-text);
-  line-height: 1.72;
-}
+/* ── text-wrap balance ── */
+.hero-name,
+.cap-title,
+.work-header h2,
+.cs-title,
+.contact h2 { text-wrap: balance; }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
@@ -1270,62 +1078,31 @@ footer {
   .hero-right { display: none; }
   .hero-left { padding: 120px 32px 80px; justify-content: flex-end; }
 
-  .org-split { grid-template-columns: 1fr; }
-  .org-feature { min-height: 360px; }
-  .org-feature::after { background: linear-gradient(to top, rgba(13,21,38,0.95) 0%, rgba(13,21,38,0.4) 70%, transparent 100%); }
-  .team-section { grid-template-columns: 1fr; gap: 32px; }
-  .team-section-head { position: static; }
-  .about-grid { grid-template-columns: 1fr; gap: 56px; }
-  .about-bio { padding-right: 0; }
-  .about-why { border-left: none; padding-left: 0; border-top: 1px solid var(--mid); padding-top: 56px; }
-  .value-item { grid-template-columns: 48px 1fr; gap: 24px; }
-  .value-content { grid-template-columns: 1fr; gap: 16px; }
+  .who-grid { grid-template-columns: 1fr; gap: 48px; }
+  .who-portrait { aspect-ratio: 4 / 3; max-width: 100%; }
+
   .impact-grid { grid-template-columns: 1fr 1fr; }
+  .impact-stat:not(:first-child) { padding-left: 24px; }
+  .impact-stat { padding-right: 24px; }
+
+  .cap-panel { grid-template-columns: 1fr; min-height: auto; }
+  .cap-panel:nth-child(even) .cap-image { order: -1; }
+  .cap-panel:nth-child(even) .cap-content { order: 2; }
+  .cap-image { min-height: 320px; }
+  .cap-content { padding: 48px 32px; }
+  .cap-title { display: block; }
+
   .cs-inner { grid-template-columns: 1fr; gap: 32px; }
-  .chapter-break-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .nav-links { display: none; }
 }
 
 @media (max-width: 600px) {
   .impact-grid { grid-template-columns: 1fr 1fr; }
-  .impact-stat:not(:first-child) { padding-left: 20px; }
-  .impact-stat { padding-right: 20px; }
+  .impact-stat:not(:first-child) { padding-left: 16px; }
+  .impact-stat { padding-right: 16px; }
   .cs-metrics { gap: 24px; }
   .footer-nav { display: none; }
-}
-
-/* ── text-wrap balance on headlines ── */
-.hero-name,
-.about-bio h2,
-.about-why-q,
-.work-header h2,
-.cs-title,
-.chapter-break-text,
-.contact h2 {
-  text-wrap: balance;
-}
-
-/* ── Tabular figures on stat numbers ── */
-.impact-value,
-.cs-metric-value {
-  font-variant-numeric: tabular-nums;
-}
-
-/* ── Active/press states ── */
-.hero-cta:active    { transform: scale(0.97); }
-.cs-link:active     { transform: scale(0.97); }
-.contact-email:active { transform: scale(0.98); }
-
-/* ── Case study tags: square not pill ── */
-.cs-tag { border-radius: 3px; }
-
-/* ── Case study images ── */
-.cs-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 4px;
+  .cap-metric { gap: 24px; }
 }
 
 </style>
@@ -1346,22 +1123,18 @@ footer {
   </div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- ── 1. HERO ── -->
 <section class="hero" id="home">
   <div class="hero-ghost" aria-hidden="true">RB</div>
 
   <div class="hero-grid">
 
-    <!-- Left: primary content -->
+    <!-- Left: name + role + descriptor -->
     <div class="hero-left">
       <div class="hero-label fade-up">Portfolio · 2026</div>
       <h1 class="hero-name fade-up">Rey<br>Benoit.</h1>
-      <p class="hero-statement fade-up">
-        I'm a design leader who builds things. I'm most energized where the technology is new, the team is curious, and the work expands what's possible.
-      </p>
-      <a class="hero-cta fade-up" href="#contact">
-        Get in touch <span class="hero-cta-arrow">→</span>
-      </a>
+      <p class="hero-role fade-up">Designer. Strategist. Builder.</p>
+      <p class="hero-descriptor fade-up">UX Design Manager · Google Cloud</p>
     </div>
 
     <!-- Right: disciplines + availability + scroll -->
@@ -1393,82 +1166,46 @@ footer {
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
-<section class="about" id="about">
+<!-- ── 2. WHO I AM ── -->
+<section class="who" id="about">
   <div class="container">
-    <div class="about-grid">
+    <div class="who-grid">
 
-      <div class="about-bio">
+      <div class="who-body">
         <div class="label">About</div>
-        <h2>17 years of design — across music, enterprise, and the AI frontier.</h2>
-        <p>
-          I started in the creative industry — designing for Warner Music Group, building digital experiences for Taco Bell and American Express. From there I moved into product: seven years at Google Cloud, progressing from IC to design manager, leading UX for a portfolio responsible for two-thirds of the organization's revenue.
+        <p class="who-lede">
+          I started in agency work — at DigitasLBi, designing for brands like Taco Bell, Warner Music Group, and American Express. That world taught me craft and speed: how to make something real, fast, and with enough wit to cut through. The Taco Bell mobile app we built launched a category. 1.4 million downloads. A Webby. The discipline of moving fast without losing taste became the foundation for everything after.
         </p>
         <p>
-          Most recently I built HEARD — an AI music generator for lyricists — from zero to a live product with real users. I identified the gap, designed the experience, coded the stack, and shipped it. That's how I work: end-to-end, with mastery of the craft and genuine care for the people on the team and the people using what we make.
+          Seven years at Google Cloud changed what design meant to me. When you're building for enterprise, the interface is only part of the job. The harder problem is organizational — getting design into decisions made two levels above the product. I grew from IC to manager, eventually leading UX across a portfolio responsible for a significant share of the org's revenue. The work stopped being about screens and started being about systems: process, prioritization, how a team creates the conditions for the right things to get built.
         </p>
         <p>
-          I'm most energized where the technology is new, the team is curious, and the work expands what's possible.
+          Most recently, I built HEARD — an AI music generator for lyricists who can write songs but can't produce them. I built it because I was that lyricist. Designed the experience, coded the stack, shipped it solo from zero to a live product with real users. The through-line isn't the technology. It's the gap: who gets left out, and how do we close that distance?
+        </p>
+        <p>
+          What connects all of it: access, craft, and genuine care for the people I work with. I'm most alive when the technology is new, the team is curious, and the work expands what's possible.
         </p>
       </div>
 
-      <div class="about-why">
-        <div class="label">My Why</div>
-        <div class="about-why-q">Why design?</div>
-        <p>
-          Because design is the practice of making things accessible — not just usable, but genuinely within reach for the people who need them most. The best work I've done has always lived at that gap: between what a technology promises and what a real person can actually experience.
-        </p>
-        <p>
-          I was drawn to this field because I believe tools should expand people's capabilities, not require expertise to operate. That conviction has followed me from consumer apps to enterprise infrastructure to AI products. The domain changes. The question stays the same: who's being left out, and how do we close that distance?
-        </p>
-        <p>
-          I lead with that question, and I build teams that ask it too.
-        </p>
+      <div class="who-portrait">
+        <img src="https://picsum.photos/seed/portrait-professional-warm-studio/600/800" alt="Rey Benoit" loading="lazy">
+        <div class="who-portrait-caption">Rey Benoit</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── VALUES ── -->
-<section class="values">
-  <div class="container">
-    <div class="label">What I stand for</div>
-    <div class="values-list">
-
-      <div class="value-item">
-        <div class="value-num">01</div>
-        <div class="value-content">
-          <div class="value-word">Access<span>.</span></div>
-          <div class="value-def">Making technology genuinely usable for the people who need it most — closing the gap between what tools promise and what users actually experience.</div>
-        </div>
-      </div>
-
-      <div class="value-item">
-        <div class="value-num">02</div>
-        <div class="value-content">
-          <div class="value-word">Mastery<span>.</span></div>
-          <div class="value-def">Holding a high standard for the craft, and raising the bar for everyone I work with — because excellence compounds when it's shared.</div>
-        </div>
-      </div>
-
-      <div class="value-item">
-        <div class="value-num">03</div>
-        <div class="value-content">
-          <div class="value-word">Camaraderie<span>.</span></div>
-          <div class="value-def">Investing in the people around me — building trust, creating space for honest collaboration, and making the team stronger through the work we share.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── IMPACT ── -->
+<!-- ── 3. IMPACT AT A GLANCE ── -->
 <section class="impact">
   <div class="container impact-inner">
-    <div class="label" style="color:var(--accent);">Impact at a glance</div>
+    <div class="label">Impact at a glance</div>
     <div class="impact-grid">
+
+      <div class="impact-stat">
+        <div class="impact-value">1.4<em>M</em></div>
+        <div class="impact-context">Downloads · Webby Award winner · Taco Bell</div>
+      </div>
 
       <div class="impact-stat">
         <div class="impact-value">Fastest<em>-</em>growing</div>
@@ -1476,8 +1213,8 @@ footer {
       </div>
 
       <div class="impact-stat">
-        <div class="impact-value">80<em>%</em></div>
-        <div class="impact-context">Users onboarded via redesigned flow · AlloyDB</div>
+        <div class="impact-value">80<em>+</em></div>
+        <div class="impact-context">Features launched over 4 years · Cloud SQL</div>
       </div>
 
       <div class="impact-stat">
@@ -1487,24 +1224,111 @@ footer {
 
       <div class="impact-stat">
         <div class="impact-value">Weeks <em>→</em> Min</div>
-        <div class="impact-context">Time to listenable demo · HEARD</div>
-      </div>
-
-      <div class="impact-stat">
-        <div class="impact-value">Live<em>.</em></div>
-        <div class="impact-context">Real users in private preview · HEARD</div>
+        <div class="impact-context">Time to first demo track · HEARD</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── WORK ── -->
+<!-- ── 4. HOW I WORK ── -->
+<section class="capability" id="how-i-work">
+  <div class="container">
+    <div class="cap-header">
+      <div class="label">How I work</div>
+      <h2>Three ways of working.<br>One through-line.</h2>
+    </div>
+  </div>
+
+  <!-- Panel A: Designing for Scale -->
+  <div class="cap-panel">
+    <div class="cap-image">
+      <img src="https://picsum.photos/seed/design-systems-whiteboard-planning/1200/900" alt="Designing for scale — systems and process artifacts" loading="lazy">
+      <div class="cap-image-overlay"></div>
+    </div>
+    <div class="cap-content">
+      <div class="cap-num">01</div>
+      <div class="cap-title">Designing for Scale</div>
+      <div class="cap-body">
+        <p>The hardest design problems aren't the ones in front of users. They're the ones inside the org — duplicated work, conflicting patterns, decisions made without design at the table.</p>
+        <p>At Google Cloud, I managed design across 4 global locations, supporting 10 PMs and 12 engineers. I built the systems that let designers focus on problems instead of process — templates, workflows, design studios, office hours, a quantitative UI prioritization model.</p>
+        <p>I mandated that AlloyDB and Cloud SQL be designed concurrently wherever possible. That single call eliminated redundant work across 10+ features and accelerated time-to-market for GCBDR, Final Backups, PITR, and more. Good systems design is invisible — you see it in what doesn't break.</p>
+      </div>
+      <div class="cap-metric">
+        <div class="cap-metric-item">
+          <div class="cap-metric-value">4</div>
+          <div class="cap-metric-label">Global locations</div>
+        </div>
+        <div class="cap-metric-item">
+          <div class="cap-metric-value">10<em>+</em></div>
+          <div class="cap-metric-label">Features deduped</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel B: Shipping -->
+  <div class="cap-panel">
+    <div class="cap-image">
+      <img src="https://picsum.photos/seed/product-interface-laptop-screens/1200/900" alt="Shipping — final product screens and interfaces" loading="lazy">
+      <div class="cap-image-overlay"></div>
+    </div>
+    <div class="cap-content">
+      <div class="cap-num">02</div>
+      <div class="cap-title">Shipping</div>
+      <div class="cap-body">
+        <p>I believe in moving. Not rushing — moving. There's a difference between velocity that creates debt and velocity that creates momentum.</p>
+        <p>I've shipped a new database product in 9 months. I've turned around a Cloud Next launch in two weeks. I've built and deployed HEARD in the time most teams spend in kickoff.</p>
+        <p>None of those happened by accident. They happened because scope was controlled, decisions were made early, and the team knew what done looked like.</p>
+      </div>
+      <div class="cap-metric">
+        <div class="cap-metric-item">
+          <div class="cap-metric-value">9 <em>mo</em></div>
+          <div class="cap-metric-label">Zero to v1, AlloyDB</div>
+        </div>
+        <div class="cap-metric-item">
+          <div class="cap-metric-value">2 <em>wk</em></div>
+          <div class="cap-metric-label">Cloud Next launch turnaround</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel C: Building the Team -->
+  <div class="cap-panel">
+    <div class="cap-image">
+      <img src="https://picsum.photos/seed/team-collaboration-workshop-people/1200/900" alt="Building the team — collaboration and mentorship" loading="lazy">
+      <div class="cap-image-overlay"></div>
+    </div>
+    <div class="cap-content">
+      <div class="cap-num">03</div>
+      <div class="cap-title">Building the Team</div>
+      <div class="cap-body">
+        <p>The best thing I've ever shipped is a designer who didn't think they were ready.</p>
+        <p>I've promoted two L3s to L4 and one L4 to L5. I've built a vibe coding toolkit with one designer, powered a UX workflow with another, and earned a top-3 finish in a 36-team ideathon with a third. I run bi-weekly team meetings that open with icebreakers because I believe you can't do hard work with people you don't know.</p>
+        <p>My manager survey says "good across all categories." What it can't quantify is the culture — and that's the part I'm most proud of.</p>
+      </div>
+      <div class="cap-metric">
+        <div class="cap-metric-item">
+          <div class="cap-metric-value">3</div>
+          <div class="cap-metric-label">Designers promoted</div>
+        </div>
+        <div class="cap-metric-item">
+          <div class="cap-metric-value"><em>#</em>2</div>
+          <div class="cap-metric-label">of 36 · Ideathon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── 5. CASE STUDIES ── -->
 <section class="work" id="work">
   <div class="container">
     <div class="work-header">
       <div class="label">Selected work</div>
-      <h2>Four projects.<br>One through-line.</h2>
+      <h2>Six projects.<br>One through-line.</h2>
     </div>
   </div>
 
@@ -1522,12 +1346,12 @@ footer {
             </div>
           </div>
           <div class="cs-title">HEARD</div>
-          <div class="cs-company">Founder & Designer · 2026</div>
+          <div class="cs-company">Founder & Designer · 2024–2025</div>
         </div>
         <div class="cs-right">
-          <p class="cs-hook">Lyricists have words. They rarely have a way to hear them. HEARD is an AI music generator that turns lyrics into listenable tracks — designed, built, and shipped solo from zero to live product.</p>
+          <p class="cs-hook">A lyricist who couldn't hear his own songs built the tool nobody else had. HEARD turns weeks of production into minutes — an AI music generator designed for creators who write but don't produce.</p>
           <div class="cs-role-label">My Role</div>
-          <div class="cs-role-value">Founder · Designer · Engineer · Researcher</div>
+          <div class="cs-role-value">Founder · Designer · Engineer · Researcher — solo end-to-end</div>
           <div class="cs-metrics">
             <div class="cs-metric">
               <div class="cs-metric-value">Weeks → Min</div>
@@ -1561,12 +1385,12 @@ footer {
             </div>
           </div>
           <div class="cs-title">AlloyDB</div>
-          <div class="cs-company">Google Cloud · 2022–2023</div>
+          <div class="cs-company">Google Cloud · 2022–2024</div>
         </div>
         <div class="cs-right">
-          <p class="cs-hook">Google needed to take on legacy database giants with a new open-source product. I led UX from early concept through GA — navigating differentiation, shipping under pressure, and building the team to do it.</p>
+          <p class="cs-hook">Google Cloud's first new database in 10 years needed to differentiate in a crowded market and ship fast with a team that didn't exist yet. I built the team and led design from competitive audit through launch.</p>
           <div class="cs-role-label">My Role</div>
-          <div class="cs-role-value">Design Lead · UX Strategy · Team Leadership</div>
+          <div class="cs-role-value">UX Design Manager · UX Strategy · Team Leadership</div>
           <div class="cs-metrics">
             <div class="cs-metric">
               <div class="cs-metric-value">9 mo</div>
@@ -1581,7 +1405,7 @@ footer {
               <div class="cs-metric-label">Fastest-growing DB on Cloud</div>
             </div>
           </div>
-          <span class="cs-link coming-soon" aria-disabled="true">View Case Study →</span>
+          <span class="cs-link coming-soon" aria-disabled="true">Coming Soon →</span>
           <div class="cs-image">
             <img src="https://picsum.photos/seed/alloydb-cloud-database/1200/525" alt="AlloyDB — UX process documentation and final interface designs" loading="lazy">
           </div>
@@ -1589,18 +1413,6 @@ footer {
       </div>
     </div>
   </div>
-
-</section>
-
-<!-- Chapter Break 1 -->
-<div class="chapter-break">
-  <div class="container chapter-break-inner">
-    <div class="chapter-break-text">Enterprise design.<br><em>At scale.</em></div>
-    <div class="chapter-break-label">Google Cloud · 2018–2025</div>
-  </div>
-</div>
-
-<div>
 
   <!-- CS 3: Cloud SQL -->
   <div class="cs">
@@ -1610,28 +1422,29 @@ footer {
           <div class="cs-meta">
             <div class="cs-number">Case Study 03</div>
             <div class="cs-tags">
-              <span class="cs-tag">Strategy</span>
-              <span class="cs-tag">Rapid Execution</span>
+              <span class="cs-tag">Systems</span>
+              <span class="cs-tag">Scale</span>
+              <span class="cs-tag">Management</span>
             </div>
           </div>
           <div class="cs-title">Cloud SQL</div>
-          <div class="cs-company">Google Cloud · 2021–2022</div>
+          <div class="cs-company">Google Cloud · 2019–2024</div>
         </div>
         <div class="cs-right">
-          <p class="cs-hook">A critical enterprise deal was on the line. I drove UX for a 6-month SQL Server launch — prioritizing ruthlessly to unblock engineering and protect a revenue milestone that mattered.</p>
+          <p class="cs-hook">Four years scaling a design function across 4 locations, 10 PMs, and 200+ engineers — while shipping constantly. The job wasn't just design; it was building the systems that made design possible at that scale.</p>
           <div class="cs-role-label">My Role</div>
-          <div class="cs-role-value">Design Lead · UX Strategy</div>
+          <div class="cs-role-value">UX Design Manager · UX Strategy</div>
           <div class="cs-metrics">
             <div class="cs-metric">
-              <div class="cs-metric-value">6 mo</div>
-              <div class="cs-metric-label">Concept to launch</div>
+              <div class="cs-metric-value">80+</div>
+              <div class="cs-metric-label">Features launched</div>
             </div>
             <div class="cs-metric">
-              <div class="cs-metric-value">$XXM</div>
-              <div class="cs-metric-label">New ARR generated</div>
+              <div class="cs-metric-value">4 yr</div>
+              <div class="cs-metric-label">Continuous delivery</div>
             </div>
           </div>
-          <span class="cs-link coming-soon" aria-disabled="true">View Case Study →</span>
+          <span class="cs-link coming-soon" aria-disabled="true">Coming Soon →</span>
           <div class="cs-image">
             <img src="https://picsum.photos/seed/cloudsql-enterprise-ux/1200/525" alt="Cloud SQL — UX process and SQL Server launch design" loading="lazy">
           </div>
@@ -1648,29 +1461,29 @@ footer {
           <div class="cs-meta">
             <div class="cs-number">Case Study 04</div>
             <div class="cs-tags">
-              <span class="cs-tag">Product Vision</span>
-              <span class="cs-tag">Creative Industry</span>
-              <span class="cs-tag">Executive Pitch</span>
+              <span class="cs-tag">Strategy</span>
+              <span class="cs-tag">Data Product</span>
+              <span class="cs-tag">Agency</span>
             </div>
           </div>
           <div class="cs-title">Warner Music Group</div>
-          <div class="cs-company">Lead UX Designer · 2014</div>
+          <div class="cs-company">Lead UX Designer · 2014–2016</div>
         </div>
         <div class="cs-right">
-          <p class="cs-hook">One of the world's largest music companies needed to make sense of over 100 data sources for their marketing teams. I defined the product vision, led a cross-functional team, and secured executive funding across two continents.</p>
+          <p class="cs-hook">WMG marketing teams were making strategic decisions without a unified view of their data — pulling from 100+ disconnected sources. I led a 4-person team to design a research and analytics dashboard that turned noise into signal.</p>
           <div class="cs-role-label">My Role</div>
           <div class="cs-role-value">Lead UX Designer · Product Vision · Executive Pitch</div>
           <div class="cs-metrics">
             <div class="cs-metric">
               <div class="cs-metric-value">100+</div>
-              <div class="cs-metric-label">Data sources synthesized</div>
+              <div class="cs-metric-label">Data sources unified</div>
             </div>
             <div class="cs-metric">
-              <div class="cs-metric-value">9 mo</div>
-              <div class="cs-metric-label">Engagement</div>
+              <div class="cs-metric-value">2</div>
+              <div class="cs-metric-label">Continents, executive pitch</div>
             </div>
           </div>
-          <span class="cs-link coming-soon" aria-disabled="true">View Case Study →</span>
+          <span class="cs-link coming-soon" aria-disabled="true">Coming Soon →</span>
           <div class="cs-image">
             <img src="https://picsum.photos/seed/warner-music-data-platform/1200/525" alt="Warner Music Group — data analytics platform design across 100+ sources" loading="lazy">
           </div>
@@ -1679,185 +1492,129 @@ footer {
     </div>
   </div>
 
-</div>
-
-<!-- Chapter Break: Beyond the product -->
-<div class="chapter-break">
-  <div class="container chapter-break-inner">
-    <div class="chapter-break-text">Beyond the<br><em>product.</em></div>
-    <div class="chapter-break-label">Org Impact · Leadership</div>
-  </div>
-</div>
-
-<!-- ── SECTION 6: ORG CONTRIBUTIONS ── -->
-<section class="org">
-  <div class="container">
-    <div class="org-header">
-      <div class="label">Organizational contributions</div>
-      <h2>The work inside the work.</h2>
+  <!-- CS 5: Taco Bell -->
+  <div class="cs">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 05</div>
+            <div class="cs-tags">
+              <span class="cs-tag">Consumer Mobile</span>
+              <span class="cs-tag">Craft</span>
+              <span class="cs-tag">Agency</span>
+            </div>
+          </div>
+          <div class="cs-title">Taco Bell</div>
+          <div class="cs-company">DigitasLBi · 2012–2013</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">Taco Bell had no mobile ordering app. A three-person design team at Digitas built the one that launched a category — loud, fun, and effortless under the hood.</p>
+          <div class="cs-role-label">My Role</div>
+          <div class="cs-role-value">Lead UX Designer — IA, interaction design, usability testing</div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">1.4M</div>
+              <div class="cs-metric-label">Downloads</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">33%</div>
+              <div class="cs-metric-label">Avg spend increase</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">Webby</div>
+              <div class="cs-metric-label">Award winner</div>
+            </div>
+          </div>
+          <span class="cs-link coming-soon" aria-disabled="true">Coming Soon →</span>
+          <div class="cs-image">
+            <img src="https://picsum.photos/seed/taco-bell-mobile-app-ordering/1200/525" alt="Taco Bell mobile app — ordering flow and UX design" loading="lazy">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="org-split">
+  </div>
 
-      <!-- Left: Featured contribution (Education) -->
-      <div class="org-feature">
-        <img class="org-feature-img" src="https://picsum.photos/seed/university-lecture-teaching-classroom/1400/900" alt="" aria-hidden="true" loading="lazy">
-        <div class="org-feature-content">
-          <div class="org-feature-tag">Education</div>
-          <h3 class="org-feature-headline">Adjunct professor,<br>Pace University</h3>
-          <p class="org-feature-desc">Designed and taught a graduate UX curriculum from scratch, earning top marks across diverse cohorts.</p>
-          <div class="org-feature-metric">
-            <span class="org-feature-metric-value">4.57</span>
-            <span class="org-feature-metric-label">/ 5 student rating</span>
+  <!-- CS 6: Doorsteps -->
+  <div class="cs">
+    <div class="container">
+      <div class="cs-inner">
+        <div class="cs-left">
+          <div class="cs-meta">
+            <div class="cs-number">Case Study 06</div>
+            <div class="cs-tags">
+              <span class="cs-tag">Conversion</span>
+              <span class="cs-tag">Search UX</span>
+              <span class="cs-tag">Mobile</span>
+            </div>
+          </div>
+          <div class="cs-title">Doorsteps</div>
+          <div class="cs-company">Move Inc. / Realtor.com · 2016–2017</div>
+        </div>
+        <div class="cs-right">
+          <p class="cs-hook">The search results page on Doorsteps was underperforming — too many users bouncing, too few leads. A mobile-first redesign grounded in competitive analysis, user testing, and content strategy changed the math.</p>
+          <div class="cs-role-label">My Role</div>
+          <div class="cs-role-value">Lead UX Designer — research, wireframes, prototyping, mobile-first redesign</div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">1.3%</div>
+              <div class="cs-metric-label">YoY lift in leads per visitor</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">83%</div>
+              <div class="cs-metric-label">Mobile user base</div>
+            </div>
+          </div>
+          <span class="cs-link coming-soon" aria-disabled="true">Coming Soon →</span>
+          <div class="cs-image">
+            <img src="https://picsum.photos/seed/doorsteps-search-results-mobile/1200/525" alt="Doorsteps search results redesign — mobile-first approach" loading="lazy">
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Right: Compact numbered list -->
-      <div class="org-list">
+</section>
 
-        <div class="org-list-item">
-          <div class="org-list-meta">
-            <span class="org-list-num">01</span>
-            <span class="org-list-tag">Systems</span>
-          </div>
-          <div class="org-list-headline">OKR framework architect</div>
-          <div class="org-list-desc">Built the first UX-integrated OKR system tying design goals to engineering milestones across the org.</div>
-        </div>
+<!-- ── 6. NOTABLE CLIENTS ── -->
+<section class="clients">
+  <div class="container">
+    <div class="label">Notable clients</div>
+    <p class="clients-names">
+      Aetna<span>·</span>Ally Bank<span>·</span>American Express<span>·</span>Delta<span>·</span>Google<span>·</span>Realtor.com<span>·</span>Samsung<span>·</span>Taco Bell<span>·</span>Warner Music Group<span>·</span>Xfinity
+    </p>
+  </div>
+</section>
 
-        <div class="org-list-item">
-          <div class="org-list-meta">
-            <span class="org-list-num">02</span>
-            <span class="org-list-tag">AI Innovation</span>
-          </div>
-          <div class="org-list-headline">One-click AI deployment</div>
-          <div class="org-list-desc">Ranked #2 of 36 entries in a product-wide ideathon. Earned executive interest for org-wide rollout.</div>
-        </div>
-
-        <div class="org-list-item">
-          <div class="org-list-meta">
-            <span class="org-list-num">03</span>
-            <span class="org-list-tag">Strategy</span>
-          </div>
-          <div class="org-list-headline">Risk identification & action</div>
-          <div class="org-list-desc">Identified 21 critical risks, secured cross-functional buy-in, and laid the foundation for a successful GA release.</div>
-        </div>
-
-        <div class="org-list-item">
-          <div class="org-list-meta">
-            <span class="org-list-num">04</span>
-            <span class="org-list-tag">Craft</span>
-          </div>
-          <div class="org-list-headline">Design quality bar</div>
-          <div class="org-list-desc">Raised the craft ceiling across a multi-product, globally distributed team through shared standards and critique culture.</div>
-        </div>
-
-        <div class="org-list-item">
-          <div class="org-list-meta">
-            <span class="org-list-num">05</span>
-            <span class="org-list-tag">Research</span>
-          </div>
-          <div class="org-list-headline">Customer insight pipeline</div>
-          <div class="org-list-desc">Translated direct customer calls into a design-informed roadmap, protecting a $XXM/year account.</div>
-        </div>
-
+<!-- ── 7. WHY I DESIGN ── -->
+<section class="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="label">Why I design</div>
+      <div class="why-q">Design is the practice of closing distance.</div>
+      <div class="why-body">
+        <p>
+          The distance between what a technology promises and what a person can actually do with it. I've worked at that gap in music, in enterprise software, and in AI for 17 years — not because it's an interesting problem, but because I believe the tools we build either expand what people can do or quietly exclude them.
+        </p>
+        <p>
+          Every project starts with the same question: who's being left out? The work is trying to close that distance, one decision at a time. That conviction has followed me from consumer apps to enterprise infrastructure to AI products. The domain changes. The question stays the same.
+        </p>
+        <p>
+          I lead with that question. And I build teams that ask it too.
+        </p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ── SECTION 7: TEAM MANAGEMENT ── -->
-<section class="team">
-  <div class="container">
-
-    <div class="team-header">
-      <div class="label">Team management</div>
-    </div>
-
-    <div class="team-belief-wrap">
-      <p class="team-belief">
-        "Good design teams don't just ship products — they <em>raise the floor</em> for everyone. A manager's job is to make sure every designer has clear ownership, room to grow, and a team that makes them better."
-      </p>
-    </div>
-
-    <!-- 7b: How I structure teams -->
-    <div class="team-section">
-      <div class="team-section-head">
-        <div class="team-section-label">Structure</div>
-        <div class="team-section-title">How I build teams</div>
-      </div>
-      <div class="team-rows">
-        <div class="team-row">
-          <div class="team-row-label">Clear ownership</div>
-          <div class="team-row-desc">Each designer owns a product area end-to-end. Accountability creates confidence, not pressure.</div>
-        </div>
-        <div class="team-row">
-          <div class="team-row-label">T-shaped craft</div>
-          <div class="team-row-desc">Strong generalists with depth in one area — research, systems, interaction. I hire for range and grow for depth.</div>
-        </div>
-        <div class="team-row">
-          <div class="team-row-label">Embedded collaboration</div>
-          <div class="team-row-desc">Designers sit inside xfn pods (PM, Eng, QA) so context doesn't get lost in handoffs.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 7c: Hiring & onboarding -->
-    <div class="team-section">
-      <div class="team-section-head">
-        <div class="team-section-label">Hiring</div>
-        <div class="team-section-title">Finding & landing the right people</div>
-      </div>
-      <div class="team-rows">
-        <div class="team-row">
-          <div class="team-row-label">Making the case</div>
-          <div class="team-row-desc">Built the business case that secured new design headcount for AlloyDB. Framed it as a risk argument, not a resource ask.</div>
-        </div>
-        <div class="team-row">
-          <div class="team-row-label">Recruiting</div>
-          <div class="team-row-desc">Led full hiring process including job definition, portfolio review, and leveling calibration.</div>
-        </div>
-        <div class="team-row">
-          <div class="team-row-label">Onboarding</div>
-          <div class="team-row-desc">New designer contributed to live design work within the first 3 months of joining.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 7d: Growing people -->
-    <div class="team-section">
-      <div class="team-section-head">
-        <div class="team-section-label">Growth</div>
-        <div class="team-section-title">Developing people over time</div>
-      </div>
-      <div class="team-rows">
-        <div class="team-row">
-          <div class="team-row-label">Mentorship</div>
-          <div class="team-row-desc">1:1 coaching on craft, career trajectory, and navigating ambiguity inside large organizations.</div>
-        </div>
-        <div class="team-row">
-          <div class="team-row-label">Teaching</div>
-          <div class="team-row-desc">Adjunct professor at Pace University. Built curriculum from scratch. Brought the same rigor to students as to ICs.</div>
-        </div>
-        <div class="team-row">
-          <div class="team-row-label">Feedback culture</div>
-          <div class="team-row-desc">Ran design critiques that normalized honest, specific feedback — shifting culture from "looks good" to "here's what the data says."</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ── CONTACT ── -->
+<!-- ── 8. CONTACT ── -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner">
-      <div class="label" style="color:var(--accent);">Let's talk</div>
+      <div class="label">Let's talk</div>
       <h2>Good work starts with a conversation.</h2>
       <p class="contact-sub">
-        I'm currently open to senior design and design leadership roles — particularly in AI, consumer products, and creative tools. If the work is new and the team is curious, I'd love to hear from you.
+        I'm open to senior design and design leadership roles — particularly in AI, consumer products, and creative tools. If the work is new and the team is curious, I'd love to hear from you.
       </p>
       <a class="contact-email" href="mailto:rbenoit@">
         rbenoit@ <span>→</span>
