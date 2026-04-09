@@ -552,8 +552,7 @@ nav {
 
 .impact-inner { position: relative; z-index: 1; }
 
-.impact .label { margin-bottom: 48px; }
-.impact .label { color: var(--accent); }
+.impact .label { margin-bottom: 48px; color: var(--accent); }
 .impact .label::after { background: var(--accent); }
 
 .impact-grid {
@@ -636,8 +635,6 @@ nav {
   align-items: start;
 }
 
-.cs-left {}
-
 .cs-meta {
   display: flex;
   flex-direction: column;
@@ -691,8 +688,6 @@ nav {
   letter-spacing: 0.04em;
 }
 
-.cs-right {}
-
 .cs-hook {
   font-size: 17px;
   font-weight: 400;
@@ -725,8 +720,6 @@ nav {
   margin-bottom: 40px;
   flex-wrap: wrap;
 }
-
-.cs-metric {}
 
 .cs-metric-value {
   font-family: var(--font-d);
@@ -890,8 +883,7 @@ nav {
   max-width: 680px;
 }
 
-.contact .label { margin-bottom: 32px; }
-.contact .label { color: var(--accent); }
+.contact .label { margin-bottom: 32px; color: var(--accent); }
 .contact .label::after { background: var(--accent); }
 
 .contact h2 {
@@ -1284,7 +1276,7 @@ footer {
   .team-section-head { position: static; }
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .about-bio { padding-right: 0; }
-  .about-why { border-left: none; padding-left: 0; padding-top: 0; border-top: 1px solid var(--mid); padding-top: 56px; }
+  .about-why { border-left: none; padding-left: 0; border-top: 1px solid var(--mid); padding-top: 56px; }
   .value-item { grid-template-columns: 48px 1fr; gap: 24px; }
   .value-content { grid-template-columns: 1fr; gap: 16px; }
   .impact-grid { grid-template-columns: 1fr 1fr; }
@@ -1299,8 +1291,6 @@ footer {
   .impact-stat { padding-right: 20px; }
   .cs-metrics { gap: 24px; }
   .footer-nav { display: none; }
-  .org-grid { grid-template-columns: 1fr; }
-  .org-card.is-dark { min-height: 240px; }
 }
 
 /* ── text-wrap balance on headlines ── */
@@ -1366,7 +1356,7 @@ footer {
       <div class="hero-label fade-up">Portfolio · 2026</div>
       <h1 class="hero-name fade-up">Rey<br>Benoit.</h1>
       <p class="hero-statement fade-up">
-        I define the problem, prototype the solution, and lead teams to do the same — through craft, collaboration, and genuine service to the people using what we build.
+        I'm a design leader who builds things. I'm most energized where the technology is new, the team is curious, and the work expands what's possible.
       </p>
       <a class="hero-cta fade-up" href="#contact">
         Get in touch <span class="hero-cta-arrow">→</span>
@@ -1590,7 +1580,7 @@ footer {
               <div class="cs-metric-label">Fastest-growing DB on Cloud</div>
             </div>
           </div>
-          <a class="cs-link coming-soon" href="#">View Case Study →</a>
+          <span class="cs-link coming-soon" aria-disabled="true">View Case Study →</span>
           <div class="cs-image">
             <img src="https://picsum.photos/seed/alloydb-cloud-database/1200/525" alt="AlloyDB — UX process documentation and final interface designs" loading="lazy">
           </div>
@@ -1609,7 +1599,7 @@ footer {
   </div>
 </div>
 
-<section style="padding: 0;">
+<div>
 
   <!-- CS 3: Cloud SQL -->
   <div class="cs">
@@ -1640,7 +1630,7 @@ footer {
               <div class="cs-metric-label">New ARR generated</div>
             </div>
           </div>
-          <a class="cs-link coming-soon" href="#">View Case Study →</a>
+          <span class="cs-link coming-soon" aria-disabled="true">View Case Study →</span>
           <div class="cs-image">
             <img src="https://picsum.photos/seed/cloudsql-enterprise-ux/1200/525" alt="Cloud SQL — UX process and SQL Server launch design" loading="lazy">
           </div>
@@ -1679,7 +1669,7 @@ footer {
               <div class="cs-metric-label">Engagement</div>
             </div>
           </div>
-          <a class="cs-link coming-soon" href="#">View Case Study →</a>
+          <span class="cs-link coming-soon" aria-disabled="true">View Case Study →</span>
           <div class="cs-image">
             <img src="https://picsum.photos/seed/warner-music-data-platform/1200/525" alt="Warner Music Group — data analytics platform design across 100+ sources" loading="lazy">
           </div>
@@ -1688,7 +1678,7 @@ footer {
     </div>
   </div>
 
-</section>
+</div>
 
 <!-- Chapter Break: Beyond the product -->
 <div class="chapter-break">
