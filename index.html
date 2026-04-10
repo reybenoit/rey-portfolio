@@ -122,7 +122,8 @@ nav {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(247,246,242,0.07);
-  transition: border-color 0.3s;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-inner {
@@ -1103,6 +1104,17 @@ footer {
   .cap-metric { gap: 24px; }
 }
 
+/* ── Nav light state (post-hero) ── */
+nav.nav--light {
+  background: rgba(247,246,242,0.95);
+  border-bottom-color: var(--mid);
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+nav.nav--light .nav-logo { color: var(--text); }
+nav.nav--light .nav-links a { color: var(--mid-text); }
+
 </style>
 </head>
 <body>
@@ -1633,5 +1645,16 @@ footer {
   </div>
 </footer>
 
+<script>
+  const nav  = document.querySelector('nav');
+  const hero = document.querySelector('.hero');
+
+  const observer = new IntersectionObserver(
+    ([entry]) => nav.classList.toggle('nav--light', !entry.isIntersecting),
+    { threshold: 0, rootMargin: '-60px 0px 0px 0px' }
+  );
+
+  observer.observe(hero);
+</script>
 </body>
 </html>
