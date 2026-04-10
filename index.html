@@ -178,31 +178,16 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  background: var(--bg-dark);
   min-height: 100dvh;
   position: relative;
   overflow: hidden;
+  background:
+    linear-gradient(to right, rgba(26,26,46,0.90) 0%, rgba(26,26,46,0.55) 55%, rgba(26,26,46,0.40) 100%),
+    url('assets/hero-bg.jpg') center / cover no-repeat,
+    var(--bg-dark);
 }
 
-/* Background photo */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('assets/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.18;
-  pointer-events: none;
-}
-
-/* Directional fade — keeps left text legible, lets right breathe */
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(26,26,46,0.85) 30%, rgba(26,26,46,0.15) 100%);
-}
-
+/* Grid texture */
 .hero::before {
   content: '';
   position: absolute;
@@ -215,6 +200,7 @@ nav {
   z-index: 1;
 }
 
+/* Ambient blue glow */
 .hero::after {
   content: '';
   position: absolute;
@@ -222,7 +208,7 @@ nav {
   left: 0;
   width: 60%;
   height: 60%;
-  background: radial-gradient(ellipse at bottom left, rgba(58,107,196,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at bottom left, rgba(58,107,196,0.10) 0%, transparent 70%);
   pointer-events: none;
   z-index: 1;
 }
@@ -1137,7 +1123,6 @@ footer {
 
 <!-- ── 1. HERO ── -->
 <section class="hero" id="home">
-  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-ghost" aria-hidden="true">RB</div>
 
   <div class="hero-grid">
