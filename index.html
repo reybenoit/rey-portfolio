@@ -479,30 +479,37 @@ nav {
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid rgba(247,246,242,0.1);
+  gap: 1px;
+  background: rgba(247,246,242,0.08);
 }
 
 .impact-stat {
-  padding: 48px 48px 0 0;
-  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--bg-dark);
+  padding: 40px 32px;
+  transition: background 0.3s;
 }
 
-.impact-stat:not(:first-child) {
-  padding-left: 48px;
-  padding-right: 0;
-  border-left: 1px solid rgba(247,246,242,0.07);
-}
+.impact-stat:hover { background: rgba(58,107,196,0.08); }
 
-.impact-stat:hover { opacity: 0.6; }
+.impact-source {
+  display: block;
+  font-family: var(--font-d);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.18);
+  margin-bottom: 10px;
+}
 
 .impact-value {
   font-family: var(--font-d);
-  font-size: clamp(24px, 2.6vw, 38px);
+  font-size: clamp(22px, 2.5vw, 32px);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--text-light);
-  line-height: 1.05;
-  margin-bottom: 12px;
+  line-height: 1.1;
+  margin-bottom: 10px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1081,9 +1088,7 @@ footer {
   .who-grid { grid-template-columns: 1fr; gap: 48px; }
   .who-portrait { aspect-ratio: 4 / 3; max-width: 100%; }
 
-  .impact-grid { grid-template-columns: 1fr 1fr; }
-  .impact-stat:not(:first-child) { padding-left: 24px; }
-  .impact-stat { padding-right: 24px; }
+  .impact-grid { grid-template-columns: repeat(2, 1fr); }
 
   .cap-panel { grid-template-columns: 1fr; min-height: auto; }
   .cap-panel:nth-child(even) .cap-image { order: -1; }
@@ -1097,9 +1102,7 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .impact-grid { grid-template-columns: 1fr 1fr; }
-  .impact-stat:not(:first-child) { padding-left: 16px; }
-  .impact-stat { padding-right: 16px; }
+  .impact-grid { grid-template-columns: 1fr; }
   .cs-metrics { gap: 24px; }
   .footer-nav { display: none; }
   .cap-metric { gap: 24px; }
@@ -1224,28 +1227,33 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
     <div class="impact-grid">
 
       <div class="impact-stat">
-        <div class="impact-value">1.4<em>M</em></div>
-        <div class="impact-context">Downloads · Webby Award winner · Taco Bell</div>
+        <span class="impact-source">AlloyDB</span>
+        <div class="impact-value">0 <em>→</em> 1</div>
+        <div class="impact-context">Launched the fastest-growing database on Google Cloud</div>
       </div>
 
       <div class="impact-stat">
-        <div class="impact-value">Fastest<em>-</em>growing</div>
-        <div class="impact-context">Database on Google Cloud · AlloyDB</div>
+        <span class="impact-source">AlloyDB Omni</span>
+        <div class="impact-value">40<em>K</em></div>
+        <div class="impact-context">vCPUs · Walmart's first purchase</div>
       </div>
 
       <div class="impact-stat">
-        <div class="impact-value">80<em>+</em></div>
-        <div class="impact-context">Features launched over 4 years · Cloud SQL</div>
+        <span class="impact-source">Taco Bell</span>
+        <div class="impact-value">300<em>K</em></div>
+        <div class="impact-context">Downloads in 48 hours</div>
       </div>
 
       <div class="impact-stat">
-        <div class="impact-value">9 <em>mo</em></div>
-        <div class="impact-context">Zero to v1 shipped · AlloyDB</div>
+        <span class="impact-source">Taco Bell</span>
+        <div class="impact-value">$500<em>K</em></div>
+        <div class="impact-context">Sales increase · week 1</div>
       </div>
 
       <div class="impact-stat">
-        <div class="impact-value">Weeks <em>→</em> Min</div>
-        <div class="impact-context">Time to first demo track · HEARD</div>
+        <span class="impact-source">Realtor.com</span>
+        <div class="impact-value">116<em>K</em></div>
+        <div class="impact-context">New users · 23% conversion rate</div>
       </div>
 
     </div>
