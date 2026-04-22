@@ -478,7 +478,7 @@ nav {
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1px;
   background: rgba(247,246,242,0.08);
 }
@@ -1229,10 +1229,16 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 
       <div class="impact-stat">
         <span class="impact-source">AlloyDB</span>
-        <div class="impact-value">Zero <em>→</em> One</div>
+        <div class="impact-value">Zero <em>/</em> One</div>
         <div class="impact-context">From concept to Google Cloud's fastest-growing database in under 2 years.</div>
       </div>
-
+      
+      <div class="impact-stat">
+        <span class="impact-source">Cloud SQL</span>
+        <div class="impact-value">4X Growth</div>
+        <div class="impact-context">Product revenue growth under 4 years of design leadership</div>
+      </div>
+      
       <div class="impact-stat">
         <span class="impact-source">Taco Bell</span>
         <div class="impact-value">300<em>K</em> / 48 hrs</div>
@@ -1247,7 +1253,7 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 
       <div class="impact-stat">
         <span class="impact-source">HEARD</span>
-        <div class="impact-value">Weeks <em>→</em> Minutes</div>
+        <div class="impact-value">Weeks <em>/</em> Mins</div>
         <div class="impact-context">Vibe-coded and AI-powered. Lyrics to demo track in minutes.</div>
       </div>
 
@@ -1260,50 +1266,54 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
   <div class="container">
     <div class="cap-header">
       <div class="label">How I work</div>
-      <h2>Three ways of working.<br>One through-line.</h2>
+      <h2>Build systems. Ship product. Grow people.</h2>
     </div>
   </div>
 
   <!-- Panel A: Designing for Scale -->
   <div class="cap-panel">
     <div class="cap-image">
-      <img src="https://picsum.photos/seed/design-systems-whiteboard-planning/1200/900" alt="Designing for scale — systems and process artifacts" loading="lazy">
+      <img src="assets/bridge.jpg" alt="Designing for scale — systems and process artifacts" loading="lazy">
       <div class="cap-image-overlay"></div>
     </div>
     <div class="cap-content">
       <div class="cap-num">01</div>
       <div class="cap-title">Designing for Scale</div>
       <div class="cap-body">
-        <p>The hardest design problems aren't the ones in front of users. They're the ones inside the org — duplicated work, conflicting patterns, decisions made without design at the table.</p>
-        <p>At Google Cloud, I managed design across 4 global locations, supporting 10 PMs and 12 engineers. I built the systems that let designers focus on problems instead of process — templates, workflows, design studios, office hours, a quantitative UI prioritization model.</p>
-        <p>I mandated that AlloyDB and Cloud SQL be designed concurrently wherever possible. That single call eliminated redundant work across 10+ features and accelerated time-to-market for GCBDR, Final Backups, PITR, and more. Good systems design is invisible — you see it in what doesn't break.</p>
+        <p>Some of the hardest design problems are the ones inside the org — duplicated work, conflicting patterns, decisions made without design at the table.</p>
+        <p>At Google Cloud, I managed design across 3 global regions, supporting 10 PMs and 200+ engineers with a team of 4 designers. I built the systems that let designers focus on problems instead of process — templates, workflows, design studios, office hours. The most distinctive of those was a quantitative UI prioritization model that turned subjective design debt into a ranked backlog.</p>
+        <p>Good systems design is invisible. You see it in what doesn't break. And what it produced: AlloyDB, 80+ features launched in Cloud SQL, and a design function that scaled to meet all of it — over 4 years.</p>
       </div>
       <div class="cap-metric">
         <div class="cap-metric-item">
-          <div class="cap-metric-value">4</div>
-          <div class="cap-metric-label">Global locations</div>
+          <div class="cap-metric-value">80<em>+</em></div>
+          <div class="cap-metric-label">Features launched</div>
         </div>
         <div class="cap-metric-item">
-          <div class="cap-metric-value">10<em>+</em></div>
-          <div class="cap-metric-label">Features deduped</div>
+          <div class="cap-metric-value">3</div>
+          <div class="cap-metric-label">Global regions</div>
+        </div>
+        <div class="cap-metric-item">
+          <div class="cap-metric-value">4</div>
+          <div class="cap-metric-label">Years</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Panel B: Shipping -->
+  <!-- Panel B: Deliberate Motion -->
   <div class="cap-panel">
     <div class="cap-image">
-      <img src="https://picsum.photos/seed/product-interface-laptop-screens/1200/900" alt="Shipping — final product screens and interfaces" loading="lazy">
+      <img src="assets/bullet-train.jpg" alt="Deliberate Motion — velocity through craft" loading="lazy">
       <div class="cap-image-overlay"></div>
     </div>
     <div class="cap-content">
       <div class="cap-num">02</div>
-      <div class="cap-title">Shipping</div>
+      <div class="cap-title">Deliberate Motion</div>
       <div class="cap-body">
-        <p>I believe in moving. Not rushing — moving. There's a difference between velocity that creates debt and velocity that creates momentum.</p>
-        <p>I've shipped a new database product in 9 months. I've turned around a Cloud Next launch in two weeks. I've built and deployed HEARD in the time most teams spend in kickoff.</p>
-        <p>None of those happened by accident. They happened because scope was controlled, decisions were made early, and the team knew what done looked like.</p>
+        <p>Slow is smooth. Smooth is fast. I've never been interested in velocity for its own sake. I'm interested in what makes velocity possible: craft.</p>
+        <p>Knowing the problem well enough to make the right call early. Respecting the work enough not to cut corners that will cost you later. Building fluency—through years of repetition, feedback, and iteration—that makes good decisions stop feeling slow.</p>
+        <p>That's how a new database product ships in 9 months. That's how a Cloud Next launch turns around in two weeks. That's how HEARD goes from idea to deployed product by a single builder in less than 200 hours.</p>
       </div>
       <div class="cap-metric">
         <div class="cap-metric-item">
@@ -1313,6 +1323,10 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
         <div class="cap-metric-item">
           <div class="cap-metric-value">2 <em>wk</em></div>
           <div class="cap-metric-label">Cloud Next launch turnaround</div>
+        </div>
+        <div class="cap-metric-item">
+          <div class="cap-metric-value">200 <em>hr</em></div>
+          <div class="cap-metric-label">HEARD, idea to deployed</div>
         </div>
       </div>
     </div>
