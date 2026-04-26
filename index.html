@@ -530,7 +530,6 @@ nav {
 
 /* ── HOW I WORK (CAPABILITY PANELS) ── */
 .capability {
-  border-bottom: 1px solid var(--mid);
 }
 
 .cap-header {
@@ -550,13 +549,15 @@ nav {
 }
 
 .cap-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 640px;
-  border-bottom: 1px solid var(--mid);
+  padding: 80px 0;
 }
 
-.cap-panel:last-child { border-bottom: none; }
+.cap-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
 
 /* Even panels: image moves to right */
 .cap-panel:nth-child(even) .cap-image { order: 2; }
@@ -566,6 +567,9 @@ nav {
   position: relative;
   overflow: hidden;
   background: var(--mid);
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(26,26,46,0.15);
 }
 
 .cap-image img {
@@ -573,26 +577,13 @@ nav {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.cap-panel:hover .cap-image img {
-  transform: scale(1.04);
-}
-
-.cap-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(26,26,46,0.2) 0%, transparent 60%);
-  pointer-events: none;
-}
 
 .cap-content {
-  padding: 72px 80px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: var(--bg);
+  justify-content: flex-start;
 }
 
 .cap-num {
@@ -602,19 +593,10 @@ nav {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--mid-text);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.cap-num::after {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--mid-text);
-  opacity: 0.4;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--mid);
+  width: 100%;
 }
 
 .cap-title {
@@ -650,9 +632,9 @@ nav {
   margin-top: 36px;
   padding-top: 28px;
   border-top: 1px solid var(--mid);
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 24px;
 }
 
 .cap-metric-value {
@@ -1090,11 +1072,10 @@ footer {
 
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .cap-panel { grid-template-columns: 1fr; min-height: auto; }
+  .cap-panel { padding: 48px 0; }
+  .cap-panel-grid { grid-template-columns: 1fr; gap: 40px; }
   .cap-panel:nth-child(even) .cap-image { order: -1; }
   .cap-panel:nth-child(even) .cap-content { order: 2; }
-  .cap-image { min-height: 320px; }
-  .cap-content { padding: 48px 32px; }
   .cap-title { display: block; }
 
   .cs-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -1272,30 +1253,33 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 
   <!-- Panel A: Designing for Scale -->
   <div class="cap-panel">
-    <div class="cap-image">
-      <img src="assets/bridge.jpg" alt="Designing for scale — systems and process artifacts" loading="lazy">
-      <div class="cap-image-overlay"></div>
-    </div>
-    <div class="cap-content">
-      <div class="cap-num">01</div>
-      <div class="cap-title">Designing for Scale</div>
-      <div class="cap-body">
-        <p>Some of the hardest design problems are the ones inside the org — duplicated work, conflicting patterns, decisions made without design at the table.</p>
-        <p>At Google Cloud, I managed design across 3 global regions, supporting 10 PMs and 200+ engineers with a team of 4 designers. I built the systems that let designers focus on problems instead of process — templates, workflows, design studios, office hours. The most distinctive of those was a quantitative UI prioritization model that turned subjective design debt into a ranked backlog.</p>
-        <p>Good systems design is invisible. You see it in what doesn't break. And what it produced: AlloyDB, 80+ features launched in Cloud SQL, and a design function that scaled to meet all of it — over 4 years.</p>
-      </div>
-      <div class="cap-metric">
-        <div class="cap-metric-item">
-          <div class="cap-metric-value">3</div>
-          <div class="cap-metric-label">Global regions</div>
+    <div class="container">
+      <div class="cap-panel-grid">
+        <div class="cap-image">
+          <img src="assets/bridge.jpg" alt="Designing for scale — systems and process artifacts" loading="lazy">
         </div>
-        <div class="cap-metric-item">
-          <div class="cap-metric-value">200<em>+</em></div>
-          <div class="cap-metric-label">Supported engineers</div>
-        </div>
-        <div class="cap-metric-item">
-          <div class="cap-metric-value">3</div>
-          <div class="cap-metric-label">Products managed</div>
+        <div class="cap-content">
+          <div class="cap-num">01</div>
+          <div class="cap-title">Designing for Scale</div>
+          <div class="cap-body">
+            <p>Some of the hardest design problems are the ones inside the org — duplicated work, conflicting patterns, decisions made without design at the table.</p>
+            <p>At Google Cloud, I managed design across 3 global regions, supporting 10 PMs and 200+ engineers with a team of 4 designers. I built the systems that let designers focus on problems instead of process — templates, workflows, design studios, office hours. The most distinctive of those was a quantitative UI prioritization model that turned subjective design debt into a ranked backlog.</p>
+            <p>Good systems design is invisible. You see it in what doesn't break. And what it produced: AlloyDB, 80+ features launched in Cloud SQL, and a design function that scaled to meet all of it — over 4 years.</p>
+          </div>
+          <div class="cap-metric">
+            <div class="cap-metric-item">
+              <div class="cap-metric-value">3</div>
+              <div class="cap-metric-label">Global regions</div>
+            </div>
+            <div class="cap-metric-item">
+              <div class="cap-metric-value">200<em>+</em></div>
+              <div class="cap-metric-label">Supported engineers</div>
+            </div>
+            <div class="cap-metric-item">
+              <div class="cap-metric-value">3</div>
+              <div class="cap-metric-label">Products managed</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1303,26 +1287,29 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 
   <!-- Panel B: Deliberate Motion -->
   <div class="cap-panel">
-    <div class="cap-image">
-      <img src="assets/bullet-train.jpg" alt="Deliberate Motion — velocity through craft" loading="lazy">
-      <div class="cap-image-overlay"></div>
-    </div>
-    <div class="cap-content">
-      <div class="cap-num">02</div>
-      <div class="cap-title">Shipping the Product</div>
-      <div class="cap-body">
-        <p>Slow is smooth. Smooth is fast. I've never been interested in velocity for its own sake. I'm interested in what makes velocity possible: craft.</p>
-        <p>Knowing the problem well enough to make the right call early. Respecting the work enough not to cut corners that will cost you later. Building fluency—through years of repetition, feedback, and iteration—that makes good decisions stop feeling slow.</p>
-        <p>That's how a new database product ships in 9 months. That's how a Cloud Next launch turns around in two weeks. That's how HEARD goes from idea to deployed product by a single builder in less than 200 hours.</p>
-      </div>
-      <div class="cap-metric">
-        <div class="cap-metric-item">
-          <div class="cap-metric-value">80<em>+</em></div>
-          <div class="cap-metric-label">Features, 4 years</div>
+    <div class="container">
+      <div class="cap-panel-grid">
+        <div class="cap-image">
+          <img src="assets/bullet-train.jpg" alt="Deliberate Motion — velocity through craft" loading="lazy">
         </div>
-        <div class="cap-metric-item">
-          <div class="cap-metric-value">9 <em>mo</em></div>
-          <div class="cap-metric-label">Zero to v1, AlloyDB</div>
+        <div class="cap-content">
+          <div class="cap-num">02</div>
+          <div class="cap-title">Shipping the Product</div>
+          <div class="cap-body">
+            <p>Slow is smooth. Smooth is fast. I've never been interested in velocity for its own sake. I'm interested in what makes velocity possible: craft.</p>
+            <p>Knowing the problem well enough to make the right call early. Respecting the work enough not to cut corners that will cost you later. Building fluency—through years of repetition, feedback, and iteration—that makes good decisions stop feeling slow.</p>
+            <p>That's how a new database product ships in 9 months. That's how a Cloud Next launch turns around in two weeks. That's how HEARD goes from idea to deployed product by a single builder in less than 200 hours.</p>
+          </div>
+          <div class="cap-metric">
+            <div class="cap-metric-item">
+              <div class="cap-metric-value">80<em>+</em></div>
+              <div class="cap-metric-label">Features, 4 years</div>
+            </div>
+            <div class="cap-metric-item">
+              <div class="cap-metric-value">9 <em>mo</em></div>
+              <div class="cap-metric-label">Zero to v1, AlloyDB</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1330,26 +1317,29 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 
   <!-- Panel C: Building the Team -->
   <div class="cap-panel">
-    <div class="cap-image">
-      <img src="assets/jazz-band.jpg" alt="Building the team — collaboration and mentorship" loading="lazy">
-      <div class="cap-image-overlay"></div>
-    </div>
-    <div class="cap-content">
-      <div class="cap-num">03</div>
-      <div class="cap-title">Building the Team</div>
-      <div class="cap-body">
-        <p>Building a team is about creating the conditions where people do the best work of their lives. That starts with the individual's motivation. When you understand what each person finds meaningful, you can frame the work that aligns business goals, user needs, and personal investment at the same time.</p>
-        <p>Every project is a chance to get sharper. I run my teams with an eye toward mastery: skills get refined, instincts get calibrated, the craft ceiling gets raised for everyone.</p>
-        <p>But none of that holds without the glue. The standups, crits, 1-1s — I design those experiences so they feel less like overhead and more like fellowship. The teams that survive a crisis are the ones who spend ordinary hours getting to know each other.</p>
-      </div>
-      <div class="cap-metric">
-        <div class="cap-metric-item">
-          <div class="cap-metric-value">3</div>
-          <div class="cap-metric-label">Designers promoted</div>
+    <div class="container">
+      <div class="cap-panel-grid">
+        <div class="cap-image">
+          <img src="assets/jazz-band.jpg" alt="Building the team — collaboration and mentorship" loading="lazy">
         </div>
-        <div class="cap-metric-item">
-          <div class="cap-metric-value">4</div>
-          <div class="cap-metric-label">Team members</div>
+        <div class="cap-content">
+          <div class="cap-num">03</div>
+          <div class="cap-title">Building the Team</div>
+          <div class="cap-body">
+            <p>Building a team is about creating the conditions where people do the best work of their lives. That starts with the individual's motivation. When you understand what each person finds meaningful, you can frame the work that aligns business goals, user needs, and personal investment at the same time.</p>
+            <p>Every project is a chance to get sharper. I run my teams with an eye toward mastery: skills get refined, instincts get calibrated, the craft ceiling gets raised for everyone.</p>
+            <p>But none of that holds without the glue. The standups, crits, 1-1s — I design those experiences so they feel less like overhead and more like fellowship. The teams that survive a crisis are the ones who spend ordinary hours getting to know each other.</p>
+          </div>
+          <div class="cap-metric">
+            <div class="cap-metric-item">
+              <div class="cap-metric-value">3</div>
+              <div class="cap-metric-label">Designers promoted</div>
+            </div>
+            <div class="cap-metric-item">
+              <div class="cap-metric-value">4</div>
+              <div class="cap-metric-label">Team members</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
