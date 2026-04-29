@@ -9,6 +9,7 @@
 <meta property="og:description" content="17 years of design across music, enterprise, and AI. Google Cloud, Warner Music, HEARD.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <style>
 
 /* ── Reset & Root ── */
@@ -681,7 +682,7 @@ nav {
 }
 
 .cs {
-  border-top: 3px solid var(--accent);
+  border-top: 1px solid var(--mid);
   padding: 64px 0;
   border-bottom: 1px solid var(--mid);
   transition: background 0.3s;
@@ -852,23 +853,39 @@ nav {
 /* ── NOTABLE CLIENTS ── */
 .clients {
   padding: 88px 0;
-  border-bottom: 1px solid var(--mid);
+  background: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
 }
 
-.clients .label { margin-bottom: 36px; }
+.clients::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.clients .container { position: relative; z-index: 1; }
+
+.clients .label { margin-bottom: 36px; color: var(--accent); }
+.clients .label::after { background: var(--accent); }
 
 .clients-names {
   font-family: var(--font-d);
   font-size: clamp(16px, 1.8vw, 22px);
   font-weight: 400;
-  color: var(--mid-text);
+  color: rgba(247,246,242,0.6);
   line-height: 2.2;
   letter-spacing: 0.01em;
   max-width: 800px;
 }
 
 .clients-names span {
-  color: var(--mid);
+  color: rgba(247,246,242,0.2);
   margin: 0 8px;
   font-weight: 300;
 }
