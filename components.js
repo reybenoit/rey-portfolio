@@ -66,14 +66,14 @@
     '</div>';
   document.body.appendChild(pwDiv);
 
-  if (sessionStorage.getItem('pw_ok') === '1') {
+  if (localStorage.getItem('pw_ok') === '1') {
     pwDiv.style.display = 'none';
   }
 
   window.checkPw = function () {
     var val = document.getElementById('pw-input').value;
     if (val === 'portfolio2026') {
-      sessionStorage.setItem('pw_ok', '1');
+      localStorage.setItem('pw_ok', '1');
       document.getElementById('pw-overlay').style.display = 'none';
     } else {
       var err = document.getElementById('pw-error');
