@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEARD — Rey Benoit</title>
-<meta name="description" content="HEARD case study — An AI music generator that turns weeks of production into minutes, built by a lyricist who couldn't hear his own songs.">
+<meta name="description" content="HEARD case study — An AI music generator built by a lyricist who couldn't hear his own songs. One real problem. One shipped product.">
 <meta property="og:title" content="HEARD — Rey Benoit">
 <meta property="og:description" content="AI music generator for creators who write but don't produce.">
 <meta property="og:type" content="website">
@@ -81,7 +81,7 @@ body {
   opacity: 0.5;
 }
 
-/* ── NAV (components.js applies state classes) ── */
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -104,14 +104,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-.nav-logo {
-  font-family: var(--font-d);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-light);
-  text-decoration: none;
-}
+.nav-logo { font-family: var(--font-d); font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); text-decoration: none; }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a {
   font-family: var(--font-d);
@@ -124,62 +117,29 @@ nav {
   position: relative;
   transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 1px;
-  background: var(--accent);
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 .nav-links a:hover { color: var(--accent); }
 .nav-links a:hover::after { width: 100%; }
-nav.nav--scrolled {
-  background: rgba(26,26,46,0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom-color: rgba(247,246,242,0.07);
-}
-nav.nav--light {
-  background: rgba(247,246,242,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom-color: var(--mid);
-}
+nav.nav--scrolled { background: rgba(26,26,46,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom-color: rgba(247,246,242,0.07); }
+nav.nav--light { background: rgba(247,246,242,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom-color: var(--mid); }
 nav.nav--light .nav-logo { color: var(--text); }
 nav.nav--light .nav-links a { color: var(--mid-text); }
 
-/* ── FOOTER (components.js injects HTML) ── */
-footer {
-  background: var(--bg-dark);
-  border-top: 1px solid rgba(247,246,242,0.07);
-  padding: 32px 0;
-}
+/* ── FOOTER ── */
+footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07); padding: 32px 0; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .footer-name { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
 .footer-nav { display: flex; gap: 28px; list-style: none; }
-.footer-nav a {
-  font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(247,246,242,0.28);
-  text-decoration: none;
-  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
+.footer-nav a { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,246,242,0.28); text-decoration: none; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
 .footer-nav a:hover { color: rgba(247,246,242,0.7); }
 .footer-right { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,246,242,0.25); }
 
-/* ── Load animations (case header) ── */
+/* ── Load animations ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.fade-up {
-  opacity: 0;
-  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+.fade-up { opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .fade-up:nth-child(1) { animation-delay: 0.1s; }
 .fade-up:nth-child(2) { animation-delay: 0.22s; }
 .fade-up:nth-child(3) { animation-delay: 0.36s; }
@@ -187,48 +147,31 @@ footer {
 .fade-up:nth-child(5) { animation-delay: 0.64s; }
 
 /* ── Scroll reveal ── */
-[data-fade] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
+[data-fade] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
 [data-fade].is-visible { opacity: 1; transform: none; }
 [data-fade][data-delay="1"] { transition-delay: 0.1s; }
 [data-fade][data-delay="2"] { transition-delay: 0.22s; }
 [data-fade][data-delay="3"] { transition-delay: 0.36s; }
 [data-fade][data-delay="4"] { transition-delay: 0.5s; }
 
-/* ── Shared case study elements ── */
-.cs-tag {
-  font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 3px 10px;
-  border-radius: 3px;
-  opacity: 0.8;
-}
+/* ── Shared ── */
+.cs-tag { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 3px 10px; border-radius: 3px; opacity: 0.8; }
 .cs-tag-dark { color: rgba(247,246,242,0.5); border-color: rgba(247,246,242,0.15); }
-.cs-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(58,107,196,0.3);
-  padding-bottom: 3px;
-  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
+.cs-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(58,107,196,0.3); padding-bottom: 3px; transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
 .cs-link:hover { border-color: var(--accent); gap: 16px; }
 .cs-link:active { transform: scale(0.97); }
+
+/* dark-bg grid texture (reusable pattern) */
+.dark-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
 
 /* ── 1. CASE HEADER ── */
 .cs-header {
@@ -251,200 +194,40 @@ footer {
   pointer-events: none;
   z-index: 1;
 }
-.cs-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 60%; height: 55%;
-  background: radial-gradient(ellipse at bottom left, rgba(58,107,196,0.12) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 1;
-}
-.cs-header-ghost {
-  position: absolute;
-  bottom: -32px; right: -8px;
-  z-index: 1;
-  font-family: var(--font-d);
-  font-size: clamp(160px, 22vw, 320px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  color: rgba(58,107,196,0.05);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-.cs-header-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-.cs-header-grid {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 80px;
-  align-items: end;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 80px var(--pad) 88px;
-}
-.cs-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(247,246,242,0.35);
-  text-decoration: none;
-  margin-bottom: 48px;
-  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
+.cs-header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60%; height: 55%; background: radial-gradient(ellipse at bottom left, rgba(58,107,196,0.12) 0%, transparent 70%); pointer-events: none; z-index: 1; }
+.cs-header-ghost { position: absolute; bottom: -32px; right: -8px; z-index: 1; font-family: var(--font-d); font-size: clamp(160px, 22vw, 320px); font-weight: 900; letter-spacing: -0.04em; color: rgba(58,107,196,0.05); line-height: 1; pointer-events: none; user-select: none; }
+.cs-header-inner { position: relative; z-index: 2; width: 100%; }
+.cs-header-grid { display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: end; max-width: var(--max); margin: 0 auto; padding: 80px var(--pad) 88px; }
+.cs-back { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247,246,242,0.35); text-decoration: none; margin-bottom: 48px; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
 .cs-back:hover { color: rgba(247,246,242,0.7); gap: 14px; }
 .cs-header-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
-.cs-header-title {
-  font-family: var(--font-d);
-  font-size: clamp(72px, 10vw, 132px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  color: var(--text-light);
-  margin-bottom: 28px;
-}
-.cs-header-summary {
-  font-family: var(--font-d);
-  font-size: clamp(16px, 1.5vw, 20px);
-  font-weight: 400;
-  color: rgba(247,246,242,0.48);
-  line-height: 1.6;
-  max-width: 500px;
-}
-.cs-header-meta {
-  border-left: 1px solid rgba(247,246,242,0.07);
-  padding-left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-}
-.cs-meta-label {
-  font-family: var(--font-d);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(247,246,242,0.28);
-  margin-bottom: 6px;
-}
-.cs-meta-value {
-  font-family: var(--font-d);
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(247,246,242,0.68);
-  line-height: 1.6;
-}
+.cs-header-title { font-family: var(--font-d); font-size: clamp(72px, 10vw, 132px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.9; color: var(--text-light); margin-bottom: 28px; }
+.cs-header-summary { font-family: var(--font-d); font-size: clamp(16px, 1.5vw, 20px); font-weight: 400; color: rgba(247,246,242,0.48); line-height: 1.6; max-width: 500px; }
+.cs-header-meta { border-left: 1px solid rgba(247,246,242,0.07); padding-left: 40px; display: flex; flex-direction: column; gap: 36px; }
+.cs-meta-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.28); margin-bottom: 6px; }
+.cs-meta-value { font-family: var(--font-d); font-size: 14px; font-weight: 500; color: rgba(247,246,242,0.68); line-height: 1.6; }
 
-/* ── 2. THE PROBLEM ── */
-.problem {
-  padding: 120px 0 100px;
-  border-bottom: 1px solid var(--mid);
-}
-.problem .label { margin-bottom: 48px; }
-.problem-quote {
-  font-family: var(--font-d);
-  font-size: clamp(30px, 3.8vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.06;
-  color: var(--text);
-  text-wrap: balance;
-  margin-bottom: 72px;
-  max-width: 800px;
-}
-.problem-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 80px;
-  align-items: start;
-}
-.problem-body p {
-  font-size: clamp(15px, 1.3vw, 17px);
-  font-weight: 400;
-  color: var(--mid-text);
-  line-height: 1.85;
-}
-.problem-body p + p { margin-top: 20px; }
-.problem-placeholder {
-  aspect-ratio: 16/9;
+/* ── 2. THE BRIEF ── */
+.brief { padding: 120px 0 0; border-bottom: 1px solid var(--mid); }
+.brief .label { margin-bottom: 56px; }
+.brief-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; margin-bottom: 80px; align-items: start; }
+.brief-intro p { font-size: clamp(15px, 1.4vw, 17px); font-weight: 400; color: var(--mid-text); line-height: 1.85; }
+.brief-intro p + p { margin-top: 20px; }
+.brief-intro strong { color: var(--text); font-weight: 600; }
+.brief-stats { }
+.brief-stat { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--mid); }
+.brief-stat-total { border-top: 2px solid var(--text); margin-top: -1px; }
+.brief-stat-num { font-family: var(--font-d); font-size: clamp(22px, 2.2vw, 30px); font-weight: 800; letter-spacing: -0.03em; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1; }
+.brief-stat-total .brief-stat-num { color: var(--accent); }
+.brief-stat-label { font-family: var(--font-d); font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.brief-stat-desc { font-size: 12px; color: var(--mid-text); line-height: 1.5; }
+.brief-questions {
   background: var(--bg-dark);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-}
-.problem-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 70% 30%, rgba(58,107,196,0.14) 0%, transparent 60%),
-    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
-  background-size: auto, 32px 32px, 32px 32px;
-}
-.problem-placeholder::after {
-  content: 'HEARD';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-d);
-  font-size: clamp(48px, 7vw, 88px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  color: rgba(58,107,196,0.09);
-  pointer-events: none;
-}
-
-/* ── 3. MY ROLE ── */
-.role {
-  padding: 100px 0;
-  border-bottom: 1px solid var(--mid);
-}
-.role .label { margin-bottom: 56px; }
-.role-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-.role-item { padding: 0 40px; border-left: 1px solid var(--mid); }
-.role-item:first-child { padding-left: 0; border-left: none; }
-.role-number {
-  font-family: var(--font-d);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  opacity: 0.55;
-  margin-bottom: 16px;
-}
-.role-title {
-  font-family: var(--font-d);
-  font-size: clamp(18px, 1.7vw, 22px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-.role-desc {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--mid-text);
-  line-height: 1.75;
-}
-
-/* ── 4. THE INSIGHT ── */
-.insight {
-  background: var(--bg-dark);
-  padding: 120px 0;
+  padding: 64px var(--pad);
   position: relative;
   overflow: hidden;
 }
-.insight::before {
+.brief-questions::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -454,93 +237,118 @@ footer {
   background-size: 64px 64px;
   pointer-events: none;
 }
-.insight-inner { position: relative; z-index: 1; }
-.insight .label { margin-bottom: 56px; }
-.insight-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.insight-statement {
-  border-left: 3px solid var(--accent);
-  padding-left: 32px;
-}
-.insight-quote {
-  font-family: var(--font-d);
-  font-size: clamp(22px, 2.6vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--text-light);
-  text-wrap: balance;
-}
-.insight-body p {
-  font-size: clamp(15px, 1.3vw, 17px);
-  font-weight: 400;
-  color: rgba(247,246,242,0.52);
-  line-height: 1.85;
-}
-.insight-body p + p { margin-top: 20px; }
+.brief-questions-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.brief-question { font-family: var(--font-d); font-size: clamp(18px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; color: rgba(247,246,242,0.45); text-wrap: balance; border-left: 2px solid rgba(58,107,196,0.4); padding-left: 24px; }
+.brief-question em { color: var(--text-light); font-style: normal; }
 
-/* ── 5. THE DECISION ── */
-.decision {
+/* ── 3. PROOF OF CONCEPT ── */
+.poc {
+  background: var(--bg-dark);
   padding: 120px 0;
-  border-bottom: 1px solid var(--mid);
+  position: relative;
+  overflow: hidden;
 }
-.decision .label { margin-bottom: 24px; }
-.decision-headline {
-  font-family: var(--font-d);
-  font-size: clamp(30px, 3.8vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--text);
-  text-wrap: balance;
-  margin-bottom: 64px;
+.poc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
 }
-.decision-grid {
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  gap: 0 60px;
-  margin-bottom: 56px;
-}
-.decision-divider { background: var(--mid); }
-.decision-col-label {
-  font-family: var(--font-d);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--mid-text);
-  margin-bottom: 16px;
-}
-.decision-col-title {
-  font-family: var(--font-d);
-  font-size: clamp(20px, 2vw, 28px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 16px;
-}
-.decision-col p {
-  font-size: clamp(15px, 1.3vw, 17px);
-  font-weight: 400;
-  color: var(--mid-text);
-  line-height: 1.8;
-}
-.decision-closer {
-  font-family: var(--font-d);
-  font-size: clamp(16px, 1.6vw, 22px);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--mid-text);
-  border-top: 1px solid var(--mid);
-  padding-top: 32px;
-}
-.decision-closer em { color: var(--text); font-style: normal; }
+.poc-inner { position: relative; z-index: 1; }
+.poc .label { margin-bottom: 56px; }
+.poc-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
+.poc-pivot-title { font-family: var(--font-d); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); margin-bottom: 20px; }
+.poc-pivot-body p { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
+.poc-pivot-body p + p { margin-top: 16px; }
+.poc-ab { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; }
+.poc-ab-item { padding: 20px 24px; border: 1px solid rgba(247,246,242,0.08); }
+.poc-ab-item + .poc-ab-item { border-left: none; }
+.poc-ab-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,246,242,0.28); margin-bottom: 8px; }
+.poc-ab-verdict { font-family: var(--font-d); font-size: 14px; font-weight: 500; color: rgba(247,246,242,0.55); font-style: italic; line-height: 1.4; }
+.poc-insight { border-left: 3px solid var(--accent); padding-left: 32px; }
+.poc-insight-intro { font-size: clamp(14px, 1.2vw, 15px); color: rgba(247,246,242,0.42); line-height: 1.75; margin-bottom: 32px; }
+.poc-quote { }
+.poc-quote-text { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-light); text-wrap: balance; margin-bottom: 12px; }
+.poc-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,246,242,0.28); font-style: normal; display: block; margin-bottom: 28px; }
+.poc-insight-body { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
 
-/* ── 6. OUTCOME ── */
+/* ── 4. DESIGN ── */
+.design { padding: 120px 0; border-bottom: 1px solid var(--mid); }
+.design .label { margin-bottom: 16px; }
+.design-intro { font-size: clamp(15px, 1.4vw, 17px); color: var(--mid-text); line-height: 1.75; max-width: 640px; margin-bottom: 72px; }
+.design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
+.design-moment:last-child { border-bottom: 1px solid var(--mid); }
+.design-moment-num { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 6px; }
+.design-moment-title { font-family: var(--font-d); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
+.design-moment-body p { font-size: clamp(15px, 1.3vw, 17px); color: var(--mid-text); line-height: 1.85; }
+.design-moment-body p + p { margin-top: 16px; }
+.design-acronym { margin-top: 36px; border-top: 1px solid var(--mid); padding-top: 32px; }
+.design-acronym-row { display: flex; align-items: baseline; gap: 20px; padding: 8px 0; }
+.design-acronym-row + .design-acronym-row { border-top: 1px solid rgba(26,26,46,0.06); }
+.design-acronym-letter { font-family: var(--font-d); font-size: clamp(28px, 3.2vw, 48px); font-weight: 900; letter-spacing: -0.04em; color: var(--accent); line-height: 1; min-width: 48px; }
+.design-acronym-word { font-family: var(--font-d); font-size: clamp(18px, 2vw, 26px); font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+.design-ai-quote { margin-top: 28px; border-left: 3px solid var(--accent); padding: 20px 24px; background: rgba(58,107,196,0.04); }
+.design-ai-quote-text { font-size: clamp(14px, 1.2vw, 16px); color: var(--text); line-height: 1.75; font-style: italic; }
+.design-ai-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-text); margin-top: 12px; display: block; font-style: normal; }
+.design-decision { margin-top: 32px; }
+.design-decision-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 48px; margin-bottom: 40px; }
+.design-decision-divider { background: var(--mid); }
+.decision-col-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-text); margin-bottom: 12px; }
+.decision-col-title { font-family: var(--font-d); font-size: clamp(18px, 1.8vw, 24px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 12px; }
+.decision-col p { font-size: clamp(14px, 1.2vw, 16px); color: var(--mid-text); line-height: 1.8; }
+.design-decision-closer { font-family: var(--font-d); font-size: clamp(15px, 1.5vw, 20px); font-weight: 600; color: var(--mid-text); border-top: 1px solid var(--mid); padding-top: 28px; }
+.design-decision-closer em { color: var(--text); font-style: normal; }
+
+/* ── 5. THE BUILD ── */
+.build {
+  background: var(--bg-dark);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.build::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+.build-inner { position: relative; z-index: 1; }
+.build .label { margin-bottom: 56px; }
+.build-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+.build-title { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); margin-bottom: 20px; }
+.build-text p { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
+.build-text p + p { margin-top: 16px; }
+.build-flow { margin-top: 36px; }
+.build-flow-item { display: flex; align-items: baseline; gap: 18px; padding: 14px 0; border-top: 1px solid rgba(247,246,242,0.06); }
+.build-flow-item:last-child { border-bottom: 1px solid rgba(247,246,242,0.06); }
+.build-flow-num { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: rgba(247,246,242,0.22); min-width: 28px; flex-shrink: 0; }
+.build-flow-text { font-size: 14px; color: rgba(247,246,242,0.48); line-height: 1.55; }
+.build-collab { border-left: 3px solid var(--accent); padding-left: 32px; }
+.build-collab-quote { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-light); text-wrap: balance; margin-bottom: 28px; }
+.build-collab-body p { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
+.build-collab-body p + p { margin-top: 16px; }
+
+/* ── 6. TAKEAWAYS ── */
+.takeaways { padding: 120px 0; border-bottom: 1px solid var(--mid); }
+.takeaways .label { margin-bottom: 56px; }
+.takeaways-impact { margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid var(--mid); }
+.takeaways-impact-value { font-family: var(--font-d); font-size: clamp(36px, 5.5vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); margin-bottom: 20px; }
+.takeaways-impact-desc { font-size: clamp(15px, 1.4vw, 17px); color: var(--mid-text); line-height: 1.75; max-width: 520px; }
+.takeaway { display: grid; grid-template-columns: 64px 1fr; gap: 32px; padding: 36px 0; border-top: 1px solid var(--mid); align-items: start; }
+.takeaway:last-child { border-bottom: 1px solid var(--mid); }
+.takeaway-num { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 4px; }
+.takeaway-title { font-family: var(--font-d); font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; letter-spacing: -0.01em; color: var(--text); margin-bottom: 8px; }
+.takeaway-body { font-size: clamp(14px, 1.2vw, 15px); color: var(--mid-text); line-height: 1.75; }
+
+/* ── 7. OUTCOME + CTA ── */
 .outcome {
   background: var(--bg-dark);
   padding: 120px 0;
@@ -559,128 +367,75 @@ footer {
 }
 .outcome-inner { position: relative; z-index: 1; }
 .outcome .label { margin-bottom: 56px; }
-.outcome-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid rgba(247,246,242,0.08);
-  margin-bottom: 64px;
-}
-.outcome-item {
-  padding: 48px 40px 48px 0;
-  border-right: 1px solid rgba(247,246,242,0.08);
-}
+.outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(247,246,242,0.08); margin-bottom: 72px; }
+.outcome-item { padding: 48px 40px 48px 0; border-right: 1px solid rgba(247,246,242,0.08); }
 .outcome-item:first-child { padding-left: 0; }
 .outcome-item + .outcome-item { padding-left: 40px; }
 .outcome-item:last-child { border-right: none; }
-.outcome-value {
-  font-family: var(--font-d);
-  font-size: clamp(24px, 3vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--text-light);
-  margin-bottom: 10px;
-  font-variant-numeric: tabular-nums;
-}
-.outcome-desc {
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(247,246,242,0.4);
-  line-height: 1.65;
-  max-width: 240px;
-}
-.outcome-cta { max-width: 480px; }
-.outcome-cta-text {
-  font-size: 15px;
-  font-weight: 400;
-  color: rgba(247,246,242,0.35);
-  line-height: 1.65;
-  margin-bottom: 24px;
-}
+.outcome-value { font-family: var(--font-d); font-size: clamp(24px, 3vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--text-light); margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+.outcome-desc { font-size: 14px; color: rgba(247,246,242,0.4); line-height: 1.65; max-width: 240px; }
+.outcome-ctas { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 64px; border-top: 1px solid rgba(247,246,242,0.08); padding-top: 64px; }
+.outcome-cta-divider { background: rgba(247,246,242,0.08); }
+.outcome-cta-eyebrow { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.28); margin-bottom: 14px; }
+.outcome-cta-text { font-size: 15px; color: rgba(247,246,242,0.4); line-height: 1.65; margin-bottom: 20px; max-width: 360px; }
 
-/* ── 7. NEXT CASE STUDY ── */
-.next-case {
-  padding: 80px 0;
-  border-bottom: 1px solid var(--mid);
-}
-.next-case-inner {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.next-case-eyebrow {
-  font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--mid-text);
-}
+/* ── 8. NEXT CASE STUDY ── */
+.next-case { padding: 80px 0; border-bottom: 1px solid var(--mid); }
+.next-case-inner { display: grid; grid-template-columns: 220px 1fr; gap: 80px; align-items: center; }
+.next-case-eyebrow { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid-text); }
 .next-case-tags { display: flex; gap: 6px; margin-bottom: 16px; }
-.next-case-title {
-  font-family: var(--font-d);
-  font-size: clamp(28px, 3vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-.next-case-desc {
-  font-size: clamp(15px, 1.3vw, 17px);
-  font-weight: 400;
-  color: var(--mid-text);
-  line-height: 1.7;
-  margin-bottom: 24px;
-  max-width: 520px;
-}
+.next-case-title { font-family: var(--font-d); font-size: clamp(28px, 3vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; color: var(--text); margin-bottom: 12px; }
+.next-case-desc { font-size: clamp(15px, 1.3vw, 17px); color: var(--mid-text); line-height: 1.7; margin-bottom: 24px; max-width: 520px; }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
   :root { --pad: 32px; }
 
+  /* Header */
   .cs-header-grid { grid-template-columns: 1fr; gap: 0; padding: 56px var(--pad) 72px; }
   .cs-header-meta { display: none; }
   .cs-header-title { font-size: clamp(64px, 16vw, 96px); }
 
-  .problem-grid { grid-template-columns: 1fr; gap: 48px; }
-  .problem-placeholder { display: none; }
+  /* Brief */
+  .brief-grid { grid-template-columns: 1fr; gap: 48px; }
+  .brief-questions-inner { grid-template-columns: 1fr; gap: 32px; }
 
-  .role-grid { grid-template-columns: 1fr 1fr; row-gap: 40px; }
-  .role-item:nth-child(odd) { padding-left: 0; border-left: none; }
-  .role-item:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--mid); padding-right: 0; }
+  /* PoC */
+  .poc-grid { grid-template-columns: 1fr; gap: 56px; }
+  .poc-ab { grid-template-columns: 1fr; }
+  .poc-ab-item + .poc-ab-item { border-left: 1px solid rgba(247,246,242,0.08); border-top: none; }
 
-  .insight-grid { grid-template-columns: 1fr; gap: 48px; }
+  /* Design */
+  .design-moment { grid-template-columns: 48px 1fr; gap: 20px; padding: 40px 0; }
+  .design-decision-grid { grid-template-columns: 1fr; gap: 0; }
+  .design-decision-divider { height: 1px; width: 100%; margin: 32px 0; }
 
-  .decision-grid { grid-template-columns: 1fr; gap: 0; }
-  .decision-divider { height: 1px; width: 100%; margin: 40px 0; }
+  /* Build */
+  .build-grid { grid-template-columns: 1fr; gap: 56px; }
 
+  /* Outcome */
   .outcome-grid { grid-template-columns: 1fr; border-top: none; }
   .outcome-item { border-right: none; border-top: 1px solid rgba(247,246,242,0.08); padding: 36px 0; }
   .outcome-item + .outcome-item { padding-left: 0; }
   .outcome-item:last-child { padding-right: 0; }
+  .outcome-ctas { grid-template-columns: 1fr; gap: 0; }
+  .outcome-cta-divider { height: 1px; width: 100%; margin: 48px 0; }
 
+  /* Next */
   .next-case-inner { grid-template-columns: 1fr; gap: 20px; }
 
+  /* Footer */
   .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
 
   .nav-links { display: none; }
 }
 
 @media (max-width: 600px) {
-  .problem, .insight, .decision, .outcome { padding: 80px 0; }
-  .role { padding: 72px 0; }
+  .brief, .poc, .design, .build, .takeaways, .outcome { padding: 80px 0; }
   .next-case { padding: 56px 0; }
-
-  .role-grid { grid-template-columns: 1fr; }
-  .role-item {
-    padding: 0 0 32px;
-    border-left: none;
-    border-bottom: 1px solid var(--mid);
-  }
-  .role-item:nth-child(even) { padding-left: 0; border-left: none; }
-  .role-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .brief-questions { padding: 48px var(--pad); }
+  .design-moment { grid-template-columns: 40px 1fr; gap: 16px; padding: 32px 0; }
+  .takeaway { grid-template-columns: 48px 1fr; gap: 16px; }
 }
 
 </style>
@@ -697,21 +452,15 @@ footer {
     <div class="cs-header-ghost" aria-hidden="true">HEARD</div>
     <div class="cs-header-inner">
       <div class="cs-header-grid">
-
         <div>
-          <a class="cs-back fade-up" href="index.html#work">
-            ← Work
-          </a>
+          <a class="cs-back fade-up" href="index.html#work">← Work</a>
           <div class="cs-header-tags fade-up">
             <span class="cs-tag cs-tag-dark">AI Product</span>
             <span class="cs-tag cs-tag-dark">Founder</span>
           </div>
           <h1 class="cs-header-title fade-up">HEARD</h1>
-          <p class="cs-header-summary fade-up">
-            An AI music generator that turns weeks of production into minutes — built by a lyricist who couldn't hear his own songs.
-          </p>
+          <p class="cs-header-summary fade-up">One real problem. One shipped product. Built by a lyricist who couldn't hear his own songs — and a designer who needed to know what AI-era product leadership looks like.</p>
         </div>
-
         <div class="cs-header-meta fade-up" style="animation-delay:0.55s">
           <div class="cs-meta-item">
             <div class="cs-meta-label">Year</div>
@@ -722,115 +471,285 @@ footer {
             <div class="cs-meta-value">Founder · Designer · Builder</div>
           </div>
           <div class="cs-meta-item">
+            <div class="cs-meta-label">Total Time</div>
+            <div class="cs-meta-value">198 hours</div>
+          </div>
+          <div class="cs-meta-item">
             <div class="cs-meta-label">Status</div>
             <div class="cs-meta-value">Live · Private Preview</div>
           </div>
           <div class="cs-meta-item">
             <div class="cs-meta-label">Product</div>
-            <div class="cs-meta-value">
-              <a href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer" class="cs-link" style="font-size:11px;color:rgba(247,246,242,0.5);border-bottom-color:rgba(247,246,242,0.15);">tryheardfree.com →</a>
+            <div class="cs-meta-value"><a href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer" class="cs-link" style="font-size:11px;color:rgba(247,246,242,0.5);border-bottom-color:rgba(247,246,242,0.15);">tryheardfree.com →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── 2. THE BRIEF ── -->
+  <section class="brief">
+    <div class="container">
+      <div class="label" data-fade>01 — The Brief</div>
+      <div class="brief-grid" data-fade data-delay="1">
+        <div class="brief-intro">
+          <p>I had two reasons to build HEARD. I'm a lyricist with years of written work I'd never heard produced. The gap between writing a song and hearing it back had cost me more time than I could measure. And I'd been sitting with a bigger question: <strong>can a designer with deep product experience ship a real product alone, using AI as the full implementation layer?</strong></p>
+          <p>The brief wasn't a plan — it was a north star. Two inputs, one output: lyrics go in, a produced track comes out. The scope was intentionally narrow. The goal wasn't a platform. It was to find out whether this was even possible, and if so, to build it.</p>
+        </div>
+        <div class="brief-stats">
+          <div class="brief-stat">
+            <div class="brief-stat-num">3h</div>
+            <div class="brief-stat-text">
+              <div class="brief-stat-label">Research</div>
+              <div class="brief-stat-desc">AI-assisted self-interview, usability testing, continuous QA</div>
+            </div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-stat-num">30h</div>
+            <div class="brief-stat-text">
+              <div class="brief-stat-label">Proof of Concept</div>
+              <div class="brief-stat-desc">3 backend pivots, technical validation</div>
+            </div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-stat-num">120h</div>
+            <div class="brief-stat-text">
+              <div class="brief-stat-label">Brand &amp; Design</div>
+              <div class="brief-stat-desc">Brand guidelines, naming, logo, homepage, app design</div>
+            </div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-stat-num">45h</div>
+            <div class="brief-stat-text">
+              <div class="brief-stat-label">Implementation</div>
+              <div class="brief-stat-desc">Production web app, auth, state management, deployment</div>
+            </div>
+          </div>
+          <div class="brief-stat brief-stat-total">
+            <div class="brief-stat-num">198h</div>
+            <div class="brief-stat-text">
+              <div class="brief-stat-label">Total</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="brief-questions" data-fade>
+      <div class="brief-questions-inner">
+        <p class="brief-question">Can a designer with deep experience ship a <em>full product alone</em> — using AI?</p>
+        <p class="brief-question">Can a lyricist now <em>hear their words</em> without a studio, a producer, or weeks of effort?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. PROOF OF CONCEPT ── -->
+  <section class="poc">
+    <div class="container poc-inner">
+      <div class="label" data-fade>02 — Proof of Concept</div>
+      <div class="poc-grid">
+
+        <div class="poc-pivot" data-fade data-delay="1">
+          <h2 class="poc-pivot-title">Three APIs. One Lesson.</h2>
+          <div class="poc-pivot-body">
+            <p>Before any design work, I needed to answer one question: can this actually be built? I built three prototypes across three APIs — starting with voice cloning tools (UberDuck, ElevenLabs, Kits.ai) and eventually landing on Suno via Kie AI. Each one surfaced a different layer of the problem.</p>
+            <p>The first two were text-to-speech models. They could clone a voice. They could not produce music. TTS models understand emotional pacing — they have no concept of bars, beat structure, or rhythm. The output was technically accurate and artistically wrong.</p>
+            <p>Suno is built on a diffusion model trained on actual songs. It understands the relationship between a lyric and a beat because it was shaped by music. Once I understood that, the path forward was immediate.</p>
+          </div>
+          <div class="poc-ab">
+            <div class="poc-ab-item">
+              <div class="poc-ab-label">Text-to-Speech Model</div>
+              <div class="poc-ab-verdict">Emotionally paced. Musically flat.</div>
+            </div>
+            <div class="poc-ab-item">
+              <div class="poc-ab-label">Diffusion Model</div>
+              <div class="poc-ab-verdict">Shaped by music. Sounds like it.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="poc-insight" data-fade data-delay="2">
+          <p class="poc-insight-intro">Before settling on the architecture, I ran an AI-assisted self-interview — giving my AI assistant the role of UX researcher so I could just be the user, answering honestly without anticipating where the answers would lead.</p>
+          <blockquote class="poc-quote">
+            <p class="poc-quote-text">"I didn't need a voice cloning tool. I needed an AI session artist."</p>
+            <cite class="poc-quote-attr">Key finding — AI-assisted self-interview</cite>
+          </blockquote>
+          <p class="poc-insight-body">The biggest pain point wasn't recording — it was the iteration required to get there. Days figuring out how lyrics should flow against a beat. Where to breathe. How the rhythm of the words interacts with the rhythm of the instrumental. Voice cloning was a solution to the wrong problem. HEARD needed to generate performances, not voices.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. DESIGN ── -->
+  <section class="design">
+    <div class="container">
+      <div class="label" data-fade>03 — Design</div>
+      <p class="design-intro" data-fade data-delay="1">The POC answered the only question that mattered at that stage: yes, this could be built. The design phase is where everything else got decided — what the product would be called, what it would look like, and what it would feel like to use.</p>
+
+      <div class="design-moments">
+
+        <div class="design-moment" data-fade>
+          <div class="design-moment-num">01</div>
+          <div class="design-moment-content">
+            <h3 class="design-moment-title">Naming — HEARD</h3>
+            <div class="design-moment-body">
+              <p>What it felt like to hear my lyrics performed as a full track for the first time was a key input in the naming process. That moment — the surprise of it, the emotional weight of finally hearing what had only existed on paper — needed to be in the name.</p>
+              <p>I started with "Herd" — an intentional alternate spelling, and the acronym landed well. But days later the word's other meaning surfaced: cattle, crowds, following. Wrong connotations for a product about individual creative expression. One letter changed everything.</p>
+            </div>
+            <div class="design-acronym">
+              <div class="design-acronym-row"><span class="design-acronym-letter">H</span><span class="design-acronym-word">Hear</span></div>
+              <div class="design-acronym-row"><span class="design-acronym-letter">E</span><span class="design-acronym-word">Every</span></div>
+              <div class="design-acronym-row"><span class="design-acronym-letter">A</span><span class="design-acronym-word">Authored</span></div>
+              <div class="design-acronym-row"><span class="design-acronym-letter">R</span><span class="design-acronym-word">Rhyme</span></div>
+              <div class="design-acronym-row"><span class="design-acronym-letter">D</span><span class="design-acronym-word">Delivered</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="design-moment" data-fade>
+          <div class="design-moment-num">02</div>
+          <div class="design-moment-content">
+            <h3 class="design-moment-title">Usability — The Genre Literacy Problem</h3>
+            <div class="design-moment-body">
+              <p>I ran an AI-assisted usability study on the second prototype. The most significant finding: the prototype listed 16 genres in a dropdown. For a new user, those labels meant almost nothing in terms of predicting what the final output would actually sound like.</p>
+              <p>If users can't predict the output, they can't make good decisions. If they can't make good decisions, they waste credits and lose trust in the tool. The fix was organizing the genre library into subcategories — reducing overwhelm and giving users enough context to choose with confidence.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="design-moment" data-fade>
+          <div class="design-moment-num">03</div>
+          <div class="design-moment-content">
+            <h3 class="design-moment-title">AI Design Critique</h3>
+            <div class="design-moment-body">
+              <p>As a solo builder, I didn't have a design team to review my work before it shipped. So I built the equivalent: gave my AI assistant the full project context — brand guidelines, research findings, goals — and used it to evaluate the work objectively. The distance enables honesty.</p>
+            </div>
+            <blockquote class="design-ai-quote">
+              <p class="design-ai-quote-text">"Your primary CTA is nearly invisible. 'Make Your Voice HEARD' reads more like a tagline than a button. If sign-up is the goal, the CTA language needs to say that — right now a visitor doesn't know what clicking it gets them."</p>
+              <cite class="design-ai-quote-attr">AI Design Critique — Homepage Review</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="design-moment" data-fade>
+          <div class="design-moment-num">04</div>
+          <div class="design-moment-content">
+            <h3 class="design-moment-title">The Decision — Fidelity vs. Velocity</h3>
+            <div class="design-moment-body">
+              <p>Voice cloning was technically within reach and emotionally compelling — the kind of feature that makes a demo unforgettable. It was also a 6-month engineering detour with unresolved legal exposure.</p>
+            </div>
+            <div class="design-decision">
+              <div class="design-decision-grid">
+                <div class="decision-col">
+                  <div class="decision-col-label">What got cut</div>
+                  <div class="decision-col-title">Voice Cloning</div>
+                  <p>Generating songs in an artist's own voice. Technically possible, legally uncertain, and 6 months away from the core problem worth solving.</p>
+                </div>
+                <div class="design-decision-divider" aria-hidden="true"></div>
+                <div class="decision-col">
+                  <div class="decision-col-label">What shipped</div>
+                  <div class="decision-col-title">Text to Music</div>
+                  <p>One clear problem, solved well. Give me a song from a lyric or concept, fast. No production knowledge required. Real users, real output, real value.</p>
+                </div>
+              </div>
+              <p class="design-decision-closer"><em>Scope control is a design skill.</em></p>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- ── 2. THE PROBLEM ── -->
-  <section class="problem">
+  <!-- ── 5. THE BUILD ── -->
+  <section class="build">
+    <div class="container build-inner">
+      <div class="label" data-fade>04 — Implementation</div>
+      <div class="build-grid">
+
+        <div data-fade data-delay="1">
+          <h2 class="build-title">The Invite-Only Decision</h2>
+          <div class="build-text">
+            <p>Building the signup flow pushed me into product strategy in a way the earlier design work hadn't. I couldn't maintain an open-access product alone. But I needed real users to learn what actually needed improving — and I wanted them to feel like they were joining something, not just creating another account.</p>
+            <p>Personal request form, a 7-day review window, a unique invite link by email. Users choose Google, Spotify, or email. They land on a welcome screen that orients them to the 3-step flow before they touch anything. Every state — authenticated, unauthenticated, expired invite, returning user — had to be designed and built.</p>
+          </div>
+          <div class="build-flow">
+            <div class="build-flow-item"><span class="build-flow-num">01</span><span class="build-flow-text">Homepage — "Join the Free Preview"</span></div>
+            <div class="build-flow-item"><span class="build-flow-num">02</span><span class="build-flow-text">Request form — email, role, why interested</span></div>
+            <div class="build-flow-item"><span class="build-flow-num">03</span><span class="build-flow-text">Personal invite email with unique link</span></div>
+            <div class="build-flow-item"><span class="build-flow-num">04</span><span class="build-flow-text">Invite landing — Google, Spotify, or email signup</span></div>
+            <div class="build-flow-item"><span class="build-flow-num">05</span><span class="build-flow-text">Welcome screen — oriented to 3-step flow</span></div>
+          </div>
+        </div>
+
+        <div class="build-collab" data-fade data-delay="2">
+          <p class="build-collab-quote">"Neither of us could have built it alone. That's what AI-era design leadership looks like."</p>
+          <div class="build-collab-body">
+            <p>The division of labor was clear: I specified what should happen in each scenario — product behavior, edge cases, user states — and the AI figured out the technical implementation. I reviewed the output, flagged what wasn't right, and fed that back in.</p>
+            <p>Knowing what should happen in a product is a design skill, not a technical one. The AI made suggestions; I surfaced scenarios it hadn't anticipated. That loop — instruct, build, refine — is what got the app to completeness. The instruct step required the most judgment.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 6. TAKEAWAYS ── -->
+  <section class="takeaways">
     <div class="container">
-      <div class="label" data-fade>The Problem</div>
-      <p class="problem-quote" data-fade data-delay="1">
-        "A lyricist who couldn't hear his own songs."
-      </p>
-      <div class="problem-grid">
-        <div class="problem-body" data-fade data-delay="2">
-          <p>Most music tools are built for people who already know production. I'd been writing lyrics for years before I could put words to what was wrong.</p>
-          <p>The problem isn't creativity. It isn't access to tools. The problem is the gap between having a song in your head and being able to hear it back — and nobody had built a direct path across it. HEARD is that path.</p>
-        </div>
-        <div class="problem-placeholder" data-fade data-delay="3" role="img" aria-label="HEARD product interface — screenshot coming soon"></div>
+      <div class="label" data-fade>What I Learned</div>
+      <div class="takeaways-impact" data-fade data-delay="1">
+        <div class="takeaways-impact-value">Two weekends. Three minutes.</div>
+        <p class="takeaways-impact-desc">Eight hours of focused production work used to stand between a finished lyric and a produced demo. Now I paste the lyrics and press generate. Three minutes later, I have two versions to choose from. That's what HEARD does.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ── 3. MY ROLE ── -->
-  <section class="role">
-    <div class="container">
-      <div class="label" data-fade>My Role</div>
-      <div class="role-grid">
-        <div class="role-item" data-fade data-delay="1">
-          <div class="role-number">01</div>
-          <div class="role-title">Founder</div>
-          <p class="role-desc">Identified the gap, defined the product vision, and made every call from concept to launch — strategy, scope, and story.</p>
+      <div class="takeaways-list">
+        <div class="takeaway" data-fade>
+          <div class="takeaway-num">01</div>
+          <div class="takeaway-content">
+            <div class="takeaway-title">AI amplifies ability. It doesn't replace it.</div>
+            <p class="takeaway-body">Every tool required judgment at every step. Output quality was entirely dependent on the inputs — and those inputs came from 18 years of design experience.</p>
+          </div>
         </div>
-        <div class="role-item" data-fade data-delay="2">
-          <div class="role-number">02</div>
-          <div class="role-title">Designer</div>
-          <p class="role-desc">End-to-end UX — the zero-state experience, generation flow, output review, and everything in between.</p>
+        <div class="takeaway" data-fade>
+          <div class="takeaway-num">02</div>
+          <div class="takeaway-content">
+            <div class="takeaway-title">The research methods transferred.</div>
+            <p class="takeaway-body">AI-assisted self-interview and usability study weren't substitutes for real user research — they were genuine methods that put the builder in the mindset of the user.</p>
+          </div>
         </div>
-        <div class="role-item" data-fade data-delay="3">
-          <div class="role-number">03</div>
-          <div class="role-title">Builder</div>
-          <p class="role-desc">Vibe-coded the backend. Shipped a working product without a traditional engineering team.</p>
+        <div class="takeaway" data-fade>
+          <div class="takeaway-num">03</div>
+          <div class="takeaway-content">
+            <div class="takeaway-title">Designers can ship.</div>
+            <p class="takeaway-body">Depth of understanding is the competitive advantage. A designer who can direct AI precisely can now close the gap between insight and shipped product — alone.</p>
+          </div>
         </div>
-        <div class="role-item" data-fade data-delay="4">
-          <div class="role-number">04</div>
-          <div class="role-title">Shipper</div>
-          <p class="role-desc">Took HEARD from idea to live product in the time most teams spend in kickoffs. Speed as a design principle.</p>
+        <div class="takeaway" data-fade>
+          <div class="takeaway-num">04</div>
+          <div class="takeaway-content">
+            <div class="takeaway-title">Apps are commodities. Brands are not.</div>
+            <p class="takeaway-body">Anyone can generate a lyrics-to-music tool right now. What can't be generated: branding that feels genuine, made by someone who understands the problem intimately.</p>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 4. THE INSIGHT ── -->
-  <section class="insight">
-    <div class="container insight-inner">
-      <div class="label" data-fade>The Insight</div>
-      <div class="insight-grid">
-        <div class="insight-statement" data-fade data-delay="1">
-          <p class="insight-quote">The barrier to music creation isn't creativity. It's production literacy.</p>
-        </div>
-        <div class="insight-body" data-fade data-delay="2">
-          <p>Before writing a line of code, I ran an AI-assisted self-interview to pressure-test the problem and find its real edges. The process surfaced something I'd felt for years but hadn't named: writers hit a wall the moment their idea needs sound.</p>
-          <p>Not because they lack talent — because music production is a separate discipline that takes years to learn. HEARD is built on that insight. The question isn't "can you write?" It's "can you hear what you've written?"</p>
+        <div class="takeaway" data-fade>
+          <div class="takeaway-num">05</div>
+          <div class="takeaway-content">
+            <div class="takeaway-title">Knowing what not to build matters.</div>
+            <p class="takeaway-body">AI expands what's possible. That makes scope discipline more important, not less. Knowing what to leave out — and being honest about why — is product maturity, not limitation.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 5. THE DECISION ── -->
-  <section class="decision">
-    <div class="container">
-      <div class="label" data-fade>The Decision</div>
-      <h2 class="decision-headline" data-fade data-delay="1">Fidelity vs. Velocity</h2>
-      <div class="decision-grid" data-fade data-delay="2">
-        <div class="decision-col">
-          <div class="decision-col-label">What got cut</div>
-          <div class="decision-col-title">Voice Cloning</div>
-          <p>Generating songs in an artist's own voice was technically within reach and emotionally compelling — the kind of feature that makes a demo unforgettable. It was also a 6-month engineering detour with unresolved legal exposure. Cutting it wasn't a compromise. It was a decision.</p>
-        </div>
-        <div class="decision-divider" aria-hidden="true"></div>
-        <div class="decision-col">
-          <div class="decision-col-label">What shipped</div>
-          <div class="decision-col-title">Text to Music</div>
-          <p>A generator focused on the core use case: give me a song from a lyric or concept, fast. No production knowledge required. One clear problem, solved well. Real users, real output, real value — without waiting for a feature that could wait.</p>
-        </div>
-      </div>
-      <p class="decision-closer" data-fade data-delay="3">
-        <em>Scope control is a design skill.</em>
-      </p>
-    </div>
-  </section>
-
-  <!-- ── 6. OUTCOME ── -->
+  <!-- ── 7. OUTCOME + CTA ── -->
   <section class="outcome">
     <div class="container outcome-inner">
       <div class="label" data-fade>Outcome</div>
       <div class="outcome-grid">
         <div class="outcome-item" data-fade data-delay="1">
-          <div class="outcome-value">Weeks → Minutes</div>
-          <p class="outcome-desc">Production time collapsed from weeks of back-and-forth to minutes per track.</p>
+          <div class="outcome-value">198h</div>
+          <p class="outcome-desc">Total build time across research, design, engineering, and deployment — solo.</p>
         </div>
         <div class="outcome-item" data-fade data-delay="2">
           <div class="outcome-value">Live Product</div>
@@ -838,17 +757,26 @@ footer {
         </div>
         <div class="outcome-item" data-fade data-delay="3">
           <div class="outcome-value">Private Preview</div>
-          <p class="outcome-desc">Early access users across the creator community shaping v2.</p>
+          <p class="outcome-desc">Early access users actively using the platform and shaping v2.</p>
         </div>
       </div>
-      <div class="outcome-cta" data-fade>
-        <p class="outcome-cta-text">The product is live. If you write music and want to hear what you've been missing, try it.</p>
-        <a class="cs-link" href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer">Try HEARD →</a>
+      <div class="outcome-ctas" data-fade>
+        <div class="outcome-cta-block">
+          <div class="outcome-cta-eyebrow">The Product</div>
+          <p class="outcome-cta-text">The product is live. If you write music and want to hear what you've been missing, try it.</p>
+          <a class="cs-link" href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer">Try HEARD →</a>
+        </div>
+        <div class="outcome-cta-divider" aria-hidden="true"></div>
+        <div class="outcome-cta-block">
+          <div class="outcome-cta-eyebrow">For Hiring Managers</div>
+          <p class="outcome-cta-text">If you're building a team that wants design leadership ready for what's next, let's talk.</p>
+          <a class="cs-link" href="index.html#contact">Get in touch →</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 7. NEXT CASE STUDY ── -->
+  <!-- ── 8. NEXT CASE STUDY ── -->
   <section class="next-case">
     <div class="container">
       <div class="next-case-inner">
@@ -881,7 +809,7 @@ footer {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   fadeEls.forEach(function (el) { revealObserver.observe(el); });
 </script>
 <script src="components.js"></script>
