@@ -301,16 +301,12 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 /* ── 2. THE BRIEF ── */
 .brief { padding: 120px 0 0; border-bottom: 1px solid var(--mid); }
 .brief .label { margin-bottom: 56px; }
+.brief-title { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--text); margin-bottom: 32px; }
 .brief-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; margin-bottom: 80px; align-items: start; }
 .brief-intro p { font-size: clamp(15px, 1.4vw, 17px); font-weight: 400; color: var(--mid-text); line-height: 1.85; }
 .brief-intro p + p { margin-top: 20px; }
 .brief-intro strong { color: var(--text); font-weight: 600; }
-.brief-stat { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--mid); }
-.brief-stat-total { border-top: 2px solid var(--text); margin-top: -1px; }
-.brief-stat-num { font-family: var(--font-d); font-size: clamp(22px, 2.2vw, 30px); font-weight: 800; letter-spacing: -0.03em; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1; }
-.brief-stat-total .brief-stat-num { color: var(--accent); }
-.brief-stat-label { font-family: var(--font-d); font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-.brief-stat-desc { font-size: 12px; color: var(--mid-text); line-height: 1.5; }
+.brief-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
 .brief-questions {
   background: var(--bg-dark);
   padding: 64px var(--pad);
@@ -332,38 +328,11 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .brief-question em { color: var(--text-light); font-style: normal; }
 
 /* ── 3. PROOF OF CONCEPT ── */
-.poc {
-  background: var(--bg-dark);
-  padding: 120px 0;
-  position: relative;
-  overflow: hidden;
-}
-.poc::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  pointer-events: none;
-}
-.poc-inner { position: relative; z-index: 1; }
-.poc .label { margin-bottom: 56px; }
-.poc-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
-.poc-pivot-title { font-family: var(--font-d); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); margin-bottom: 20px; }
-.poc-pivot-body p { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
-.poc-pivot-body p + p { margin-top: 16px; }
-.poc-ab { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; }
-.poc-ab-item { padding: 20px 24px; border: 1px solid rgba(247,246,242,0.08); }
-.poc-ab-item + .poc-ab-item { border-left: none; }
-.poc-ab-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,246,242,0.28); margin-bottom: 8px; }
-.poc-ab-verdict { font-family: var(--font-d); font-size: 14px; font-weight: 500; color: rgba(247,246,242,0.55); font-style: italic; line-height: 1.4; }
-.poc-insight { border-left: 3px solid var(--accent); padding-left: 32px; }
-.poc-insight-intro { font-size: clamp(14px, 1.2vw, 15px); color: rgba(247,246,242,0.42); line-height: 1.75; margin-bottom: 32px; }
-.poc-quote-text { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-light); text-wrap: balance; margin-bottom: 12px; }
-.poc-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,246,242,0.28); font-style: normal; display: block; margin-bottom: 28px; }
-.poc-insight-body { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
+.poc { padding: 120px 0; border-bottom: 1px solid var(--mid); }
+.poc .label { margin-bottom: 16px; }
+.poc-intro { font-size: clamp(15px, 1.4vw, 17px); color: var(--mid-text); line-height: 1.75; max-width: 640px; margin-bottom: 72px; }
+.poc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.poc-tag { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(58,107,196,0.3); padding: 3px 10px; border-radius: 3px; }
 
 /* ── 4. DESIGN ── */
 .design { padding: 120px 0; border-bottom: 1px solid var(--mid); }
@@ -493,11 +462,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   .brief-grid { grid-template-columns: 1fr; gap: 48px; }
   .brief-questions-inner { grid-template-columns: 1fr; gap: 32px; }
 
-  /* PoC */
-  .poc-grid { grid-template-columns: 1fr; gap: 56px; }
-  .poc-ab { grid-template-columns: 1fr; }
-  .poc-ab-item + .poc-ab-item { border-left: 1px solid rgba(247,246,242,0.08); border-top: none; }
-
   /* Design */
   .design-moment { grid-template-columns: 48px 1fr; gap: 20px; padding: 40px 0; }
   .design-decision-grid { grid-template-columns: 1fr; gap: 0; }
@@ -588,87 +552,76 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="label" data-fade>01 — The Brief</div>
       <div class="brief-grid" data-fade data-delay="1">
         <div class="brief-intro">
-          <p>I had two reasons to build HEARD. I'm a lyricist with years of written work I'd never heard produced. The gap between writing a song and hearing it back had cost me more time than I could measure. And I'd been sitting with a bigger question: <strong>can a designer with deep product experience ship a real product alone, using AI as the full implementation layer?</strong></p>
-          <p>The brief wasn't a plan — it was a north star. Two inputs, one output: lyrics go in, a produced track comes out. The scope was intentionally narrow. The goal wasn't a platform. It was to find out whether this was even possible, and if so, to build it.</p>
+          <p>My initial idea was simple: clone my voice, feed it my lyrics, and have AI generate a complete song. <strong>The scope was intentionally narrow. The goal was to find out whether this was even possible and, if so, can I build it.</strong></p>
+          <p>Two reasons drove me forward. I'm a lyricist with years of written work I'd never heard produced. And I'd been asking whether a designer with the right experience could ship a real product alone, using AI as the implementation layer. That was the brief. Not a requirements doc — a North Star.</p>
         </div>
-        <div class="brief-stats">
-          <div class="brief-stat">
-            <div class="brief-stat-num">3h</div>
-            <div class="brief-stat-text">
-              <div class="brief-stat-label">Research</div>
-              <div class="brief-stat-desc">AI-assisted self-interview, usability testing, continuous QA</div>
-            </div>
-          </div>
-          <div class="brief-stat">
-            <div class="brief-stat-num">30h</div>
-            <div class="brief-stat-text">
-              <div class="brief-stat-label">Proof of Concept</div>
-              <div class="brief-stat-desc">3 backend pivots, technical validation</div>
-            </div>
-          </div>
-          <div class="brief-stat">
-            <div class="brief-stat-num">120h</div>
-            <div class="brief-stat-text">
-              <div class="brief-stat-label">Brand &amp; Design</div>
-              <div class="brief-stat-desc">Brand guidelines, naming, logo, homepage, app design</div>
-            </div>
-          </div>
-          <div class="brief-stat">
-            <div class="brief-stat-num">45h</div>
-            <div class="brief-stat-text">
-              <div class="brief-stat-label">Implementation</div>
-              <div class="brief-stat-desc">Production web app, auth, state management, deployment</div>
-            </div>
-          </div>
-          <div class="brief-stat brief-stat-total">
-            <div class="brief-stat-num">198h</div>
-            <div class="brief-stat-text">
-              <div class="brief-stat-label">Total</div>
-            </div>
-          </div>
+        <div class="brief-image">
+          <img class="brief-img" src="assets/brief-abstract.jpeg" alt="Abstract visual representing the HEARD brief">
         </div>
-      </div>
-    </div>
-    <div class="brief-questions" data-fade>
-      <div class="brief-questions-inner">
-        <p class="brief-question">Can a designer with deep experience ship a <em>full product alone</em> — using AI?</p>
-        <p class="brief-question">Can a lyricist now <em>hear their words</em> without a studio, a producer, or weeks of effort?</p>
       </div>
     </div>
   </section>
 
   <!-- ── 3. PROOF OF CONCEPT ── -->
   <section class="poc">
-    <div class="container poc-inner">
+    <div class="container">
       <div class="label" data-fade>02 — Proof of Concept</div>
-      <div class="poc-grid">
+      <p class="poc-intro" data-fade data-delay="1">Before any design work, I had to answer a harder question: could this even be built? This phase had three parts: building a working prototype, running structured user research on myself using AI, and understanding why the technology I ultimately landed on changed everything downstream.</p>
 
-        <div class="poc-pivot" data-fade data-delay="1">
-          <h2 class="poc-pivot-title">Three APIs. One Lesson.</h2>
-          <div class="poc-pivot-body">
-            <p>Before any design work, I needed to answer one question: can this actually be built? I built three prototypes across three APIs — starting with voice cloning tools (UberDuck, ElevenLabs, Kits.ai) and eventually landing on Suno via Kie AI. Each one surfaced a different layer of the problem.</p>
-            <p>The first two were text-to-speech models. They could clone a voice. They could not produce music. TTS models understand emotional pacing — they have no concept of bars, beat structure, or rhythm. The output was technically accurate and artistically wrong.</p>
-            <p>Suno is built on a diffusion model trained on actual songs. It understands the relationship between a lyric and a beat because it was shaped by music. Once I understood that, the path forward was immediate.</p>
-          </div>
-          <div class="poc-ab">
-            <div class="poc-ab-item">
-              <div class="poc-ab-label">Text-to-Speech Model</div>
-              <div class="poc-ab-verdict">Emotionally paced. Musically flat.</div>
+      <div class="design-moments">
+
+        <div class="design-moment" data-fade>
+          <div class="design-moment-num">01</div>
+          <div class="design-moment-content">
+            <div class="poc-tags">
+              <span class="poc-tag">UberDuck</span>
+              <span class="poc-tag">ElevenLabs</span>
+              <span class="poc-tag">Kits.ai</span>
             </div>
-            <div class="poc-ab-item">
-              <div class="poc-ab-label">Diffusion Model</div>
-              <div class="poc-ab-verdict">Shaped by music. Sounds like it.</div>
+            <h3 class="design-moment-title">Three APIs, One Lesson</h3>
+            <div class="design-moment-body">
+              <p>I tested three voice cloning APIs to find out if the concept was buildable at all. UberDuck revealed a fatal UX problem early: the API required ten minutes of voice samples versus thirty seconds in the web interface. That asymmetry would have broken onboarding.</p>
+              <p>ElevenLabs was the breakthrough — until I listened back. The clone was accurate. It actually sounded like me. But text-to-speech models and rap performance are fundamentally incompatible. The rhythm was flat, the delivery mechanical, the energy gone.</p>
+              <p>The prototype worked technically. The output failed artistically. That distinction mattered.</p>
             </div>
           </div>
         </div>
 
-        <div class="poc-insight" data-fade data-delay="2">
-          <p class="poc-insight-intro">Before settling on the architecture, I ran an AI-assisted self-interview — giving my AI assistant the role of UX researcher so I could just be the user, answering honestly without anticipating where the answers would lead.</p>
-          <blockquote class="poc-quote">
-            <p class="poc-quote-text">"I didn't need a voice cloning tool. I needed an AI session artist."</p>
-            <cite class="poc-quote-attr">Key finding — AI-assisted self-interview</cite>
-          </blockquote>
-          <p class="poc-insight-body">The biggest pain point wasn't recording — it was the iteration required to get there. Days figuring out how lyrics should flow against a beat. Where to breathe. How the rhythm of the words interacts with the rhythm of the instrumental. Voice cloning was a solution to the wrong problem. HEARD needed to generate performances, not voices.</p>
+        <div class="design-moment" data-fade>
+          <div class="design-moment-num">02</div>
+          <div class="design-moment-content">
+            <div class="poc-tags">
+              <span class="poc-tag">AI-Assisted Research</span>
+              <span class="poc-tag">Role separation</span>
+              <span class="poc-tag">Self-Interview</span>
+            </div>
+            <h3 class="design-moment-title">The Self-Interview I Couldn't Have Conducted Alone</h3>
+            <div class="design-moment-body">
+              <p>If I wrote the interview questions and then answered them, my researcher brain and my user brain would contaminate each other. Instead, I gave my AI assistant the role of UX researcher — a workaround for the principle that you are not the user. The AI asked the questions; I answered honestly, without anticipating where the answers would lead.</p>
+              <p>The finding: the biggest pain point in my music-making process wasn't recording — it was the iteration required to get there. Days figuring out how lyrics should flow against a beat. Where do I breathe? Which lines need to slow down? That's where I lost the most time — and what I'd been trying to solve without naming it clearly.</p>
+              <p>I didn't need a voice cloning tool. I needed an AI session artist — something that could interpret my lyrics, generate multiple performances, and give me a starting point I could iterate on. The voice cloning aspect was a solution to the wrong problem.</p>
+            </div>
+            <blockquote class="design-ai-quote">
+              <p class="design-ai-quote-text">"I didn't need a voice cloning tool. I needed an AI session artist."</p>
+              <cite class="design-ai-quote-attr">Key finding from AI-assisted self-interview</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="design-moment" data-fade>
+          <div class="design-moment-num">03</div>
+          <div class="design-moment-content">
+            <div class="poc-tags">
+              <span class="poc-tag">Architecture Decision</span>
+              <span class="poc-tag">Diffusion Models</span>
+              <span class="poc-tag">Suno / Kie AI</span>
+            </div>
+            <h3 class="design-moment-title">From Speech Engine to Music Engine</h3>
+            <div class="design-moment-body">
+              <p>Text-to-speech models understand emotional pacing but have no concept of bars, beat structure, or musical timing. The better-performing tools I found were built on something different: diffusion models trained on actual songs. They understand the relationship between a lyric and a beat. They produce performances that feel musical because they were shaped by music.</p>
+              <p>I rebuilt the prototype around Suno via the Kie AI service and the difference was immediate.</p>
+            </div>
+          </div>
         </div>
 
       </div>
