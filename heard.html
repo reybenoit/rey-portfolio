@@ -139,12 +139,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.fade-up { opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.fade-up:nth-child(1) { animation-delay: 0.1s; }
-.fade-up:nth-child(2) { animation-delay: 0.22s; }
-.fade-up:nth-child(3) { animation-delay: 0.36s; }
-.fade-up:nth-child(4) { animation-delay: 0.5s; }
-.fade-up:nth-child(5) { animation-delay: 0.64s; }
 
 /* ── Scroll reveal ── */
 [data-fade] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -173,39 +167,67 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   pointer-events: none;
 }
 
-/* ── 1. CASE HEADER ── */
-.cs-header {
-  background: var(--bg-dark);
+/* ── 1. HERO ── */
+.cs-hero {
+  background: var(--bg);
   position: relative;
   overflow: hidden;
-  min-height: 82vh;
-  display: flex;
-  align-items: flex-end;
   padding-top: 60px;
+  border-bottom: 1px solid var(--mid);
 }
-.cs-header::before {
+.cs-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(58,107,196,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.06) 1px, transparent 1px);
   background-size: 64px 64px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 12%, rgba(0,0,0,0.7) 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 12%, rgba(0,0,0,0.7) 88%, transparent 100%);
 }
-.cs-header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60%; height: 55%; background: radial-gradient(ellipse at bottom left, rgba(58,107,196,0.12) 0%, transparent 70%); pointer-events: none; z-index: 1; }
-.cs-header-ghost { position: absolute; bottom: -32px; right: -8px; z-index: 1; font-family: var(--font-d); font-size: clamp(160px, 22vw, 320px); font-weight: 900; letter-spacing: -0.04em; color: rgba(58,107,196,0.05); line-height: 1; pointer-events: none; user-select: none; }
-.cs-header-inner { position: relative; z-index: 2; width: 100%; }
-.cs-header-grid { display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: end; max-width: var(--max); margin: 0 auto; padding: 80px var(--pad) 88px; }
-.cs-back { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247,246,242,0.35); text-decoration: none; margin-bottom: 48px; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
-.cs-back:hover { color: rgba(247,246,242,0.7); gap: 14px; }
-.cs-header-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
-.cs-header-title { font-family: var(--font-d); font-size: clamp(72px, 10vw, 132px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.9; color: var(--text-light); margin-bottom: 28px; }
-.cs-header-summary { font-family: var(--font-d); font-size: clamp(16px, 1.5vw, 20px); font-weight: 400; color: rgba(247,246,242,0.48); line-height: 1.6; max-width: 500px; }
-.cs-header-meta { border-left: 1px solid rgba(247,246,242,0.07); padding-left: 40px; display: flex; flex-direction: column; gap: 36px; }
-.cs-meta-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.28); margin-bottom: 6px; }
-.cs-meta-value { font-family: var(--font-d); font-size: 14px; font-weight: 500; color: rgba(247,246,242,0.68); line-height: 1.6; }
+.cs-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+.cs-hero-center { padding: 80px 0 64px; }
+.cs-hero-h1 {
+  font-family: var(--font-d);
+  font-size: clamp(52px, 7.5vw, 96px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  animation: fadeUp 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cs-hero-img {
+  width: calc(100% + 2 * var(--pad));
+  margin-left: calc(-1 * var(--pad));
+  height: auto;
+  display: block;
+  margin-top: 72px;
+  animation: fadeUp 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cs-hero-descriptors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--mid);
+  animation: fadeUp 0.9s 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cs-hero-cell {
+  padding: 32px 36px 32px 0;
+  border-right: 1px solid var(--mid);
+}
+.cs-hero-cell:last-child { border-right: none; padding-right: 0; }
+.cs-hero-cell:not(:first-child) { padding-left: 36px; }
+.cs-hero-cell .label { margin-bottom: 12px; }
+.cs-hero-cell-text { font-family: var(--font-b); font-size: 16px; font-weight: 500; line-height: 1.55; color: var(--text); }
+.cs-hero-cell-text span { color: var(--mid-text); font-weight: 400; }
 
 /* ── 2. THE BRIEF ── */
 .brief { padding: 120px 0 0; border-bottom: 1px solid var(--mid); }
@@ -214,7 +236,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .brief-intro p { font-size: clamp(15px, 1.4vw, 17px); font-weight: 400; color: var(--mid-text); line-height: 1.85; }
 .brief-intro p + p { margin-top: 20px; }
 .brief-intro strong { color: var(--text); font-weight: 600; }
-.brief-stats { }
 .brief-stat { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--mid); }
 .brief-stat-total { border-top: 2px solid var(--text); margin-top: -1px; }
 .brief-stat-num { font-family: var(--font-d); font-size: clamp(22px, 2.2vw, 30px); font-weight: 800; letter-spacing: -0.03em; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1; }
@@ -271,7 +292,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .poc-ab-verdict { font-family: var(--font-d); font-size: 14px; font-weight: 500; color: rgba(247,246,242,0.55); font-style: italic; line-height: 1.4; }
 .poc-insight { border-left: 3px solid var(--accent); padding-left: 32px; }
 .poc-insight-intro { font-size: clamp(14px, 1.2vw, 15px); color: rgba(247,246,242,0.42); line-height: 1.75; margin-bottom: 32px; }
-.poc-quote { }
 .poc-quote-text { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-light); text-wrap: balance; margin-bottom: 12px; }
 .poc-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,246,242,0.28); font-style: normal; display: block; margin-bottom: 28px; }
 .poc-insight-body { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
@@ -391,10 +411,14 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 @media (max-width: 900px) {
   :root { --pad: 32px; }
 
-  /* Header */
-  .cs-header-grid { grid-template-columns: 1fr; gap: 0; padding: 56px var(--pad) 72px; }
-  .cs-header-meta { display: none; }
-  .cs-header-title { font-size: clamp(64px, 16vw, 96px); }
+  /* Hero */
+  .cs-hero-h1 { font-size: clamp(40px, 11vw, 64px); }
+  .cs-hero-center { padding: 48px 0 40px; }
+  .cs-hero-img { margin-top: 40px; }
+  .cs-hero-descriptors { grid-template-columns: 1fr; }
+  .cs-hero-cell { border-right: none; border-bottom: 1px solid var(--mid); padding: 24px 0; }
+  .cs-hero-cell:not(:first-child) { padding-left: 0; }
+  .cs-hero-cell:last-child { border-bottom: none; padding-right: 0; }
 
   /* Brief */
   .brief-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -447,45 +471,29 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
 <main id="main">
 
-  <!-- ── 1. CASE HEADER ── -->
-  <header class="cs-header">
-    <div class="cs-header-ghost" aria-hidden="true">HEARD</div>
-    <div class="cs-header-inner">
-      <div class="cs-header-grid">
-        <div>
-          <a class="cs-back fade-up" href="index.html#work">← Work</a>
-          <div class="cs-header-tags fade-up">
-            <span class="cs-tag cs-tag-dark">AI Product</span>
-            <span class="cs-tag cs-tag-dark">Founder</span>
-          </div>
-          <h1 class="cs-header-title fade-up">HEARD</h1>
-          <p class="cs-header-summary fade-up">One real problem. One shipped product. Built by a lyricist who couldn't hear his own songs — and a designer who needed to know what AI-era product leadership looks like.</p>
+  <!-- ── 1. HERO ── -->
+  <section class="cs-hero">
+    <div class="cs-hero-inner">
+      <div class="cs-hero-center">
+        <h1 class="cs-hero-h1">One real problem.<br>One shipped product.</h1>
+        <img class="cs-hero-img" src="assets/hero-showcase-2.png" alt="HEARD app — lyric input and generated track interface">
+      </div>
+      <div class="cs-hero-descriptors">
+        <div class="cs-hero-cell">
+          <div class="label">What I built</div>
+          <p class="cs-hero-cell-text">HEARD — <span>A lyric-first music tool that turns written words into produced demo tracks using AI. Built by a lyricist who had the same problem for all lyricists.</span></p>
         </div>
-        <div class="cs-header-meta fade-up" style="animation-delay:0.55s">
-          <div class="cs-meta-item">
-            <div class="cs-meta-label">Year</div>
-            <div class="cs-meta-value">2024–2025</div>
-          </div>
-          <div class="cs-meta-item">
-            <div class="cs-meta-label">Role</div>
-            <div class="cs-meta-value">Founder · Designer · Builder</div>
-          </div>
-          <div class="cs-meta-item">
-            <div class="cs-meta-label">Total Time</div>
-            <div class="cs-meta-value">198 hours</div>
-          </div>
-          <div class="cs-meta-item">
-            <div class="cs-meta-label">Status</div>
-            <div class="cs-meta-value">Live · Private Preview</div>
-          </div>
-          <div class="cs-meta-item">
-            <div class="cs-meta-label">Product</div>
-            <div class="cs-meta-value"><a href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer" class="cs-link" style="font-size:11px;color:rgba(247,246,242,0.5);border-bottom-color:rgba(247,246,242,0.15);">tryheardfree.com →</a></div>
-          </div>
+        <div class="cs-hero-cell">
+          <div class="label">How I built it</div>
+          <p class="cs-hero-cell-text">One builder. <span>With AI as a collaborator, every discipline — research, design, engineering — moved faster and reached further because of it.</span></p>
+        </div>
+        <div class="cs-hero-cell">
+          <div class="label">What it proves</div>
+          <p class="cs-hero-cell-text">Designers can ship. <span>The designer who understands the problem deeply and can direct AI precisely can now own the full product — from insight to working software.</span></p>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- ── 2. THE BRIEF ── -->
   <section class="brief">
