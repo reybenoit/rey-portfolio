@@ -347,6 +347,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 /* ── 4. DESIGN ── */
 .design { padding: 120px 0; border-bottom: 1px solid var(--mid); }
 .design .label { margin-bottom: 16px; }
+.design .cs-methodology-heading { margin-bottom: 32px; }
 .design-intro { color: var(--mid-text); max-width: 640px; margin-bottom: 72px; }
 .design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
 .design-moment:last-child { border-bottom: 1px solid var(--mid); }
@@ -631,7 +632,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="poc-image-wrap" data-fade>
         <h3 class="design-moment-title" style="margin-bottom: 32px;">Workflow refinement based on AI assisted self-interview</h3>
         <img src="assets/old-new-workflow.png" alt="Workflow refinement diagram">
-        <h3 class="design-moment-title" style="margin-top: 56px; margin-bottom: 32px;">PoC output evolution</h3>
+        <h3 class="design-moment-title" style="border-top: 1px solid var(--mid); padding-top: 56px; margin-top: 56px; margin-bottom: 32px;">Outputs of different APIs during PoC phase</h3>
         <div class="comparison-card">
           <div class="comparison-header">
             <div class="comparison-header-label">Same lyrics — two different models</div>
@@ -695,63 +696,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
         <audio id="compAudio2" src="assets/suno-kie-ai-untouchable.mp3" preload="metadata"></audio>
       </div>
 
-      <div class="design-moments">
-
-        <div class="design-moment" data-fade>
-          <div class="design-moment-num">01</div>
-          <div class="design-moment-content">
-            <div class="poc-tags">
-              <span class="poc-tag">UberDuck</span>
-              <span class="poc-tag">ElevenLabs</span>
-              <span class="poc-tag">Kits.ai</span>
-            </div>
-            <h3 class="design-moment-title">Three APIs, One Lesson</h3>
-            <div class="design-moment-body">
-              <p>I tested three voice cloning APIs to find out if the concept was buildable at all. UberDuck revealed a fatal UX problem early: the API required ten minutes of voice samples versus thirty seconds in the web interface. That asymmetry would have broken onboarding.</p>
-              <p>ElevenLabs was the breakthrough — until I listened back. The clone was accurate. It actually sounded like me. But text-to-speech models and rap performance are fundamentally incompatible. The rhythm was flat, the delivery mechanical, the energy gone.</p>
-              <p>The prototype worked technically. The output failed artistically. That distinction mattered.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="design-moment" data-fade>
-          <div class="design-moment-num">02</div>
-          <div class="design-moment-content">
-            <div class="poc-tags">
-              <span class="poc-tag">AI-Assisted Research</span>
-              <span class="poc-tag">Role separation</span>
-              <span class="poc-tag">Self-Interview</span>
-            </div>
-            <h3 class="design-moment-title">The Self-Interview I Couldn't Have Conducted Alone</h3>
-            <div class="design-moment-body">
-              <p>If I wrote the interview questions and then answered them, my researcher brain and my user brain would contaminate each other. Instead, I gave my AI assistant the role of UX researcher — a workaround for the principle that you are not the user. The AI asked the questions; I answered honestly, without anticipating where the answers would lead.</p>
-              <p>The finding: the biggest pain point in my music-making process wasn't recording — it was the iteration required to get there. Days figuring out how lyrics should flow against a beat. Where do I breathe? Which lines need to slow down? That's where I lost the most time — and what I'd been trying to solve without naming it clearly.</p>
-              <p>I didn't need a voice cloning tool. I needed an AI session artist — something that could interpret my lyrics, generate multiple performances, and give me a starting point I could iterate on. The voice cloning aspect was a solution to the wrong problem.</p>
-            </div>
-            <blockquote class="design-ai-quote">
-              <p class="design-ai-quote-text">"I didn't need a voice cloning tool. I needed an AI session artist."</p>
-              <cite class="design-ai-quote-attr">Key finding from AI-assisted self-interview</cite>
-            </blockquote>
-          </div>
-        </div>
-
-        <div class="design-moment" data-fade>
-          <div class="design-moment-num">03</div>
-          <div class="design-moment-content">
-            <div class="poc-tags">
-              <span class="poc-tag">Architecture Decision</span>
-              <span class="poc-tag">Diffusion Models</span>
-              <span class="poc-tag">Suno / Kie AI</span>
-            </div>
-            <h3 class="design-moment-title">From Speech Engine to Music Engine</h3>
-            <div class="design-moment-body">
-              <p>Text-to-speech models understand emotional pacing but have no concept of bars, beat structure, or musical timing. The better-performing tools I found were built on something different: diffusion models trained on actual songs. They understand the relationship between a lyric and a beat. They produce performances that feel musical because they were shaped by music.</p>
-              <p>I rebuilt the prototype around Suno via the Kie AI service and the difference was immediate.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      
     </div>
   </section>
 
@@ -759,75 +704,69 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   <section class="design">
     <div class="container">
       <div class="label" data-fade>03 — Design</div>
-      <p class="design-intro" data-fade data-delay="1">The POC answered the only question that mattered at that stage: yes, this could be built. The design phase is where everything else got decided — what the product would be called, what it would look like, and what it would feel like to use.</p>
+      <h2 class="cs-methodology-heading" data-fade data-delay="1">Where the Product Took Shape.</h2>
+      <p class="design-intro" data-fade data-delay="2">The POC answered whether this can be built and how. The design phase is where everything else got decided — what the product would be called, what it would look like, and what it would feel like to use.</p>
 
       <div class="design-moments">
 
         <div class="design-moment" data-fade>
-          <div class="design-moment-num">01</div>
+          <div class="design-moment-num">3.1</div>
           <div class="design-moment-content">
-            <h3 class="design-moment-title">Naming — HEARD</h3>
+            <h3 class="design-moment-title">Usability Research: Finding the Real Friction</h3>
             <div class="design-moment-body">
-              <p>What it felt like to hear my lyrics performed as a full track for the first time was a key input in the naming process. That moment — the surprise of it, the emotional weight of finally hearing what had only existed on paper — needed to be in the name.</p>
-              <p>I started with "Herd" — an intentional alternate spelling, and the acronym landed well. But days later the word's other meaning surfaced: cattle, crowds, following. Wrong connotations for a product about individual creative expression. One letter changed everything.</p>
+              <p>I ran a second round of AI-assisted research — this time a usability study, with my AI assistant prompting me as I moved through each step of the prototype. The most significant finding: genre literacy. The prototype listed 16 genres in a dropdown. For a new user, those labels meant almost nothing in terms of predicting what the output would actually sound like. If users can't predict the output, they can't make good decisions — and they waste credits and lose trust in the tool.</p>
+              <p>The fix: organized the genre library into subcategories. Then it was time to give the product a personality.</p>
             </div>
-            <div class="design-acronym">
-              <div class="design-acronym-row"><span class="design-acronym-letter">H</span><span class="design-acronym-word">Hear</span></div>
-              <div class="design-acronym-row"><span class="design-acronym-letter">E</span><span class="design-acronym-word">Every</span></div>
-              <div class="design-acronym-row"><span class="design-acronym-letter">A</span><span class="design-acronym-word">Authored</span></div>
-              <div class="design-acronym-row"><span class="design-acronym-letter">R</span><span class="design-acronym-word">Rhyme</span></div>
-              <div class="design-acronym-row"><span class="design-acronym-letter">D</span><span class="design-acronym-word">Delivered</span></div>
+            <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+              <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Genre selection evolution based on usability testing</h3>
+              <img src="assets/usability-before-after.png" alt="Genre selection before and after usability testing">
             </div>
           </div>
         </div>
 
         <div class="design-moment" data-fade>
-          <div class="design-moment-num">02</div>
+          <div class="design-moment-num">3.2</div>
           <div class="design-moment-content">
-            <h3 class="design-moment-title">Usability — The Genre Literacy Problem</h3>
+            <h3 class="design-moment-title">The Name Had to Mean Something</h3>
             <div class="design-moment-body">
-              <p>I ran an AI-assisted usability study on the second prototype. The most significant finding: the prototype listed 16 genres in a dropdown. For a new user, those labels meant almost nothing in terms of predicting what the final output would actually sound like.</p>
-              <p>If users can't predict the output, they can't make good decisions. If they can't make good decisions, they waste credits and lose trust in the tool. The fix was organizing the genre library into subcategories — reducing overwhelm and giving users enough context to choose with confidence.</p>
+              <p>What it felt like to hear my lyrics performed as a full track for the first time was the key input in my naming process. I fed my AI assistant my brand guidelines, naming criteria, and those reflections, and iterated through a shortlist until the right name became obvious.</p>
+              <p>HEARD — Hear Every Authored Rhyme Delivered. This captured what it felt like to finally hear lyrics that had been waiting years to be recorded — heard.</p>
+            </div>
+            <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+              <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Brand name and acronym</h3>
+              <img src="assets/heard-name.jpg" alt="HEARD brand name and acronym" style="border-radius: 16px; box-shadow: 0 24px 30px rgba(26,26,46,0.075);">
             </div>
           </div>
         </div>
 
         <div class="design-moment" data-fade>
-          <div class="design-moment-num">03</div>
+          <div class="design-moment-num">3.3</div>
           <div class="design-moment-content">
-            <h3 class="design-moment-title">AI Design Critique</h3>
+            <h3 class="design-moment-title">From Belief System to Brand and Visual Mark</h3>
             <div class="design-moment-body">
-              <p>As a solo builder, I didn't have a design team to review my work before it shipped. So I built the equivalent: gave my AI assistant the full project context — brand guidelines, research findings, goals — and used it to evaluate the work objectively. The distance enables honesty.</p>
+              <p>Before designing anything, I ran a structured AI-assisted brand session — working through mission, values, voice, audience, typography, and color. The AI asked the questions; I answered them. It wasn't generative — it was clarifying. The resulting guidelines became the source of truth for every design decision that followed.</p>
+              <p>The logo came from the same principle: AI as direction-finder, not finisher. What the generations got wrong was as instructive as what they got right — and those iterations became the brief I took into Figma. The outcome was intentional in a way that pure generation couldn't have produced.</p>
             </div>
             <blockquote class="design-ai-quote">
-              <p class="design-ai-quote-text">"Your primary CTA is nearly invisible. 'Make Your Voice HEARD' reads more like a tagline than a button. If sign-up is the goal, the CTA language needs to say that — right now a visitor doesn't know what clicking it gets them."</p>
-              <cite class="design-ai-quote-attr">AI Design Critique — Homepage Review</cite>
+              <p class="design-ai-quote-text">"Apps are now commodities. Brand is the differentiator. HEARD was built by the user it was built for."</p>
             </blockquote>
+            <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+              <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Brand specimen</h3>
+              <img src="assets/brand-specimen.png" alt="HEARD brand specimen" style="border-radius: 16px; box-shadow: 0 24px 30px rgba(26,26,46,0.075);">
+            </div>
           </div>
         </div>
 
         <div class="design-moment" data-fade>
-          <div class="design-moment-num">04</div>
+          <div class="design-moment-num">3.4</div>
           <div class="design-moment-content">
-            <h3 class="design-moment-title">The Decision — Fidelity vs. Velocity</h3>
+            <h3 class="design-moment-title">Designing the Creation Form</h3>
             <div class="design-moment-body">
-              <p>Voice cloning was technically within reach and emotionally compelling — the kind of feature that makes a demo unforgettable. It was also a 6-month engineering detour with unresolved legal exposure.</p>
+              <p>The core of the app design was the creation form: lyrics in, genre selected, generation initiated. I used AI to produce multiple variations — comparing and deciding rather than designing each option sequentially. The decisions were guided by form design principles, usability research findings, and brand guidelines. The output wasn't AI-generated design; it was AI-assisted design judgment.</p>
             </div>
-            <div class="design-decision">
-              <div class="design-decision-grid">
-                <div class="decision-col">
-                  <div class="decision-col-label">What got cut</div>
-                  <div class="decision-col-title">Voice Cloning</div>
-                  <p>Generating songs in an artist's own voice. Technically possible, legally uncertain, and 6 months away from the core problem worth solving.</p>
-                </div>
-                <div class="design-decision-divider" aria-hidden="true"></div>
-                <div class="decision-col">
-                  <div class="decision-col-label">What shipped</div>
-                  <div class="decision-col-title">Text to Music</div>
-                  <p>One clear problem, solved well. Give me a song from a lyric or concept, fast. No production knowledge required. Real users, real output, real value.</p>
-                </div>
-              </div>
-              <p class="design-decision-closer"><em>Scope control is a design skill.</em></p>
+            <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+              <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Form design: Genre selection</h3>
+              <img src="assets/genre-annotations.png" alt="Form design: genre selection annotations">
             </div>
           </div>
         </div>
