@@ -53,8 +53,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-b);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -300,10 +300,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
 /* ── 2. THE BRIEF ── */
 .brief { padding: 120px 0 0; border-bottom: 1px solid var(--mid); }
-.brief .label { margin-bottom: 56px; }
+.brief .label { margin-bottom: 24px; }
 .brief-title { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--text); margin-bottom: 32px; }
 .brief-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; margin-bottom: 80px; align-items: start; }
-.brief-intro p { font-size: clamp(15px, 1.4vw, 17px); font-weight: 400; color: var(--mid-text); line-height: 1.85; }
+.brief-intro p { font-weight: 400; color: var(--mid-text); line-height: 1.85; }
 .brief-intro p + p { margin-top: 20px; }
 .brief-intro strong { color: var(--text); font-weight: 600; }
 .brief-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
@@ -330,19 +330,29 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 /* ── 3. PROOF OF CONCEPT ── */
 .poc { padding: 120px 0; border-bottom: 1px solid var(--mid); }
 .poc .label { margin-bottom: 16px; }
-.poc-intro { font-size: clamp(15px, 1.4vw, 17px); color: var(--mid-text); line-height: 1.75; max-width: 640px; margin-bottom: 72px; }
+.poc-intro { color: var(--mid-text); line-height: 1.85; margin-bottom: 48px; }
+.poc-image-wrap { border-top: 1px solid var(--mid); padding-top: 56px; margin-bottom: 72px; }
+.poc-image-wrap img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.poc-caption { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-text); margin-top: 12px; }
+.poc-intro p + p { margin-top: 20px; }
+.poc-intro ol { margin-top: 16px; padding-left: 24px; }
+.poc-intro li { line-height: 1.85; }
+.poc-intro li::marker { color: var(--accent); font-family: var(--font-d); font-weight: 700; }
+.poc-intro li + li { margin-top: 12px; }
+.poc-intro ol + p { margin-top: 20px; }
+.poc-intro li strong { color: var(--text); font-weight: 600; }
 .poc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .poc-tag { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(58,107,196,0.3); padding: 3px 10px; border-radius: 3px; }
 
 /* ── 4. DESIGN ── */
 .design { padding: 120px 0; border-bottom: 1px solid var(--mid); }
 .design .label { margin-bottom: 16px; }
-.design-intro { font-size: clamp(15px, 1.4vw, 17px); color: var(--mid-text); line-height: 1.75; max-width: 640px; margin-bottom: 72px; }
+.design-intro { color: var(--mid-text); max-width: 640px; margin-bottom: 72px; }
 .design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
 .design-moment:last-child { border-bottom: 1px solid var(--mid); }
 .design-moment-num { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 6px; }
 .design-moment-title { font-family: var(--font-d); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
-.design-moment-body p { font-size: clamp(15px, 1.3vw, 17px); color: var(--mid-text); line-height: 1.85; }
+.design-moment-body p { color: var(--mid-text); line-height: 1.85; }
 .design-moment-body p + p { margin-top: 16px; }
 .design-acronym { margin-top: 36px; border-top: 1px solid var(--mid); padding-top: 32px; }
 .design-acronym-row { display: flex; align-items: baseline; gap: 20px; padding: 8px 0; }
@@ -382,7 +392,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .build .label { margin-bottom: 56px; }
 .build-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
 .build-title { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); margin-bottom: 20px; }
-.build-text p { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
+.build-text p { color: rgba(247,246,242,0.52); line-height: 1.85; }
 .build-text p + p { margin-top: 16px; }
 .build-flow { margin-top: 36px; }
 .build-flow-item { display: flex; align-items: baseline; gap: 18px; padding: 14px 0; border-top: 1px solid rgba(247,246,242,0.06); }
@@ -391,7 +401,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .build-flow-text { font-size: 14px; color: rgba(247,246,242,0.48); line-height: 1.55; }
 .build-collab { border-left: 3px solid var(--accent); padding-left: 32px; }
 .build-collab-quote { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-light); text-wrap: balance; margin-bottom: 28px; }
-.build-collab-body p { font-size: clamp(15px, 1.3vw, 17px); color: rgba(247,246,242,0.52); line-height: 1.85; }
+.build-collab-body p { color: rgba(247,246,242,0.52); line-height: 1.85; }
 .build-collab-body p + p { margin-top: 16px; }
 
 /* ── 6. TAKEAWAYS ── */
@@ -399,7 +409,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .takeaways .label { margin-bottom: 56px; }
 .takeaways-impact { margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid var(--mid); }
 .takeaways-impact-value { font-family: var(--font-d); font-size: clamp(36px, 5.5vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); margin-bottom: 20px; }
-.takeaways-impact-desc { font-size: clamp(15px, 1.4vw, 17px); color: var(--mid-text); line-height: 1.75; max-width: 520px; }
+.takeaways-impact-desc { color: var(--mid-text); max-width: 520px; }
 .takeaway { display: grid; grid-template-columns: 64px 1fr; gap: 32px; padding: 36px 0; border-top: 1px solid var(--mid); align-items: start; }
 .takeaway:last-child { border-bottom: 1px solid var(--mid); }
 .takeaway-num { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 4px; }
@@ -443,7 +453,47 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .next-case-eyebrow { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid-text); }
 .next-case-tags { display: flex; gap: 6px; margin-bottom: 16px; }
 .next-case-title { font-family: var(--font-d); font-size: clamp(28px, 3vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; color: var(--text); margin-bottom: 12px; }
-.next-case-desc { font-size: clamp(15px, 1.3vw, 17px); color: var(--mid-text); line-height: 1.7; margin-bottom: 24px; max-width: 520px; }
+.next-case-desc { color: var(--mid-text); line-height: 1.7; margin-bottom: 24px; max-width: 520px; }
+
+/* ── COMPARISON PLAYER ── */
+.comparison-card { width: 100%; background: var(--bg); border: 1.5px solid var(--mid); border-radius: 8px; overflow: hidden; }
+.comparison-header { padding: 16px 24px; border-bottom: 1.5px solid var(--mid); display: flex; align-items: center; justify-content: space-between; }
+.comparison-header-label { font-family: var(--font-d); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-text); }
+.comparison-header-note { font-family: var(--font-d); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-text); border: 1px solid var(--mid); border-radius: 3px; padding: 3px 8px; }
+.comp-player { border-bottom: 1.5px solid var(--mid); }
+.comp-player:last-of-type { border-bottom: none; }
+.comp-player-header { padding: 16px 24px 12px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.comp-player-label { font-family: var(--font-d); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; }
+.comp-player-label.tts { color: var(--mid-text); }
+.comp-player-label.diffusion { color: var(--accent); }
+.comp-player-title { font-size: 14px; font-weight: 500; color: var(--text); }
+.comp-player-subtitle { font-size: 14px; font-weight: 400; color: var(--mid-text); margin-top: 2px; font-style: italic; }
+.comp-player-tag { flex-shrink: 0; font-family: var(--font-d); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px; padding: 3px 8px; margin-top: 2px; white-space: nowrap; }
+.comp-player-tag.tts { color: var(--mid-text); border: 1px solid var(--mid); }
+.comp-player-tag.diffusion { color: var(--accent); border: 1px solid rgba(58,107,196,0.3); background: rgba(58,107,196,0.05); }
+.comp-waveform-wrap { padding: 8px 24px; position: relative; cursor: pointer; }
+.comp-waveform { display: flex; align-items: center; gap: 2px; height: 36px; }
+.comp-waveform-bar { flex: 1; border-radius: 1px; background: var(--mid); transition: background 0.15s ease; }
+.comp-waveform-bar.played-tts { background: var(--mid-text); }
+.comp-waveform-bar.played-diffusion { background: var(--accent); }
+.comp-waveform-bar.active { animation: wf-pulse 0.4s ease infinite alternate; }
+@keyframes wf-pulse { from { opacity: 0.7; } to { opacity: 1; } }
+.comp-player-controls { padding: 0 24px 16px; display: flex; align-items: center; gap: 12px; }
+.btn-comp-play { width: 34px; height: 34px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s, transform 0.15s; }
+.btn-comp-play.tts { background: var(--mid-text); }
+.btn-comp-play.diffusion { background: var(--accent); }
+.btn-comp-play:hover { opacity: 0.85; transform: scale(1.05); }
+.btn-comp-play:active { transform: scale(0.97); }
+.btn-comp-play svg { width: 12px; height: 12px; fill: white; margin-left: 2px; }
+.btn-comp-play.playing svg { margin-left: 0; }
+.comp-time-wrap { display: flex; align-items: center; gap: 8px; flex: 1; }
+.comp-time-current { font-family: var(--font-d); font-size: 10px; color: var(--text); min-width: 28px; }
+.comp-progress-track { flex: 1; height: 2px; background: var(--mid); border-radius: 2px; cursor: pointer; position: relative; }
+.comp-progress-fill { height: 100%; border-radius: 2px; width: 0%; transition: width 0.1s linear; }
+.comp-progress-fill.tts { background: var(--mid-text); }
+.comp-progress-fill.diffusion { background: var(--accent); }
+.comp-time-total { font-family: var(--font-d); font-size: 10px; color: var(--mid-text); min-width: 28px; text-align: right; }
+.comparison-note { padding: 14px 24px; border-top: 1.5px solid var(--mid); font-size: 12px; color: var(--mid-text); font-style: italic; line-height: 1.5; }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
@@ -552,6 +602,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="brief-grid" data-fade>
         <div class="brief-intro">
           <div class="label">01 — The Brief</div>
+          <h2 class="brief-title">A North Star</h2>
           <p>My initial idea was simple: clone my voice, feed it my lyrics, and have AI generate a complete song. <strong>The scope was intentionally narrow. The goal was to find out whether this was even possible and, if so, can I build it.</strong></p>
           <p>Two reasons drove me forward. I'm a lyricist with years of written work I'd never heard produced. And I'd been asking whether a designer with the right experience could ship a real product alone, using AI as the implementation layer. That was the brief. Not a requirements doc — a North Star.</p>
         </div>
@@ -566,7 +617,83 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   <section class="poc">
     <div class="container">
       <div class="label" data-fade>02 — Proof of Concept</div>
-      <p class="poc-intro" data-fade data-delay="1">Before any design work, I had to answer a harder question: could this even be built? This phase had three parts: building a working prototype, running structured user research on myself using AI, and understanding why the technology I ultimately landed on changed everything downstream.</p>
+      <h2 class="brief-title" data-fade data-delay="1">Refining the Idea</h2>
+      <div class="poc-intro" data-fade data-delay="2">
+        <p>Working prototypes with real code are the new wireframes.Before any design work started, I tested three voice cloning APIs, UberDuck, Kits.ai, and ElevenLabs, building functional prototypes at each step to pressure-test the concept against reality.</p>
+        <p>Three things came out of the PoC that shaped everything downstream.</p>
+        <ol>
+          <li><strong>The technology pivot:</strong> diffusion models — trained on actual songs rather than spoken dialogue — produced performances that felt musical because they were shaped by music. I rebuilt the prototype around Suno via the Kie AI service and the difference was immediate.</li>
+          <li><strong>The product reframe:</strong> I didn't need a voice cloning tool. I needed an AI session artist — something that could interpret my lyrics, generate multiple performances, and give me a reference point to iterate from. Voice cloning was a solution to the wrong problem.</li>
+          <li><strong>A new research method I'd use again in the design phase:</strong> role-separated AI interviews, where the distance between researcher and subject is the mechanism that makes honest findings possible.</li>
+        </ol>
+        <p>The PoC didn't validate the idea. It replaced it with a better one.</p>
+      </div>
+      <div class="poc-image-wrap" data-fade>
+        <h3 class="design-moment-title" style="margin-bottom: 32px;">Workflow refinement based on AI assisted self-interview</h3>
+        <img src="assets/old-new-workflow.png" alt="Workflow refinement diagram">
+        <h3 class="design-moment-title" style="margin-top: 56px; margin-bottom: 32px;">PoC output evolution</h3>
+        <div class="comparison-card">
+          <div class="comparison-header">
+            <div class="comparison-header-label">Same lyrics — two different models</div>
+            <div class="comparison-header-note">A/B</div>
+          </div>
+          <div class="comp-player">
+            <div class="comp-player-header">
+              <div>
+                <div class="comp-player-label tts">Text-to-Speech Model</div>
+                <div class="comp-player-title">ElevenLabs Output</div>
+                <div class="comp-player-subtitle">Emotionally paced. Musically flat.</div>
+              </div>
+              <div class="comp-player-tag tts">TTS</div>
+            </div>
+            <div class="comp-waveform-wrap" id="compWaveformWrap1" onclick="seekCompFromWaveform(event, 1)">
+              <div class="comp-waveform" id="compWaveform1"></div>
+            </div>
+            <div class="comp-player-controls">
+              <button class="btn-comp-play tts" id="compPlayBtn1" onclick="toggleCompPlay(1)">
+                <svg id="compPlayIcon1" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </button>
+              <div class="comp-time-wrap">
+                <span class="comp-time-current" id="compTimeCurrent1">0:00</span>
+                <div class="comp-progress-track" onclick="seekCompTo(event, 1)">
+                  <div class="comp-progress-fill tts" id="compProgressFill1"></div>
+                </div>
+                <span class="comp-time-total" id="compTimeTotal1">0:00</span>
+              </div>
+            </div>
+          </div>
+          <div class="comp-player">
+            <div class="comp-player-header">
+              <div>
+                <div class="comp-player-label diffusion">Diffusion Model</div>
+                <div class="comp-player-title">Suno / Kie AI Output</div>
+                <div class="comp-player-subtitle">Shaped by music. Sounds like it.</div>
+              </div>
+              <div class="comp-player-tag diffusion">Diffusion</div>
+            </div>
+            <div class="comp-waveform-wrap" id="compWaveformWrap2" onclick="seekCompFromWaveform(event, 2)">
+              <div class="comp-waveform" id="compWaveform2"></div>
+            </div>
+            <div class="comp-player-controls">
+              <button class="btn-comp-play diffusion" id="compPlayBtn2" onclick="toggleCompPlay(2)">
+                <svg id="compPlayIcon2" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </button>
+              <div class="comp-time-wrap">
+                <span class="comp-time-current" id="compTimeCurrent2">0:00</span>
+                <div class="comp-progress-track" onclick="seekCompTo(event, 2)">
+                  <div class="comp-progress-fill diffusion" id="compProgressFill2"></div>
+                </div>
+                <span class="comp-time-total" id="compTimeTotal2">0:00</span>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-note">
+            Both tracks use the same lyrics. The difference isn't the input — it's what each model was trained on.
+          </div>
+        </div>
+        <audio id="compAudio1" src="assets/ElevenLabs_untouchable.mp3" preload="metadata"></audio>
+        <audio id="compAudio2" src="assets/suno-kie-ai-untouchable.mp3" preload="metadata"></audio>
+      </div>
 
       <div class="design-moments">
 
@@ -877,6 +1004,96 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       if (lb) lb.style.display = 'none';
     }
   });
+</script>
+<script>
+  // ── COMPARISON PLAYER ──
+  (function () {
+    const BAR_COUNT = 70;
+    const playedClasses = { 1: 'played-tts', 2: 'played-diffusion' };
+
+    [1, 2].forEach(id => {
+      const waveformEl = document.getElementById('compWaveform' + id);
+      if (!waveformEl) return;
+      for (let i = 0; i < BAR_COUNT; i++) {
+        const h = Math.max(0.08, Math.min(1, 0.2 + Math.sin(i * 0.18) * 0.25 + Math.sin(i * 0.07) * 0.2 + Math.random() * 0.45));
+        const bar = document.createElement('div');
+        bar.className = 'comp-waveform-bar';
+        bar.style.height = (h * 36) + 'px';
+        waveformEl.appendChild(bar);
+      }
+    });
+
+    function fmt(s) { const m = Math.floor(s / 60), sec = Math.floor(s % 60); return m + ':' + (sec < 10 ? '0' : '') + sec; }
+
+    [1, 2].forEach(id => {
+      const audio = document.getElementById('compAudio' + id);
+      if (!audio) return;
+      const playedClass = playedClasses[id];
+
+      audio.addEventListener('loadedmetadata', () => {
+        document.getElementById('compTimeTotal' + id).textContent = fmt(audio.duration);
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        if (!audio.duration) return;
+        const progress = audio.currentTime / audio.duration;
+        document.getElementById('compProgressFill' + id).style.width = (progress * 100) + '%';
+        document.getElementById('compTimeCurrent' + id).textContent = fmt(audio.currentTime);
+        const bars = document.getElementById('compWaveform' + id).querySelectorAll('.comp-waveform-bar');
+        const played = Math.floor(progress * BAR_COUNT);
+        bars.forEach((bar, i) => {
+          bar.classList.remove(playedClass, 'active');
+          if (i < played) bar.classList.add(playedClass);
+          if (i === played) bar.classList.add(playedClass, 'active');
+        });
+      });
+
+      audio.addEventListener('ended', () => {
+        document.getElementById('compPlayBtn' + id).classList.remove('playing');
+        document.getElementById('compPlayIcon' + id).innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+        document.getElementById('compProgressFill' + id).style.width = '0%';
+        document.getElementById('compTimeCurrent' + id).textContent = '0:00';
+        document.getElementById('compWaveform' + id).querySelectorAll('.comp-waveform-bar').forEach(b => b.classList.remove(playedClass, 'active'));
+      });
+    });
+
+    window.toggleCompPlay = function (id) {
+      const audio = document.getElementById('compAudio' + id);
+      const playBtn = document.getElementById('compPlayBtn' + id);
+      const playIcon = document.getElementById('compPlayIcon' + id);
+      const otherId = id === 1 ? 2 : 1;
+      const otherAudio = document.getElementById('compAudio' + otherId);
+      if (otherAudio && !otherAudio.paused) {
+        otherAudio.pause();
+        document.getElementById('compPlayBtn' + otherId).classList.remove('playing');
+        document.getElementById('compPlayIcon' + otherId).innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+      }
+      if (audio.paused) {
+        audio.play();
+        playBtn.classList.add('playing');
+        playIcon.innerHTML = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+      } else {
+        audio.pause();
+        playBtn.classList.remove('playing');
+        playIcon.innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+      }
+    };
+
+    window.seekCompTo = function (e, id) {
+      const audio = document.getElementById('compAudio' + id);
+      if (!audio.duration) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      audio.currentTime = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)) * audio.duration;
+    };
+
+    window.seekCompFromWaveform = function (e, id) {
+      const audio = document.getElementById('compAudio' + id);
+      if (!audio.duration) return;
+      const rect = document.getElementById('compWaveformWrap' + id).getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, (e.clientX - rect.left - 24) / (rect.width - 48)));
+      audio.currentTime = progress * audio.duration;
+    };
+  })();
 </script>
 <script src="components.js"></script>
 
