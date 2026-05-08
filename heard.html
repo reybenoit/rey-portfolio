@@ -350,7 +350,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .design .cs-methodology-heading { margin-bottom: 32px; }
 .design-intro { color: var(--mid-text); max-width: 640px; margin-bottom: 72px; }
 .design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
-.design-moment:last-child { border-bottom: 1px solid var(--mid); }
 .design-moment-num { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 6px; }
 .design-moment-title { font-family: var(--font-d); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
 .design-moment-body p { color: var(--mid-text); line-height: 1.85; }
@@ -496,6 +495,46 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .comp-time-total { font-family: var(--font-d); font-size: 10px; color: var(--mid-text); min-width: 28px; text-align: right; }
 .comparison-note { padding: 14px 24px; border-top: 1.5px solid var(--mid); font-size: 12px; color: var(--mid-text); font-style: italic; line-height: 1.5; }
 
+/* ── SHOWCASE STRIP ── */
+.cs-showcase { background: var(--bg-dark); border-bottom: 1px solid rgba(247,246,242,0.07); position: relative; overflow: hidden; }
+.cs-showcase::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none; }
+.cs-showcase-header { padding: 72px var(--pad) 40px; border-bottom: 1px solid rgba(247,246,242,0.07); max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
+.cs-showcase-title { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--text-light); margin-top: 16px; }
+.cs-showcase-scroll-wrap { position: relative; padding: 64px 0; overflow-x: clip; }
+.cs-showcase-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; right: 0; background: linear-gradient(to left, var(--bg-dark), transparent); }
+.cs-showcase-scroll { display: flex; gap: 24px; overflow-x: auto; padding: 0 var(--pad); scroll-padding-left: var(--pad); scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; }
+.cs-showcase-scroll:active { cursor: grabbing; }
+.cs-showcase-scroll::-webkit-scrollbar { display: none; }
+.screen-card { flex-shrink: 0; width: 510px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; }
+.screen-frame { width: 100%; aspect-ratio: 16 / 10; background: rgba(247,246,242,0.05); border-radius: 6px; border: 1px solid rgba(247,246,242,0.07); overflow: hidden; }
+.screen-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; border-radius: 6px; cursor: zoom-in; }
+.screen-meta { display: flex; align-items: center; gap: 12px; }
+.screen-step { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); flex-shrink: 0; opacity: 0.7; }
+.screen-rule { flex: 1; height: 1px; background: rgba(247,246,242,0.08); }
+.screen-title { font-size: 14px; color: rgba(247,246,242,0.5); margin-top: 4px; }
+.cs-showcase-footer { padding: 20px var(--pad) 48px; border-top: 1px solid rgba(247,246,242,0.07); max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+.cs-showcase-hint { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.25); display: flex; align-items: center; gap: 8px; }
+.cs-showcase-hint span { animation: nudge 1.8s ease infinite; }
+@keyframes nudge { 0%, 100% { transform: translateX(0); opacity: 0.4; } 50% { transform: translateX(5px); opacity: 1; } }
+
+/* ── CAROUSEL LIGHTBOX ── */
+.lightbox-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.88); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+.lightbox-overlay.active { opacity: 1; pointer-events: all; }
+.lightbox-img { max-width: calc(100vw - 80px); max-height: calc(100vh - 80px); object-fit: contain; display: block; border-radius: 12px; }
+.lightbox-close { position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+.lightbox-close:hover { background: rgba(255,255,255,0.2); }
+.lightbox-close svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; }
+.lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer; background: rgba(255,255,255,0.1); display: none; align-items: center; justify-content: center; transition: background 0.15s; color: white; }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
+.lightbox-prev svg, .lightbox-next svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lightbox-overlay.carousel .lightbox-prev, .lightbox-overlay.carousel .lightbox-next { display: flex; }
+.lightbox-dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: none; gap: 8px; }
+.lightbox-overlay.carousel .lightbox-dots { display: flex; }
+.lightbox-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.15s; }
+.lightbox-dot.active { background: white; }
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   :root { --pad: 32px; }
@@ -561,7 +600,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="cs-hero-center">
         <div class="label" style="margin-bottom: 28px;">HEARD Case Study</div>
         <h1 class="cs-hero-h1">One real problem.<br><span class="cs-hero-accent">One shipped product.</span></h1>
-        <img class="cs-hero-img" src="assets/hero-showcase-2.png" alt="HEARD app — lyric input and generated track interface">
+        <img class="cs-hero-img" src="assets/heard/hero-showcase-2.png" alt="HEARD app — lyric input and generated track interface">
       </div>
       <div class="cs-hero-descriptors">
         <div class="cs-hero-cell">
@@ -593,7 +632,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
     <div class="container cs-methodology-inner">
       <div class="label" data-fade>Methodology</div>
       <h2 class="cs-methodology-heading" data-fade data-delay="1">Classic Double Diamond.<br><em>Accelerated with AI.</em></h2>
-      <img class="cs-methodology-img" src="assets/process-diagram.png" alt="HEARD process diagram — Brief, POC, Design, Implementation, Launch" onclick="openLightbox('assets/process-diagram.jpg')" data-fade data-delay="2">
+      <img class="cs-methodology-img" src="assets/heard/process-diagram.png" alt="HEARD process diagram — Brief, POC, Design, Implementation, Launch" onclick="openCarousel(['assets/heard/process-diagram.jpg'],0)" data-fade data-delay="2">
     </div>
   </section>
 
@@ -608,7 +647,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
           <p>Two reasons drove me forward. I'm a lyricist with years of written work I'd never heard produced. And I'd been asking whether a designer with the right experience could ship a real product alone, using AI as the implementation layer. That was the brief. Not a requirements doc — a North Star.</p>
         </div>
         <div class="brief-image">
-          <img class="brief-img" src="assets/brief-abstract.jpeg" alt="Abstract visual representing the HEARD brief">
+          <img class="brief-img" src="assets/heard/brief-abstract.jpeg" alt="Abstract visual representing the HEARD brief">
         </div>
       </div>
     </div>
@@ -631,7 +670,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       </div>
       <div class="poc-image-wrap" data-fade>
         <h3 class="design-moment-title" style="margin-bottom: 32px;">Workflow refinement based on AI assisted self-interview</h3>
-        <img src="assets/old-new-workflow.png" alt="Workflow refinement diagram">
+        <img src="assets/heard/old-new-workflow.png" alt="Workflow refinement diagram">
         <h3 class="design-moment-title" style="border-top: 1px solid var(--mid); padding-top: 56px; margin-top: 56px; margin-bottom: 32px;">Outputs of different APIs during PoC phase</h3>
         <div class="comparison-card">
           <div class="comparison-header">
@@ -692,8 +731,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
             Both tracks use the same lyrics. The difference isn't the input — it's what each model was trained on.
           </div>
         </div>
-        <audio id="compAudio1" src="assets/ElevenLabs_untouchable.mp3" preload="metadata"></audio>
-        <audio id="compAudio2" src="assets/suno-kie-ai-untouchable.mp3" preload="metadata"></audio>
+        <audio id="compAudio1" src="assets/heard/ElevenLabs_untouchable.mp3" preload="metadata"></audio>
+        <audio id="compAudio2" src="assets/heard/suno-kie-ai-untouchable.mp3" preload="metadata"></audio>
       </div>
 
       
@@ -719,7 +758,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
             </div>
             <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
               <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Genre selection evolution based on usability testing</h3>
-              <img src="assets/usability-before-after.png" alt="Genre selection before and after usability testing">
+              <img src="assets/heard/usability-before-after.png" alt="Genre selection before and after usability testing">
             </div>
           </div>
         </div>
@@ -734,7 +773,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
             </div>
             <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
               <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Brand name and acronym</h3>
-              <img src="assets/heard-name.jpg" alt="HEARD brand name and acronym" style="border-radius: 16px; box-shadow: 0 24px 30px rgba(26,26,46,0.075);">
+              <img src="assets/heard/heard-name.jpg" alt="HEARD brand name and acronym" style="border-radius: 16px; box-shadow: 0 24px 30px rgba(26,26,46,0.075);">
             </div>
           </div>
         </div>
@@ -752,7 +791,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
             </blockquote>
             <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
               <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Brand specimen</h3>
-              <img src="assets/brand-specimen.png" alt="HEARD brand specimen" style="border-radius: 16px; box-shadow: 0 24px 30px rgba(26,26,46,0.075);">
+              <img src="assets/heard/brand-specimen.png" alt="HEARD brand specimen" style="border-radius: 16px; box-shadow: 0 24px 30px rgba(26,26,46,0.075);">
             </div>
           </div>
         </div>
@@ -766,12 +805,95 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
             </div>
             <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
               <h3 class="design-moment-title" style="margin-bottom: 32px; font-size: clamp(16px, 1.5vw, 20px);">Form design: Genre selection</h3>
-              <img src="assets/genre-annotations.png" alt="Form design: genre selection annotations">
+              <img src="assets/heard/genre-annotations.png" alt="Form design: genre selection annotations">
             </div>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ── 4b. SHOWCASE STRIP ── -->
+  <section class="cs-showcase">
+    <div class="cs-showcase-header" data-fade>
+      <div class="label">HEARD in Use</div>
+      <h2 class="cs-showcase-title">Lyrics in. Tracks out.</h2>
+    </div>
+    <div class="cs-showcase-scroll-wrap">
+      <div class="cs-showcase-scroll" id="showcaseScroll">
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/01-homepage-01.jpg" alt="Homepage" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],0)"></div>
+          <div class="screen-meta"><div class="screen-step">01</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Homepage</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/01-homepage-02.jpg" alt="Homepage: Samples" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],1)"></div>
+          <div class="screen-meta"><div class="screen-step">02</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Homepage: Samples</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/01-homepage-03.jpg" alt="Homepage: Enter lyrics" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],2)"></div>
+          <div class="screen-meta"><div class="screen-step">03</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Homepage: Enter lyrics</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/01-homepage-04.jpg" alt="Homepage: How it works" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],3)"></div>
+          <div class="screen-meta"><div class="screen-step">04</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Homepage: How it works</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/01-homepage-05.jpg" alt="Homepage: Why HEARD" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],4)"></div>
+          <div class="screen-meta"><div class="screen-step">05</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Homepage: Why HEARD</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/01-homepage-06.jpg" alt="Homepage: CTA" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],5)"></div>
+          <div class="screen-meta"><div class="screen-step">06</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Homepage: CTA</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/02-add-lyrics-1.jpg" alt="Add lyrics" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],6)"></div>
+          <div class="screen-meta"><div class="screen-step">07</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Add lyrics</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/03-choose-genre.jpg" alt="Choose genre" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],7)"></div>
+          <div class="screen-meta"><div class="screen-step">08</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Choose genre</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/04-review-generate.jpg" alt="Review and generate" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],8)"></div>
+          <div class="screen-meta"><div class="screen-step">09</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Review &amp; generate</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/05-creating-track.jpg" alt="Creating music" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],9)"></div>
+          <div class="screen-meta"><div class="screen-step">10</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Creating music</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="screen-frame"><img src="assets/heard/showcase/06-track-ready.jpg" alt="Tracks ready" onclick="openCarousel(['assets/heard/showcase/01-homepage-01.jpg','assets/heard/showcase/01-homepage-02.jpg','assets/heard/showcase/01-homepage-03.jpg','assets/heard/showcase/01-homepage-04.jpg','assets/heard/showcase/01-homepage-05.jpg','assets/heard/showcase/01-homepage-06.jpg','assets/heard/showcase/02-add-lyrics-1.jpg','assets/heard/showcase/03-choose-genre.jpg','assets/heard/showcase/04-review-generate.jpg','assets/heard/showcase/05-creating-track.jpg','assets/heard/showcase/06-track-ready.jpg'],10)"></div>
+          <div class="screen-meta"><div class="screen-step">11</div><div class="screen-rule"></div></div>
+          <div class="screen-title">Tracks ready</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="cs-showcase-footer">
+      <div class="cs-showcase-hint"><span>→</span> Scroll to explore</div>
+      <a class="cs-link" href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer" style="color: rgba(247,246,242,0.6); border-color: rgba(247,246,242,0.2);">Try HEARD →</a>
     </div>
   </section>
 
@@ -910,10 +1032,13 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
     </div>
   </section>
 
-  <!-- ── LIGHTBOX ── -->
-  <div id="cs-lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(26,26,46,0.92);align-items:center;justify-content:center;">
-    <img id="cs-lightbox-img" src="" alt="Process diagram" style="max-width:calc(100vw - 80px);max-height:calc(100vh - 80px);object-fit:contain;display:block;border-radius:4px;">
-    <button onclick="event.stopPropagation();document.getElementById('cs-lightbox').style.display='none'" style="position:absolute;top:24px;right:24px;background:rgba(247,246,242,0.1);border:1px solid rgba(247,246,242,0.15);border-radius:50%;width:40px;height:40px;cursor:pointer;color:#F7F6F2;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;">&times;</button>
+  <!-- ── CAROUSEL LIGHTBOX ── -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg></button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next"><svg viewBox="0 0 24 24"><polyline points="9,6 15,12 9,18"/></svg></button>
+    <div class="lightbox-dots" id="lightboxDots"></div>
   </div>
 
 </main>
@@ -931,18 +1056,89 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
     });
   }, { threshold: 0.1 });
   fadeEls.forEach(function (el) { revealObserver.observe(el); });
+</script>
+<script>
+  // ── SHOWCASE DRAG TO SCROLL ──
+  (function () {
+    const scroll = document.getElementById('showcaseScroll');
+    if (!scroll) return;
+    let isDown = false, startX, scrollLeft;
+    scroll.addEventListener('mousedown', e => { isDown = true; scroll.style.cursor = 'grabbing'; startX = e.pageX - scroll.offsetLeft; scrollLeft = scroll.scrollLeft; });
+    scroll.addEventListener('mouseleave', () => { isDown = false; scroll.style.cursor = 'grab'; });
+    scroll.addEventListener('mouseup', () => { isDown = false; scroll.style.cursor = 'grab'; });
+    scroll.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - scroll.offsetLeft; scroll.scrollLeft = scrollLeft - (x - startX) * 1.5; });
+  })();
+</script>
+<script>
+  // ── CAROUSEL LIGHTBOX ──
+  (function () {
+    const overlay = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    const dotsEl = document.getElementById('lightboxDots');
+    let carouselImages = [], carouselIndex = 0;
 
-  function openLightbox(src) {
-    var lb = document.getElementById('cs-lightbox');
-    document.getElementById('cs-lightbox-img').src = src;
-    lb.style.display = 'flex';
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      var lb = document.getElementById('cs-lightbox');
-      if (lb) lb.style.display = 'none';
+    function renderDots() {
+      dotsEl.innerHTML = '';
+      carouselImages.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'lightbox-dot' + (i === carouselIndex ? ' active' : '');
+        dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); });
+        dotsEl.appendChild(dot);
+      });
     }
-  });
+
+    function goTo(index) {
+      carouselIndex = (index + carouselImages.length) % carouselImages.length;
+      img.src = carouselImages[carouselIndex];
+      dotsEl.querySelectorAll('.lightbox-dot').forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
+    }
+
+    window.openCarousel = function (images, startIndex) {
+      carouselImages = images;
+      carouselIndex = startIndex || 0;
+      overlay.classList.add('active', 'carousel');
+      document.body.style.overflow = 'hidden';
+      img.src = carouselImages[carouselIndex];
+      img.alt = '';
+      renderDots();
+    };
+
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); goTo(carouselIndex - 1); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); goTo(carouselIndex + 1); });
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeLightbox(); });
+
+    document.addEventListener('keydown', e => {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (overlay.classList.contains('carousel')) {
+        if (e.key === 'ArrowLeft') goTo(carouselIndex - 1);
+        if (e.key === 'ArrowRight') goTo(carouselIndex + 1);
+      }
+    });
+
+    let wheelLocked = false, wheelTimer = null;
+    overlay.addEventListener('wheel', e => {
+      if (!overlay.classList.contains('carousel')) return;
+      e.preventDefault();
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => { wheelLocked = false; }, 50);
+      if (wheelLocked) return;
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (Math.abs(delta) < 5) return;
+      wheelLocked = true;
+      goTo(delta > 0 ? carouselIndex + 1 : carouselIndex - 1);
+    }, { passive: false });
+
+    function closeLightbox() {
+      overlay.classList.remove('active', 'carousel');
+      document.body.style.overflow = '';
+      carouselImages = [];
+    }
+  })();
 </script>
 <script>
   // ── COMPARISON PLAYER ──
