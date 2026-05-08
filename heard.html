@@ -372,37 +372,19 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .design-decision-closer em { color: var(--text); font-style: normal; }
 
 /* ── 5. THE BUILD ── */
-.build {
-  background: var(--bg-dark);
-  padding: 120px 0;
-  position: relative;
-  overflow: hidden;
-}
-.build::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  pointer-events: none;
-}
-.build-inner { position: relative; z-index: 1; }
-.build .label { margin-bottom: 56px; }
+.build { padding: 120px 0; border-bottom: 1px solid var(--mid); }
+.build .label { margin-bottom: 16px; }
+.build .cs-methodology-heading { margin-bottom: 32px; }
 .build-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
-.build-title { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); margin-bottom: 20px; }
-.build-text p { color: rgba(247,246,242,0.52); line-height: 1.85; }
+.build-title { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 20px; }
+.build-text p { color: var(--mid-text); line-height: 1.85; }
 .build-text p + p { margin-top: 16px; }
-.build-flow { margin-top: 36px; }
-.build-flow-item { display: flex; align-items: baseline; gap: 18px; padding: 14px 0; border-top: 1px solid rgba(247,246,242,0.06); }
-.build-flow-item:last-child { border-bottom: 1px solid rgba(247,246,242,0.06); }
-.build-flow-num { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: rgba(247,246,242,0.22); min-width: 28px; flex-shrink: 0; }
-.build-flow-text { font-size: 14px; color: rgba(247,246,242,0.48); line-height: 1.55; }
+.build-text strong { color: var(--text); font-weight: 600; }
 .build-collab { border-left: 3px solid var(--accent); padding-left: 32px; }
-.build-collab-quote { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-light); text-wrap: balance; margin-bottom: 28px; }
-.build-collab-body p { color: rgba(247,246,242,0.52); line-height: 1.85; }
+.build-collab-quote { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text); text-wrap: balance; margin-bottom: 28px; }
+.build-collab-body p { color: var(--mid-text); line-height: 1.85; }
 .build-collab-body p + p { margin-top: 16px; }
+.build-collab-body strong { color: var(--text); font-weight: 600; }
 
 /* ── 6. TAKEAWAYS ── */
 .takeaways { padding: 120px 0; border-bottom: 1px solid var(--mid); }
@@ -899,22 +881,16 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
   <!-- ── 5. THE BUILD ── -->
   <section class="build">
-    <div class="container build-inner">
+    <div class="container">
       <div class="label" data-fade>04 — Implementation</div>
+      <h2 class="cs-methodology-heading" data-fade data-delay="1">The Part Where It Had to Actually Work.</h2>
       <div class="build-grid">
 
-        <div data-fade data-delay="1">
-          <h2 class="build-title">The Invite-Only Decision</h2>
+        <div data-fade data-delay="2">
           <div class="build-text">
+            <p>The design was far enough along to begin real development. The throwaway prototypes I'd built throughout were useful for testing ideas — not suitable for real users. A production-ready web app is a different thing: authentication, persistent state, responsive layouts, version control, reliable hosting. <strong>I set up a local development environment with an AI code assistant and started building.</strong></p>
             <p>Building the signup flow pushed me into product strategy in a way the earlier design work hadn't. I couldn't maintain an open-access product alone. But I needed real users to learn what actually needed improving — and I wanted them to feel like they were joining something, not just creating another account.</p>
             <p>Personal request form, a 7-day review window, a unique invite link by email. Users choose Google, Spotify, or email. They land on a welcome screen that orients them to the 3-step flow before they touch anything. Every state — authenticated, unauthenticated, expired invite, returning user — had to be designed and built.</p>
-          </div>
-          <div class="build-flow">
-            <div class="build-flow-item"><span class="build-flow-num">01</span><span class="build-flow-text">Homepage — "Join the Free Preview"</span></div>
-            <div class="build-flow-item"><span class="build-flow-num">02</span><span class="build-flow-text">Request form — email, role, why interested</span></div>
-            <div class="build-flow-item"><span class="build-flow-num">03</span><span class="build-flow-text">Personal invite email with unique link</span></div>
-            <div class="build-flow-item"><span class="build-flow-num">04</span><span class="build-flow-text">Invite landing — Google, Spotify, or email signup</span></div>
-            <div class="build-flow-item"><span class="build-flow-num">05</span><span class="build-flow-text">Welcome screen — oriented to 3-step flow</span></div>
           </div>
         </div>
 
@@ -922,10 +898,27 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
           <p class="build-collab-quote">"Neither of us could have built it alone. That's what AI-era design leadership looks like."</p>
           <div class="build-collab-body">
             <p>The division of labor was clear: I specified what should happen in each scenario — product behavior, edge cases, user states — and the AI figured out the technical implementation. I reviewed the output, flagged what wasn't right, and fed that back in.</p>
-            <p>Knowing what should happen in a product is a design skill, not a technical one. The AI made suggestions; I surfaced scenarios it hadn't anticipated. That loop — instruct, build, refine — is what got the app to completeness. The instruct step required the most judgment.</p>
+            <p><strong>Knowing what should happen in a product is a design skill, not a technical one.</strong> The AI made suggestions; I surfaced scenarios it hadn't anticipated. That loop — instruct, build, refine — is what got the app to completeness. The instruct step required the most judgment.</p>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5b. LAUNCH ── -->
+  <section class="brief">
+    <div class="container">
+      <div class="brief-grid" data-fade>
+        <div class="brief-intro">
+          <div class="label">05 — Launch</div>
+          <h2 class="brief-title">The Product Is Live. Real Users. Real Feedback.</h2>
+          <p>HEARD launched in private preview with a hand-selected group of users — personal invitation emails sent to people I knew would give honest feedback. No public announcement, no waitlist of thousands. Just early-stage signals from real people.</p>
+          <p>The platform is running, users are generating tracks, and the feedback loop is open.</p>
+        </div>
+        <div class="brief-image">
+          <img class="brief-img" src="assets/heard/launch-image.jpg" alt="HEARD launch — private preview">
+        </div>
       </div>
     </div>
   </section>
