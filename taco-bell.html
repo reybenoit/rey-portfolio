@@ -321,6 +321,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .takeaways--dark .takeaway-title { color: var(--text-light); }
 .takeaways--dark .takeaway-body { color: rgba(247,246,242,0.45); }
 .takeaways--dark .press-quote { background: rgba(247,246,242,0.04); border: 1px solid rgba(247,246,242,0.08); }
+.takeaways--dark .outcome-grid { grid-template-columns: repeat(4, 1fr); margin-bottom: 56px; }
 
 /* ── Fast Company quote ── */
 .press-quote {
@@ -504,34 +505,22 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
         <div class="takeaways-impact-value">300K downloads in 48 hours.</div>
         <p class="takeaways-impact-desc">Three people shipped a category-defining app, named a patent, won a Webby, and moved real revenue. That is the headline.</p>
       </div>
-      <div class="takeaways-list">
-        <div class="takeaway" data-fade>
-          <div class="takeaway-num">—</div>
-          <div class="takeaway-content">
-            <div class="takeaway-title">$500K in sales in the first week.</div>
-            <p class="takeaway-body">Revenue generated within seven days of launch — validating both the product and the bet on mobile ordering as a category.</p>
-          </div>
+      <div class="outcome-grid">
+        <div class="outcome-item" data-fade data-delay="1">
+          <div class="outcome-value">$500K</div>
+          <p class="outcome-desc">In sales in the first week.</p>
         </div>
-        <div class="takeaway" data-fade>
-          <div class="takeaway-num">—</div>
-          <div class="takeaway-content">
-            <div class="takeaway-title">33% increase in average customer spend.</div>
-            <p class="takeaway-body">Mobile ordering didn't just replicate the counter experience — it lifted transaction value. The design made customization easier, and customers used it.</p>
-          </div>
+        <div class="outcome-item" data-fade data-delay="2">
+          <div class="outcome-value">33%</div>
+          <p class="outcome-desc">Increase in average customer spend.</p>
         </div>
-        <div class="takeaway" data-fade>
-          <div class="takeaway-num">—</div>
-          <div class="takeaway-content">
-            <div class="takeaway-title">2016 Webby Award winner, Food &amp; Beverage.</div>
-            <p class="takeaway-body">Industry recognition for the category standard the app set — years after the original launch, which is when the compounding work shows.</p>
-          </div>
+        <div class="outcome-item" data-fade data-delay="3">
+          <div class="outcome-value">Webby '16</div>
+          <p class="outcome-desc">Winner, Food &amp; Beverage.</p>
         </div>
-        <div class="takeaway" data-fade>
-          <div class="takeaway-num">—</div>
-          <div class="takeaway-content">
-            <div class="takeaway-title">Named inventor on the Quick Reorder patent.</div>
-            <p class="takeaway-body">Rotate to Reorder wasn't a button. It was a gesture-first interaction that became a patented invention. Playing with the medium pays off.</p>
-          </div>
+        <div class="outcome-item" data-fade data-delay="4">
+          <div class="outcome-value">1 Patent</div>
+          <p class="outcome-desc">Named inventor on the Quick Reorder feature.</p>
         </div>
       </div>
 
