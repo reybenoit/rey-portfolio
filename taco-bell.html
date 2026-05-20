@@ -156,24 +156,22 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
 /* ── 1. HERO ── */
 .cs-hero {
-  background: var(--bg);
+  background: var(--bg-dark);
+  background-image: url('assets/taco-bell/taco-bell-bg.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
-  padding-top: 60px;
-  border-bottom: 1px solid var(--mid);
+  border-bottom: 1px solid rgba(247,246,242,0.1);
 }
 .cs-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(58,107,196,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(58,107,196,0.06) 1px, transparent 1px);
-  background-size: 64px 64px;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 75%, transparent 100%);
   pointer-events: none;
   z-index: 0;
-  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 12%, rgba(0,0,0,0.7) 88%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 12%, rgba(0,0,0,0.7) 88%, transparent 100%);
 }
 .cs-hero-inner {
   position: relative;
@@ -181,41 +179,37 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
-.cs-hero-center { padding: 80px 0 64px; }
+.cs-hero-center { padding: 0 0 48px; }
 .cs-hero-h1 {
   font-family: var(--font-d);
   font-size: clamp(52px, 7.5vw, 96px);
   font-weight: 500;
   line-height: 0.95;
   letter-spacing: -0.04em;
-  color: var(--text);
+  color: var(--text-light);
   animation: fadeUp 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-.cs-hero-img {
-  width: calc(100% + 2 * var(--pad));
-  margin-left: calc(-1 * var(--pad));
-  height: auto;
-  display: block;
-  margin-top: 72px;
-  animation: fadeUp 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .cs-hero-descriptors {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--mid);
+  border-top: 1px solid rgba(247,246,242,0.12);
   animation: fadeUp 0.9s 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .cs-hero-cell {
   padding: 32px 36px 32px 0;
-  border-right: 1px solid var(--mid);
+  border-right: 1px solid rgba(247,246,242,0.12);
 }
 .cs-hero-cell:last-child { border-right: none; padding-right: 0; }
 .cs-hero-cell:not(:first-child) { padding-left: 36px; }
 .cs-hero-accent { color: var(--accent); }
 .cs-hero-cell .label { margin-bottom: 12px; }
-.cs-hero-cell-text { font-family: var(--font-b); font-size: 16px; font-weight: 500; line-height: 1.55; color: var(--text); }
-.cs-hero-cell-text span { color: var(--mid-text); font-weight: 400; }
+.cs-hero-cell-text { font-family: var(--font-b); font-size: 16px; font-weight: 500; line-height: 1.55; color: var(--text-light); }
+.cs-hero-cell-text span { color: rgba(247,246,242,0.5); font-weight: 400; }
 
 /* ── 2. THE BRIEF ── */
 .brief { padding: 120px 0 0; border-bottom: 1px solid var(--mid); }
@@ -407,10 +401,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   :root { --pad: 32px; }
 
   .cs-hero-h1 { font-size: clamp(40px, 11vw, 64px); }
-  .cs-hero-center { padding: 48px 0 40px; }
-  .cs-hero-img { margin-top: 40px; }
+  .cs-hero-center { padding: 0 0 32px; }
   .cs-hero-descriptors { grid-template-columns: 1fr; }
-  .cs-hero-cell { border-right: none; border-bottom: 1px solid var(--mid); padding: 24px 0; }
+  .cs-hero-cell { border-right: none; border-bottom: 1px solid rgba(247,246,242,0.12); padding: 24px 0; }
   .cs-hero-cell:not(:first-child) { padding-left: 0; }
   .cs-hero-cell:last-child { border-bottom: none; padding-right: 0; }
 
@@ -458,7 +451,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="cs-hero-center">
         <div class="label" style="margin-bottom: 28px;">Taco Bell Case Study</div>
         <h1 class="cs-hero-h1">Order in Seconds.<br><span class="cs-hero-accent">Customize Without Limits.</span></h1>
-        <img class="cs-hero-img" src="assets/taco-bell/hero-showcase.jpg" alt="Taco Bell iOS app — ordering interface">
       </div>
       <div class="cs-hero-descriptors">
         <div class="cs-hero-cell">
@@ -858,6 +850,22 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   })();
 </script>
 <script src="components.js"></script>
+<script>
+  // Full-bleed photo hero: start nav transparent/dark, switch to light after hero
+  (function () {
+    var nav = document.querySelector('nav');
+    var hero = document.querySelector('.cs-hero');
+    if (!nav || !hero) return;
+    nav.classList.remove('nav--light');
+    nav.classList.add('nav--scrolled');
+    var heroObs = new IntersectionObserver(function (entries) {
+      var inView = entries[0].isIntersecting;
+      nav.classList.toggle('nav--scrolled', inView);
+      nav.classList.toggle('nav--light', !inView);
+    }, { threshold: 0, rootMargin: '-60px 0px 0px 0px' });
+    heroObs.observe(hero);
+  })();
+</script>
 
 </body>
 </html>
