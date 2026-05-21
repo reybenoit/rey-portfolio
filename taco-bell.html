@@ -325,16 +325,16 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
 /* ── TWEET GRID ── */
 .tweet-grid-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.25); margin-top: 64px; margin-bottom: 20px; }
-.tweet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 56px; }
-.tweet-card { background: rgba(247,246,242,0.04); border: 1px solid rgba(247,246,242,0.08); border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-.tweet-header { display: flex; align-items: center; gap: 12px; }
-.tweet-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(58,107,196,0.15); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-size: 11px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+.tweet-scroll-wrap { position: relative; overflow-x: clip; margin-bottom: 56px; }
+.tweet-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 80px; background: linear-gradient(to left, var(--bg-dark), transparent); pointer-events: none; z-index: 2; }
+.tweet-grid { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; padding-bottom: 4px; }
+.tweet-grid:active { cursor: grabbing; }
+.tweet-grid::-webkit-scrollbar { display: none; }
+.tweet-card { flex-shrink: 0; width: 280px; scroll-snap-align: start; background: rgba(247,246,242,0.04); border: 1px solid rgba(247,246,242,0.08); border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
 .tweet-meta { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(247,246,242,0.07); }
 .tweet-name { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
 .tweet-handle { font-family: var(--font-b); font-size: 12px; color: rgba(247,246,242,0.3); }
 .tweet-text { font-family: var(--font-b); font-size: 14px; color: rgba(247,246,242,0.6); line-height: 1.65; }
-@media (max-width: 900px) { .tweet-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .tweet-grid { grid-template-columns: 1fr; } }
 
 /* ── Fast Company quote ── */
 .press-quote {
@@ -546,7 +546,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       </div>
 
       <div class="tweet-grid-label" data-fade>What people said on Twitter</div>
-      <div class="tweet-grid">
+      <div class="tweet-scroll-wrap">
+      <div class="tweet-grid" id="tweetScroll">
 
         <div class="tweet-card" data-fade>
           <p class="tweet-text">"New Taco Bell app is a lesson in both marketing and product design. They nailed the order / pay workflow AND blacked out their twitter."</p>
@@ -620,6 +621,23 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
           </div>
         </div>
 
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"The Taco Bell app is better than the food they serve."</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">blake</div>
+            <div class="tweet-handle">@blakeb</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"I don't even know why Taco Bell has a take out app but I find it pretty fucking amazing"</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Krista</div>
+            <div class="tweet-handle">@krazyk619</div>
+          </div>
+        </div>
+
+      </div>
       </div>
     </div>
   </section>
@@ -871,6 +889,18 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
     });
   }, { threshold: 0.1 });
   fadeEls.forEach(function (el) { revealObserver.observe(el); });
+</script>
+<script>
+  // ── TWEET DRAG TO SCROLL ──
+  (function () {
+    const scroll = document.getElementById('tweetScroll');
+    if (!scroll) return;
+    let isDown = false, startX, scrollLeft;
+    scroll.addEventListener('mousedown', e => { isDown = true; scroll.style.cursor = 'grabbing'; startX = e.pageX - scroll.offsetLeft; scrollLeft = scroll.scrollLeft; });
+    scroll.addEventListener('mouseleave', () => { isDown = false; scroll.style.cursor = 'grab'; });
+    scroll.addEventListener('mouseup', () => { isDown = false; scroll.style.cursor = 'grab'; });
+    scroll.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - scroll.offsetLeft; scroll.scrollLeft = scrollLeft - (x - startX) * 1.5; });
+  })();
 </script>
 <script>
   // ── SHOWCASE DRAG TO SCROLL ──
