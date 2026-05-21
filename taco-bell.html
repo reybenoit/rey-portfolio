@@ -325,11 +325,13 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
 /* ── TWEET GRID ── */
 .tweet-grid-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.25); margin-top: 64px; margin-bottom: 20px; }
-.tweet-scroll-wrap { position: relative; overflow-x: clip; margin-bottom: 56px; }
+.tweet-scroll-wrap { position: relative; overflow-x: clip; margin-bottom: 56px; width: 100vw; margin-left: calc(50% - 50vw); }
 .tweet-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 80px; background: linear-gradient(to left, var(--bg-dark), transparent); pointer-events: none; z-index: 2; }
-.tweet-grid { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; padding-bottom: 4px; }
+.tweet-grid { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(247,246,242,0.2) rgba(247,246,242,0.05); cursor: grab; padding: 0 var(--pad) 16px; }
 .tweet-grid:active { cursor: grabbing; }
-.tweet-grid::-webkit-scrollbar { display: none; }
+.tweet-grid::-webkit-scrollbar { height: 3px; }
+.tweet-grid::-webkit-scrollbar-track { background: rgba(247,246,242,0.05); }
+.tweet-grid::-webkit-scrollbar-thumb { background: rgba(247,246,242,0.2); border-radius: 2px; }
 .tweet-card { flex-shrink: 0; width: 280px; scroll-snap-align: start; background: rgba(247,246,242,0.04); border: 1px solid rgba(247,246,242,0.08); border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
 .tweet-meta { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(247,246,242,0.07); }
 .tweet-name { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
