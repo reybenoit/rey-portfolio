@@ -324,19 +324,21 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .takeaways--dark .outcome-grid { grid-template-columns: repeat(4, 1fr); margin-bottom: 56px; }
 
 /* ── TWEET GRID ── */
-.tweet-grid-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.25); margin-top: 64px; margin-bottom: 20px; }
-.tweet-scroll-wrap { position: relative; overflow-x: clip; margin-bottom: 56px; width: 100vw; margin-left: calc(50% - 50vw); }
-.tweet-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 80px; background: linear-gradient(to left, var(--bg-dark), transparent); pointer-events: none; z-index: 2; }
-.tweet-grid { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(247,246,242,0.2) rgba(247,246,242,0.05); cursor: grab; padding: 0 var(--pad) 16px; }
+/* ── TWEET SECTION ── */
+.tweet-section { background: var(--bg); padding: 80px 0; border-bottom: 1px solid var(--mid); }
+.tweet-grid-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-text); margin-bottom: 24px; }
+.tweet-scroll-wrap { position: relative; overflow-x: clip; margin-top: 0; }
+.tweet-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 80px; background: linear-gradient(to left, var(--bg), transparent); pointer-events: none; z-index: 2; }
+.tweet-grid { display: flex; gap: 40px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(26,26,46,0.15) rgba(26,26,46,0.05); cursor: grab; padding: 0 var(--pad) 20px; }
 .tweet-grid:active { cursor: grabbing; }
 .tweet-grid::-webkit-scrollbar { height: 3px; }
-.tweet-grid::-webkit-scrollbar-track { background: rgba(247,246,242,0.05); }
-.tweet-grid::-webkit-scrollbar-thumb { background: rgba(247,246,242,0.2); border-radius: 2px; }
-.tweet-card { flex-shrink: 0; width: 280px; scroll-snap-align: start; padding: 0 24px 0 0; display: flex; flex-direction: column; gap: 12px; }
-.tweet-meta { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(247,246,242,0.07); }
-.tweet-name { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
-.tweet-handle { font-family: var(--font-b); font-size: 12px; color: rgba(247,246,242,0.3); }
-.tweet-text { font-family: var(--font-b); font-size: 14px; color: rgba(247,246,242,0.6); line-height: 1.65; }
+.tweet-grid::-webkit-scrollbar-track { background: rgba(26,26,46,0.05); }
+.tweet-grid::-webkit-scrollbar-thumb { background: rgba(26,26,46,0.15); border-radius: 2px; }
+.tweet-card { flex-shrink: 0; width: 280px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px; }
+.tweet-meta { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--mid); }
+.tweet-name { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+.tweet-handle { font-family: var(--font-b); font-size: 12px; color: var(--mid-text); }
+.tweet-text { font-family: var(--font-b); font-size: 14px; color: var(--mid-text); line-height: 1.65; }
 
 /* ── Fast Company quote ── */
 .press-quote {
@@ -547,8 +549,15 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ── SOCIAL PROOF ── -->
+  <section class="tweet-section">
+    <div class="container">
       <div class="tweet-grid-label" data-fade>What people said on Twitter</div>
-      <div class="tweet-scroll-wrap">
+    </div>
+    <div class="tweet-scroll-wrap">
       <div class="tweet-grid" id="tweetScroll">
 
         <div class="tweet-card" data-fade>
@@ -639,7 +648,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
           </div>
         </div>
 
-      </div>
       </div>
     </div>
   </section>
