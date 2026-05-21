@@ -329,8 +329,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .tweet-card { background: rgba(247,246,242,0.04); border: 1px solid rgba(247,246,242,0.08); border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
 .tweet-header { display: flex; align-items: center; gap: 12px; }
 .tweet-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(58,107,196,0.15); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-size: 11px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
-.tweet-meta { flex: 1; min-width: 0; }
-.tweet-name { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tweet-meta { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(247,246,242,0.07); }
+.tweet-name { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
 .tweet-handle { font-family: var(--font-b); font-size: 12px; color: rgba(247,246,242,0.3); }
 .tweet-text { font-family: var(--font-b); font-size: 14px; color: rgba(247,246,242,0.6); line-height: 1.65; }
 @media (max-width: 900px) { .tweet-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -537,116 +537,89 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
         </div>
       </div>
 
-      <div class="tweet-grid-label" data-fade>What people said</div>
-      <div class="tweet-grid">
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">PG</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">Paul Geller</div>
-              <div class="tweet-handle">@paulgeller</div>
-            </div>
-          </div>
-          <p class="tweet-text">"New Taco Bell app is a lesson in both marketing and product design. They nailed the order / pay workflow AND blacked out their twitter."</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">LH</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">Landon Howelloween</div>
-              <div class="tweet-handle">@landonh</div>
-            </div>
-          </div>
-          <p class="tweet-text">"This statement is gonna sound like I'm making a joke but I'm for serious: the UX of the Taco Bell app is wonderful."</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">T</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">Tee.</div>
-              <div class="tweet-handle">@TaraM_</div>
-            </div>
-          </div>
-          <p class="tweet-text">"Whoever created the method of ordering off your mobile app from Taco Bell is GENIUS."</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">AR</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">alyssa ramirez</div>
-              <div class="tweet-handle">@Alyssa_Love13</div>
-            </div>
-          </div>
-          <p class="tweet-text">"the Taco Bell mobile ordering app is the greatest thing ever invented."</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">M</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">Mathew</div>
-              <div class="tweet-handle">@somethinggg</div>
-            </div>
-          </div>
-          <p class="tweet-text">"Ok, the Taco Bell app is too cool. Definitely gonna start ordering from that more often. Can't wait to rotate."</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">AJ</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">Austin Jones</div>
-              <div class="tweet-handle">@austinjoness81</div>
-            </div>
-          </div>
-          <p class="tweet-text">"Pretty sure the 'app' in the Taco Bell app stands for Absolutely Positively Perfect."</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">TR</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">Toni Romero</div>
-              <div class="tweet-handle">@toniromero</div>
-            </div>
-          </div>
-          <p class="tweet-text">"the Taco Bell app just blew my mind"</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">IX</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">ishaaa_xoxo</div>
-              <div class="tweet-handle">@ishaaa_xoxo</div>
-            </div>
-          </div>
-          <p class="tweet-text">"im so in love with the Taco Bell app, i been messing around with it for like 20 minutes"</p>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <div class="tweet-header">
-            <div class="tweet-avatar">MD</div>
-            <div class="tweet-meta">
-              <div class="tweet-name">Michael D. Ivy</div>
-              <div class="tweet-handle">@MichaelDIvy</div>
-            </div>
-          </div>
-          <p class="tweet-text">"Soooo...the new Taco Bell app is really cool. Makes ordering vegetarian versions of almost anything a breeze. (Swipe right on the meats)"</p>
-        </div>
-
-      </div>
-
       <div class="press-quote" data-fade>
         <div class="press-quote-inner">
           <div class="press-quote-source">Fast Company — at launch</div>
           <p class="press-quote-text">"Design-wise, the software is a far cry from other food ordering apps like GrubHub or Chipotle; Taco Bell's app is what would happen if an Instagram filter fell in love with Seamless and had a baby."</p>
           <span class="press-quote-attr">— Chris Gayomali, Fast Company</span>
         </div>
+      </div>
+
+      <div class="tweet-grid-label" data-fade>What people said</div>
+      <div class="tweet-grid">
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"New Taco Bell app is a lesson in both marketing and product design. They nailed the order / pay workflow AND blacked out their twitter."</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Paul Geller</div>
+            <div class="tweet-handle">@paulgeller</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"This statement is gonna sound like I'm making a joke but I'm for serious: the UX of the Taco Bell app is wonderful."</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Landon Howell</div>
+            <div class="tweet-handle">@landonhowell</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"Whoever created the method of ordering off your mobile app from Taco Bell is GENIUS."</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Tee.</div>
+            <div class="tweet-handle">@TaraM_</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"the Taco Bell mobile ordering app is the greatest thing ever invented."</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">alyssa ramirez</div>
+            <div class="tweet-handle">@Alyssa_Love13</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"Ok, the Taco Bell app is too cool. Definitely gonna start ordering from that more often. Can't wait to rotate."</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Mathew</div>
+            <div class="tweet-handle">@somethinggg</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"Pretty sure the 'app' in the Taco Bell app stands for Absolutely Positively Perfect."</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Austin Jones</div>
+            <div class="tweet-handle">@austinjoness81</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"the Taco Bell app just blew my mind"</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Toni Romero</div>
+            <div class="tweet-handle">@toniromero</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"im so in love with the Taco Bell app, i been messing around with it for like 20 minutes"</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">ishaaa_xoxo</div>
+            <div class="tweet-handle">@ishaaa_xoxo</div>
+          </div>
+        </div>
+
+        <div class="tweet-card" data-fade>
+          <p class="tweet-text">"Soooo...the new Taco Bell app is really cool. Makes ordering vegetarian versions of almost anything a breeze. (Swipe right on the meats)"</p>
+          <div class="tweet-meta">
+            <div class="tweet-name">Michael D. Ivy</div>
+            <div class="tweet-handle">@MichaelDIvy</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
