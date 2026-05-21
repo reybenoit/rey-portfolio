@@ -326,7 +326,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 /* ── TWEET GRID ── */
 /* ── TWEET SECTION ── */
 .tweet-section { background: var(--bg); padding: 80px 0; border-bottom: 1px solid var(--mid); }
-.tweet-grid-label { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-text); margin-bottom: 24px; }
+.tweet-section .label { margin-bottom: 24px; }
 .tweet-scroll-wrap { position: relative; overflow-x: clip; margin-top: 0; }
 .tweet-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 80px; background: linear-gradient(to left, var(--bg), transparent); pointer-events: none; z-index: 2; }
 .tweet-grid { display: flex; gap: 40px; align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(26,26,46,0.15) rgba(26,26,46,0.05); cursor: grab; padding: 0 var(--pad) 20px; }
@@ -555,7 +555,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   <!-- ── SOCIAL PROOF ── -->
   <section class="tweet-section">
     <div class="container">
-      <div class="tweet-grid-label" data-fade>What people said on Twitter</div>
+      <div class="label" data-fade>What people said on Twitter</div>
     </div>
     <div class="tweet-scroll-wrap">
       <div class="tweet-grid" id="tweetScroll">
@@ -589,14 +589,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
           <div class="tweet-meta">
             <div class="tweet-name">alyssa ramirez</div>
             <div class="tweet-handle">@Alyssa_Love13</div>
-          </div>
-        </div>
-
-        <div class="tweet-card" data-fade>
-          <p class="tweet-text">"Ok, the Taco Bell app is too cool. Definitely gonna start ordering from that more often. Can't wait to rotate."</p>
-          <div class="tweet-meta">
-            <div class="tweet-name">Mathew</div>
-            <div class="tweet-handle">@somethinggg</div>
           </div>
         </div>
 
