@@ -249,7 +249,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .poc-intro { color: var(--mid-text); line-height: 1.85; margin-bottom: 48px; }
 .poc-image-wrap { padding-top: 24px; margin-bottom: 0; }
 .poc-image-wrap img { width: auto; max-width: 100%; height: auto; display: block; border-radius: 12px; margin: 0 auto 64px; }
-.poc-caption { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-text); margin-top: 12px; }
+.poc-caption { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-text); margin-top: 12px; }
 .poc-intro p + p { margin-top: 20px; }
 .poc-intro strong { color: var(--text); font-weight: 600; }
 
@@ -258,7 +258,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .design .label { margin-bottom: 16px; }
 .design-intro { color: var(--mid-text); max-width: 640px; margin-bottom: 72px; }
 .design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
-.design-moment-num { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 6px; }
+.design-moment-num { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 6px; }
 .design-moment-title { font-family: var(--font-d); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
 .design-moment-body p { color: var(--mid-text); line-height: 1.85; }
 .design-moment-body p + p { margin-top: 16px; }
@@ -318,7 +318,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .takeaways--dark .takeaway-title { color: var(--text-light); }
 .takeaways--dark .takeaway-body { color: rgba(247,246,242,0.45); }
 .takeaways--dark .press-quote { background: rgba(247,246,242,0.04); border: 1px solid rgba(247,246,242,0.08); }
-.takeaways--dark .outcome-grid { grid-template-columns: repeat(4, 1fr); margin-bottom: 56px; }
+.takeaways--dark .outcome-grid { grid-template-columns: repeat(4, 1fr); margin-bottom: 56px; border-top-color: rgba(247,246,242,0.08); }
+.takeaways--dark .outcome-item { border-right-color: rgba(247,246,242,0.08); border-top-color: rgba(247,246,242,0.08); }
+.takeaways--dark .outcome-value { color: var(--text-light); }
+.takeaways--dark .outcome-desc { color: rgba(247,246,242,0.45); }
 
 /* ── TWEET GRID ── */
 /* ── TWEET SECTION ── */
@@ -356,7 +359,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   pointer-events: none;
 }
 .press-quote-inner { position: relative; z-index: 1; }
-.press-quote-source { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.3); margin-bottom: 20px; }
+.press-quote-source { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.3); margin-bottom: 20px; }
 .press-quote-text { font-family: var(--font-d); font-size: clamp(18px, 2.2vw, 28px); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--text-light); text-wrap: balance; margin-bottom: 16px; }
 .press-quote-attr { font-family: var(--font-b); font-size: 14px; color: rgba(247,246,242,0.35); font-style: italic; }
 
@@ -375,8 +378,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .outcome-item:last-child { border-right: none; }
 .outcome-value { font-family: var(--font-d); font-size: clamp(24px, 3vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--text); margin-bottom: 10px; }
 .outcome-desc { font-size: 14px; color: var(--mid-text); line-height: 1.65; max-width: 240px; }
-.outcome-cta-single { border-top: 1px solid var(--mid); padding-top: 64px; max-width: 480px; }
-.outcome-cta-eyebrow { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-text); margin-bottom: 14px; }
+.outcome-cta-single { border-top: 1px solid var(--mid); padding-top: 64px; }
+.outcome-cta-single > * { max-width: 480px; }
+.outcome-cta-eyebrow { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-text); margin-bottom: 14px; }
 .outcome-cta-text { font-size: 15px; color: var(--mid-text); line-height: 1.65; margin-bottom: 20px; }
 
 /* ── 8. NEXT CASE STUDY ── */
@@ -404,11 +408,11 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .screen-frame--square img { width: 100%; height: 100%; object-fit: contain; }
 .screen-frame img { width: 100%; height: auto; display: block; border-radius: 6px; cursor: zoom-in; }
 .screen-meta { display: flex; align-items: center; gap: 12px; }
-.screen-step { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); flex-shrink: 0; opacity: 0.7; }
+.screen-step { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); flex-shrink: 0; opacity: 0.7; }
 .screen-rule { flex: 1; height: 1px; background: rgba(247,246,242,0.08); }
 .screen-title { font-size: 14px; color: rgba(247,246,242,0.5); margin-top: 4px; }
 .cs-showcase-footer { padding: 20px var(--pad) 48px; border-top: 1px solid rgba(247,246,242,0.07); max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
-.cs-showcase-hint { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.25); display: flex; align-items: center; gap: 8px; }
+.cs-showcase-hint { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,246,242,0.25); display: flex; align-items: center; gap: 8px; }
 .cs-showcase-hint span { animation: nudge 1.8s ease infinite; }
 @keyframes nudge { 0%, 100% { transform: translateX(0); opacity: 0.4; } 50% { transform: translateX(5px); opacity: 1; } }
 
