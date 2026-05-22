@@ -246,8 +246,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .poc { padding: 120px 0; border-bottom: 1px solid var(--mid); }
 .poc .label { margin-bottom: 16px; }
 .poc-intro { color: var(--mid-text); line-height: 1.85; margin-bottom: 48px; }
-.poc-image-wrap { border-top: 1px solid var(--mid); padding-top: 56px; margin-bottom: 0; }
-.poc-image-wrap img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.poc-image-wrap { padding-top: 24px; margin-bottom: 0; }
+.poc-image-wrap img { width: auto; max-width: 100%; height: auto; display: block; border-radius: 12px; margin: 0 auto 64px; }
 .poc-caption { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-text); margin-top: 12px; }
 .poc-intro p + p { margin-top: 20px; }
 .poc-intro strong { color: var(--text); font-weight: 600; }
@@ -277,14 +277,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .build { padding: 120px 0; border-bottom: 1px solid var(--mid); }
 .build .label { margin-bottom: 16px; }
 .build .cs-methodology-heading { margin-bottom: 32px; }
-.build-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
-.build-text p { color: var(--mid-text); line-height: 1.85; }
-.build-text p + p { margin-top: 16px; }
-.build-text strong { color: var(--text); font-weight: 600; }
-.build-collab { border-left: 3px solid var(--accent); padding-left: 32px; }
-.build-collab-quote { font-family: var(--font-d); font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--text); text-wrap: balance; margin-bottom: 28px; }
-.build-collab-body p { color: var(--mid-text); line-height: 1.85; }
-.build-collab-body p + p { margin-top: 16px; }
+.build-single { max-width: 720px; }
+.build-single p { color: var(--mid-text); line-height: 1.85; }
+.build-single p + p { margin-top: 20px; }
 
 /* ── 6. TAKEAWAYS (Impact) ── */
 .takeaways { padding: 120px 0; border-bottom: 1px solid var(--mid); }
@@ -678,20 +673,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="poc-image-wrap" data-fade data-delay="2">
         <img src="assets/taco-bell/tb-process.png" alt="Process diagram showing UX, Art & Copy, and Development working in parallel with continuous research and validation">
       </div>
-      <div class="build-grid">
-        <div data-fade data-delay="2">
-          <div class="build-text">
-            <p>Officially, the project team was three: art direction, copy, and me. Unofficially, we worked inside a group of five designers led by one VP, each running independent projects but sharing a studio, a whiteboard, and a daily rhythm of pulling each other into the work.</p>
-            <p>That setup is the one I've been trying to recreate ever since. Independent ownership, shared atmosphere. Crits that happened because someone wheeled their chair over. Challenges that came from the next desk over and made the work sharper. Camaraderie was the engine of the daily operation. When I think about what "good team" feels like now, this is the room I'm comparing it to.</p>
-          </div>
-        </div>
-        <div class="build-collab" data-fade data-delay="3">
-          <p class="build-collab-quote">"The choreography only worked because the people involved trusted each other to deliver."</p>
-          <div class="build-collab-body">
-            <p>The Agile cadence put pressure on that trust. I ran a few sprints ahead of the Art Director — providing interaction design and structure through wireframes, flows, and sitemaps. The Art Director ran ahead of the third-party developers with visual comps. Nobody waited. Nobody was blocked.</p>
-            <p>Tight feedback loops kept velocity honest. Between sprints, the three of us pulled the rest of the studio in for crits, folded client input into the next round, and kept iteration cycles short by design — so course corrections happened early, when they were cheap.</p>
-          </div>
-        </div>
+      <div class="build-single" data-fade data-delay="2">
+        <p>Officially, the project team was three: art direction, copy, and me. Unofficially, we worked inside a group of five designers led by one VP, sharing a studio and a daily rhythm of pulling each other into the work. Independent projects, shared atmosphere. When I think about what "good team" feels like now, this is the room I'm comparing it to.</p>
+        <p>The Agile cadence demanded clear choreography: I ran sprints ahead of the Art Director with wireframes and flows, the Art Director ran sprints ahead of the third-party developers with visual comps, and documentation followed close behind. Nobody waited, nobody was blocked. Short, frequent iteration cycles, with studio crits and client input between sprints, meant course corrections happened early when they were cheap, and trust held the choreography together.</p>
       </div>
     </div>
   </section>
