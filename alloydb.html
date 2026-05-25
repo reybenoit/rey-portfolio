@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlloyDB — Rey Benoit</title>
+<meta name="description" content="AlloyDB case study — UX lead on Google Cloud's first new database in a decade. From product idea to v1 private preview in nine months.">
+<meta property="og:title" content="AlloyDB — Rey Benoit">
+<meta property="og:description" content="A new product. A new title. And nine months to ship.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+
+/* ── Reset & Root ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:        #F7F6F2;
+  --bg-dark:   #1A1A2E;
+  --text:      #1A1A2E;
+  --text-light:#F7F6F2;
+  --accent:    #3A6BC4;
+  --mid:       #E8E6E0;
+  --mid-text:  #6B6A66;
+  --font-d:    'Epilogue', sans-serif;
+  --font-b:    'Inter', sans-serif;
+  --max:       1200px;
+  --pad:       80px;
+}
+
+/* ── Accessibility ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 999;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 16px;
+  font-family: var(--font-d);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-b);
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utility ── */
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+.label {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo { font-family: var(--font-d); font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); text-decoration: none; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247,246,242,0.45);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
+nav.nav--scrolled { background: rgba(26,26,46,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom-color: rgba(247,246,242,0.07); }
+nav.nav--light { background: rgba(247,246,242,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom-color: var(--mid); }
+nav.nav--light .nav-logo { color: var(--text); }
+nav.nav--light .nav-links a { color: var(--mid-text); }
+
+/* ── FOOTER ── */
+footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07); padding: 32px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.footer-name { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
+.footer-nav { display: flex; gap: 28px; list-style: none; }
+.footer-nav a { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,246,242,0.28); text-decoration: none; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+.footer-nav a:hover { color: rgba(247,246,242,0.7); }
+.footer-right { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,246,242,0.25); }
+
+/* ── Load animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll reveal ── */
+[data-fade] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+[data-fade].is-visible { opacity: 1; transform: none; }
+[data-fade][data-delay="1"] { transition-delay: 0.1s; }
+[data-fade][data-delay="2"] { transition-delay: 0.22s; }
+[data-fade][data-delay="3"] { transition-delay: 0.36s; }
+[data-fade][data-delay="4"] { transition-delay: 0.5s; }
+
+/* ── Shared ── */
+.cs-tag { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 3px 10px; border-radius: 3px; opacity: 0.8; }
+.cs-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(58,107,196,0.3); padding-bottom: 3px; transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+.cs-link:hover { border-color: var(--accent); gap: 16px; }
+.cs-link:active { transform: scale(0.97); }
+
+/* ── 1. HERO ── */
+.cs-hero {
+  background: var(--bg-dark);
+  background-image: url('assets/alloydb/alloydb-hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  border-bottom: none;
+}
+.cs-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 75%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.cs-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.cs-hero-center { padding: 0 0 48px; }
+.cs-hero-h1 {
+  font-family: var(--font-d);
+  font-size: clamp(52px, 7.5vw, 96px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--text-light);
+  animation: fadeUp 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  max-width: 900px;
+  margin-top: 24px;
+}
+.cs-hero-descriptors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(247,246,242,0.12);
+  animation: fadeUp 0.9s 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cs-hero-cell {
+  padding: 32px 36px 32px 0;
+  border-right: 1px solid rgba(247,246,242,0.12);
+}
+.cs-hero-cell:last-child { border-right: none; padding-right: 0; }
+.cs-hero-cell:not(:first-child) { padding-left: 36px; }
+.cs-hero-center .label { color: var(--text-light); margin-bottom: 28px; }
+.cs-hero-center .label::after { background: rgba(247,246,242,0.4); }
+.cs-hero-cell .label { margin-bottom: 12px; }
+.cs-hero-cell-text { font-family: var(--font-b); font-size: 16px; font-weight: 500; line-height: 1.55; color: var(--text-light); }
+.cs-hero-cell-text span { color: rgba(247,246,242,0.5); font-weight: 400; }
+
+/* ── 2. STATS (dark) ── */
+.cs-stats {
+  background: var(--bg-dark);
+  border-bottom: 1px solid rgba(247,246,242,0.08);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+.cs-stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,107,196,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,107,196,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+.cs-stats .container { position: relative; z-index: 1; }
+.cs-stats .label { color: rgba(247,246,242,0.4); }
+.cs-stats .label::after { background: rgba(247,246,242,0.15); }
+.cs-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(247,246,242,0.08);
+  margin-top: 48px;
+}
+.cs-stat-item {
+  padding: 40px 32px 40px 0;
+  border-right: 1px solid rgba(247,246,242,0.08);
+}
+.cs-stat-item:last-child { border-right: none; padding-right: 0; }
+.cs-stat-item:not(:first-child) { padding-left: 32px; }
+.cs-stat-eyebrow { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); opacity: 0.9; margin-bottom: 8px; }
+.cs-stat-value { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text-light); margin-bottom: 10px; }
+.cs-stat-desc { font-size: 13px; color: rgba(247,246,242,0.4); line-height: 1.6; }
+
+/* ── 3. BIG STATEMENT ── */
+.cs-statement {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--mid);
+}
+.cs-statement .label { margin-bottom: 40px; }
+.cs-statement-primary {
+  font-family: var(--font-d);
+  font-size: clamp(24px, 2.8vw, 40px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  max-width: 840px;
+  margin-bottom: 28px;
+}
+.cs-statement-secondary {
+  font-family: var(--font-d);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--mid-text);
+  max-width: 720px;
+}
+
+/* ── 4. METHODOLOGY ── */
+.cs-methodology {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--mid);
+}
+.cs-methodology .label { margin-bottom: 24px; }
+.cs-methodology-text {
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: var(--mid-text);
+  max-width: 680px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* ── NUMBERED SECTIONS (01–06) ── */
+.cs-section {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--mid);
+}
+.cs-section .label { margin-bottom: 24px; }
+.cs-section-title {
+  font-family: var(--font-d);
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  margin-bottom: 36px;
+}
+.cs-section-body { max-width: 780px; }
+.cs-section-body p { color: var(--mid-text); line-height: 1.85; }
+.cs-section-body p + p { margin-top: 20px; }
+.cs-section-body strong { color: var(--text); font-weight: 600; }
+
+/* ── SUB-SECTIONS ── */
+.cs-subsection {
+  margin-top: 64px;
+  padding-top: 64px;
+  border-top: 1px solid var(--mid);
+}
+.cs-subsection-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.cs-subsection-title {
+  font-family: var(--font-d);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.cs-subsection-body { max-width: 780px; }
+.cs-subsection-body p { color: var(--mid-text); line-height: 1.85; }
+.cs-subsection-body p + p { margin-top: 18px; }
+.cs-subsection-body strong { color: var(--text); font-weight: 600; }
+
+/* ── PROTOTYPE OPTIONS LIST ── */
+.cs-proto-list { list-style: none; margin: 24px 0 0; }
+.cs-proto-item { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--mid); align-items: baseline; }
+.cs-proto-item:last-child { border-bottom: 1px solid var(--mid); }
+.cs-proto-label { font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--accent); padding-right: 8px; }
+.cs-proto-desc { font-size: 15px; color: var(--mid-text); line-height: 1.7; }
+
+/* ── IMAGE PLACEHOLDERS ── */
+.cs-img-block { margin-top: 48px; }
+.cs-img-placeholder {
+  background: var(--mid);
+  border-radius: 12px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.cs-img-placeholder-label {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+  text-align: center;
+}
+.cs-img-caption {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid-text);
+  margin-top: 14px;
+}
+
+/* ── TAKEAWAYS ── */
+.takeaways { padding: 120px 0; border-bottom: 1px solid var(--mid); }
+.takeaways .label { margin-bottom: 16px; }
+.takeaways-heading { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--text); margin-bottom: 56px; }
+.takeaways-impact { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--mid); }
+.takeaways-impact-value { font-family: var(--font-d); font-size: clamp(32px, 5vw, 72px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); margin-bottom: 16px; }
+.takeaways-impact-desc { color: var(--mid-text); max-width: 520px; }
+.takeaway { display: grid; grid-template-columns: 64px 1fr; gap: 32px; padding: 36px 0; border-top: 1px solid var(--mid); align-items: start; }
+.takeaway-num { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 4px; }
+.takeaway-title { font-family: var(--font-d); font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; letter-spacing: -0.01em; color: var(--text); margin-bottom: 8px; }
+.takeaway-body { font-size: clamp(14px, 1.2vw, 15px); color: var(--mid-text); line-height: 1.75; }
+.takeaways-cta { border-top: 1px solid var(--mid); padding-top: 64px; margin-top: 0; }
+.takeaways-cta > * { max-width: 480px; }
+.takeaways-cta-eyebrow { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-text); margin-bottom: 14px; }
+.takeaways-cta-text { font-size: 15px; color: var(--mid-text); line-height: 1.65; margin-bottom: 20px; }
+
+/* ── NEXT CASE STUDY ── */
+.next-case { padding: 80px 0; border-bottom: 1px solid var(--mid); }
+.next-case-inner { display: grid; grid-template-columns: 220px 1fr; gap: 80px; align-items: center; }
+.next-case-eyebrow { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid-text); }
+.next-case-tags { display: flex; gap: 6px; margin-bottom: 16px; }
+.next-case-title { font-family: var(--font-d); font-size: clamp(28px, 3vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; color: var(--text); margin-bottom: 12px; }
+.next-case-desc { color: var(--mid-text); line-height: 1.7; margin-bottom: 24px; max-width: 520px; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  :root { --pad: 32px; }
+
+  .cs-hero-h1 { font-size: clamp(40px, 11vw, 64px); }
+  .cs-hero-center { padding: 0 0 32px; }
+  .cs-hero-descriptors { grid-template-columns: 1fr; }
+  .cs-hero-cell { border-right: none; border-bottom: 1px solid rgba(247,246,242,0.12); padding: 24px 0; }
+  .cs-hero-cell:not(:first-child) { padding-left: 0; }
+  .cs-hero-cell:last-child { border-bottom: none; padding-right: 0; }
+
+  .cs-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .cs-stat-item { padding: 32px 0 32px 0; border-right: none; border-bottom: 1px solid rgba(247,246,242,0.08); }
+  .cs-stat-item:nth-child(odd) { padding-right: 24px; border-right: 1px solid rgba(247,246,242,0.08); }
+  .cs-stat-item:nth-child(even) { padding-left: 24px; }
+  .cs-stat-item:last-child { border-bottom: none; }
+  .cs-stat-item:nth-last-child(2) { border-bottom: none; }
+
+  .cs-proto-item { grid-template-columns: 1fr; gap: 4px; }
+
+  .next-case-inner { grid-template-columns: 1fr; gap: 20px; }
+
+  .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
+
+  .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .cs-section, .takeaways { padding: 80px 0; }
+  .cs-statement, .cs-methodology { padding: 64px 0; }
+  .cs-stats { padding: 64px 0; }
+  .next-case { padding: 56px 0; }
+  .takeaway { grid-template-columns: 48px 1fr; gap: 16px; }
+  .cs-subsection { margin-top: 48px; padding-top: 48px; }
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav id="site-nav"></nav>
+
+<main id="main">
+
+  <!-- ── 1. HERO ── -->
+  <section class="cs-hero">
+    <div class="cs-hero-inner">
+      <div class="cs-hero-center">
+        <div class="label">AlloyDB Case Study</div>
+        <h1 class="cs-hero-h1">A new product. A new title. And nine months to ship.</h1>
+      </div>
+      <div class="cs-hero-descriptors">
+        <div class="cs-hero-cell">
+          <div class="label">What I led</div>
+          <p class="cs-hero-cell-text">AlloyDB — Google Cloud's first new database product in a decade. <span>I led UX from product idea to v1 (private preview) launch as design lead and manager.</span></p>
+        </div>
+        <div class="cs-hero-cell">
+          <div class="label">What it was for me</div>
+          <p class="cs-hero-cell-text">My first 0 to 1 product at Google. My first time as a manager. <span>And I was still leading design on another product at the same time.</span></p>
+        </div>
+        <div class="cs-hero-cell">
+          <div class="label">What I learned</div>
+          <p class="cs-hero-cell-text">The work that matters most often happens before any pixels move. <span>Differentiation, naming, onboarding, and the team underneath all of it.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. STATS ── -->
+  <section class="cs-stats">
+    <div class="container">
+      <div class="label" data-fade>By the numbers</div>
+      <div class="cs-stats-grid">
+        <div class="cs-stat-item" data-fade data-delay="1">
+          <div class="cs-stat-eyebrow">0 → 1</div>
+          <div class="cs-stat-value">9 mo</div>
+          <p class="cs-stat-desc">Product idea to v1 private preview launch</p>
+        </div>
+        <div class="cs-stat-item" data-fade data-delay="2">
+          <div class="cs-stat-eyebrow">Customers</div>
+          <div class="cs-stat-value">~2K</div>
+          <p class="cs-stat-desc">Adopted AlloyDB within two years of launch</p>
+        </div>
+        <div class="cs-stat-item" data-fade data-delay="3">
+          <div class="cs-stat-eyebrow">Revenue</div>
+          <div class="cs-stat-value">$47M ARR</div>
+          <p class="cs-stat-desc">Reached within two years of launch</p>
+        </div>
+        <div class="cs-stat-item" data-fade data-delay="4">
+          <div class="cs-stat-eyebrow">Growth</div>
+          <div class="cs-stat-value">#1</div>
+          <p class="cs-stat-desc">Fastest-growing database on Google Cloud</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. BIG STATEMENT ── -->
+  <section class="cs-statement">
+    <div class="container">
+      <div class="label" data-fade>The assignment</div>
+      <div data-fade data-delay="1">
+        <p class="cs-statement-primary">I was just coming off a promotion. The assignment came down: launch a new database, hire a designer, and keep leading the product I was already on.</p>
+        <p class="cs-statement-secondary">First major launch. First time as a manager. Expanded scope. One nine-month window. I'd been put on the line.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. METHODOLOGY ── -->
+  <section class="cs-methodology">
+    <div class="container">
+      <div class="label" data-fade>Methodology</div>
+      <p class="cs-methodology-text" data-fade data-delay="1">Discovery, definition, design, validation. Run inside a launch I'd never run before, on a category I'd never shipped in, with a team I was still assembling.</p>
+    </div>
+  </section>
+
+  <!-- ── 01 THE ASSIGNMENT ── -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="label" data-fade>01 — The Assignment</div>
+      <h2 class="cs-section-title" data-fade data-delay="1">Coming Off a Promotion. Walking Into a Launch.</h2>
+      <div class="cs-section-body" data-fade data-delay="2">
+        <p>I'd just been promoted. The assignment that came with it was three things at once. Lead design on a new database product Google Cloud was launching. Hire a designer to share the load. And keep leading design on the product I was already on.</p>
+        <p>It was my first 0 to 1 product at Google. My first time being a manager. And the launch window was nine months — long enough to be real, short enough that nothing could be redone.</p>
+        <p>I won't go deep on the hiring here — that's its own story, and I'd rather tell it well somewhere else. What I'll say is that walking into a launch this size without an additional designer on day one made everything sharper. There was no version of this where one person could manage it all. So from the first week, the question I was really answering was: what does the design org's first contribution to this product need to be, and what can I personally take on?</p>
+        <p>That question shaped everything that followed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 DIFFERENTIATION ── -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="label" data-fade>02 — Where the Difference Gets Made</div>
+      <h2 class="cs-section-title" data-fade data-delay="1">Onboarding Was Where Customers Would Form Their First Opinion.</h2>
+      <div class="cs-section-body" data-fade data-delay="2">
+        <p>A new database is a hard sell. The underlying technology takes years for a customer to evaluate. The data sheet is a comparison nobody enjoys reading. The thing a customer touches first — the thing they form a first opinion from — is onboarding. That's where I focused.</p>
+        <p>Onboarding for a database is bigger than a welcome screen. It's the cluster creation flow, where a customer configures the database for the workload they're bringing. It's the cluster overview page, where they see what they've built and start to operate it. It's the moments where this product earns the right to be chosen over what the customer is already running.</p>
+      </div>
+
+      <!-- Sub: Competitive Audit -->
+      <div class="cs-subsection" data-fade>
+        <div class="cs-subsection-tags">
+          <span class="cs-tag">Competitive Audit</span>
+          <span class="cs-tag">UX Research Partnership</span>
+          <span class="cs-tag">Hypothesis Formation</span>
+        </div>
+        <h3 class="cs-subsection-title">A Competitive Audit With Research, Not Just by Me</h3>
+        <div class="cs-subsection-body">
+          <p>I teamed up with a researcher to audit the leading competitor's database setup end to end. Going in with research rather than running the audit solo mattered. A designer auditing a competitor finds design problems. A designer and a researcher auditing a competitor find user problems. The findings carried more weight downstream because they weren't my opinion.</p>
+          <p>The pattern we surfaced was consistent across the category. Customers created an initial database cluster, and only after that initial cluster was provisioned could they add additional read servers to scale. Scaling was a second step, in a second flow, after a customer had already committed to a configuration. That was the convention. It hadn't been questioned in years.</p>
+        </div>
+        <div class="cs-img-block">
+          <div class="cs-img-placeholder">
+            <div class="cs-img-placeholder-label">Competitive Audit — Setup vs. Scale</div>
+          </div>
+          <div class="cs-img-caption">Competitive Audit — Setup vs. Scale</div>
+        </div>
+      </div>
+
+      <!-- Sub: The Hypothesis -->
+      <div class="cs-subsection" data-fade>
+        <div class="cs-subsection-tags">
+          <span class="cs-tag">Hypothesis</span>
+          <span class="cs-tag">Differentiation</span>
+          <span class="cs-tag">Setup Flow</span>
+        </div>
+        <h3 class="cs-subsection-title">The Hypothesis</h3>
+        <div class="cs-subsection-body">
+          <p>Making scaling part of the setup process — instead of a separate step — would differentiate AlloyDB and shorten the path from intent to a working, production-ready cluster. Customers would see the full shape of what they were creating before they created it. They'd choose a configuration that fit their workload, not a starter configuration they'd later have to grow out of.</p>
+          <p>That was specific enough to test, and material enough that getting it right would change how AlloyDB felt compared to the alternatives.</p>
+        </div>
+        <div class="cs-img-block">
+          <div class="cs-img-placeholder">
+            <div class="cs-img-placeholder-label">Design Hypothesis — Scaling in the Create Flow</div>
+          </div>
+          <div class="cs-img-caption">Design Hypothesis — Scaling in the Create Flow</div>
+        </div>
+      </div>
+
+      <!-- Sub: Three Prototypes -->
+      <div class="cs-subsection" data-fade>
+        <div class="cs-subsection-tags">
+          <span class="cs-tag">Prototyping</span>
+          <span class="cs-tag">Usability Research</span>
+          <span class="cs-tag">Decision Framing</span>
+        </div>
+        <h3 class="cs-subsection-title">Three Prototypes, One Question</h3>
+        <div class="cs-subsection-body">
+          <p>I designed three prototype directions for usability testing:</p>
+          <ul class="cs-proto-list">
+            <li class="cs-proto-item">
+              <span class="cs-proto-label">Option 1 — Illustrative</span>
+              <span class="cs-proto-desc">A visual representation of the cluster's configuration, including its scaling options, surfaced upfront. Customers see what they're building as they build it.</span>
+            </li>
+            <li class="cs-proto-item">
+              <span class="cs-proto-label">Option 2 — Descriptive</span>
+              <span class="cs-proto-desc">Each configuration option laid out in plain text. Scaling is named and explained, but not visualized.</span>
+            </li>
+            <li class="cs-proto-item">
+              <span class="cs-proto-label">Option 3 — Hidden</span>
+              <span class="cs-proto-desc">The conventional pattern. Scaling options stay tucked behind the cluster creation step until the customer reaches them in sequence.</span>
+            </li>
+          </ul>
+          <p>The three options weren't three candidates for the final design. They were three positions on one question: how visible should the differentiator be? Option 3 was the safe choice. Option 1 was the bet.</p>
+        </div>
+        <div class="cs-img-block">
+          <div class="cs-img-placeholder">
+            <div class="cs-img-placeholder-label">Three Prototype Directions</div>
+          </div>
+          <div class="cs-img-caption">Three Prototype Directions</div>
+        </div>
+      </div>
+
+      <!-- Sub: What Customers Told Us -->
+      <div class="cs-subsection" data-fade>
+        <div class="cs-subsection-tags">
+          <span class="cs-tag">User Interviews</span>
+          <span class="cs-tag">Usability Findings</span>
+          <span class="cs-tag">Insight</span>
+        </div>
+        <h3 class="cs-subsection-title">What Customers Told Us</h3>
+        <div class="cs-subsection-body">
+          <p>Research came back with two things I needed to hear. The first was confirmation. Participants liked having the ability to create the primary instance and replica pools in a single flow. One technical lead called it a major improvement and specifically named the streamlined flow as the reason. The hypothesis held.</p>
+          <p>The second was a correction. Participants found the templates I'd designed less flexible than I'd intended. The word "optional" on certain settings made customers hesitant to change anything underneath it. An infrastructure engineer told us they'd want a custom path alongside the templates — that templates were helpful, but the rigidity I'd implied wasn't.</p>
+          <p>I'd been right about where the differentiator lived. I'd been partially wrong about how to express it.</p>
+        </div>
+        <div class="cs-img-block">
+          <div class="cs-img-placeholder">
+            <div class="cs-img-placeholder-label">Research Findings — Quotes from Participants</div>
+          </div>
+          <div class="cs-img-caption">Research Findings — Quotes from Participants</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 03 WORKSHOPS ── -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="label" data-fade>03 — The Workshops</div>
+      <h2 class="cs-section-title" data-fade data-delay="1">Two Workshops. Two Things to Get Right.</h2>
+      <div class="cs-section-body" data-fade data-delay="2">
+        <p>Two pieces of the launch couldn't be solved at a desk. They needed the team in a room.</p>
+        <p>The first was the name. AlloyDB didn't have a name when I started. I ran the naming workshop that produced it. Naming a database isn't branding for branding's sake. It's the first piece of language a customer encounters, the word a sales team has to say in a meeting, the term that will appear in every doc page and every console nav for years. AlloyDB landed because it carried something specific: an alloy is two materials combined to produce something stronger than either alone, which is what the product was technically — Google's infrastructure combined with PostgreSQL compatibility.</p>
+        <p>The second was onboarding principles. I commissioned a workshop to define how a customer should be guided through their first hour with the product. The principles that came out of it were specific enough to design against and broad enough to outlast AlloyDB itself. They ended up getting adopted across the database portfolio.</p>
+        <p>Workshops aren't a deliverable. They're how you get a group of smart people to converge on something none of them would have arrived at alone. Both of these mattered more than the artifacts they produced.</p>
+      </div>
+      <div class="cs-img-block" data-fade>
+        <div class="cs-img-placeholder">
+          <div class="cs-img-placeholder-label">Workshop Artifacts — Naming &amp; Onboarding Principles</div>
+        </div>
+        <div class="cs-img-caption">Workshop Artifacts — Naming &amp; Onboarding Principles</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 ONBOARDING DESIGN ── -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="label" data-fade>04 — Designing Onboarding</div>
+
+      <div data-fade data-delay="1">
+        <h2 class="cs-section-title">The Cluster Creation Flow</h2>
+        <div class="cs-section-body">
+          <p>I refined the design to keep the scaling visualization that customers responded to, and rework the template treatment so the affordances around customization were clearer. Optional settings stayed optional. Editable settings looked editable. The cluster creation flow shipped as a single coherent path from configuration to a production-ready cluster.</p>
+        </div>
+        <div class="cs-img-block">
+          <div class="cs-img-placeholder">
+            <div class="cs-img-placeholder-label">Final Cluster Creation Flow — AlloyDB</div>
+          </div>
+          <div class="cs-img-caption">Final Cluster Creation Flow — AlloyDB</div>
+        </div>
+      </div>
+
+      <!-- Sub: Illustrations -->
+      <div class="cs-subsection" data-fade>
+        <div class="cs-subsection-tags">
+          <span class="cs-tag">Illustration</span>
+          <span class="cs-tag">Form Design</span>
+          <span class="cs-tag">Information Design</span>
+        </div>
+        <h3 class="cs-subsection-title">Illustrations for the Architectures</h3>
+        <div class="cs-subsection-body">
+          <p>AlloyDB lets customers start with different cluster architectures depending on their workload. Describing those architectures in text alone made them sound similar even when they weren't. Customers couldn't see what they were choosing between.</p>
+          <p>I added illustrations directly into the form — one per architecture, sitting alongside the description and the configuration controls. Each illustration showed what the architecture actually looked like in shape: how the primary instance related to the replicas, how reads flowed, how the pieces fit. A customer reading the form could now compare architectures the same way they'd compare floor plans, not the way they'd compare paragraphs.</p>
+          <p>Illustrations inside a configuration form wasn't a pattern the org had used before. The form was a place for inputs, not images. Bringing illustrations into it was a small choice with a clear payoff — customers stopped asking which architecture they should pick.</p>
+        </div>
+        <div class="cs-img-block">
+          <div class="cs-img-placeholder">
+            <div class="cs-img-placeholder-label">Architecture Illustrations — In-Form</div>
+          </div>
+          <div class="cs-img-caption">Architecture Illustrations — In-Form</div>
+        </div>
+      </div>
+
+      <!-- Sub: Cluster Overview Page -->
+      <div class="cs-subsection" data-fade>
+        <div class="cs-subsection-tags">
+          <span class="cs-tag">Design Leadership</span>
+          <span class="cs-tag">IA</span>
+          <span class="cs-tag">Mentorship</span>
+        </div>
+        <h3 class="cs-subsection-title">The Cluster Overview Page</h3>
+        <div class="cs-subsection-body">
+          <p>Onboarding doesn't end when the cluster gets created. It ends when the customer can confidently operate what they've created. The cluster overview page — where a customer sees the elements and components of their cluster after creation — was the next critical surface. I didn't design this one myself. I guided the designer on my team through it.</p>
+          <p>She ran her own workshop to align the team on what the page needed to do. I helped her shape the workshop and the design that came out of it. The page she shipped gave customers a clean read on the state of their cluster — what was running, what was connected, what needed attention — without making them stitch the picture together from separate screens.</p>
+          <p>This is the work I'm most quietly proud of in this case study. Not the screen I drew. The screen someone else drew because I'd set them up to draw it.</p>
+        </div>
+        <div class="cs-img-block">
+          <div class="cs-img-placeholder">
+            <div class="cs-img-placeholder-label">Cluster Overview Page — AlloyDB</div>
+          </div>
+          <div class="cs-img-caption">Cluster Overview Page — AlloyDB</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 05 THE LAUNCH ── -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="label" data-fade>05 — The Launch</div>
+      <h2 class="cs-section-title" data-fade data-delay="1">V1, Then I/O.</h2>
+      <div class="cs-section-body" data-fade data-delay="2">
+        <p>AlloyDB launched in private preview nine months after the assignment came down. From product idea to a working v1 in customers' hands. The cluster creation flow my team and I designed became the front door of the product.</p>
+        <p>Eight months after that, AlloyDB was announced on the Google I/O 2022 stage on May 12. Two distinct milestones, not one. The first was the proof the product could ship. The second was the proof Google was willing to put weight behind it.</p>
+        <p>AlloyDB went on to become the fastest-growing database on Google Cloud.</p>
+        <p>The differentiator held. Scaling-in-the-create-flow worked the way the research said it would.</p>
+      </div>
+
+      <div class="cs-subsection" data-fade>
+        <h3 class="cs-subsection-title">What Users Said, Three Years In</h3>
+        <div class="cs-subsection-body">
+          <p>A current-user survey of 36 AlloyDB customers, run roughly three years after launch, gave the cluster creation flow its longest-running review. General ease of use was the most frequent category of feedback, with 13 comments calling it out specifically. Templatized layouts came up positively too — customers liked having a starting configuration to anchor against, which validated the template approach the earlier research had pointed toward.</p>
+          <p>The illustrations were a more honest finding. Seven users called out the tiled illustrations on the first step of the form as visually appealing. Researchers noted that the illustrations didn't significantly improve understanding — they were liked more than they were useful. That's worth saying plainly. The illustrations did less than I hoped on comprehension. They did real work on how the form felt, which is its own kind of contribution, but not the one I'd been designing toward.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 06 REFLECTION ── -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="label" data-fade>06 — What I'd Do Differently</div>
+      <h2 class="cs-section-title" data-fade data-delay="1">The Columnar Engine.</h2>
+      <div class="cs-section-body" data-fade data-delay="2">
+        <p>The columnar engine was one of AlloyDB's most distinctive technical capabilities. The launch announcement described it as a vectorized columnar accelerator, and called out analytical queries running up to 100 times faster than standard PostgreSQL because of it. It was a real selling point.</p>
+        <p>In the UI, it didn't get the prominence it deserved. PM and engineering leadership weren't prioritizing it as a UI moment, and I made my case but didn't go hard. I argued for it in conversation. I didn't build a prototype.</p>
+        <p>That's the one I'd take back. Not the argument I lost — the prototype I didn't make. A well-built mock of what the columnar engine could feel like in the UI would have changed the conversation. Words don't move a roadmap as well as a thing you can click does.</p>
+        <p>It's the lesson I've carried into every product conversation since. If something matters enough to argue for, it matters enough to prototype.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TAKEAWAYS ── -->
+  <section class="takeaways">
+    <div class="container">
+      <div class="label" data-fade>Takeaways</div>
+      <h2 class="takeaways-heading" data-fade data-delay="1">What I Learned Launching AlloyDB.</h2>
+
+      <div class="takeaways-impact" data-fade>
+        <div class="takeaways-impact-value">A New Database, Shipped.</div>
+        <p class="takeaways-impact-desc">Nine months. First 0 to 1 at Google. First time as a manager. The differentiator I bet on at the start was the one customers responded to at the end.</p>
+      </div>
+
+      <div class="takeaway" data-fade>
+        <div class="takeaway-num">01</div>
+        <div>
+          <div class="takeaway-title">Differentiation is a research problem before it's a design problem.</div>
+          <p class="takeaway-body">The work that mattered most happened before I opened Figma — auditing what the category had defaulted to, with a researcher beside me, and naming the convention nobody had questioned.</p>
+        </div>
+      </div>
+
+      <div class="takeaway" data-fade>
+        <div class="takeaway-num">02</div>
+        <div>
+          <div class="takeaway-title">Workshops are leadership tools, not deliverables.</div>
+          <p class="takeaway-body">The naming workshop produced AlloyDB. The onboarding principles workshop produced something that outlasted the product. Neither was a screen I designed. Both shaped the launch more than most screens did.</p>
+        </div>
+      </div>
+
+      <div class="takeaway" data-fade>
+        <div class="takeaway-num">03</div>
+        <div>
+          <div class="takeaway-title">The best work my team did wasn't mine.</div>
+          <p class="takeaway-body">The cluster overview page was designed by someone else on my team. My job was to set her up to design it well — to help her shape the workshop, hold the line on the principles, and trust the work she came back with.</p>
+        </div>
+      </div>
+
+      <div class="takeaway" data-fade>
+        <div class="takeaway-num">04</div>
+        <div>
+          <div class="takeaway-title">Argument loses to prototype.</div>
+          <p class="takeaway-body">I made the case for the columnar engine in conversation. I didn't build a mock. That's the one I'd take back.</p>
+        </div>
+      </div>
+
+      <div class="takeaway" data-fade>
+        <div class="takeaway-num">05</div>
+        <div>
+          <div class="takeaway-title">Some principles outlast the product.</div>
+          <p class="takeaway-body">The onboarding principles from one workshop are still in use across the database portfolio. That wasn't the goal. It's how design work tends to behave when it's done in the open.</p>
+        </div>
+      </div>
+
+      <div class="takeaways-cta" data-fade>
+        <div class="takeaways-cta-eyebrow">Let's work together</div>
+        <p class="takeaways-cta-text">If you're building a team that wants design leadership ready for what's next, let's talk.</p>
+        <a class="cs-link" href="index.html#contact">Get in touch →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── NEXT CASE STUDY ── -->
+  <section class="next-case">
+    <div class="container">
+      <div class="next-case-inner">
+        <div data-fade>
+          <div class="next-case-eyebrow">Next Case Study</div>
+        </div>
+        <div data-fade data-delay="1">
+          <div class="next-case-tags">
+            <span class="cs-tag">Mobile App</span>
+            <span class="cs-tag">UX Lead</span>
+          </div>
+          <div class="next-case-title">Taco Bell</div>
+          <p class="next-case-desc">Lead UX on Taco Bell's first iOS ordering app. 300K downloads in 48 hours, a Webby Award, and a patent.</p>
+          <a class="cs-link" href="taco-bell.html">View case study →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script>
+  var fadeEls = document.querySelectorAll('[data-fade]');
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(function (el) { revealObserver.observe(el); });
+</script>
+<script src="components.js"></script>
+<script>
+  (function () {
+    var nav = document.querySelector('nav');
+    var hero = document.querySelector('.cs-hero');
+    if (!nav || !hero) return;
+    nav.classList.remove('nav--light');
+    nav.classList.add('nav--scrolled');
+    var heroObs = new IntersectionObserver(function (entries) {
+      var inView = entries[0].isIntersecting;
+      nav.classList.toggle('nav--scrolled', inView);
+      nav.classList.toggle('nav--light', !inView);
+    }, { threshold: 0, rootMargin: '-60px 0px 0px 0px' });
+    heroObs.observe(hero);
+  })();
+</script>
+
+</body>
+</html>
