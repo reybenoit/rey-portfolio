@@ -277,16 +277,77 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
 /* ── 4. METHODOLOGY ── */
 .cs-methodology {
-  padding: 72px 0;
+  padding: 80px 0;
   border-bottom: 1px solid var(--mid);
 }
 .cs-methodology .label { margin-bottom: 24px; }
-.cs-methodology-text {
-  font-size: clamp(15px, 1.5vw, 18px);
+.cs-methodology-heading {
+  font-family: var(--font-d);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.cs-methodology-sub {
+  font-size: 16px;
   color: var(--mid-text);
-  max-width: 680px;
-  line-height: 1.8;
-  font-style: italic;
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 64px;
+}
+
+/* ── METHODOLOGY FLOW ── */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  position: relative;
+}
+.flow::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--mid);
+  z-index: 0;
+}
+.flow-step {
+  position: relative;
+  z-index: 1;
+}
+.flow-step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--mid);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-d);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid-text);
+  margin-bottom: 24px;
+}
+.flow-step h4 {
+  font-family: var(--font-d);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.flow-step ul { list-style: none; padding: 0; }
+.flow-step li {
+  font-family: var(--font-b);
+  font-size: 14px;
+  color: var(--mid-text);
+  line-height: 1.7;
 }
 
 /* ── NUMBERED SECTIONS (01–06) ── */
@@ -416,6 +477,29 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
 
   .nav-links { display: none; }
+
+  .flow {
+    grid-template-columns: 1fr;
+    padding-left: 56px;
+    gap: 0;
+  }
+  .flow::before {
+    top: 18px;
+    bottom: 18px;
+    left: 17px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+  .flow-step { padding-bottom: 40px; }
+  .flow-step:last-child { padding-bottom: 0; }
+  .flow-step-num {
+    position: absolute;
+    left: -56px;
+    top: 0;
+    margin-bottom: 0;
+  }
+  .flow-step h4 { padding-top: 4px; margin-bottom: 8px; }
 }
 
 @media (max-width: 600px) {
@@ -500,7 +584,52 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   <section class="cs-methodology">
     <div class="container">
       <div class="label" data-fade>Methodology</div>
-      <p class="cs-methodology-text" data-fade data-delay="1">Discovery, definition, design, validation. Run inside a launch I'd never run before, on a category I'd never shipped in, with a team I was still assembling.</p>
+      <h2 class="cs-methodology-heading" data-fade data-delay="1">Process</h2>
+      <p class="cs-methodology-sub" data-fade data-delay="2">Classic user-centered design — applied at the pace and scale of a new product launch.</p>
+      <div class="flow" data-fade data-delay="3">
+        <div class="flow-step">
+          <div class="flow-step-num">1</div>
+          <h4>Understand</h4>
+          <ul>
+            <li>Competitive Audit</li>
+            <li>Heuristic Evaluation</li>
+          </ul>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">2</div>
+          <h4>Define</h4>
+          <ul>
+            <li>Naming Workshop</li>
+            <li>Onboarding Principles</li>
+            <li>Hypothesis</li>
+          </ul>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">3</div>
+          <h4>Refine</h4>
+          <ul>
+            <li>Prototypes</li>
+            <li>Usability Research</li>
+          </ul>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">4</div>
+          <h4>Build</h4>
+          <ul>
+            <li>Detailed Mocks</li>
+            <li>In-Form Illustrations</li>
+            <li>Dev Partnership</li>
+          </ul>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">5</div>
+          <h4>Launch</h4>
+          <ul>
+            <li>Private Preview</li>
+            <li>Google I/O 2022</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
