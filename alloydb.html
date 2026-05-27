@@ -353,6 +353,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   line-height: 1.7;
 }
 
+/* ── SECTION BRIEF GRID (two-column: text left, image right) ── */
+.cs-section-brief { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start; }
+
 /* ── NUMBERED SECTIONS (01–06) ── */
 .cs-section {
   padding: 120px 0;
@@ -473,6 +476,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   .cs-stat-item:last-child { border-bottom: none; }
   .cs-stat-item:nth-last-child(2) { border-bottom: none; }
 
+  .cs-section-brief { grid-template-columns: 1fr; gap: 48px; }
   .cs-proto-item { grid-template-columns: 1fr; gap: 4px; }
 
   .next-case-inner { grid-template-columns: 1fr; gap: 20px; }
@@ -575,12 +579,21 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   <!-- ── 01 THE ASSIGNMENT ── -->
   <section class="cs-section">
     <div class="container">
-      <div class="label" data-fade>The Assignment</div>
-      <h2 class="cs-section-title" data-fade data-delay="1">Launch a new database, hire a designer, and keep leading the product I was already on.</h2>
-      <div class="cs-section-body" data-fade data-delay="2">
-        <p>II'd just been promoted. The assignment that came with it was three things at once. Lead design on a new database product Google Cloud was launching. Hire a designer to share the load. And keep leading design on the product I was already on.</p>
-        <p>It was my first 0 to 1 product at Google. My first time being a manager. And the launch window was nine months. There was no version of this where one person could manage it all. So from the first week, the question I was really answering was: what does the design org's first contribution to this product need to be, and what can I personally take on?</p>
-        <p>That question shaped everything that followed.</p>
+      <div class="cs-section-brief" data-fade>
+        <div>
+          <div class="label">The Assignment</div>
+          <h2 class="cs-section-title">Launch a new database, hire a designer, and keep leading the product I was already on.</h2>
+          <div class="cs-section-body">
+            <p>II'd just been promoted. The assignment that came with it was three things at once. Lead design on a new database product Google Cloud was launching. Hire a designer to share the load. And keep leading design on the product I was already on.</p>
+            <p>It was my first 0 to 1 product at Google. My first time being a manager. And the launch window was nine months. There was no version of this where one person could manage it all. So from the first week, the question I was really answering was: what does the design org's first contribution to this product need to be, and what can I personally take on?</p>
+            <p>That question shaped everything that followed.</p>
+          </div>
+        </div>
+        <div>
+          <div class="cs-img-placeholder" style="min-height: 400px;">
+            <div class="cs-img-placeholder-label">Image</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
