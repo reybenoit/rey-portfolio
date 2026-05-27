@@ -458,6 +458,13 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .next-case-title { font-family: var(--font-d); font-size: clamp(28px, 3vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; color: var(--text); margin-bottom: 12px; }
 .next-case-desc { color: var(--mid-text); line-height: 1.7; margin-bottom: 24px; max-width: 520px; }
 
+/* ── DESIGN MOMENTS ── */
+.design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
+.design-moment-num { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 6px; }
+.design-moment-title { font-family: var(--font-d); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
+.design-moment-body p { color: var(--mid-text); line-height: 1.85; }
+.design-moment-body p + p { margin-top: 16px; }
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   :root { --pad: 32px; }
@@ -507,6 +514,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
     margin-bottom: 0;
   }
   .flow-step h4 { padding-top: 4px; margin-bottom: 8px; }
+  .design-moment { grid-template-columns: 48px 1fr; gap: 20px; padding: 40px 0; }
 }
 
 @media (max-width: 600px) {
@@ -516,6 +524,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   .next-case { padding: 56px 0; }
   .takeaway { grid-template-columns: 48px 1fr; gap: 16px; }
   .cs-subsection { margin-top: 48px; padding-top: 48px; }
+  .design-moment { grid-template-columns: 40px 1fr; gap: 16px; padding: 32px 0; }
 }
 
 </style>
@@ -659,42 +668,38 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       </div>
 
       <!-- Sub: Competitive Audit -->
-      <div class="cs-subsection" data-fade>
-        <div class="cs-subsection-tags">
-          <span class="cs-tag">Competitive Audit</span>
-          <span class="cs-tag">UX Research Partnership</span>
-          <span class="cs-tag">Hypothesis Formation</span>
-        </div>
-        <h3 class="cs-subsection-title">A competitive audit with research, not just by me</h3>
-        <div class="cs-subsection-body">
-          <p>I teamed up with a researcher to audit the leading competitor's database setup end to end. Going in with research rather than running the audit solo mattered. A designer auditing a competitor finds design problems. A designer and a researcher auditing a competitor find user problems. The findings carried more weight downstream because they weren't my opinion.</p>
-          <p>The pattern we surfaced was consistent across the category. Customers created an initial database cluster, and only after that initial cluster was provisioned could they add additional read servers to scale. Scaling was a second step, in a second flow, after a customer had already committed to a configuration. That was the convention. It hadn't been questioned in years.</p>
-        </div>
-        <div class="cs-img-block">
-          <div class="cs-img-placeholder">
-            <div class="cs-img-placeholder-label">Competitive Audit — Setup vs. Scale</div>
+      <div class="design-moment" data-fade>
+        <div class="design-moment-num">1.1</div>
+        <div class="design-moment-content">
+          <h3 class="design-moment-title">A competitive audit with research, not just by me</h3>
+          <div class="design-moment-body">
+            <p>I teamed up with a researcher to audit the leading competitor's database setup end to end. Going in with research rather than running the audit solo mattered. A designer auditing a competitor finds design problems. A designer and a researcher auditing a competitor find user problems. The findings carried more weight downstream because they weren't my opinion.</p>
+            <p>The pattern we surfaced was consistent across the category. Customers created an initial database cluster, and only after that initial cluster was provisioned could they add additional read servers to scale. Scaling was a second step, in a second flow, after a customer had already committed to a configuration. That was the convention. It hadn't been questioned in years.</p>
           </div>
-          <div class="cs-img-caption">Competitive Audit — Setup vs. Scale</div>
+          <div class="cs-img-block">
+            <div class="cs-img-placeholder">
+              <div class="cs-img-placeholder-label">Competitive Audit — Setup vs. Scale</div>
+            </div>
+            <div class="cs-img-caption">Competitive Audit — Setup vs. Scale</div>
+          </div>
         </div>
       </div>
 
       <!-- Sub: The Hypothesis -->
-      <div class="cs-subsection" data-fade>
-        <div class="cs-subsection-tags">
-          <span class="cs-tag">Hypothesis</span>
-          <span class="cs-tag">Differentiation</span>
-          <span class="cs-tag">Setup Flow</span>
-        </div>
-        <h3 class="cs-subsection-title">The hypothesis</h3>
-        <div class="cs-subsection-body">
-          <p>Making scaling part of the setup process — instead of a separate step — would differentiate AlloyDB and shorten the path from intent to a working, production-ready cluster. Customers would see the full shape of what they were creating before they created it. They'd choose a configuration that fit their workload, not a starter configuration they'd later have to grow out of.</p>
-          <p>That was specific enough to test, and material enough that getting it right would change how AlloyDB felt compared to the alternatives.</p>
-        </div>
-        <div class="cs-img-block">
-          <div class="cs-img-placeholder">
-            <div class="cs-img-placeholder-label">Design Hypothesis — Scaling in the Create Flow</div>
+      <div class="design-moment" data-fade>
+        <div class="design-moment-num">1.2</div>
+        <div class="design-moment-content">
+          <h3 class="design-moment-title">The hypothesis</h3>
+          <div class="design-moment-body">
+            <p>Making scaling part of the setup process — instead of a separate step — would differentiate AlloyDB and shorten the path from intent to a working, production-ready cluster. Customers would see the full shape of what they were creating before they created it. They'd choose a configuration that fit their workload, not a starter configuration they'd later have to grow out of.</p>
+            <p>That was specific enough to test, and material enough that getting it right would change how AlloyDB felt compared to the alternatives.</p>
           </div>
-          <div class="cs-img-caption">Design Hypothesis — Scaling in the Create Flow</div>
+          <div class="cs-img-block">
+            <div class="cs-img-placeholder">
+              <div class="cs-img-placeholder-label">Design Hypothesis — Scaling in the Create Flow</div>
+            </div>
+            <div class="cs-img-caption">Design Hypothesis — Scaling in the Create Flow</div>
+          </div>
         </div>
       </div>
 
