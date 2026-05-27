@@ -353,6 +353,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   line-height: 1.7;
 }
 
+/* ── SECTION BRIEF GRID (two-column: text left, image right) ── */
+.cs-section-brief { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start; }
+
 /* ── NUMBERED SECTIONS (01–06) ── */
 .cs-section {
   padding: 120px 0;
@@ -473,6 +476,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   .cs-stat-item:last-child { border-bottom: none; }
   .cs-stat-item:nth-last-child(2) { border-bottom: none; }
 
+  .cs-section-brief { grid-template-columns: 1fr; gap: 48px; }
   .cs-proto-item { grid-template-columns: 1fr; gap: 4px; }
 
   .next-case-inner { grid-template-columns: 1fr; gap: 20px; }
@@ -640,11 +644,20 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   <!-- ── 02 DIFFERENTIATION ── -->
   <section class="cs-section">
     <div class="container">
-      <div class="label" data-fade>01 — Understand</div>
-      <h2 class="cs-section-title" data-fade data-delay="1">Onboarding Was Where Customers Would Form Their First Opinion.</h2>
-      <div class="cs-section-body" data-fade data-delay="2">
-        <p>Onboarding for a database is more than a splash screen and sign up form. It's the cluster creation flow, where a customer configures the database for the workload they're bringing.  It's the cluster overview page, where they see what they've built and start to operate it. It's the moments where any friction can cause users not to adopt. </p>
-        <p>Before designing any of it, I audited competitors and ran heuristic evaluations on similar products. That work gave me the patterns and gaps to design against.</p>
+      <div class="cs-section-brief" data-fade>
+        <div>
+          <div class="label">01 — Understand</div>
+          <h2 class="cs-section-title">Onboarding Was Where Customers Would Form Their First Opinion.</h2>
+          <div class="cs-section-body">
+            <p>Onboarding for a database is more than a splash screen and sign up form. It's the cluster creation flow, where a customer configures the database for the workload they're bringing.  It's the cluster overview page, where they see what they've built and start to operate it. It's the moments where any friction can cause users not to adopt. </p>
+            <p>Before designing any of it, I audited competitors and ran heuristic evaluations on similar products. That work gave me the patterns and gaps to design against.</p>
+          </div>
+        </div>
+        <div>
+          <div class="cs-img-placeholder" style="min-height: 400px;">
+            <div class="cs-img-placeholder-label">Image</div>
+          </div>
+        </div>
       </div>
 
       <!-- Sub: Competitive Audit -->
