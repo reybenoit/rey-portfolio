@@ -399,7 +399,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 
 /* ── PROTOTYPE OPTIONS LIST ── */
 .cs-proto-list { list-style: none; margin: 24px 0 0; }
-.cs-proto-item { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--mid); align-items: baseline; }
+.cs-proto-item { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--mid); align-items: start; }
+.cs-proto-item .cs-img-block { grid-column: 1 / -1; margin-top: 8px; }
 .cs-proto-item:last-child { border-bottom: 1px solid var(--mid); }
 .cs-proto-label { font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--accent); padding-right: 8px; }
 .cs-proto-desc { font-size: 15px; color: var(--mid-text); line-height: 1.7; }
@@ -809,23 +810,32 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
               <li class="cs-proto-item">
                 <span class="cs-proto-label">Option 1 — Illustrative</span>
                 <span class="cs-proto-desc">A visual representation of the cluster's configuration, including its scaling options, surfaced upfront. Customers see what they're building as they build it.</span>
+                <div class="cs-img-block">
+                  <div class="cs-img-placeholder">
+                    <div class="cs-img-placeholder-label">Option 1 — Illustrative</div>
+                  </div>
+                </div>
               </li>
               <li class="cs-proto-item">
                 <span class="cs-proto-label">Option 2 — Descriptive</span>
                 <span class="cs-proto-desc">Each configuration option laid out in plain text. Scaling is named and explained, but not visualized.</span>
+                <div class="cs-img-block">
+                  <div class="cs-img-placeholder">
+                    <div class="cs-img-placeholder-label">Option 2 — Descriptive</div>
+                  </div>
+                </div>
               </li>
               <li class="cs-proto-item">
                 <span class="cs-proto-label">Option 3 — Hidden</span>
                 <span class="cs-proto-desc">The conventional pattern. Scaling options stay tucked behind the cluster creation step until the customer reaches them in sequence.</span>
+                <div class="cs-img-block">
+                  <div class="cs-img-placeholder">
+                    <div class="cs-img-placeholder-label">Option 3 — Hidden</div>
+                  </div>
+                </div>
               </li>
             </ul>
             <p>The three options weren't three candidates for the final design. They were three positions on one question: how visible should the differentiator be? Option 3 was the safe choice. Option 1 was the bet.</p>
-          </div>
-          <div class="cs-img-block">
-            <div class="cs-img-placeholder">
-              <div class="cs-img-placeholder-label">Three Prototype Directions</div>
-            </div>
-            <div class="cs-img-caption">Three Prototype Directions</div>
           </div>
         </div>
       </div>
