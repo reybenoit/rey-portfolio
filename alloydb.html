@@ -458,6 +458,23 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .next-case-title { font-family: var(--font-d); font-size: clamp(28px, 3vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; color: var(--text); margin-bottom: 12px; }
 .next-case-desc { color: var(--mid-text); line-height: 1.7; margin-bottom: 24px; max-width: 520px; }
 
+/* ── COMPETITIVE AUDIT TABLE ── */
+.audit-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+.audit-table thead tr { background: var(--accent); }
+.audit-table thead th { font-family: var(--font-d); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: #fff; text-align: left; padding: 16px 20px; text-transform: uppercase; }
+.audit-table thead th.center { text-align: center; }
+.audit-table tbody td { font-family: var(--font-b); font-size: 14px; color: var(--text); padding: 16px 20px; border-bottom: 1px solid var(--mid); vertical-align: middle; }
+.audit-table tbody td.category { font-family: var(--font-d); font-weight: 600; font-size: 14px; color: var(--text); vertical-align: top; padding-top: 18px; width: 160px; }
+.audit-table tbody td.mark { text-align: center; width: 120px; }
+.audit-table tbody tr.group-start td { border-top: 1px solid var(--mid); }
+.audit-table tbody tr:last-child td { border-bottom: 1px solid var(--mid); }
+.glyph { display: inline-block; width: 8px; height: 8px; border-radius: 50%; vertical-align: middle; }
+.glyph.present { background: var(--accent); }
+.glyph.absent { background: transparent; border: 1px solid var(--mid-text); opacity: 0.5; }
+.audit-legend { margin-top: 20px; display: flex; gap: 24px; font-family: var(--font-b); font-size: 12px; color: var(--mid-text); letter-spacing: 0.02em; }
+.audit-legend-item { display: flex; align-items: center; gap: 8px; }
+.audit-caption { margin-top: 24px; font-family: var(--font-b); font-size: 14px; font-style: italic; color: var(--mid-text); line-height: 1.55; }
+
 /* ── DESIGN MOMENTS ── */
 .design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
 .design-moment-num { font-family: var(--font-d); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--accent); opacity: 0.6; padding-top: 6px; }
@@ -525,6 +542,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   .takeaway { grid-template-columns: 48px 1fr; gap: 16px; }
   .cs-subsection { margin-top: 48px; padding-top: 48px; }
   .design-moment { grid-template-columns: 40px 1fr; gap: 16px; padding: 32px 0; }
+  .audit-table thead th, .audit-table tbody td { padding: 12px; font-size: 13px; }
+  .audit-table tbody td.category { width: auto; }
+  .audit-table tbody td.mark { width: 70px; }
 }
 
 </style>
@@ -675,12 +695,80 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
           <div class="design-moment-body">
             <p>I teamed up with the UX researcher to audit the leading competitor's database setup end to end. A pattern surfaced. Customers created an initial database cluster, and only after that initial cluster was provisioned could they add additional read servers to scale. Scaling was a second step, in a second flow, after a customer had already committed to a configuration. That was the convention.</p>
           </div>
-          <div class="cs-img-block">
-            <div class="cs-img-placeholder">
-              <div class="cs-img-placeholder-label">Competitive Audit — Setup vs. Scale</div>
-            </div>
-            <div class="cs-img-caption">Competitive Audit — Setup vs. Scale</div>
+          <table class="audit-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Takeaway</th>
+                <th class="center">Compute Engine</th>
+                <th class="center">Aurora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-start">
+                <td class="category" rowspan="6">Scaling</td>
+                <td>Prove robust autoscaling settings</td>
+                <td class="mark"><span class="glyph present" aria-label="Present"></span></td>
+                <td class="mark"><span class="glyph absent" aria-label="Absent"></span></td>
+              </tr>
+              <tr>
+                <td>Provide visible autoscaling metrics</td>
+                <td class="mark"><span class="glyph present"></span></td>
+                <td class="mark"><span class="glyph absent"></span></td>
+              </tr>
+              <tr>
+                <td>Provide autoscaling status</td>
+                <td class="mark"><span class="glyph present"></span></td>
+                <td class="mark"><span class="glyph present"></span></td>
+              </tr>
+              <tr>
+                <td>Allow for large pool sizes</td>
+                <td class="mark"><span class="glyph present"></span></td>
+                <td class="mark"><span class="glyph absent"></span></td>
+              </tr>
+              <tr>
+                <td>Allow for multiple autoscaling rules</td>
+                <td class="mark"><span class="glyph present"></span></td>
+                <td class="mark"><span class="glyph present"></span></td>
+              </tr>
+              <tr>
+                <td>Surface all scaling settings in one view</td>
+                <td class="mark"><span class="glyph absent"></span></td>
+                <td class="mark"><span class="glyph present"></span></td>
+              </tr>
+              <tr class="group-start">
+                <td class="category" rowspan="5">Configuration</td>
+                <td>Provide reusable templates for cluster creation</td>
+                <td class="mark"><span class="glyph present"></span></td>
+                <td class="mark"><span class="glyph absent"></span></td>
+              </tr>
+              <tr>
+                <td>Provide use cases customers can select from</td>
+                <td class="mark"><span class="glyph present"></span></td>
+                <td class="mark"><span class="glyph absent"></span></td>
+              </tr>
+              <tr>
+                <td>Provide overall group summary</td>
+                <td class="mark"><span class="glyph present"></span></td>
+                <td class="mark"><span class="glyph present"></span></td>
+              </tr>
+              <tr>
+                <td>Enable multiple groups in a cluster</td>
+                <td class="mark"><span class="glyph absent"></span></td>
+                <td class="mark"><span class="glyph present"></span></td>
+              </tr>
+              <tr>
+                <td>Show full cluster shape before creation</td>
+                <td class="mark"><span class="glyph absent"></span></td>
+                <td class="mark"><span class="glyph absent"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="audit-legend">
+            <div class="audit-legend-item"><span class="glyph present"></span> Present</div>
+            <div class="audit-legend-item"><span class="glyph absent"></span> Absent</div>
           </div>
+          <p class="audit-caption">Two categories from the competitive audit, focused on how competitors handled scale and configuration. The full version covered six categories across four competitors.</p>
         </div>
       </div>
 
