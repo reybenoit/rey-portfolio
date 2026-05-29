@@ -566,6 +566,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
 .lightbox-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.15s; }
 .lightbox-dot.active { background: white; }
 
+.design-ai-quote { margin-top: 28px; margin-bottom: 28px; border-left: 3px solid var(--accent); padding: 20px 24px; background: rgba(58,107,196,0.04); }
+.design-ai-quote-text { font-size: clamp(14px, 1.2vw, 16px); color: var(--text); line-height: 1.75; font-style: italic; }
+.design-ai-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-text); margin-top: 12px; display: block; font-style: normal; }
+
 </style>
 </head>
 <body>
@@ -819,7 +823,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="design-moment" data-fade>
         <div class="design-moment-num">2.1</div>
         <div class="design-moment-content">
-          <h3 class="design-moment-title">What was tested in the design:</h3>
+          <h3 class="design-moment-title">What was tested in the design</h3>
           <div class="design-moment-body">
             <p><strong>1. Cluster templates surfaced upfront.</strong> Before the customer entered a single setting, they saw three pre-configured directions: a development cluster, a highly available cluster, and a highly available cluster with replica pools. The full shape of what they were creating was visible before they created it.</p>
             <p><strong>2. Scaling built into the creation flow.</strong> Replica pools, traditionally a post-creation operation, were promoted to a step inside the create flow. Customers could set up scaling at the same moment they were setting up the database.</p>
@@ -835,7 +839,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
         <div class="design-moment-content">
           <h3 class="design-moment-title">What came back</h3>
           <div class="design-moment-body">
-            <p><strong>What worked:</strong> Participants responded to the streamlined flow. One technical lead said setting up the primary instance and the replica pools in one shot was a major improvement, and called out the flow specifically. The bet held: putting scaling in front of customers at creation time changed how they read the product.</p>
+            <p><strong>What worked:</strong> Participants responded to the streamlined flow. One technical lead said setting up the primary instance and the replica pools in one shot was a major improvement, and called out the flow specifically. Conclusion: <strong>putting scaling in front of customers at creation time changed how they read the product.</strong></p>
             <p><strong>What didn't:</strong> The templates worked as anchors but not as starting points. Participants weren't sure whether they could create a cluster that didn't fit one of the three templates, and they were hesitant to edit anything labeled "optional," even when those settings were the ones they needed to change. The structure that made the bet legible was also reading as rigid.</p>
             <p>That gap — between what the templates promised and what customers felt permission to do with them — became the question the next round of design had to answer.</p>
           </div>
