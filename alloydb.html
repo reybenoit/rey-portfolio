@@ -821,8 +821,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
         <div class="design-moment-content">
           <h3 class="design-moment-title">What was tested in the design:</h3>
           <div class="design-moment-body">
-            <p><strong>Cluster templates surfaced upfront.</strong> Before the customer entered a single setting, they saw three pre-configured directions: a development cluster, a highly available cluster, and a highly available cluster with replica pools. The full shape of what they were creating was visible before they created it.</p>
-            <p><strong>Scaling built into the creation flow.</strong> Replica pools, traditionally a post-creation operation, were promoted to a step inside the create flow. Customers could set up scaling at the same moment they were setting up the database.</p>
+            <p><strong>1. Cluster templates surfaced upfront.</strong> Before the customer entered a single setting, they saw three pre-configured directions: a development cluster, a highly available cluster, and a highly available cluster with replica pools. The full shape of what they were creating was visible before they created it.</p>
+            <p><strong>2. Scaling built into the creation flow.</strong> Replica pools, traditionally a post-creation operation, were promoted to a step inside the create flow. Customers could set up scaling at the same moment they were setting up the database.</p>
           </div>
           <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
             <img src="assets/alloydb/wf-test.png" alt="Wireframe prototype test" style="width:100%;height:auto;display:block;cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-test.png'],0)">
@@ -1176,7 +1176,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
     window.openCarousel = function (images, startIndex) {
       carouselImages = images;
       carouselIndex = startIndex || 0;
-      overlay.classList.add('active', 'carousel');
+      overlay.classList.add('active');
+      if (images.length > 1) overlay.classList.add('carousel');
       document.body.style.overflow = 'hidden';
       img.src = carouselImages[carouselIndex];
       img.alt = '';
