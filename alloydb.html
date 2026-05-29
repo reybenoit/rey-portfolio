@@ -549,6 +549,23 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
   .audit-table tbody td.mark { width: 70px; }
 }
 
+.lightbox-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.88); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+.lightbox-overlay.active { opacity: 1; pointer-events: all; }
+.lightbox-img { max-width: calc(100vw - 80px); max-height: calc(100vh - 80px); object-fit: contain; display: block; border-radius: 12px; }
+.lightbox-close { position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+.lightbox-close:hover { background: rgba(255,255,255,0.2); }
+.lightbox-close svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; }
+.lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer; background: rgba(255,255,255,0.1); display: none; align-items: center; justify-content: center; transition: background 0.15s; color: white; }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
+.lightbox-prev svg, .lightbox-next svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lightbox-overlay.carousel .lightbox-prev, .lightbox-overlay.carousel .lightbox-next { display: flex; }
+.lightbox-dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: none; gap: 8px; }
+.lightbox-overlay.carousel .lightbox-dots { display: flex; }
+.lightbox-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.15s; }
+.lightbox-dot.active { background: white; }
+
 </style>
 </head>
 <body>
@@ -796,7 +813,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       <div class="label" data-fade>02 — Define</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Three directions. One decision.</h2>
       <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: 56px;">
-        <p>With a clear hypothesis in hand, the next step was to design against it — and put it in front of real customers to see if it held.</p>
+        <p>With a clear hypothesis in hand, the next step was to design against it — and put it in front of real customers to see what held.</p>
       </div>
 
       <!-- Sub: Three Prototypes -->
@@ -809,18 +826,18 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
           </div>
           <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
             <h3 class="design-moment-title" style="margin-bottom: 16px; font-size: clamp(16px, 1.5vw, 20px);">Option 1 — Illustrative</h3>
-            <p style="margin-bottom: 32px;">A visual representation of the cluster's configuration, including its scaling options, surfaced upfront. Customers see what they're building as they build it.</p>
-            <img src="assets/alloydb/wf-option1.jpg" alt="Option 1 — Illustrative wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgba(26,26,46,0.075);">
+            <p style="margin-bottom: 32px;">A visual representation of the cluster's configuration, including its scaling options, surfaced upfront. Customers see what they're building before they build it.</p>
+            <img src="assets/alloydb/wf-option1.jpg" alt="Option 1 — Illustrative wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgba(26,26,46,0.075);cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-option1.jpg'],0)">
           </div>
           <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
             <h3 class="design-moment-title" style="margin-bottom: 16px; font-size: clamp(16px, 1.5vw, 20px);">Option 2 — Descriptive</h3>
             <p style="margin-bottom: 32px;">Each configuration option laid out in plain text. Scaling is named and explained, but not visualized.</p>
-            <img src="assets/alloydb/wf-option2.jpg" alt="Option 2 — Descriptive wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgba(26,26,46,0.075);">
+            <img src="assets/alloydb/wf-option2.jpg" alt="Option 2 — Descriptive wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgba(26,26,46,0.075);cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-option2.jpg'],0)">
           </div>
           <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
             <h3 class="design-moment-title" style="margin-bottom: 16px; font-size: clamp(16px, 1.5vw, 20px);">Option 3 — Hidden</h3>
             <p style="margin-bottom: 32px;">The conventional pattern. Scaling options stay tucked behind the cluster creation step until the customer reaches them in sequence.</p>
-            <img src="assets/alloydb/wf-option3.jpg" alt="Option 3 — Hidden wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgba(26,26,46,0.075);">
+            <img src="assets/alloydb/wf-option3.jpg" alt="Option 3 — Hidden wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgba(26,26,46,0.075);cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-option3.jpg'],0)">
           </div>
           <div class="design-moment-body" style="margin-top: 40px;">
             <p>The three options weren't three candidates for the final design. They were three positions on one question: how visible should the differentiator be? Option 3 was the safe choice. Option 1 was the bet.</p>
@@ -1080,6 +1097,69 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(247,246,242,0.07
       nav.classList.toggle('nav--light', !inView);
     }, { threshold: 0, rootMargin: '-60px 0px 0px 0px' });
     heroObs.observe(hero);
+  })();
+</script>
+
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg></button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" id="lightboxNext" aria-label="Next"><svg viewBox="0 0 24 24"><polyline points="9,6 15,12 9,18"/></svg></button>
+  <div class="lightbox-dots" id="lightboxDots"></div>
+</div>
+
+<script>
+  // ── LIGHTBOX ──
+  (function () {
+    const overlay = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    const dotsEl = document.getElementById('lightboxDots');
+    let carouselImages = [], carouselIndex = 0;
+
+    function renderDots() {
+      dotsEl.innerHTML = '';
+      carouselImages.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'lightbox-dot' + (i === carouselIndex ? ' active' : '');
+        dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); });
+        dotsEl.appendChild(dot);
+      });
+    }
+
+    function goTo(index) {
+      carouselIndex = (index + carouselImages.length) % carouselImages.length;
+      img.src = carouselImages[carouselIndex];
+      dotsEl.querySelectorAll('.lightbox-dot').forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
+    }
+
+    window.openCarousel = function (images, startIndex) {
+      carouselImages = images;
+      carouselIndex = startIndex || 0;
+      overlay.classList.add('active', 'carousel');
+      document.body.style.overflow = 'hidden';
+      img.src = carouselImages[carouselIndex];
+      img.alt = '';
+      renderDots();
+    };
+
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); goTo(carouselIndex - 1); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); goTo(carouselIndex + 1); });
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeLightbox(); });
+
+    document.addEventListener('keydown', e => {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    function closeLightbox() {
+      overlay.classList.remove('active', 'carousel');
+      document.body.style.overflow = '';
+      carouselImages = [];
+    }
   })();
 </script>
 
