@@ -1,0 +1,104 @@
+/* ============================================================
+   Typography — shared across reynaldbenoit.com
+   Single source of truth for font scale, weights, and tracking.
+   Page stylesheets reference these vars rather than redefining values.
+   ============================================================ */
+
+:root {
+  /* Families */
+  --font-d: 'Epilogue', sans-serif;
+  --font-b: 'Inter', sans-serif;
+
+  /* Display — index hero */
+  --text-display-size:     clamp(68px, 10.5vw, 148px);
+  --text-display-weight:   800;
+  --text-display-tracking: -0.04em;
+  --text-display-leading:  0.9;
+
+  /* H1 — case-study hero (intentionally lighter weight) */
+  --text-h1-size:     clamp(52px, 7.5vw, 96px);
+  --text-h1-weight:   500;
+  --text-h1-tracking: -0.04em;
+  --text-h1-leading:  0.95;
+
+  /* H2 — section openers + large section headings */
+  --text-h2-size:     clamp(32px, 4vw, 60px);
+  --text-h2-weight:   800;
+  --text-h2-tracking: -0.03em;
+  --text-h2-leading:  1.05;
+
+  /* H2 card — capability panel + case study card titles */
+  --text-h2-card-size:     clamp(28px, 3vw, 44px);
+  --text-h2-card-weight:   800;
+  --text-h2-card-tracking: -0.02em;
+  --text-h2-card-leading:  1.05;
+
+  /* H3 — sub-headings */
+  --text-h3-size:     clamp(20px, 2vw, 26px);
+  --text-h3-weight:   700;
+  --text-h3-tracking: -0.02em;
+  --text-h3-leading:  1.25;
+
+  /* Eyebrow — section labels, stat eyebrows, takeaway numbers */
+  --text-eyebrow-size:      12px;
+  --text-eyebrow-weight:    600;
+  --text-eyebrow-tracking:  0.2em;
+  --text-eyebrow-transform: uppercase;
+
+  /* Tag — pill labels, inline meta (tighter tracking than eyebrow) */
+  --text-tag-size:      12px;
+  --text-tag-weight:    600;
+  --text-tag-tracking:  0.16em;
+  --text-tag-transform: uppercase;
+
+  /* Body sizes */
+  --text-lead-size:    clamp(17px, 1.6vw, 20px);
+  --text-lead-leading: 1.75;
+
+  --text-body-size:    clamp(15px, 1.4vw, 17px);
+  --text-body-leading: 1.75;
+
+  --text-small-size:    14px;
+  --text-small-leading: 1.6;
+}
+
+/* ------------------------------------------------------------
+   Base element styles
+   Semantic HTML inherits the scale automatically.
+   ------------------------------------------------------------ */
+
+body {
+  font-family: var(--font-b);
+  font-size:   var(--text-body-size);
+  line-height: var(--text-body-leading);
+}
+
+h1 {
+  font-family:    var(--font-d);
+  font-size:      var(--text-h1-size);
+  font-weight:    var(--text-h1-weight);
+  letter-spacing: var(--text-h1-tracking);
+  line-height:    var(--text-h1-leading);
+}
+
+h2 {
+  font-family:    var(--font-d);
+  font-size:      var(--text-h2-size);
+  font-weight:    var(--text-h2-weight);
+  letter-spacing: var(--text-h2-tracking);
+  line-height:    var(--text-h2-leading);
+}
+
+h3 {
+  font-family:    var(--font-d);
+  font-size:      var(--text-h3-size);
+  font-weight:    var(--text-h3-weight);
+  letter-spacing: var(--text-h3-tracking);
+  line-height:    var(--text-h3-leading);
+}
+
+p {
+  font-family: var(--font-b);
+  font-size:   var(--text-body-size);
+  line-height: var(--text-body-leading);
+}

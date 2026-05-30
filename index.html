@@ -10,6 +10,7 @@
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<link rel="stylesheet" href="typography.css">
 <style>
 
 /* ── Reset & Root ── */
@@ -73,10 +74,10 @@ body {
 
 .label {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: var(--accent);
   display: flex;
   align-items: center;
@@ -262,20 +263,20 @@ nav {
 
 .hero-label {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: var(--accent);
   margin-bottom: 36px;
 }
 
 .hero-name {
   font-family: var(--font-d);
-  font-size: clamp(68px, 10.5vw, 148px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
+  font-size: var(--text-display-size);
+  font-weight: var(--text-display-weight);
+  letter-spacing: var(--text-display-tracking);
+  line-height: var(--text-display-leading);
   color: var(--text-light);
   margin-bottom: 32px;
   text-wrap: balance;
@@ -309,9 +310,9 @@ nav {
 
 .hero-discipline-num {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
   color: rgba(247,246,242,0.2);
   flex-shrink: 0;
 }
@@ -348,10 +349,10 @@ nav {
 
 .hero-avail-text {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: rgba(247,246,242,0.25);
 }
 
@@ -365,10 +366,10 @@ nav {
 
 .hero-scroll span {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: rgba(247,246,242,0.18);
 }
 
@@ -404,19 +405,19 @@ nav {
 
 .who-lede {
   font-family: var(--font-b);
-  font-size: clamp(17px, 1.6vw, 20px);
+  font-size: var(--text-lead-size);
   font-weight: 400;
   color: var(--text);
-  line-height: 1.75;
+  line-height: var(--text-lead-leading);
   margin-bottom: 24px;
   max-width: 560px;
 }
 
 .who-body p {
-  font-size: 16px;
+  font-size: var(--text-body-size);
   font-weight: 400;
   color: var(--mid-text);
-  line-height: 1.8;
+  line-height: var(--text-body-leading);
   margin-bottom: 20px;
   max-width: 560px;
 }
@@ -446,10 +447,10 @@ nav {
   padding: 16px 20px;
   background: linear-gradient(to top, rgba(26,26,46,0.7) 0%, transparent 100%);
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: rgba(247,246,242,0.45);
 }
 
@@ -495,10 +496,10 @@ nav {
 .impact-source {
   display: block;
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: rgba(247,246,242,0.40);
   margin-bottom: 32px;
 }
@@ -539,10 +540,10 @@ nav {
 
 .cap-header h2 {
   font-family: var(--font-d);
-  font-size: clamp(32px, 4vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.0;
+  font-size: var(--text-h2-size);
+  font-weight: var(--text-h2-weight);
+  letter-spacing: var(--text-h2-tracking);
+  line-height: var(--text-h2-leading);
   text-wrap: balance;
 }
 
@@ -586,10 +587,10 @@ nav {
 
 .cap-num {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: var(--mid-text);
   padding-bottom: 16px;
   margin-bottom: 24px;
@@ -599,10 +600,10 @@ nav {
 
 .cap-title {
   font-family: var(--font-d);
-  font-size: clamp(26px, 2.8vw, 40px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-size: var(--text-h2-card-size);
+  font-weight: var(--text-h2-card-weight);
+  letter-spacing: var(--text-h2-card-tracking);
+  line-height: var(--text-h2-card-leading);
   color: var(--text);
   margin-bottom: 12px;
   padding-bottom: 24px;
@@ -616,10 +617,10 @@ nav {
 }
 
 .cap-body p {
-  font-size: 15px;
+  font-size: var(--text-body-size);
   font-weight: 400;
   color: var(--mid-text);
-  line-height: 1.8;
+  line-height: var(--text-body-leading);
   margin-bottom: 16px;
   max-width: 480px;
 }
@@ -674,20 +675,20 @@ nav {
 
 .work-header h2 {
   font-family: var(--font-d);
-  font-size: clamp(36px, 4.5vw, 60px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.0;
+  font-size: var(--text-h2-size);
+  font-weight: var(--text-h2-weight);
+  letter-spacing: var(--text-h2-tracking);
+  line-height: var(--text-h2-leading);
   text-wrap: balance;
 }
 
 .work-header-sub {
   margin-top: 24px;
   font-family: var(--font-b);
-  font-size: clamp(15px, 1.2vw, 17px);
+  font-size: var(--text-body-size);
   font-weight: 400;
   color: var(--mid-text);
-  line-height: 1.7;
+  line-height: var(--text-body-leading);
   max-width: 520px;
 }
 
@@ -717,10 +718,10 @@ nav {
 
 .cs-number {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: var(--mid-text);
 }
 
@@ -732,10 +733,10 @@ nav {
 
 .cs-tag {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: var(--text-tag-size);
+  font-weight: var(--text-tag-weight);
+  letter-spacing: var(--text-tag-tracking);
+  text-transform: var(--text-tag-transform);
   color: var(--accent);
   border: 1px solid var(--accent);
   padding: 3px 10px;
@@ -745,10 +746,10 @@ nav {
 
 .cs-title {
   font-family: var(--font-d);
-  font-size: clamp(28px, 3vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  font-size: var(--text-h2-card-size);
+  font-weight: var(--text-h2-card-weight);
+  letter-spacing: var(--text-h2-card-tracking);
+  line-height: var(--text-h2-card-leading);
   color: var(--text);
   margin-bottom: 6px;
   text-wrap: balance;
@@ -763,19 +764,19 @@ nav {
 }
 
 .cs-hook {
-  font-size: 17px;
+  font-size: var(--text-lead-size);
   font-weight: 400;
   color: var(--mid-text);
-  line-height: 1.7;
+  line-height: var(--text-lead-leading);
   margin-bottom: 32px;
 }
 
 .cs-role-label {
   font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
   color: var(--mid-text);
   margin-bottom: 6px;
 }
@@ -821,10 +822,10 @@ nav {
   align-self: flex-start;
   gap: 8px;
   font-family: var(--font-d);
-  font-size: 12px;
+  font-size: var(--text-tag-size);
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  letter-spacing: var(--text-tag-tracking);
+  text-transform: var(--text-tag-transform);
   color: var(--accent);
   text-decoration: none;
   border-bottom: 1px solid rgba(58,107,196,0.3);
@@ -916,10 +917,10 @@ nav {
 
 .why-q {
   font-family: var(--font-d);
-  font-size: clamp(28px, 3.2vw, 48px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: var(--text-h2-size);
+  font-weight: var(--text-h2-weight);
+  letter-spacing: var(--text-h2-tracking);
+  line-height: var(--text-h2-leading);
   color: var(--text);
   margin-bottom: 36px;
   text-wrap: balance;
@@ -981,20 +982,20 @@ nav {
 
 .contact h2 {
   font-family: var(--font-d);
-  font-size: clamp(36px, 4.5vw, 64px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-size: var(--text-h2-size);
+  font-weight: var(--text-h2-weight);
+  letter-spacing: var(--text-h2-tracking);
+  line-height: var(--text-h2-leading);
   color: var(--text-light);
   margin-bottom: 24px;
   text-wrap: balance;
 }
 
 .contact-sub {
-  font-size: 17px;
+  font-size: var(--text-lead-size);
   font-weight: 400;
   color: rgba(247,246,242,0.48);
-  line-height: 1.7;
+  line-height: var(--text-lead-leading);
   margin-bottom: 52px;
   max-width: 520px;
 }
