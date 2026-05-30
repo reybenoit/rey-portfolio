@@ -21,16 +21,22 @@
   --text-h1-tracking: -0.04em;
   --text-h1-leading:  0.95;
 
-  /* H2 — section openers + large section headings */
-  --text-h2-size:     clamp(32px, 4vw, 60px);
+  /* H2 — case-study section headings, brief titles, etc. */
+  --text-h2-size:     clamp(28px, 3.5vw, 48px);
   --text-h2-weight:   800;
-  --text-h2-tracking: -0.03em;
+  --text-h2-tracking: -0.04em;
   --text-h2-leading:  1.05;
+
+  /* H2 large — homepage section openers ("How I work", "Selected Samples", contact) */
+  --text-h2-large-size:     clamp(32px, 4vw, 60px);
+  --text-h2-large-weight:   800;
+  --text-h2-large-tracking: -0.03em;
+  --text-h2-large-leading:  1.05;
 
   /* H2 card — capability panel + case study card titles */
   --text-h2-card-size:     clamp(28px, 3vw, 44px);
   --text-h2-card-weight:   800;
-  --text-h2-card-tracking: -0.02em;
+  --text-h2-card-tracking: -0.04em;
   --text-h2-card-leading:  1.05;
 
   /* H3 — sub-headings */
@@ -42,7 +48,7 @@
   /* Eyebrow — section labels, stat eyebrows, takeaway numbers */
   --text-eyebrow-size:      12px;
   --text-eyebrow-weight:    600;
-  --text-eyebrow-tracking:  0.2em;
+  --text-eyebrow-tracking:  0.22em;
   --text-eyebrow-transform: uppercase;
 
   /* Tag — pill labels, inline meta (tighter tracking than eyebrow) */
