@@ -131,8 +131,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); }
 .footer-name { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
 .footer-nav { display: flex; gap: var(--space-7); list-style: none; }
-.footer-nav a { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); text-decoration: none; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
-.footer-nav a:hover { color: rgb(var(--text-light-rgb) / var(--alpha-hover)); }
+.footer-nav a { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); text-decoration: none; position: relative; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+.footer-nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.footer-nav a:hover { color: var(--accent); }
+.footer-nav a:hover::after { width: 100%; }
 .footer-right { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); }
 
 /* ── Load animations ── */
@@ -155,6 +157,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .cs-link { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-d); font-size: var(--text-tag-size); font-weight: 700; letter-spacing: var(--text-tag-tracking); text-transform: var(--text-tag-transform); color: var(--accent); text-decoration: none; border-bottom: 1px solid rgb(var(--accent-rgb) / var(--alpha-subtle)); padding-bottom: var(--space-1); transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
 .cs-link:hover { border-color: var(--accent); gap: var(--space-4); }
 .cs-link:active { transform: scale(0.97); }
+.cs-link--dark { color: rgb(var(--text-light-rgb) / var(--alpha-hover)); border-bottom-color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); }
+.cs-link--dark:hover { border-bottom-color: rgb(var(--text-light-rgb) / var(--alpha-hover)); }
 
 /* dark-bg grid texture (reusable pattern) */
 .dark-texture::before {
@@ -891,7 +895,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     </div>
     <div class="cs-showcase-footer">
       <div class="cs-showcase-hint"><span>→</span> Scroll to explore</div>
-      <a class="cs-link" href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer" style="color: rgb(var(--text-light-rgb) / var(--alpha-hover)); border-color: rgb(var(--text-light-rgb) / var(--alpha-subtle));">Try HEARD →</a>
+      <a class="cs-link cs-link--dark" href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer">Try HEARD →</a>
     </div>
   </section>
 

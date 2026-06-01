@@ -845,6 +845,14 @@ nav {
   pointer-events: none;
 }
 
+.cs-link--dark {
+  color: rgb(var(--text-light-rgb) / var(--alpha-hover));
+  border-bottom-color: rgb(var(--text-light-rgb) / var(--alpha-subtle));
+}
+.cs-link--dark:hover {
+  border-bottom-color: rgb(var(--text-light-rgb) / var(--alpha-hover));
+}
+
 .cs-image {
   margin-top: var(--space-9);
   aspect-ratio: 16/7;
@@ -1056,10 +1064,23 @@ footer {
   text-transform: uppercase;
   color: rgb(var(--text-light-rgb) / var(--alpha-subtle));
   text-decoration: none;
+  position: relative;
   transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.footer-nav a:hover { color: rgb(var(--text-light-rgb) / var(--alpha-hover)); }
+.footer-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-nav a:hover { color: var(--accent); }
+.footer-nav a:hover::after { width: 100%; }
 
 .footer-right {
   font-family: var(--font-d);
