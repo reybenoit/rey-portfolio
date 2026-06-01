@@ -9,6 +9,22 @@
   --font-d: 'Epilogue', sans-serif;
   --font-b: 'Inter', sans-serif;
 
+  /* RGB component tokens — space-separated so rgb(R G B / A) syntax expands correctly */
+  --bg-rgb:         247 246 242;
+  --bg-dark-rgb:    26 26 46;
+  --text-rgb:       26 26 46;
+  --text-light-rgb: 247 246 242;
+  --accent-rgb:     58 107 196;
+
+  /* Semantic alpha tiers */
+  --alpha-texture: 0.04;   /* grid texture, barely-visible patterns */
+  --alpha-faint:   0.08;   /* hairline dividers on dark */
+  --alpha-soft:    0.15;   /* heavier dividers, soft borders, ambient */
+  --alpha-subtle:  0.25;   /* eyebrows, faint labels at rest */
+  --alpha-muted:   0.45;   /* muted body on dark */
+  --alpha-hover:   0.70;   /* hover/active text on dark */
+  --alpha-overlay: 0.88;   /* near-opaque scrim, nav scrolled bg */
+
   /* Display — index hero */
   --text-display-size:     clamp(68px, 10.5vw, 148px);
   --text-display-weight:   800;
