@@ -38,7 +38,7 @@
   z-index: 999;
   background: var(--accent);
   color: #fff;
-  padding: 8px 16px;
+  padding: var(--space-2) var(--space-4);
   font-family: var(--font-d);
   font-size: 13px;
   font-weight: 600;
@@ -71,7 +71,7 @@ body {
   color: var(--accent);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
 }
 .label::after {
   content: '';
@@ -106,7 +106,7 @@ nav {
   justify-content: space-between;
 }
 .nav-logo { font-family: var(--font-d); font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-light); text-decoration: none; }
-.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links { display: flex; gap: var(--space-8); list-style: none; }
 .nav-links a {
   font-family: var(--font-d);
   font-size: 12px;
@@ -127,10 +127,10 @@ nav.nav--light .nav-logo { color: var(--text); }
 nav.nav--light .nav-links a { color: var(--mid-text); }
 
 /* ── FOOTER ── */
-footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); padding: 32px 0; }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); padding: var(--space-7) 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); }
 .footer-name { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--text-light); letter-spacing: -0.01em; }
-.footer-nav { display: flex; gap: 28px; list-style: none; }
+.footer-nav { display: flex; gap: var(--space-7); list-style: none; }
 .footer-nav a { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); text-decoration: none; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
 .footer-nav a:hover { color: rgb(var(--text-light-rgb) / var(--alpha-hover)); }
 .footer-right { font-family: var(--font-d); font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); }
@@ -150,9 +150,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 [data-fade][data-delay="4"] { transition-delay: 0.5s; }
 
 /* ── Shared ── */
-.cs-tag { font-family: var(--font-d); font-size: var(--text-tag-size); font-weight: var(--text-tag-weight); letter-spacing: var(--text-tag-tracking); text-transform: var(--text-tag-transform); color: var(--accent); border: 1px solid var(--accent); padding: 3px 10px; border-radius: 3px; opacity: 0.8; }
-.cs-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-d); font-size: var(--text-tag-size); font-weight: 700; letter-spacing: var(--text-tag-tracking); text-transform: var(--text-tag-transform); color: var(--accent); text-decoration: none; border-bottom: 1px solid rgb(var(--accent-rgb) / var(--alpha-subtle)); padding-bottom: 3px; transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
-.cs-link:hover { border-color: var(--accent); gap: 16px; }
+.cs-tag { font-family: var(--font-d); font-size: var(--text-tag-size); font-weight: var(--text-tag-weight); letter-spacing: var(--text-tag-tracking); text-transform: var(--text-tag-transform); color: var(--accent); border: 1px solid var(--accent); padding: var(--space-1) var(--space-3); border-radius: 3px; opacity: 0.8; }
+.cs-link { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-d); font-size: var(--text-tag-size); font-weight: 700; letter-spacing: var(--text-tag-tracking); text-transform: var(--text-tag-transform); color: var(--accent); text-decoration: none; border-bottom: 1px solid rgb(var(--accent-rgb) / var(--alpha-subtle)); padding-bottom: var(--space-1); transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), gap 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+.cs-link:hover { border-color: var(--accent); gap: var(--space-4); }
 .cs-link:active { transform: scale(0.97); }
 
 /* ── 1. HERO ── */
@@ -185,7 +185,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   flex-direction: column;
   justify-content: flex-end;
 }
-.cs-hero-center { padding: 0 0 48px; }
+.cs-hero-center { padding: 0 0 var(--space-9); }
 .cs-hero-h1 {
   font-family: var(--font-d);
   font-size: var(--text-h1-size);
@@ -195,7 +195,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   color: var(--text-light);
   animation: fadeUp 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
   max-width: 900px;
-  margin-top: 24px;
+  margin-top: var(--space-6);
 }
 .cs-hero-descriptors {
   display: grid;
@@ -204,14 +204,14 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   animation: fadeUp 0.9s 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .cs-hero-cell {
-  padding: 32px 36px 32px 0;
+  padding: var(--space-7) var(--space-8) var(--space-7) 0;
   border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-soft));
 }
 .cs-hero-cell:last-child { border-right: none; padding-right: 0; }
-.cs-hero-cell:not(:first-child) { padding-left: 36px; }
-.cs-hero-center .label { color: var(--text-light); margin-bottom: 28px; }
+.cs-hero-cell:not(:first-child) { padding-left: var(--space-8); }
+.cs-hero-center .label { color: var(--text-light); margin-bottom: var(--space-7); }
 .cs-hero-center .label::after { background: rgb(var(--text-light-rgb) / var(--alpha-muted)); }
-.cs-hero-cell .label { margin-bottom: 12px; }
+.cs-hero-cell .label { margin-bottom: var(--space-3); }
 .cs-hero-cell-text { font-family: var(--font-b); font-size: 16px; font-weight: 500; line-height: 1.55; color: var(--text-light); }
 .cs-hero-cell-text span { color: rgb(var(--text-light-rgb) / var(--alpha-muted)); font-weight: 400; }
 
@@ -221,7 +221,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
   position: relative;
   overflow: hidden;
-  padding: 100px 0;
+  padding: var(--space-12) 0;
 }
 .cs-stats::before {
   content: '';
@@ -238,24 +238,24 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
-  margin-top: 48px;
+  margin-top: var(--space-9);
 }
 .cs-stat-item {
-  padding: 40px 32px 40px 0;
+  padding: var(--space-8) var(--space-7) var(--space-8) 0;
   border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
 }
 .cs-stat-item:last-child { border-right: none; padding-right: 0; }
-.cs-stat-item:not(:first-child) { padding-left: 32px; }
-.cs-stat-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--accent); opacity: 0.9; margin-bottom: 8px; }
-.cs-stat-value { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text-light); margin-bottom: 10px; }
+.cs-stat-item:not(:first-child) { padding-left: var(--space-7); }
+.cs-stat-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--accent); opacity: 0.9; margin-bottom: var(--space-2); }
+.cs-stat-value { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text-light); margin-bottom: var(--space-3); }
 .cs-stat-desc { font-size: 13px; color: rgb(var(--text-light-rgb) / var(--alpha-muted)); line-height: 1.6; }
 
 /* ── 3. BIG STATEMENT ── */
 .cs-statement {
-  padding: 120px 0;
+  padding: var(--space-12) 0;
   border-bottom: 1px solid var(--mid);
 }
-.cs-statement .label { margin-bottom: 40px; }
+.cs-statement .label { margin-bottom: var(--space-8); }
 .cs-statement-primary {
   font-family: var(--font-d);
   font-size: clamp(24px, 2.8vw, 40px);
@@ -264,7 +264,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   letter-spacing: -0.03em;
   color: var(--text);
   max-width: 840px;
-  margin-bottom: 28px;
+  margin-bottom: var(--space-7);
 }
 .cs-statement-secondary {
   font-family: var(--font-d);
@@ -278,10 +278,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 
 /* ── 4. METHODOLOGY ── */
 .cs-methodology {
-  padding: 80px 0;
+  padding: var(--space-11) 0;
   border-bottom: 1px solid var(--mid);
 }
-.cs-methodology .label { margin-bottom: 24px; }
+.cs-methodology .label { margin-bottom: var(--space-6); }
 .cs-methodology-heading {
   font-family: var(--font-d);
   font-size: var(--text-h2-size);
@@ -289,7 +289,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   line-height: var(--text-h2-leading);
   letter-spacing: var(--text-h2-tracking);
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-4);
 }
 .cs-methodology-sub {
   font-family: var(--font-d);
@@ -299,14 +299,14 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   color: var(--mid-text);
   max-width: 640px;
   line-height: 1.5;
-  margin-bottom: 64px;
+  margin-bottom: var(--space-10);
 }
 
 /* ── METHODOLOGY FLOW ── */
 .flow {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
+  gap: var(--space-8);
   position: relative;
 }
 .flow::before {
@@ -336,7 +336,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   font-size: 13px;
   font-weight: 500;
   color: var(--mid-text);
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
 }
 .flow-step h4 {
   font-family: var(--font-d);
@@ -344,7 +344,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-4);
 }
 .flow-step ul { list-style: none; padding: 0; }
 .flow-step li {
@@ -355,14 +355,14 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 }
 
 /* ── SECTION BRIEF GRID (two-column: text left, image right) ── */
-.cs-section-brief { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start; margin-bottom: 64px; }
+.cs-section-brief { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--space-11); align-items: start; margin-bottom: var(--space-10); }
 
 /* ── NUMBERED SECTIONS (01–06) ── */
 .cs-section {
-  padding: 120px 0;
+  padding: var(--space-12) 0;
   border-bottom: 1px solid var(--mid);
 }
-.cs-section .label { margin-bottom: 24px; }
+.cs-section .label { margin-bottom: var(--space-6); }
 .cs-section-title {
   font-family: var(--font-d);
   font-size: var(--text-h2-card-size);
@@ -370,20 +370,20 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   line-height: var(--text-h2-card-leading);
   letter-spacing: var(--text-h2-card-tracking);
   color: var(--text);
-  margin-bottom: 36px;
+  margin-bottom: var(--space-8);
 }
 .cs-section-body { max-width: 780px; }
 .cs-section-body p { color: var(--mid-text); line-height: 1.85; }
-.cs-section-body p + p { margin-top: 20px; }
+.cs-section-body p + p { margin-top: var(--space-5); }
 .cs-section-body strong { color: var(--text); font-weight: 600; }
 
 /* ── SUB-SECTIONS ── */
 .cs-subsection {
-  margin-top: 64px;
-  padding-top: 64px;
+  margin-top: var(--space-10);
+  padding-top: var(--space-10);
   border-top: 1px solid var(--mid);
 }
-.cs-subsection-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.cs-subsection-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); }
 .cs-subsection-title {
   font-family: var(--font-d);
   font-size: var(--text-h3-size);
@@ -391,23 +391,23 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   letter-spacing: var(--text-h3-tracking);
   line-height: var(--text-h3-leading);
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: var(--space-5);
 }
 .cs-subsection-body { max-width: 780px; }
 .cs-subsection-body p { color: var(--mid-text); line-height: 1.85; }
-.cs-subsection-body p + p { margin-top: 18px; }
+.cs-subsection-body p + p { margin-top: var(--space-4); }
 .cs-subsection-body strong { color: var(--text); font-weight: 600; }
 
 /* ── PROTOTYPE OPTIONS LIST ── */
-.cs-proto-list { list-style: none; margin: 24px 0 0; }
-.cs-proto-item { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--mid); align-items: start; }
-.cs-proto-item .cs-img-block { grid-column: 2 / -1; margin-top: 8px; }
+.cs-proto-list { list-style: none; margin: var(--space-6) 0 0; }
+.cs-proto-item { display: grid; grid-template-columns: 140px 1fr; gap: var(--space-4); padding: var(--space-4) 0; border-top: 1px solid var(--mid); align-items: start; }
+.cs-proto-item .cs-img-block { grid-column: 2 / -1; margin-top: var(--space-2); }
 .cs-proto-item:last-child { border-bottom: 1px solid var(--mid); }
-.cs-proto-label { font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--accent); padding-right: 8px; }
+.cs-proto-label { font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--accent); padding-right: var(--space-2); }
 .cs-proto-desc { font-size: 15px; color: var(--mid-text); line-height: 1.7; }
 
 /* ── IMAGE PLACEHOLDERS ── */
-.cs-img-block { margin-top: 48px; }
+.cs-img-block { margin-top: var(--space-9); }
 .cs-img-placeholder {
   background: var(--mid);
   border-radius: 12px;
@@ -415,7 +415,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: var(--space-8);
 }
 .cs-img-placeholder-label {
   font-family: var(--font-d);
@@ -433,56 +433,56 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   letter-spacing: var(--text-tag-tracking);
   text-transform: var(--text-tag-transform);
   color: var(--mid-text);
-  margin-top: 14px;
+  margin-top: var(--space-4);
 }
 
 /* ── TAKEAWAYS ── */
-.takeaways { padding: 120px 0; border-bottom: 1px solid var(--mid); }
-.takeaways .label { margin-bottom: 16px; }
-.takeaways-heading { font-family: var(--font-d); font-size: var(--text-h2-size); font-weight: var(--text-h2-weight); line-height: var(--text-h2-leading); letter-spacing: var(--text-h2-tracking); color: var(--text); margin-bottom: 56px; }
-.takeaways-impact { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--mid); }
-.takeaways-impact-value { font-family: var(--font-d); font-size: clamp(32px, 5vw, 72px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); margin-bottom: 16px; }
+.takeaways { padding: var(--space-12) 0; border-bottom: 1px solid var(--mid); }
+.takeaways .label { margin-bottom: var(--space-4); }
+.takeaways-heading { font-family: var(--font-d); font-size: var(--text-h2-size); font-weight: var(--text-h2-weight); line-height: var(--text-h2-leading); letter-spacing: var(--text-h2-tracking); color: var(--text); margin-bottom: var(--space-9); }
+.takeaways-impact { margin-bottom: var(--space-9); padding-bottom: var(--space-9); border-bottom: 1px solid var(--mid); }
+.takeaways-impact-value { font-family: var(--font-d); font-size: clamp(32px, 5vw, 72px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); margin-bottom: var(--space-4); }
 .takeaways-impact-desc { color: var(--mid-text); max-width: 520px; }
-.takeaway { display: grid; grid-template-columns: 64px 1fr; gap: 32px; padding: 36px 0; border-top: 1px solid var(--mid); align-items: start; }
-.takeaway-num { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); color: var(--accent); opacity: 0.6; padding-top: 4px; }
-.takeaway-title { font-family: var(--font-d); font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; letter-spacing: -0.01em; color: var(--text); margin-bottom: 8px; }
+.takeaway { display: grid; grid-template-columns: 64px 1fr; gap: var(--space-7); padding: var(--space-8) 0; border-top: 1px solid var(--mid); align-items: start; }
+.takeaway-num { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); color: var(--accent); opacity: 0.6; padding-top: var(--space-1); }
+.takeaway-title { font-family: var(--font-d); font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; letter-spacing: -0.01em; color: var(--text); margin-bottom: var(--space-2); }
 .takeaway-body { font-size: clamp(14px, 1.2vw, 15px); color: var(--mid-text); line-height: 1.75; }
-.takeaways-cta { border-top: 1px solid var(--mid); padding-top: 64px; margin-top: 0; }
+.takeaways-cta { border-top: 1px solid var(--mid); padding-top: var(--space-10); margin-top: 0; }
 .takeaways-cta > * { max-width: 480px; }
-.takeaways-cta-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--mid-text); margin-bottom: 14px; }
-.takeaways-cta-text { font-size: 15px; color: var(--mid-text); line-height: 1.65; margin-bottom: 20px; }
+.takeaways-cta-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--mid-text); margin-bottom: var(--space-4); }
+.takeaways-cta-text { font-size: 15px; color: var(--mid-text); line-height: 1.65; margin-bottom: var(--space-5); }
 
 /* ── NEXT CASE STUDY ── */
-.next-case { padding: 80px 0; border-bottom: 1px solid var(--mid); }
-.next-case-inner { display: grid; grid-template-columns: 220px 1fr; gap: 80px; align-items: center; }
+.next-case { padding: var(--space-11) 0; border-bottom: 1px solid var(--mid); }
+.next-case-inner { display: grid; grid-template-columns: 220px 1fr; gap: var(--space-11); align-items: center; }
 .next-case-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--mid-text); }
-.next-case-tags { display: flex; gap: 6px; margin-bottom: 16px; }
-.next-case-title { font-family: var(--font-d); font-size: var(--text-h2-card-size); font-weight: var(--text-h2-card-weight); letter-spacing: var(--text-h2-card-tracking); line-height: var(--text-h2-card-leading); color: var(--text); margin-bottom: 12px; }
-.next-case-desc { color: var(--mid-text); line-height: 1.7; margin-bottom: 24px; max-width: 520px; }
+.next-case-tags { display: flex; gap: var(--space-2); margin-bottom: var(--space-4); }
+.next-case-title { font-family: var(--font-d); font-size: var(--text-h2-card-size); font-weight: var(--text-h2-card-weight); letter-spacing: var(--text-h2-card-tracking); line-height: var(--text-h2-card-leading); color: var(--text); margin-bottom: var(--space-3); }
+.next-case-desc { color: var(--mid-text); line-height: 1.7; margin-bottom: var(--space-6); max-width: 520px; }
 
 /* ── COMPETITIVE AUDIT TABLE ── */
-.audit-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+.audit-table { width: 100%; border-collapse: collapse; margin-top: var(--space-7); }
 .audit-table thead tr { background: var(--accent); }
-.audit-table thead th { font-family: var(--font-d); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: #fff; text-align: left; padding: 16px 20px; text-transform: uppercase; }
+.audit-table thead th { font-family: var(--font-d); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: #fff; text-align: left; padding: var(--space-4) var(--space-5); text-transform: uppercase; }
 .audit-table thead th.center { text-align: center; }
-.audit-table tbody td { font-family: var(--font-b); font-size: 14px; color: var(--text); padding: 16px 20px; border-bottom: 1px solid var(--mid); vertical-align: middle; }
-.audit-table tbody td.category { font-family: var(--font-d); font-weight: 600; font-size: 14px; color: var(--text); vertical-align: top; padding-top: 18px; width: 160px; }
+.audit-table tbody td { font-family: var(--font-b); font-size: 14px; color: var(--text); padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--mid); vertical-align: middle; }
+.audit-table tbody td.category { font-family: var(--font-d); font-weight: 600; font-size: 14px; color: var(--text); vertical-align: top; padding-top: var(--space-4); width: 160px; }
 .audit-table tbody td.mark { text-align: center; width: 120px; }
 .audit-table tbody tr.group-start td { border-top: 1px solid var(--mid); }
 .audit-table tbody tr:last-child td { border-bottom: 1px solid var(--mid); }
 .glyph { display: inline-block; width: 8px; height: 8px; border-radius: 50%; vertical-align: middle; }
 .glyph.present { background: var(--accent); }
 .glyph.absent { background: transparent; border: 1px solid var(--mid-text); opacity: 0.5; }
-.audit-legend { margin-top: 20px; display: flex; gap: 24px; font-family: var(--font-b); font-size: 12px; color: var(--mid-text); letter-spacing: 0.02em; }
-.audit-legend-item { display: flex; align-items: center; gap: 8px; }
-.audit-caption { margin-top: 24px; font-family: var(--font-b); font-size: 14px; font-style: italic; color: var(--mid-text); line-height: 1.55; }
+.audit-legend { margin-top: var(--space-5); display: flex; gap: var(--space-6); font-family: var(--font-b); font-size: 12px; color: var(--mid-text); letter-spacing: 0.02em; }
+.audit-legend-item { display: flex; align-items: center; gap: var(--space-2); }
+.audit-caption { margin-top: var(--space-6); font-family: var(--font-b); font-size: 14px; font-style: italic; color: var(--mid-text); line-height: 1.55; }
 
 /* ── DESIGN MOMENTS ── */
-.design-moment { display: grid; grid-template-columns: 72px 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--mid); align-items: start; }
-.design-moment-num { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); color: var(--accent); opacity: 0.6; padding-top: 6px; }
-.design-moment-title { font-family: var(--font-d); font-size: var(--text-h3-size); font-weight: var(--text-h3-weight); letter-spacing: var(--text-h3-tracking); line-height: var(--text-h3-leading); color: var(--text); margin-bottom: 16px; }
+.design-moment { display: grid; grid-template-columns: 72px 1fr; gap: var(--space-8); padding: var(--space-9) 0; border-top: 1px solid var(--mid); align-items: start; }
+.design-moment-num { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); color: var(--accent); opacity: 0.6; padding-top: var(--space-2); }
+.design-moment-title { font-family: var(--font-d); font-size: var(--text-h3-size); font-weight: var(--text-h3-weight); letter-spacing: var(--text-h3-tracking); line-height: var(--text-h3-leading); color: var(--text); margin-bottom: var(--space-4); }
 .design-moment-body p { color: var(--mid-text); line-height: 1.85; }
-.design-moment-body p + p { margin-top: 16px; }
+.design-moment-body p + p { margin-top: var(--space-4); }
 .design-moment-body strong { color: var(--text); font-weight: 600; }
 
 /* ── Responsive ── */
@@ -490,31 +490,31 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   :root { --pad: 32px; }
 
   .cs-hero-h1 { font-size: clamp(40px, 11vw, 64px); }
-  .cs-hero-center { padding: 0 0 32px; }
+  .cs-hero-center { padding: 0 0 var(--space-7); }
   .cs-hero-descriptors { grid-template-columns: 1fr; }
-  .cs-hero-cell { border-right: none; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-soft)); padding: 24px 0; }
+  .cs-hero-cell { border-right: none; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-soft)); padding: var(--space-6) 0; }
   .cs-hero-cell:not(:first-child) { padding-left: 0; }
   .cs-hero-cell:last-child { border-bottom: none; padding-right: 0; }
 
   .cs-stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .cs-stat-item { padding: 32px 0 32px 0; border-right: none; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .cs-stat-item:nth-child(odd) { padding-right: 24px; border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .cs-stat-item:nth-child(even) { padding-left: 24px; }
+  .cs-stat-item { padding: var(--space-7) 0 var(--space-7) 0; border-right: none; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .cs-stat-item:nth-child(odd) { padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .cs-stat-item:nth-child(even) { padding-left: var(--space-6); }
   .cs-stat-item:last-child { border-bottom: none; }
   .cs-stat-item:nth-last-child(2) { border-bottom: none; }
 
-  .cs-section-brief { grid-template-columns: 1fr; gap: 48px; }
-  .cs-proto-item { grid-template-columns: 1fr; gap: 4px; }
+  .cs-section-brief { grid-template-columns: 1fr; gap: var(--space-9); }
+  .cs-proto-item { grid-template-columns: 1fr; gap: var(--space-1); }
 
-  .next-case-inner { grid-template-columns: 1fr; gap: 20px; }
+  .next-case-inner { grid-template-columns: 1fr; gap: var(--space-5); }
 
-  .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
+  .footer-inner { flex-direction: column; text-align: center; gap: var(--space-4); }
 
   .nav-links { display: none; }
 
   .flow {
     grid-template-columns: 1fr;
-    padding-left: 56px;
+    padding-left: var(--space-9);
     gap: 0;
   }
   .flow::before {
@@ -525,7 +525,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     width: 1px;
     height: auto;
   }
-  .flow-step { padding-bottom: 40px; }
+  .flow-step { padding-bottom: var(--space-8); }
   .flow-step:last-child { padding-bottom: 0; }
   .flow-step-num {
     position: absolute;
@@ -533,19 +533,19 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     top: 0;
     margin-bottom: 0;
   }
-  .flow-step h4 { padding-top: 4px; margin-bottom: 8px; }
-  .design-moment { grid-template-columns: 48px 1fr; gap: 20px; padding: 40px 0; }
+  .flow-step h4 { padding-top: var(--space-1); margin-bottom: var(--space-2); }
+  .design-moment { grid-template-columns: 48px 1fr; gap: var(--space-5); padding: var(--space-8) 0; }
 }
 
 @media (max-width: 600px) {
-  .cs-section, .takeaways { padding: 80px 0; }
-  .cs-statement, .cs-methodology { padding: 64px 0; }
-  .cs-stats { padding: 64px 0; }
-  .next-case { padding: 56px 0; }
-  .takeaway { grid-template-columns: 48px 1fr; gap: 16px; }
-  .cs-subsection { margin-top: 48px; padding-top: 48px; }
-  .design-moment { grid-template-columns: 40px 1fr; gap: 16px; padding: 32px 0; }
-  .audit-table thead th, .audit-table tbody td { padding: 12px; font-size: 13px; }
+  .cs-section, .takeaways { padding: var(--space-11) 0; }
+  .cs-statement, .cs-methodology { padding: var(--space-10) 0; }
+  .cs-stats { padding: var(--space-10) 0; }
+  .next-case { padding: var(--space-9) 0; }
+  .takeaway { grid-template-columns: 48px 1fr; gap: var(--space-4); }
+  .cs-subsection { margin-top: var(--space-9); padding-top: var(--space-9); }
+  .design-moment { grid-template-columns: 40px 1fr; gap: var(--space-4); padding: var(--space-7) 0; }
+  .audit-table thead th, .audit-table tbody td { padding: var(--space-3); font-size: 13px; }
   .audit-table tbody td.category { width: auto; }
   .audit-table tbody td.mark { width: 70px; }
 }
@@ -562,35 +562,35 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
 .lightbox-prev svg, .lightbox-next svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .lightbox-overlay.carousel .lightbox-prev, .lightbox-overlay.carousel .lightbox-next { display: flex; }
-.lightbox-dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: none; gap: 8px; }
+.lightbox-dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: none; gap: var(--space-2); }
 .lightbox-overlay.carousel .lightbox-dots { display: flex; }
 .lightbox-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.15s; }
 .lightbox-dot.active { background: white; }
 
 .cs-showcase { background: var(--bg-dark); border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); position: relative; overflow: hidden; }
 .cs-showcase::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgb(var(--accent-rgb) / var(--alpha-texture)) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--accent-rgb) / var(--alpha-texture)) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none; }
-.cs-showcase-header { padding: 72px var(--pad) 40px; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
-.cs-showcase-title { font-family: var(--font-d); font-size: var(--text-h2-size); font-weight: var(--text-h2-weight); line-height: var(--text-h2-leading); letter-spacing: var(--text-h2-tracking); color: var(--text-light); margin-top: 16px; }
-.cs-showcase-scroll-wrap { position: relative; padding: 64px 0; overflow-x: clip; }
+.cs-showcase-header { padding: var(--space-11) var(--pad) var(--space-8); border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
+.cs-showcase-title { font-family: var(--font-d); font-size: var(--text-h2-size); font-weight: var(--text-h2-weight); line-height: var(--text-h2-leading); letter-spacing: var(--text-h2-tracking); color: var(--text-light); margin-top: var(--space-4); }
+.cs-showcase-scroll-wrap { position: relative; padding: var(--space-10) 0; overflow-x: clip; }
 .cs-showcase-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; right: 0; background: linear-gradient(to left, var(--bg-dark), transparent); }
-.cs-showcase-scroll { display: flex; gap: 24px; overflow-x: auto; padding: 0 var(--pad); scroll-padding-left: var(--pad); scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; }
+.cs-showcase-scroll { display: flex; gap: var(--space-6); overflow-x: auto; padding: 0 var(--pad); scroll-padding-left: var(--pad); scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; }
 .cs-showcase-scroll:active { cursor: grabbing; }
 .cs-showcase-scroll::-webkit-scrollbar { display: none; }
-.screen-card { flex-shrink: 0; width: 510px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; }
+.screen-card { flex-shrink: 0; width: 510px; scroll-snap-align: start; display: flex; flex-direction: column; gap: var(--space-4); }
 .screen-frame { width: 100%; aspect-ratio: 16 / 10; background: rgb(var(--text-light-rgb) / var(--alpha-texture)); border-radius: 6px; border: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); overflow: hidden; }
 .screen-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; border-radius: 6px; cursor: zoom-in; }
-.screen-meta { display: flex; align-items: center; gap: 12px; }
+.screen-meta { display: flex; align-items: center; gap: var(--space-3); }
 .screen-step { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); flex-shrink: 0; opacity: 0.7; }
 .screen-rule { flex: 1; height: 1px; background: rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-.screen-title { font-size: 14px; color: rgb(var(--text-light-rgb) / var(--alpha-muted)); margin-top: 4px; }
-.cs-showcase-footer { padding: 20px var(--pad) 48px; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
-.cs-showcase-hint { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); display: flex; align-items: center; gap: 8px; }
+.screen-title { font-size: 14px; color: rgb(var(--text-light-rgb) / var(--alpha-muted)); margin-top: var(--space-1); }
+.cs-showcase-footer { padding: var(--space-5) var(--pad) var(--space-9); border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+.cs-showcase-hint { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); display: flex; align-items: center; gap: var(--space-2); }
 .cs-showcase-hint span { animation: nudge 1.8s ease infinite; }
 @keyframes nudge { 0%, 100% { transform: translateX(0); opacity: 0.4; } 50% { transform: translateX(5px); opacity: 1; } }
 
-.design-ai-quote { margin-top: 28px; margin-bottom: 28px; border-left: 3px solid var(--accent); padding: 20px 24px; background: rgb(var(--accent-rgb) / var(--alpha-texture)); }
+.design-ai-quote { margin-top: var(--space-7); margin-bottom: var(--space-7); border-left: 3px solid var(--accent); padding: var(--space-5) var(--space-6); background: rgb(var(--accent-rgb) / var(--alpha-texture)); }
 .design-ai-quote-text { font-size: clamp(14px, 1.2vw, 16px); color: var(--text); line-height: 1.75; font-style: italic; }
-.design-ai-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-text); margin-top: 12px; display: block; font-style: normal; }
+.design-ai-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-text); margin-top: var(--space-3); display: block; font-style: normal; }
 
 </style>
 </head>
@@ -838,7 +838,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     <div class="container">
       <div class="label" data-fade>02 — Define</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Testing the bet.</h2>
-      <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: 56px;">
+      <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: var(--space-9);">
         <p>I created wireframes with scaling options surfaced during the create process. The whole point was to see how customers would react to it.</p>
       </div>
 
@@ -850,7 +850,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             <p><strong>1. Cluster templates surfaced upfront.</strong> Before the customer entered a single setting, they saw three pre-configured directions: a development cluster, a highly available cluster, and a highly available cluster with replica pools. The full shape of what they were creating was visible before they created it.</p>
             <p><strong>2. Scaling built into the creation flow.</strong> Replica pools, traditionally a post-creation operation, were promoted to a step inside the create flow. Customers could set up scaling at the same moment they were setting up the database.</p>
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
             <img src="assets/alloydb/wf-test.png" alt="Wireframe prototype test" style="width:100%;height:auto;display:block;cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-test.png'],0)">
           </div>
         </div>
@@ -861,9 +861,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
         <div class="design-moment-content">
           <h3 class="design-moment-title">What came back</h3>
           <div class="design-moment-body">
-            <h3 class="design-moment-title" style="margin-bottom: 12px; font-size: clamp(16px, 1.5vw, 20px);">What worked — visible scaling options</h3>
+            <h3 class="design-moment-title" style="margin-bottom: var(--space-3); font-size: clamp(16px, 1.5vw, 20px);">What worked — visible scaling options</h3>
             <p>Participants responded to the streamlined flow. One technical lead said setting up the primary instance and the replica pools in one shot was a major improvement, and called out the flow specifically. Conclusion: putting scaling in front of customers at creation time changed how they read the product.</p>
-            <h3 class="design-moment-title" style="margin-top: 32px; margin-bottom: 12px; font-size: clamp(16px, 1.5vw, 20px);">What didn't - intuitive customization</h3>
+            <h3 class="design-moment-title" style="margin-top: var(--space-7); margin-bottom: var(--space-3); font-size: clamp(16px, 1.5vw, 20px);">What didn't - intuitive customization</h3>
             <p>The templates worked as anchors but not as starting points. Participants weren't sure whether they could create a cluster that didn't fit one of the three templates, and they were hesitant to edit anything labeled "optional," even when those settings were the ones they needed to change. The structure that made the bet legible was also reading as rigid.</p>
             <p><strong>That gap between what the templates promised and what customers felt permission to do with them became the question the next round of design had to answer.</strong></p>
           </div>
@@ -878,7 +878,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     <div class="container">
       <div class="label" data-fade>03 — Refine</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Three directions. One decision.</h2>
-      <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: 56px;">
+      <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: var(--space-9);">
         <p>The first test confirmed customers wanted scaling options at creation time. What it didn't settle was how those options should be presented. I went back to the drawing board and designed three directions, each handling that question differently.</p>
       </div>
 
@@ -890,22 +890,22 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
           <div class="design-moment-body">
             <p>Each direction took a different position on how visible the scaling decision should be. I put all three in front of customers to see which one read clearest.</p>
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
-            <h3 class="design-moment-title" style="margin-bottom: 16px; font-size: clamp(16px, 1.5vw, 20px);">Option 1 — Illustrative</h3>
-            <p style="margin-bottom: 32px; color: var(--mid-text);">A visual representation of the cluster's configuration, including its scaling options, surfaced upfront. Customers see what they're building before they build it.</p>
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
+            <h3 class="design-moment-title" style="margin-bottom: var(--space-4); font-size: clamp(16px, 1.5vw, 20px);">Option 1 — Illustrative</h3>
+            <p style="margin-bottom: var(--space-7); color: var(--mid-text);">A visual representation of the cluster's configuration, including its scaling options, surfaced upfront. Customers see what they're building before they build it.</p>
             <img src="assets/alloydb/wf-option1.jpg" alt="Option 1 — Illustrative wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-option1.jpg'],0)">
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
-            <h3 class="design-moment-title" style="margin-bottom: 16px; font-size: clamp(16px, 1.5vw, 20px);">Option 2 — Descriptive</h3>
-            <p style="margin-bottom: 32px; color: var(--mid-text);">Each configuration option laid out in plain text. Scaling is named and explained, but not visualized.</p>
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
+            <h3 class="design-moment-title" style="margin-bottom: var(--space-4); font-size: clamp(16px, 1.5vw, 20px);">Option 2 — Descriptive</h3>
+            <p style="margin-bottom: var(--space-7); color: var(--mid-text);">Each configuration option laid out in plain text. Scaling is named and explained, but not visualized.</p>
             <img src="assets/alloydb/wf-option2.jpg" alt="Option 2 — Descriptive wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-option2.jpg'],0)">
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
-            <h3 class="design-moment-title" style="margin-bottom: 16px; font-size: clamp(16px, 1.5vw, 20px);">Option 3 — Hidden</h3>
-            <p style="margin-bottom: 32px; color: var(--mid-text);">The conventional pattern. Scaling options stay tucked behind the cluster creation step until the customer reaches them in sequence.</p>
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
+            <h3 class="design-moment-title" style="margin-bottom: var(--space-4); font-size: clamp(16px, 1.5vw, 20px);">Option 3 — Hidden</h3>
+            <p style="margin-bottom: var(--space-7); color: var(--mid-text);">The conventional pattern. Scaling options stay tucked behind the cluster creation step until the customer reaches them in sequence.</p>
             <img src="assets/alloydb/wf-option3.jpg" alt="Option 3 — Hidden wireframe" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-option3.jpg'],0)">
           </div>
-          <div class="design-moment-body" style="margin-top: 40px;">
+          <div class="design-moment-body" style="margin-top: var(--space-8);">
             <p>The three options were three positions on one question: how visible should the differentiator be, given that customers wanted scaling at creation time but didn't want to feel locked into a template? Option 3 was the safe choice. Option 1 was the risk.</p>
           </div>
         </div>
@@ -921,7 +921,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             <p>Participants said it helped them understand AlloyDB's scaling capability before they'd configured anything. It introduced them to the idea of additional servers without burying that idea in form fields. The illustrations themselves were doing work, not just decorating the page. They were teaching.</p>
             <p>The bet held, and the more visible version of the bet was the one that worked. The version where the UI showed customers what they were building, instead of asking them to imagine it.</p>
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
             <img src="assets/alloydb/wf-option1.jpg" alt="Option 1 — Illustrative wireframe, selected direction" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));cursor:pointer;" onclick="openCarousel(['assets/alloydb/wf-option1.jpg'],0)">
             <div class="cs-img-caption">Option 1 — Illustrative. The winning direction after usability testing.</div>
           </div>
@@ -936,7 +936,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     <div class="container">
       <div class="label" data-fade>04 — Build</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Making it real.</h2>
-      <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: 56px;">
+      <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: var(--space-9);">
         <p>What followed was the work that turned the bet into a product: naming the thing, illustrating the architecture, and detailing the surfaces customers would create and operate clusters from.</p>
       </div>
 
@@ -948,7 +948,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             <p>AlloyDB didn't have a name when I started. I co-led the first workshop with the UX writer to generate the candidates leadership would consider. Our round produced the directions; an outside agency took those forward and finalized the name from there.</p>
             <p>AlloyDB landed because it carried something specific. An alloy is two materials combined to produce something stronger than either alone, which is what the product was technically: Google's infrastructure combined with PostgreSQL compatibility.</p>
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
             <img src="assets/alloydb/name-logo.png" alt="AlloyDB name and logo" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));cursor:pointer;" onclick="openCarousel(['assets/alloydb/name-logo.png'],0)">
           </div>
         </div>
@@ -963,7 +963,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             <p>I added illustrations directly into the form, one per architecture, showing how the primary instance related to the replicas and how the pieces fit. Customers could now compare architectures the same way they'd compare floor plans, not the way they'd compare paragraphs.</p>
             <p>Illustrations inside a configuration form wasn't a pattern the org had used before. <strong>The form started teaching instead of just collecting inputs.</strong></p>
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
             <img src="assets/alloydb/arch-cards.png" alt="Architecture illustration cards — in-form" style="width:100%;height:auto;display:block;cursor:pointer;" onclick="openCarousel(['assets/alloydb/arch-cards.png'],0)">
           </div>
         </div>
@@ -978,7 +978,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             <p>She ran her own workshop to align the team on what the page needed to do. <strong>I helped her shape it, joined the session to provide additional UX support, and worked with her on the design that came out of it.</strong> The page she shipped gave customers a clean read on the state of their cluster, what was running, what was connected, what needed attention, without making them stitch the picture together from separate screens.</p>
             <p>This is the work I'm most quietly proud of in this case study. Not the screen I drew. The screen someone else drew because I'd set them up to draw it.</p>
           </div>
-          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: 40px; margin-top: 40px; margin-bottom: 0;">
+          <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
             <img src="assets/alloydb/overview-page.jpg" alt="Cluster Overview Page — AlloyDB" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));cursor:pointer;" onclick="openCarousel(['assets/alloydb/overview-page.jpg'],0)">
           </div>
         </div>

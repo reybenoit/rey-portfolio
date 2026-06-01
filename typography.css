@@ -25,6 +25,20 @@
   --alpha-hover:   0.70;   /* hover/active text on dark */
   --alpha-overlay: 0.88;   /* near-opaque scrim, nav scrolled bg */
 
+  /* Spacing scale (Option B — 12 steps, base-4) */
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-7:   32px;
+  --space-8:   40px;
+  --space-9:   48px;
+  --space-10:  64px;
+  --space-11:  80px;   /* same value as --pad; --pad stays per-page for responsive override */
+  --space-12: 120px;
+
   /* Display — index hero */
   --text-display-size:     clamp(68px, 10.5vw, 148px);
   --text-display-weight:   800;
