@@ -227,6 +227,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .brief-intro p + p { margin-top: var(--space-5); }
 .brief-intro strong { color: var(--text); font-weight: 600; }
 .brief-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
+.brief-img.brief-img--screenshot { object-fit: contain; border-radius: 0; }
 .brief-questions {
   background: var(--bg-dark);
   padding: var(--space-10) var(--pad);
@@ -253,7 +254,9 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .poc .brief-grid { margin-bottom: 0; }
 .poc-intro { color: var(--mid-text); line-height: 1.85; margin-bottom: var(--space-9); }
 .poc-image-wrap { padding-top: var(--space-6); margin-bottom: 0; }
-.poc-image-wrap img { width: auto; max-width: 100%; height: auto; display: block; border-radius: 12px; margin: 0 auto var(--space-10); }
+.poc-image-wrap img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.poc-image-wrap.poc-image-wrap--centered img { width: auto; max-width: 100%; margin: 0 auto var(--space-10); }
+.poc-image-wrap img[onclick] { cursor: zoom-in; }
 .poc-caption { font-family: var(--font-d); font-size: var(--text-tag-size); font-weight: var(--text-tag-weight); letter-spacing: var(--text-tag-tracking); text-transform: var(--text-tag-transform); color: var(--mid-text); margin-top: var(--space-3); }
 .poc-intro p + p { margin-top: var(--space-5); }
 .poc-intro strong { color: var(--text); font-weight: 600; }
@@ -654,7 +657,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
           <p>This was 2012. There was no playbook for what a fast-food ordering app should be. Most quick-service brands didn't have one yet. We were defining the category as we built it.</p>
         </div>
         <div class="brief-image">
-          <img class="brief-img" src="assets/taco-bell/tb-homescreen.png" alt="Taco Bell iOS app home screen — Welcome Amigo onboarding" style="object-fit: contain; border-radius: 0;">
+          <img class="brief-img brief-img--screenshot" src="assets/taco-bell/tb-homescreen.png" alt="Taco Bell iOS app home screen — Welcome Amigo onboarding">
         </div>
       </div>
     </div>
@@ -665,7 +668,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     <div class="container">
       <div class="label" data-fade>02 — Team &amp; Process</div>
       <h2 class="cs-methodology-heading" data-fade data-delay="1">Collaborative. Agile. Iterative.</h2>
-      <div class="poc-image-wrap" data-fade data-delay="2">
+      <div class="poc-image-wrap poc-image-wrap--centered" data-fade data-delay="2">
         <img src="assets/taco-bell/tb-process.png" alt="Process diagram showing UX, Art & Copy, and Development working in parallel with continuous research and validation">
       </div>
       <div class="build-single" data-fade data-delay="2">
@@ -688,7 +691,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
           <p>Apply the principles, then prototype until the tactile feel proves them out.</p>
         </div>
         <div class="brief-image">
-          <img class="brief-img" src="assets/taco-bell/tb-menu.png" alt="Taco Bell app menu screen" style="object-fit: contain; border-radius: 0;">
+          <img class="brief-img brief-img--screenshot" src="assets/taco-bell/tb-menu.png" alt="Taco Bell app menu screen">
           <div class="poc-caption">Menu construct — Dual pane category and item view, enabling speedy food selection</div>
         </div>
       </div>
@@ -707,7 +710,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
         <p><strong>I'm a named inventor on the patent for the feature.</strong></p>
         <p>The conventional flow is rarely the most interesting one. The medium itself — the hardware, the gesture vocabulary, the constraint of a small screen — has more to give than a checklist of features will surface. Playing with the medium is how you find the design that becomes the thing people remember.</p>
       </div>
-      <div class="poc-image-wrap" data-fade>
+      <div class="poc-image-wrap poc-image-wrap--centered" data-fade>
         <img src="assets/taco-bell/tb-reorder.png" alt="Rotate to Reorder — landscape mode showing saved orders by user-defined name" onclick="openCarousel(['assets/taco-bell/rotate-to-reorder.jpg'],0)">
         <div class="poc-caption">Rotate to Reorder — Patent Feature</div>
       </div>

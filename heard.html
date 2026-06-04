@@ -159,6 +159,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .cs-link:active { transform: scale(0.97); }
 .cs-link--dark { color: rgb(var(--text-light-rgb) / var(--alpha-hover)); border-bottom-color: rgb(var(--text-light-rgb) / var(--alpha-subtle)); }
 .cs-link--dark:hover { border-bottom-color: rgb(var(--text-light-rgb) / var(--alpha-hover)); }
+.cs-img { width: 100%; height: auto; display: block; }
+.cs-img.cs-img--rounded { border-radius: 12px; }
+.cs-img.cs-img--elevated { border-radius: 16px; box-shadow: 0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint)); }
+.cs-img.cs-img--clickable { cursor: zoom-in; }
 
 /* dark-bg grid texture (reusable pattern) */
 .dark-texture::before {
@@ -775,7 +779,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             </div>
             <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
               <h3 class="design-moment-title" style="margin-bottom: var(--space-7); font-size: clamp(16px, 1.5vw, 20px);">Brand name and acronym</h3>
-              <img src="assets/heard/heard-name.jpg" alt="HEARD brand name and acronym" style="border-radius: 16px; box-shadow: 0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));">
+              <img src="assets/heard/heard-name.jpg" alt="HEARD brand name and acronym" class="cs-img cs-img--elevated">
             </div>
           </div>
         </div>
@@ -793,7 +797,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             </blockquote>
             <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
               <h3 class="design-moment-title" style="margin-bottom: var(--space-7); font-size: clamp(16px, 1.5vw, 20px);">Brand specimen</h3>
-              <img src="assets/heard/brand-specimen.png" alt="HEARD brand specimen" style="border-radius: 16px; box-shadow: 0 24px 30px rgb(var(--text-rgb) / var(--alpha-faint));">
+              <img src="assets/heard/brand-specimen.png" alt="HEARD brand specimen" class="cs-img cs-img--elevated">
             </div>
           </div>
         </div>
