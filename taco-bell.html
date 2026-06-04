@@ -226,7 +226,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .brief-intro p { font-weight: 400; color: var(--mid-text); line-height: 1.85; }
 .brief-intro p + p { margin-top: var(--space-5); }
 .brief-intro strong { color: var(--text); font-weight: 600; }
-.brief-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
+.brief-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius-md); }
 .brief-img.brief-img--screenshot { object-fit: contain; border-radius: 0; }
 .brief-questions {
   background: var(--bg-dark);
@@ -254,7 +254,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .poc .brief-grid { margin-bottom: 0; }
 .poc-intro { color: var(--mid-text); line-height: 1.85; margin-bottom: var(--space-9); }
 .poc-image-wrap { padding-top: var(--space-6); margin-bottom: 0; }
-.poc-image-wrap img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.poc-image-wrap img { width: 100%; height: auto; display: block; border-radius: var(--radius-md); }
 .poc-image-wrap.poc-image-wrap--centered img { width: auto; max-width: 100%; margin: 0 auto var(--space-10); }
 .poc-image-wrap img[onclick] { cursor: zoom-in; }
 .poc-caption { font-family: var(--font-d); font-size: var(--text-tag-size); font-weight: var(--text-tag-weight); letter-spacing: var(--text-tag-tracking); text-transform: var(--text-tag-transform); color: var(--mid-text); margin-top: var(--space-3); }
@@ -411,10 +411,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .cs-showcase-scroll::-webkit-scrollbar { display: none; }
 .screen-card { flex-shrink: 0; width: 510px; scroll-snap-align: start; display: flex; flex-direction: column; gap: var(--space-4); }
 .screen-card--square { width: 918px; }
-.screen-frame { width: 100%; background: rgb(var(--text-light-rgb) / var(--alpha-texture)); border-radius: 6px; border: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); overflow: hidden; }
+.screen-frame { width: 100%; background: rgb(var(--text-light-rgb) / var(--alpha-texture)); border-radius: var(--radius-sm); border: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); overflow: hidden; }
 .screen-frame--square { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; }
 .screen-frame--square img { width: 100%; height: 100%; object-fit: contain; }
-.screen-frame img { width: 100%; height: auto; display: block; border-radius: 6px; cursor: zoom-in; }
+.screen-frame img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); cursor: zoom-in; }
 .screen-meta { display: flex; align-items: center; gap: var(--space-3); }
 .screen-step { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--accent); flex-shrink: 0; opacity: 0.7; }
 .screen-rule { flex: 1; height: 1px; background: rgb(var(--text-light-rgb) / var(--alpha-faint)); }
@@ -427,7 +427,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 /* ── CAROUSEL LIGHTBOX ── */
 .lightbox-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.88); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
 .lightbox-overlay.active { opacity: 1; pointer-events: all; }
-.lightbox-img { max-width: calc(100vw - 80px); max-height: calc(100vh - 80px); object-fit: contain; display: block; border-radius: 12px; }
+.lightbox-img { max-width: calc(100vw - 80px); max-height: calc(100vh - 80px); object-fit: contain; display: block; border-radius: var(--radius-md); }
 .lightbox-close { position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
 .lightbox-close:hover { background: rgba(255,255,255,0.2); }
 .lightbox-close svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; }

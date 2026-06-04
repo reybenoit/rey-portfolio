@@ -25,6 +25,10 @@
   --alpha-hover:   0.70;   /* hover/active text on dark */
   --alpha-overlay: 0.88;   /* near-opaque scrim, nav scrolled bg */
 
+  /* Border-radius scale (images: 0 / sm / md) */
+  --radius-sm:  6px;   /* small rounding — case-study card thumbs, showcase screens */
+  --radius-md: 12px;   /* medium rounding — brief images, poc images, elevated screenshots, lightbox */
+
   /* Spacing scale (Option B — 12 steps, base-4) */
   --space-1:    4px;
   --space-2:    8px;
