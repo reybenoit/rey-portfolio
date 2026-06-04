@@ -326,10 +326,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .takeaways--dark .takeaway-title { color: var(--text-light); }
 .takeaways--dark .takeaway-body { color: rgb(var(--text-light-rgb) / var(--alpha-muted)); }
 .takeaways--dark .press-quote { background: rgb(var(--text-light-rgb) / var(--alpha-texture)); border: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-.takeaways--dark .outcome-grid { grid-template-columns: repeat(4, 1fr); margin-bottom: var(--space-9); border-top-color: rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-.takeaways--dark .outcome-item { border-right-color: rgb(var(--text-light-rgb) / var(--alpha-faint)); border-top-color: rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-.takeaways--dark .outcome-value { color: var(--text-light); }
-.takeaways--dark .outcome-desc { color: rgb(var(--text-light-rgb) / var(--alpha-muted)); }
+.takeaways--dark .outcome-grid { grid-template-columns: repeat(4, 1fr); margin-bottom: var(--space-9); }
 
 /* ── TWEET GRID ── */
 /* ── TWEET SECTION ── */
@@ -379,13 +376,30 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 }
 .outcome-inner { position: relative; z-index: 1; }
 .outcome .label { margin-bottom: var(--space-9); }
-.outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--mid); margin-bottom: var(--space-11); }
-.outcome-item { padding: var(--space-9) var(--space-8) var(--space-9) 0; border-right: 1px solid var(--mid); }
+.outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); margin-bottom: var(--space-11); }
+.outcome-item { padding: var(--space-9) var(--space-8) var(--space-9) 0; border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
 .outcome-item:first-child { padding-left: 0; }
 .outcome-item + .outcome-item { padding-left: var(--space-8); }
 .outcome-item:last-child { border-right: none; }
-.outcome-value { font-family: var(--font-d); font-size: clamp(24px, 3vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--text); margin-bottom: var(--space-3); }
-.outcome-desc { font-size: 14px; color: var(--mid-text); line-height: 1.65; max-width: 240px; }
+.outcome-eyebrow {
+  display: block;
+  font-family: var(--font-d);
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+}
+.outcome-value { font-family: var(--font-d); font-size: clamp(24px, 3vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--text-light); margin-bottom: var(--space-3); font-variant-numeric: tabular-nums; }
+.outcome-value em { color: var(--text-light); font-style: normal; }
+.outcome-desc { font-family: var(--font-b); font-size: 14px; line-height: 1.65; color: rgb(var(--text-light-rgb) / var(--alpha-muted)); max-width: 240px; }
+
+/* Light-bg variant — taco-bell's "What I Learned" section */
+.outcome-grid--light { border-top-color: var(--mid); }
+.outcome-grid--light .outcome-item { border-right-color: var(--mid); border-top-color: var(--mid); }
+.outcome-grid--light .outcome-value { color: var(--text); }
+.outcome-grid--light .outcome-desc { color: var(--mid-text); }
 .outcome-cta-single { border-top: 1px solid var(--mid); padding-top: var(--space-10); }
 .outcome-cta-single > * { max-width: 480px; }
 .outcome-cta-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--mid-text); margin-bottom: var(--space-4); }
@@ -461,9 +475,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   .design-moment { grid-template-columns: 48px 1fr; gap: var(--space-5); padding: var(--space-8) 0; }
 
   .outcome-grid { grid-template-columns: 1fr; border-top: none; }
-  .outcome-item { border-right: none; border-top: 1px solid var(--mid); padding: var(--space-8) 0; }
+  .outcome-item { border-right: none; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); padding: var(--space-8) 0; }
   .outcome-item + .outcome-item { padding-left: 0; }
   .outcome-item:last-child { padding-right: 0; }
+  .outcome-grid--light .outcome-item { border-top-color: var(--mid); }
 
   .next-case-inner { grid-template-columns: 1fr; gap: var(--space-5); }
 
@@ -823,7 +838,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   <section class="outcome">
     <div class="container outcome-inner">
       <div class="label" data-fade>06 — What I Learned</div>
-      <div class="outcome-grid">
+      <div class="outcome-grid outcome-grid--light">
         <div class="outcome-item" data-fade data-delay="1">
           <div class="outcome-value">Small, trusted teams.</div>
           <p class="outcome-desc">Independent ownership inside a shared atmosphere. The conditions that produced this work are the ones I now build for teams I lead.</p>

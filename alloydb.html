@@ -242,21 +242,47 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   pointer-events: none;
 }
 .cs-stats .container { position: relative; z-index: 1; }
-.cs-stats-grid {
+.outcome-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
   margin-top: var(--space-9);
 }
-.cs-stat-item {
-  padding: var(--space-8) var(--space-7) var(--space-8) 0;
+.outcome-item {
+  padding: var(--space-9) var(--space-8) var(--space-9) 0;
   border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
 }
-.cs-stat-item:last-child { border-right: none; padding-right: 0; }
-.cs-stat-item:not(:first-child) { padding-left: var(--space-7); }
-.cs-stat-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--accent); opacity: 0.9; margin-bottom: var(--space-2); }
-.cs-stat-value { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text-light); margin-bottom: var(--space-3); }
-.cs-stat-desc { font-size: 13px; color: rgb(var(--text-light-rgb) / var(--alpha-muted)); line-height: 1.6; }
+.outcome-item:first-child { padding-left: 0; }
+.outcome-item + .outcome-item { padding-left: var(--space-8); }
+.outcome-item:last-child { border-right: none; padding-right: 0; }
+.outcome-eyebrow {
+  display: block;
+  font-family: var(--font-d);
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+}
+.outcome-value {
+  font-family: var(--font-d);
+  font-size: clamp(24px, 3vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text-light);
+  margin-bottom: var(--space-3);
+  font-variant-numeric: tabular-nums;
+}
+.outcome-value em { color: var(--text-light); font-style: normal; }
+.outcome-desc {
+  font-family: var(--font-b);
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgb(var(--text-light-rgb) / var(--alpha-muted));
+  max-width: 240px;
+}
 
 /* ── 3. BIG STATEMENT ── */
 .cs-statement {
@@ -504,12 +530,12 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   .cs-hero-cell:not(:first-child) { padding-left: 0; }
   .cs-hero-cell:last-child { border-bottom: none; padding-right: 0; }
 
-  .cs-stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .cs-stat-item { padding: var(--space-7) 0 var(--space-7) 0; border-right: none; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .cs-stat-item:nth-child(odd) { padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .cs-stat-item:nth-child(even) { padding-left: var(--space-6); }
-  .cs-stat-item:last-child { border-bottom: none; }
-  .cs-stat-item:nth-last-child(2) { border-bottom: none; }
+  .outcome-grid { grid-template-columns: repeat(2, 1fr); }
+  .outcome-item { padding: var(--space-7) 0 var(--space-7) 0; border-right: none; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:nth-child(odd) { padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:nth-child(even) { padding-left: var(--space-6); }
+  .outcome-item:last-child { border-bottom: none; }
+  .outcome-item:nth-last-child(2) { border-bottom: none; }
 
   .cs-section-brief { grid-template-columns: 1fr; gap: var(--space-9); }
   .cs-proto-item { grid-template-columns: 1fr; gap: var(--space-1); }
@@ -637,22 +663,22 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   <section class="cs-stats">
     <div class="container">
       <div class="label" data-fade>Outcome</div>
-      <div class="cs-stats-grid">
-        <div class="cs-stat-item" data-fade data-delay="1">
-          <div class="cs-stat-value">0 → 1</div>
-          <p class="cs-stat-desc">Product idea to v1 private preview launch in 9 months</p>
+      <div class="outcome-grid">
+        <div class="outcome-item" data-fade data-delay="1">
+          <div class="outcome-value">0 → 1</div>
+          <p class="outcome-desc">Product idea to v1 private preview launch in 9 months</p>
         </div>
-        <div class="cs-stat-item" data-fade data-delay="2">
-          <div class="cs-stat-value">$47M</div>
-          <p class="cs-stat-desc">ARR reached within two years of launch</p>
+        <div class="outcome-item" data-fade data-delay="2">
+          <div class="outcome-value">$47M</div>
+          <p class="outcome-desc">ARR reached within two years of launch</p>
         </div>
-        <div class="cs-stat-item" data-fade data-delay="3">
-          <div class="cs-stat-value">1.7K</div>
-          <p class="cs-stat-desc">Customers adopted AlloyDB in the first two years</p>
+        <div class="outcome-item" data-fade data-delay="3">
+          <div class="outcome-value">1.7K</div>
+          <p class="outcome-desc">Customers adopted AlloyDB in the first two years</p>
         </div>
-        <div class="cs-stat-item" data-fade data-delay="4">
-          <div class="cs-stat-value">#1</div>
-          <p class="cs-stat-desc">Fastest-growing database on Google Cloud</p>
+        <div class="outcome-item" data-fade data-delay="4">
+          <div class="outcome-value">#1</div>
+          <p class="outcome-desc">Fastest-growing database on Google Cloud</p>
         </div>
       </div>
     </div>

@@ -478,56 +478,53 @@ nav {
 .impact .label { margin-bottom: var(--space-9); color: var(--accent); }
 .impact .label::after { background: var(--accent); }
 
-.impact-grid {
+.outcome-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: rgb(var(--text-light-rgb) / var(--alpha-faint));
+  border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
 }
 
-.impact-stat {
-  background: var(--bg-dark);
-  padding: var(--space-8) var(--space-7);
-  transition: background 0.3s;
+.outcome-item {
+  padding: var(--space-9) var(--space-8) var(--space-9) 0;
+  border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
 }
+.outcome-item:first-child { padding-left: 0; }
+.outcome-item + .outcome-item { padding-left: var(--space-8); }
+.outcome-item:last-child { border-right: none; padding-right: 0; }
 
-.impact-stat:hover { background: rgb(var(--text-light-rgb) / var(--alpha-texture)); }
-
-.impact-source {
+.outcome-eyebrow {
   display: block;
   font-family: var(--font-d);
   font-size: var(--text-eyebrow-size);
   font-weight: var(--text-eyebrow-weight);
   letter-spacing: var(--text-eyebrow-tracking);
   text-transform: var(--text-eyebrow-transform);
-  color: rgb(var(--text-light-rgb) / var(--alpha-muted));
-  margin-bottom: var(--space-7);
+  color: var(--accent);
+  margin-bottom: var(--space-2);
 }
 
-.impact-value {
+.outcome-value {
   font-family: var(--font-d);
-  font-size: clamp(28px, 3vw, 42px);
+  font-size: clamp(24px, 3vw, 44px);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1;
   color: var(--text-light);
-  line-height: 1.1;
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-3);
   font-variant-numeric: tabular-nums;
 }
 
-.impact-value em {
+.outcome-value em {
   color: var(--text-light);
   font-style: normal;
 }
 
-.impact-context {
-  font-size: 13px;
-  font-weight: 400;
+.outcome-desc {
+  font-family: var(--font-b);
+  font-size: 14px;
+  line-height: 1.65;
   color: rgb(var(--text-light-rgb) / var(--alpha-muted));
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-family: var(--font-d);
-  line-height: 1.5;
+  max-width: 240px;
 }
 
 /* ── HOW I WORK (CAPABILITY PANELS) ── */
@@ -1096,7 +1093,6 @@ footer {
 .cs-link:active       { transform: scale(0.97); }
 
 /* ── Tabular figures ── */
-.impact-value,
 .cap-metric-value,
 .cs-metric-value { font-variant-numeric: tabular-nums; }
 
@@ -1118,7 +1114,11 @@ footer {
   .who-grid { grid-template-columns: 1fr; gap: var(--space-9); }
   .who-portrait { aspect-ratio: 4 / 3; max-width: 100%; }
 
-  .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  .outcome-grid { grid-template-columns: repeat(2, 1fr); }
+  .outcome-item { padding: var(--space-8) 0; border-right: none; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:nth-child(odd) { padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:nth-child(even) { padding-left: var(--space-6); }
+  .outcome-item:last-child { padding-right: 0; }
 
   .cap-panel { padding: var(--space-9) 0; }
   .cap-panel-grid { grid-template-columns: 1fr; gap: var(--space-8); }
@@ -1131,7 +1131,10 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .impact-grid { grid-template-columns: 1fr; }
+  .outcome-grid { grid-template-columns: 1fr; }
+  .outcome-item { padding: var(--space-8) 0; border-right: none; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:nth-child(odd) { padding-right: 0; }
+  .outcome-item:nth-child(even) { padding-left: 0; }
   .cs-metrics { gap: var(--space-6); }
   .footer-nav { display: none; }
   .cap-metric { gap: var(--space-6); }
@@ -1245,36 +1248,36 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 <section class="impact">
   <div class="container impact-inner">
     <div class="label">Impact at a glance</div>
-    <div class="impact-grid">
+    <div class="outcome-grid">
 
-      <div class="impact-stat">
-        <span class="impact-source">AlloyDB</span>
-        <div class="impact-value">Zero <em>/</em> One</div>
-        <div class="impact-context">From concept to Google Cloud's fastest-growing database in under 2 years.</div>
+      <div class="outcome-item">
+        <span class="outcome-eyebrow">AlloyDB</span>
+        <div class="outcome-value">Zero <em>/</em> One</div>
+        <div class="outcome-desc">From concept to Google Cloud's fastest-growing database in under 2 years.</div>
       </div>
       
-      <div class="impact-stat">
-        <span class="impact-source">Cloud SQL</span>
-        <div class="impact-value">4X Growth</div>
-        <div class="impact-context">Product revenue growth under 4 years of design leadership</div>
+      <div class="outcome-item">
+        <span class="outcome-eyebrow">Cloud SQL</span>
+        <div class="outcome-value">4X Growth</div>
+        <div class="outcome-desc">Product revenue growth under 4 years of design leadership</div>
       </div>
       
-      <div class="impact-stat">
-        <span class="impact-source">Taco Bell</span>
-        <div class="impact-value">300<em>K</em> / 48 hrs</div>
-        <div class="impact-context">Drove 300K downloads in 48 hours and $500K sales increase in the first week of launch.</div>
+      <div class="outcome-item">
+        <span class="outcome-eyebrow">Taco Bell</span>
+        <div class="outcome-value">300<em>K</em> / 48 hrs</div>
+        <div class="outcome-desc">Drove 300K downloads in 48 hours and $500K sales increase in the first week of launch.</div>
       </div>
 
-      <div class="impact-stat">
-        <span class="impact-source">AlloyDB Omni</span>
-        <div class="impact-value">40<em>K</em> vCPUs</div>
-        <div class="impact-context">Walmart's first purchase—designed and launched in 2 weeks for Cloud Next London.</div>
+      <div class="outcome-item">
+        <span class="outcome-eyebrow">AlloyDB Omni</span>
+        <div class="outcome-value">40<em>K</em> vCPUs</div>
+        <div class="outcome-desc">Walmart's first purchase—designed and launched in 2 weeks for Cloud Next London.</div>
       </div>
 
-      <div class="impact-stat">
-        <span class="impact-source">HEARD</span>
-        <div class="impact-value">Weeks <em>/</em> Mins</div>
-        <div class="impact-context">Vibe-coded and AI-powered. Lyrics to demo track in minutes.</div>
+      <div class="outcome-item">
+        <span class="outcome-eyebrow">HEARD</span>
+        <div class="outcome-value">Weeks <em>/</em> Mins</div>
+        <div class="outcome-desc">Vibe-coded and AI-powered. Lyrics to demo track in minutes.</div>
       </div>
 
     </div>
