@@ -413,6 +413,34 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .cs-section-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.2s ease; }
 .cs-section-body a:hover { opacity: 0.7; }
 
+/* ── STAT CALLOUT (pull quote) ── */
+.stat-callout { border-top: 2px solid var(--accent); padding-top: var(--space-6); }
+.stat-callout-eyebrow {
+  display: block;
+  font-family: var(--font-d);
+  font-size: var(--text-eyebrow-size);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-tracking);
+  text-transform: var(--text-eyebrow-transform);
+  color: var(--accent);
+  margin-bottom: var(--space-5);
+}
+.stat-callout-value {
+  font-family: var(--font-d);
+  font-size: clamp(40px, 5.5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+.stat-callout-value .arrow { color: var(--accent); font-size: 0.62em; font-weight: 700; }
+.stat-callout-sub { font-family: var(--font-d); font-size: clamp(18px, 1.8vw, 24px); font-weight: 700; letter-spacing: -0.01em; color: var(--accent); margin-top: var(--space-5); }
+.stat-callout-desc { font-family: var(--font-b); font-size: 14px; line-height: 1.65; color: var(--mid-text); margin-top: var(--space-3); }
+
 /* ── SUB-SECTIONS ── */
 .cs-subsection {
   margin-top: var(--space-10);
@@ -863,6 +891,31 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
         <p>We were no longer independent contributors focused on individual priorities. We were now a team of four who needed to be aligned on the principles that would drive everything we worked on going forward.</p>
         <p>The first step was a workshop to align on shared values. By the end, everyone knew what they stood for individually, and where the team stood together. It echoed a room I'd worked in early in my career, on the <a href="taco-bell.html">Taco Bell project</a>, where shared principles gave a team its foundation. Here, those principles gave each designer a foundation to launch their own work from.</p>
         <p>For AlloyDB, that meant giving my new designer her first major assignment: the cluster overview page, the screen that would bookend the onboarding experience for new users.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE CRUNCH ── -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="cs-section-brief" data-fade>
+        <div>
+          <div class="label">The Crunch</div>
+          <h2 class="cs-section-title">The cuts that made the launch possible.</h2>
+          <div class="cs-section-body">
+            <p>The cluster creation flow was designed, but not yet built. The overview page was still in progress, with my new designer leading it. Then the launch date landed: 4.5 months out.</p>
+            <p>A fixed date meant a fixed scope, and the backlog wasn't close to fitting it. I sat down with the senior PM and lead front-end engineer to work through the full list from first principles. What could engineering have ready in that window? What could the front-end build against? What could design actually execute, including the overview page still in flight? And underneath all of it: what was the minimum experience that still felt complete to a customer, not just a list of features that happened to fit?</p>
+            <p>Every journey on the list had to clear all four. What started as 67 core user journeys came down to 16, a 76% reduction. They were the ones that made AlloyDB a usable competitive product at launch.</p>
+          </div>
+        </div>
+        <div style="align-self: center;">
+          <div class="stat-callout">
+            <span class="stat-callout-eyebrow">Scope reduction</span>
+            <div class="stat-callout-value">67 <span class="arrow">→</span> 16</div>
+            <div class="stat-callout-sub">76% reduction in scope</div>
+            <p class="stat-callout-desc">Core user journeys narrowed to the set that still felt complete to a customer, and could ship in 4.5 months.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
