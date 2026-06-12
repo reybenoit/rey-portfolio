@@ -757,68 +757,16 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     </div>
   </section>
 
-  <!-- ── 4. METHODOLOGY ── -->
-  <section class="cs-methodology">
-    <div class="container">
-      <div class="label" data-fade>Methodology</div>
-      <h2 class="cs-methodology-heading" data-fade data-delay="1">User-centered design</h2>
-      <p class="cs-methodology-sub" data-fade data-delay="2">Applied at the pace and scale of a new product launch.</p>
-      <div class="flow" data-fade data-delay="3">
-        <div class="flow-step">
-          <div class="flow-step-num">1</div>
-          <h4>Understand</h4>
-          <ul>
-            <li>Competitive Audit</li>
-            <li>Heuristic Evaluation</li>
-          </ul>
-        </div>
-        <div class="flow-step">
-          <div class="flow-step-num">2</div>
-          <h4>Define</h4>
-          <ul>
-            <li>Workshops</li>
-            <li>Wireframes</li>
-            <li>User interviews</li>
-          </ul>
-        </div>
-        <div class="flow-step">
-          <div class="flow-step-num">3</div>
-          <h4>Refine</h4>
-          <ul>
-            <li>Prototypes</li>
-            <li>Usability Research</li>
-          </ul>
-        </div>
-        <div class="flow-step">
-          <div class="flow-step-num">4</div>
-          <h4>Build</h4>
-          <ul>
-            <li>Detailed Mocks</li>
-            <li>Development</li>
-          </ul>
-        </div>
-        <div class="flow-step">
-          <div class="flow-step-num">5</div>
-          <h4>Launch</h4>
-          <ul>
-            <li>Private Preview</li>
-            <li>Google I/O 2022</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── 02 DIFFERENTIATION ── -->
+  <!-- ── 01 UNDERSTAND ── -->
   <section class="cs-section">
     <div class="container">
       <div class="cs-section-brief" data-fade>
         <div>
           <div class="label">01 — Understand</div>
-          <h2 class="cs-section-title">Onboarding was where customers would form their first opinion.</h2>
+          <h2 class="cs-section-title">Testing our heading</h2>
           <div class="cs-section-body">
-            <p>Onboarding for a database is more than a splash screen and sign up form. It's the cluster creation flow, where a customer configures the database for the workload they're bringing.  It's the cluster overview page, where they see what they've built and start to operate it. It's the moments where any friction can cause users not to adopt. This is where I decided to focus.</p>
-            <p>Before designing any of it, I audited competitors and ran heuristic evaluations on similar products. That work gave me the patterns and gaps to design against.</p>
+            <p>Every good design starts with insight, and insight takes research. I started with a competitive audit and heuristic evaluation, which confirmed that horizontal scaling wasn't part of the setup conversation on any other database. But a gap in the competition isn't proof of a good idea. We needed to test the concept with customers first, and that's what came next.</p>
           </div>
         </div>
         <div>
@@ -826,123 +774,13 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
         </div>
       </div>
 
-      <!-- Sub: Competitive Audit -->
+      <!-- Sub: Low fidelity concepts -->
       <div class="design-moment" data-fade>
         <div class="design-moment-num">1.1</div>
         <div class="design-moment-content">
-          <h3 class="design-moment-title">A competitive audit and heuristic evaluation</h3>
+          <h3 class="design-moment-title">Low fidelity concepts</h3>
           <div class="design-moment-body">
-            <p>I teamed up with the UX researcher to audit the leading competitor's database setup end to end. A pattern surfaced. Customers created an initial database cluster, and only after that initial cluster was provisioned could they add additional read servers to scale. <strong>Scaling was a second step, in a second flow, after a customer had already committed to a configuration.</strong> That was the convention.</p>
-          </div>
-          <table class="audit-table">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Takeaway</th>
-                <th class="center">Compute Engine</th>
-                <th class="center">Aurora</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="group-start">
-                <td class="category" rowspan="6">Scaling</td>
-                <td>Prove robust autoscaling settings</td>
-                <td class="mark"><span class="glyph present" aria-label="Present"></span></td>
-                <td class="mark"><span class="glyph absent" aria-label="Absent"></span></td>
-              </tr>
-              <tr>
-                <td>Provide visible autoscaling metrics</td>
-                <td class="mark"><span class="glyph present"></span></td>
-                <td class="mark"><span class="glyph absent"></span></td>
-              </tr>
-              <tr>
-                <td>Provide autoscaling status</td>
-                <td class="mark"><span class="glyph present"></span></td>
-                <td class="mark"><span class="glyph present"></span></td>
-              </tr>
-              <tr>
-                <td>Allow for large pool sizes</td>
-                <td class="mark"><span class="glyph present"></span></td>
-                <td class="mark"><span class="glyph absent"></span></td>
-              </tr>
-              <tr>
-                <td>Allow for multiple autoscaling rules</td>
-                <td class="mark"><span class="glyph present"></span></td>
-                <td class="mark"><span class="glyph present"></span></td>
-              </tr>
-              <tr>
-                <td>Surface all scaling settings in one view</td>
-                <td class="mark"><span class="glyph absent"></span></td>
-                <td class="mark"><span class="glyph present"></span></td>
-              </tr>
-              <tr class="group-start">
-                <td class="category" rowspan="5">Configuration</td>
-                <td>Provide reusable templates for cluster creation</td>
-                <td class="mark"><span class="glyph present"></span></td>
-                <td class="mark"><span class="glyph absent"></span></td>
-              </tr>
-              <tr>
-                <td>Provide use cases customers can select from</td>
-                <td class="mark"><span class="glyph present"></span></td>
-                <td class="mark"><span class="glyph absent"></span></td>
-              </tr>
-              <tr>
-                <td>Provide overall group summary</td>
-                <td class="mark"><span class="glyph present"></span></td>
-                <td class="mark"><span class="glyph present"></span></td>
-              </tr>
-              <tr>
-                <td>Enable multiple groups in a cluster</td>
-                <td class="mark"><span class="glyph absent"></span></td>
-                <td class="mark"><span class="glyph present"></span></td>
-              </tr>
-              <tr>
-                <td>Show full cluster shape before creation</td>
-                <td class="mark"><span class="glyph absent"></span></td>
-                <td class="mark"><span class="glyph absent"></span></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="audit-legend">
-            <div class="audit-legend-item"><span class="glyph present"></span> Present</div>
-            <div class="audit-legend-item"><span class="glyph absent"></span> Absent</div>
-          </div>
-          <p class="audit-caption">Two categories from the competitive audit, focused on how competitors handled scale and configuration. The full version covered six categories.</p>
-        </div>
-      </div>
-
-      <!-- Sub: Setup as Differentiation -->
-      <div class="design-moment" data-fade>
-        <div class="design-moment-num">1.2</div>
-        <div class="design-moment-content">
-          <h3 class="design-moment-title">The hypothesis: setup as differentiation</h3>
-          <div class="design-moment-body">
-            <p><strong>Making scaling part of the setup process, instead of a separate one, would differentiate AlloyDB and shorten the path from intent to a working production-ready cluster.</strong> Customers would see the full shape of what they were creating before they created it. They'd choose a configuration that fit their workload, not a starter configuration they'd later have to grow out of.</p>
-            <p>Even when a customer started small, the form itself would advertise the full range of what AlloyDB could scale to. The UI reinforced what the business was selling.</p>
-            <p>That was specific enough to test and getting it right would change how AlloyDB felt compared to the alternatives.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── 02 DEFINE ── -->
-  <section class="cs-section">
-    <div class="container">
-      <div class="label" data-fade>02 — Define</div>
-      <h2 class="cs-section-title" data-fade data-delay="1">Testing the bet.</h2>
-      <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: var(--space-9);">
-        <p>I created wireframes with scaling options surfaced during the create process. The whole point was to see how customers would react to it.</p>
-      </div>
-
-      <div class="design-moment" data-fade>
-        <div class="design-moment-num">2.1</div>
-        <div class="design-moment-content">
-          <h3 class="design-moment-title">What was tested in the design</h3>
-          <div class="design-moment-body">
-            <p><strong>1. Cluster templates surfaced upfront.</strong> Before the customer entered a single setting, they saw three pre-configured directions: a development cluster, a highly available cluster, and a highly available cluster with replica pools. The full shape of what they were creating was visible before they created it.</p>
-            <p><strong>2. Scaling built into the creation flow.</strong> Replica pools, traditionally a post-creation operation, were promoted to a step inside the create flow. Customers could set up scaling at the same moment they were setting up the database.</p>
+            <p>I created wireframes with horizontal scaling options surfaced as configuration templates during the create process, to see how customers would react.</p>
           </div>
           <div class="poc-image-wrap" style="border-top: 1px solid var(--mid); padding-top: var(--space-8); margin-top: var(--space-8); margin-bottom: 0;">
             <img src="assets/alloydb/wf-test.png" alt="Wireframe prototype test" class="cs-img cs-img--clickable" onclick="openCarousel(['assets/alloydb/wf-test.png'],0)">
@@ -950,16 +788,16 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
         </div>
       </div>
 
+      <!-- Sub: Mixed reaction from users -->
       <div class="design-moment" data-fade>
-        <div class="design-moment-num">2.2</div>
+        <div class="design-moment-num">1.2</div>
         <div class="design-moment-content">
-          <h3 class="design-moment-title">What came back</h3>
+          <h3 class="design-moment-title">Mixed reaction from users</h3>
           <div class="design-moment-body">
-            <h3 class="design-moment-title" style="margin-bottom: var(--space-3); font-size: clamp(16px, 1.5vw, 20px);">What worked — visible scaling options</h3>
-            <p>Participants responded to the streamlined flow. One technical lead said setting up the primary instance and the replica pools in one shot was a major improvement, and called out the flow specifically. Conclusion: putting scaling in front of customers at creation time changed how they read the product.</p>
-            <h3 class="design-moment-title" style="margin-top: var(--space-7); margin-bottom: var(--space-3); font-size: clamp(16px, 1.5vw, 20px);">What didn't - intuitive customization</h3>
-            <p>The templates worked as anchors but not as starting points. Participants weren't sure whether they could create a cluster that didn't fit one of the three templates, and they were hesitant to edit anything labeled "optional," even when those settings were the ones they needed to change. The structure that made the bet legible was also reading as rigid.</p>
-            <p><strong>That gap between what the templates promised and what customers felt permission to do with them became the question the next round of design had to answer.</strong></p>
+            <h3 class="design-moment-title" style="margin-bottom: var(--space-4); font-size: clamp(16px, 1.5vw, 20px);">Visible scaling options worked, but customization wasn't obvious.</h3>
+            <p>Participants responded well to the streamlined flow. One technical lead said setting up the primary instance (the main database server) and the replica pools (additional servers for scaling) in one shot was a major improvement.</p>
+            <p>The templates worked as anchors, but not as starting points. Participants weren't sure whether they could create a cluster that didn't fit one of the templates, and editing wasn't intuitive.</p>
+            <p><strong>There was a gap between what the templates promised and what customers felt permission to do with them. That became the question the next round of design had to answer.</strong></p>
           </div>
         </div>
       </div>
@@ -967,10 +805,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     </div>
   </section>
 
-  <!-- ── 03 REFINE ── -->
+  <!-- ── 02 REFINE ── -->
   <section class="cs-section">
     <div class="container">
-      <div class="label" data-fade>03 — Refine</div>
+      <div class="label" data-fade>02 — Refine</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Three directions. One decision.</h2>
       <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: var(--space-9);">
         <p>The first test confirmed customers wanted scaling options at creation time. What it didn't settle was how those options should be presented. I went back to the drawing board and designed three directions, each handling that question differently.</p>
@@ -978,7 +816,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 
       <!-- Sub: Three Prototypes -->
       <div class="design-moment" data-fade>
-        <div class="design-moment-num">3.1</div>
+        <div class="design-moment-num">2.1</div>
         <div class="design-moment-content">
           <h3 class="design-moment-title">The question behind the prototypes</h3>
           <div class="design-moment-body">
@@ -1007,7 +845,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 
       <!-- Sub: What customers told us -->
       <div class="design-moment" data-fade>
-        <div class="design-moment-num">3.2</div>
+        <div class="design-moment-num">2.2</div>
         <div class="design-moment-content">
           <h3 class="design-moment-title">What customers told us</h3>
           <div class="design-moment-body">
@@ -1025,17 +863,17 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     </div>
   </section>
 
-  <!-- ── 04 BUILD ── -->
+  <!-- ── 03 BUILD ── -->
   <section class="cs-section">
     <div class="container">
-      <div class="label" data-fade>04 — Build</div>
+      <div class="label" data-fade>03 — Build</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Making it real.</h2>
       <div class="cs-section-body" data-fade data-delay="2" style="padding-bottom: var(--space-9);">
         <p>What followed was the work that turned the bet into a product: naming the thing, illustrating the architecture, and detailing the surfaces customers would create and operate clusters from.</p>
       </div>
 
       <div class="design-moment" data-fade>
-        <div class="design-moment-num">4.1</div>
+        <div class="design-moment-num">3.1</div>
         <div class="design-moment-content">
           <h3 class="design-moment-title">Naming the product</h3>
           <div class="design-moment-body">
@@ -1049,7 +887,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
       </div>
 
       <div class="design-moment" data-fade>
-        <div class="design-moment-num">4.2</div>
+        <div class="design-moment-num">3.2</div>
         <div class="design-moment-content">
           <h3 class="design-moment-title">Diving into the illustrations</h3>
           <div class="design-moment-body">
@@ -1064,7 +902,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
       </div>
 
       <div class="design-moment" data-fade>
-        <div class="design-moment-num">4.3</div>
+        <div class="design-moment-num">3.3</div>
         <div class="design-moment-content">
           <h3 class="design-moment-title">The cluster overview page</h3>
           <div class="design-moment-body">
@@ -1132,12 +970,12 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     </div>
   </section>
 
-  <!-- ── 05 THE LAUNCH ── -->
+  <!-- ── 04 THE LAUNCH ── -->
   <section class="cs-section">
     <div class="container">
       <div class="cs-section-brief" data-fade>
         <div>
-          <div class="label">05 — The Launch</div>
+          <div class="label">04 — The Launch</div>
           <h2 class="cs-section-title">V1, then I/O.</h2>
           <div class="cs-section-body">
             <p>AlloyDB launched in private preview nine months after the assignment came down. From product idea to a working v1 in customers' hands. The cluster creation flow my team and I designed became the front door of the product.</p>
@@ -1154,10 +992,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     </div>
   </section>
 
-  <!-- ── 06 REFLECTION ── -->
+  <!-- ── 05 REFLECTION ── -->
   <section class="cs-section">
     <div class="container">
-      <div class="label" data-fade>06 — What I'd Do Differently</div>
+      <div class="label" data-fade>05 — What I'd Do Differently</div>
       <h2 class="cs-section-title" data-fade data-delay="1">The columnar engine.</h2>
       <div class="cs-section-body" data-fade data-delay="2">
         <p>The columnar engine was one of AlloyDB's most distinctive technical capabilities. The launch announcement described it as a vectorized columnar accelerator, and called out analytical queries running up to 100 times faster than standard PostgreSQL because of it. It was a real selling point.</p>
