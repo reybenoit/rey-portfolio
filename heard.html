@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <link rel="stylesheet" href="typography.css">
+<link rel="stylesheet" href="section-nav.css">
 <style>
 
 /* ── Reset & Root ── */
@@ -603,7 +604,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── OUTCOME + CTA ── -->
-  <section class="outcome">
+  <section class="outcome" data-section-dark>
     <div class="container outcome-inner">
       <div class="label" data-fade>Outcome</div>
       <div class="outcome-grid">
@@ -654,7 +655,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 2. THE BRIEF ── -->
-  <section class="brief">
+  <section class="brief" id="brief" data-section="The Brief">
     <div class="container">
       <div class="brief-grid" data-fade>
         <div class="brief-intro">
@@ -671,7 +672,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 3. PROOF OF CONCEPT ── -->
-  <section class="poc">
+  <section class="poc" id="poc" data-section="Proof of Concept">
     <div class="container">
       <div class="label" data-fade>02 — Proof of Concept</div>
       <h2 class="brief-title" data-fade data-delay="1">Refining the idea</h2>
@@ -757,7 +758,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 4. DESIGN ── -->
-  <section class="design">
+  <section class="design" id="design" data-section="Design">
     <div class="container">
       <div class="label" data-fade>03 — Design</div>
       <h2 class="cs-methodology-heading" data-fade data-delay="1">Where the product took shape.</h2>
@@ -832,7 +833,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 4b. SHOWCASE STRIP ── -->
-  <section class="cs-showcase">
+  <section class="cs-showcase" id="showcase" data-section="HEARD in Use" data-section-dark>
     <div class="cs-showcase-header" data-fade>
       <div class="label">HEARD in Use</div>
       <h2 class="cs-showcase-title">Lyrics in. Tracks out.</h2>
@@ -915,7 +916,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 5. THE BUILD ── -->
-  <section class="build">
+  <section class="build" id="implementation" data-section="Implementation">
     <div class="container">
       <div class="label" data-fade>04 — Implementation</div>
       <h2 class="cs-methodology-heading" data-fade data-delay="1">The part where it had to actually work.</h2>
@@ -942,7 +943,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 5b. LAUNCH ── -->
-  <section class="brief">
+  <section class="brief" id="launch" data-section="Launch">
     <div class="container">
       <div class="brief-grid" data-fade>
         <div class="brief-intro">
@@ -959,7 +960,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 6. TAKEAWAYS ── -->
-  <section class="takeaways">
+  <section class="takeaways" id="takeaways" data-section="Takeaways">
     <div class="container">
       <div class="label" data-fade>Impact and what I Learned</div>
       <div class="takeaways-impact" data-fade data-delay="1">
@@ -1225,6 +1226,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   })();
 </script>
 <script src="components.js"></script>
+<script src="section-nav.js"></script>
 
 </body>
 </html>
