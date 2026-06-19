@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <link rel="stylesheet" href="typography.css">
+<link rel="stylesheet" href="section-nav.css">
 <style>
 
 /* ── Reset & Root ── */
@@ -531,7 +532,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── IMPACT ── -->
-  <section class="takeaways takeaways--dark">
+  <section class="takeaways takeaways--dark" data-section-dark>
     <div class="container">
       <div class="label" data-fade>Outcome</div>
       <div class="takeaways-impact" data-fade data-delay="1">
@@ -661,7 +662,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 2. THE BRIEF ── -->
-  <section class="brief">
+  <section class="brief" id="brief" data-section="The Brief">
     <div class="container">
       <div class="brief-grid" data-fade>
         <div class="brief-intro">
@@ -679,7 +680,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 3. TEAM & PROCESS ── -->
-  <section class="build">
+  <section class="build" id="team" data-section="Team &amp; Process">
     <div class="container">
       <div class="label" data-fade>02 — Team &amp; Process</div>
       <h2 class="cs-methodology-heading" data-fade data-delay="1">Collaborative. Agile. Iterative.</h2>
@@ -694,7 +695,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 4. DESIGNING THE MENU ── -->
-  <section class="poc">
+  <section class="poc" id="menu" data-section="Designing the Menu">
     <div class="container">
       <div class="brief-grid" data-fade>
         <div class="brief-intro">
@@ -714,7 +715,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 5. ROTATE TO REORDER ── -->
-  <section class="poc">
+  <section class="poc" id="rotate" data-section="Rotate to Reorder">
     <div class="container">
       <div class="label" data-fade>04 — Rotate to Reorder</div>
       <h2 class="brief-title" data-fade data-delay="1">The Best Idea From Playing With the Medium.</h2>
@@ -733,7 +734,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 6. RESEARCH ── -->
-  <section class="design">
+  <section class="design" id="research" data-section="Research">
     <div class="container">
       <div class="label" data-fade>05 — Research</div>
       <h2 class="cs-methodology-heading" data-fade data-delay="1">Usability Testing at Every Resolution.</h2>
@@ -777,7 +778,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── SHOWCASE STRIP ── -->
-  <section class="cs-showcase">
+  <section class="cs-showcase" id="app" data-section="The App in Use" data-section-dark>
     <div class="cs-showcase-header" data-fade>
       <div class="label">The App in Use</div>
       <h2 class="cs-showcase-title">Order in seconds. Customize everything.</h2>
@@ -835,7 +836,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 8. WHY IT MATTERS + CTA ── -->
-  <section class="outcome">
+  <section class="outcome" id="learned" data-section="What I Learned">
     <div class="container outcome-inner">
       <div class="label" data-fade>06 — What I Learned</div>
       <div class="outcome-grid outcome-grid--light">
@@ -1001,6 +1002,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   })();
 </script>
 <script src="components.js"></script>
+<script src="section-nav.js"></script>
 <script>
   // Full-bleed photo hero: start nav transparent/dark, switch to light after hero
   (function () {

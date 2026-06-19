@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <link rel="stylesheet" href="typography.css">
+<link rel="stylesheet" href="section-nav.css">
 <style>
 
 /* ── Reset & Root ── */
@@ -657,138 +658,12 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .design-ai-quote-text { font-size: clamp(14px, 1.2vw, 16px); color: var(--text); line-height: 1.75; font-style: italic; }
 .design-ai-quote-attr { font-family: var(--font-d); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-text); margin-top: var(--space-3); display: block; font-style: normal; }
 
-/* ── IN-PAGE SECTION NAV ── */
-/* Anchor offsets so jumped-to headings clear the fixed nav (+ sub-bar on narrow screens) */
-#assignment, #strategy, #research, #community, #crunch, #product, #launch { scroll-margin-top: 96px; }
-
-.section-nav { display: none; }
-.section-nav-list { list-style: none; }
-.section-nav a { text-decoration: none; }
-
-/* — Sub-bar mode (default, below the rail breakpoint) — */
-@media (max-width: 1439.98px) {
-  #assignment, #strategy, #research, #community, #crunch, #product, #launch { scroll-margin-top: 116px; }
-  .section-nav {
-    display: block;
-    position: fixed;
-    top: 60px; left: 0; right: 0;
-    z-index: 90;
-    background: rgb(var(--text-light-rgb) / var(--alpha-overlay));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--mid);
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition:
-      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .section-nav.is-visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  .section-nav-list {
-    display: flex;
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 var(--pad);
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  .section-nav-list::-webkit-scrollbar { display: none; }
-  .section-nav a {
-    display: block;
-    white-space: nowrap;
-    font-family: var(--font-d);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mid-text);
-    padding: 14px 16px;
-    border-bottom: 2px solid transparent;
-    transition:
-      color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-      border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .section-nav-list li:first-child a { padding-left: 0; }
-  .section-nav a:hover { color: var(--text); }
-  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
-}
-
-/* — Vertical rail mode (wide screens; floats in the left margin, no body shift) — */
-@media (min-width: 1440px) {
-  .section-nav {
-    display: block;
-    position: fixed;
-    top: 50%;
-    left: 32px;
-    width: min(220px, calc((100vw - var(--max)) / 2 + 24px));
-    transform: translateY(-50%);
-    z-index: 90;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-      visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .section-nav.is-visible { opacity: 1; visibility: visible; }
-  .section-nav-list { display: flex; flex-direction: column; }
-  .section-nav a {
-    display: block;
-    position: relative;
-    font-family: var(--font-d);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    line-height: 1.3;
-    color: var(--mid-text);
-    padding: 10px 0 10px 22px;
-    border-left: 1px solid var(--mid);
-    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .section-nav a::before {
-    content: '';
-    position: absolute;
-    left: -1px; top: 8px; bottom: 8px;
-    width: 2px;
-    background: var(--accent);
-    transform: scaleY(0);
-    transform-origin: center;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .section-nav a:hover { color: var(--text); }
-  .section-nav a.active { color: var(--accent); }
-  .section-nav a.active::before { transform: scaleY(1); }
-
-  /* Color adaptation when the rail overlaps a dark section */
-  .section-nav.on-dark a { color: rgb(var(--text-light-rgb) / var(--alpha-muted)); border-left-color: rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .section-nav.on-dark a:hover { color: var(--text-light); }
-  .section-nav.on-dark a.active { color: var(--accent); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .section-nav, .section-nav a, .section-nav a::before { transition: none; }
-}
-
 </style>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 <nav id="site-nav"></nav>
-
-<!-- ── IN-PAGE SECTION NAV (rail ≥1440px · sticky sub-bar below) ── -->
-<nav class="section-nav" id="section-nav" aria-label="Sections">
-  <ul class="section-nav-list">
-    <li><a href="#assignment" data-target="assignment">The Assignment</a></li>
-    <li><a href="#strategy" data-target="strategy">The Strategy</a></li>
-    <li><a href="#research" data-target="research">Research and design</a></li>
-    <li><a href="#community" data-target="community">Building the community</a></li>
-    <li><a href="#crunch" data-target="crunch">The Crunch</a></li>
-    <li><a href="#product" data-target="product">The Product</a></li>
-    <li><a href="#launch" data-target="launch">The Launch</a></li>
-  </ul>
-</nav>
 
 <main id="main">
 
@@ -817,7 +692,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 2. STATS ── -->
-  <section class="cs-stats">
+  <section class="cs-stats" data-section-dark>
     <div class="container">
       <div class="label" data-fade>Outcome</div>
       <div class="outcome-grid">
@@ -838,7 +713,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── 01 THE ASSIGNMENT ── -->
-  <section class="cs-section" id="assignment">
+  <section class="cs-section" id="assignment" data-section="The Assignment">
     <div class="container">
       <div class="cs-section-brief" data-fade>
         <div>
@@ -858,7 +733,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── THE STRATEGY ── -->
-  <section class="cs-section" id="strategy">
+  <section class="cs-section" id="strategy" data-section="The Strategy">
     <div class="container">
       <div class="label" data-fade>The Strategy</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Three priorities, one strategy.</h2>
@@ -906,7 +781,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 
 
   <!-- ── 01 UNDERSTAND ── -->
-  <section class="cs-section" id="research">
+  <section class="cs-section" id="research" data-section="Research and design">
     <div class="container">
       <div class="cs-section-brief" data-fade style="grid-template-columns: 1fr;">
         <div>
@@ -996,7 +871,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── BUILDING THE COMMUNITY ── -->
-  <section class="cs-section" id="community">
+  <section class="cs-section" id="community" data-section="Building the community">
     <div class="container">
       <div class="label" data-fade>Building the community</div>
       <h2 class="cs-section-title" data-fade data-delay="1">Align on principles, then execute</h2>
@@ -1010,7 +885,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── THE CRUNCH ── -->
-  <section class="cs-section" id="crunch">
+  <section class="cs-section" id="crunch" data-section="The Crunch">
     <div class="container">
       <div class="cs-section-brief" data-fade>
         <div>
@@ -1035,7 +910,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── SHOWCASE STRIP ── -->
-  <section class="cs-showcase" id="product">
+  <section class="cs-showcase" id="product" data-section="The Product" data-section-dark>
     <div class="cs-showcase-header" data-fade>
       <div class="label">The Product</div>
       <h2 class="cs-showcase-title">AlloyDB final designs</h2>
@@ -1087,7 +962,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   </section>
 
   <!-- ── THE LAUNCH ── -->
-  <section class="cs-section" id="launch">
+  <section class="cs-section" id="launch" data-section="The Launch">
     <div class="container">
       <div class="cs-section-brief" data-fade>
         <div>
@@ -1167,48 +1042,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
     heroObs.observe(hero);
   })();
 </script>
-<script>
-  // ── IN-PAGE SECTION NAV (visibility, scrollspy, dark-section adaptation) ──
-  (function () {
-    var sectionNav = document.getElementById('section-nav');
-    var hero = document.querySelector('.cs-hero');
-    if (!sectionNav || !hero) return;
-
-    var links = Array.prototype.slice.call(sectionNav.querySelectorAll('a[data-target]'));
-    var sections = links
-      .map(function (a) { return document.getElementById(a.getAttribute('data-target')); })
-      .filter(Boolean);
-
-    // 1. Reveal the nav once the hero has scrolled out of view.
-    var heroVis = new IntersectionObserver(function (entries) {
-      sectionNav.classList.toggle('is-visible', !entries[0].isIntersecting);
-    }, { threshold: 0, rootMargin: '-60px 0px 0px 0px' });
-    heroVis.observe(hero);
-
-    // 2. Scrollspy — highlight the section crossing the viewport's vertical centre.
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var id = entry.target.id;
-        links.forEach(function (a) {
-          a.classList.toggle('active', a.getAttribute('data-target') === id);
-        });
-      });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-    sections.forEach(function (s) { spy.observe(s); });
-
-    // 3. Adapt rail colour when it overlaps a dark section (rail mode only).
-    var darkActive = new Set();
-    var darkSpy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) darkActive.add(entry.target);
-        else darkActive.delete(entry.target);
-      });
-      sectionNav.classList.toggle('on-dark', darkActive.size > 0);
-    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
-    document.querySelectorAll('.cs-stats, .cs-showcase').forEach(function (s) { darkSpy.observe(s); });
-  })();
-</script>
+<script src="section-nav.js"></script>
 
 <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
