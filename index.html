@@ -793,6 +793,10 @@ nav {
   flex-wrap: wrap;
 }
 
+/* Three metrics kept on a single row (shrink to fit, labels wrap) */
+.cs-metrics--3up { flex-wrap: nowrap; gap: var(--space-6); }
+.cs-metrics--3up .cs-metric { flex: 1 1 0; min-width: 0; }
+
 .cs-metric-value {
   font-family: var(--font-d);
   font-size: clamp(22px, 2.2vw, 32px);
@@ -1494,10 +1498,14 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
           <p class="cs-hook">Taco Bell came to Digitas wanting the best-in-class mobile ordering app in their category. We won the pitch. I shaped every interaction as lead designer at Digitas — loud, fun, and effortless under the hood.</p>
           <div class="cs-role-label">My Role</div>
           <div class="cs-role-value">Lead UX Designer</div>
-          <div class="cs-metrics">
+          <div class="cs-metrics cs-metrics--3up">
             <div class="cs-metric">
-              <div class="cs-metric-value">33%</div>
-              <div class="cs-metric-label">AVG ORDER VALUE INCREASE</div>
+              <div class="cs-metric-value">300K</div>
+              <div class="cs-metric-label">DOWNLOADS IN FIRST 48 HOURS</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">$500K</div>
+              <div class="cs-metric-label">SALES IN FIRST WEEK</div>
             </div>
             <div class="cs-metric">
               <div class="cs-metric-value">Webby</div>
