@@ -384,6 +384,10 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 .takeaways-impact { margin-bottom: var(--space-8); padding-bottom: var(--space-8); }
 .takeaways-impact-value { font-family: var(--font-d); font-size: clamp(36px, 5.5vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); margin-bottom: var(--space-5); }
 .takeaways-impact-desc { color: var(--mid-text); max-width: 520px; }
+.takeaways-cta { border-top: 1px solid var(--mid); padding-top: var(--space-10); margin-top: var(--space-10); }
+.takeaways-cta > * { max-width: 480px; }
+.takeaways-cta-eyebrow { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: var(--text-eyebrow-transform); color: var(--mid-text); margin-bottom: var(--space-4); }
+.takeaways-cta-text { font-size: 15px; color: var(--mid-text); line-height: 1.65; margin-bottom: var(--space-5); }
 .takeaway { display: grid; grid-template-columns: 64px 1fr; gap: var(--space-7); padding: var(--space-8) 0; border-top: 1px solid var(--mid); align-items: start; }
 .takeaway-num { font-family: var(--font-d); font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); color: var(--accent); opacity: 0.6; padding-top: var(--space-1); }
 .takeaway-title { font-family: var(--font-d); font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; letter-spacing: -0.01em; color: var(--text); margin-bottom: var(--space-2); }
@@ -589,7 +593,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
       <div class="cs-hero-descriptors">
         <div class="cs-hero-cell">
           <div class="label">What I built</div>
-          <p class="cs-hero-cell-text">HEARD — <span>A lyric-first music tool that turns written words into produced demo tracks using AI. Built by a lyricist who had the same problem for all lyricists.</span></p>
+          <p class="cs-hero-cell-text">HEARD — <span>A lyric-first music tool that turns written words into produced demo tracks using AI. Built by a lyricist who had the same problem as all lyricists.</span></p>
         </div>
         <div class="cs-hero-cell">
           <div class="label">How I built it</div>
@@ -613,25 +617,12 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
           <p class="outcome-desc">Vibe-coded and AI-powered. Lyrics to demo track in minutes.</p>
         </div>
         <div class="outcome-item" data-fade data-delay="2">
-          <div class="outcome-value">198h</div>
+          <div class="outcome-value">198 hours</div>
           <p class="outcome-desc">Total build time across research, design, engineering, and deployment — solo.</p>
         </div>
         <div class="outcome-item" data-fade data-delay="3">
           <div class="outcome-value">Live Product</div>
           <p class="outcome-desc">Deployed and accessible. Real users, real feedback, real iteration.</p>
-        </div>
-      </div>
-      <div class="outcome-ctas" data-fade>
-        <div class="outcome-cta-block">
-          <div class="outcome-cta-eyebrow">The Product</div>
-          <p class="outcome-cta-text">The product is live. If you write music and want to hear what you've been missing, try it.</p>
-          <a class="cs-link" href="https://tryheardfree.com" target="_blank" rel="noopener noreferrer">Try HEARD →</a>
-        </div>
-        <div class="outcome-cta-divider" aria-hidden="true"></div>
-        <div class="outcome-cta-block">
-          <div class="outcome-cta-eyebrow">For Hiring Managers</div>
-          <p class="outcome-cta-text">If you're building a team that wants design leadership ready for what's next, let's talk.</p>
-          <a class="cs-link" href="index.html#contact">Get in touch →</a>
         </div>
       </div>
     </div>
@@ -1003,6 +994,12 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
             <p class="takeaway-body">AI expands what's possible. That makes scope discipline more important, not less. Knowing what to leave out — and being honest about why — is product maturity, not limitation.</p>
           </div>
         </div>
+      </div>
+
+      <div class="takeaways-cta" data-fade>
+        <div class="takeaways-cta-eyebrow">Let's work together</div>
+        <p class="takeaways-cta-text">I know how to direct AI and still own the craft. If you're building a team ready for what design leadership looks like now, let's talk.</p>
+        <a class="cs-link" href="index.html#contact">Get in touch →</a>
       </div>
     </div>
   </section>
