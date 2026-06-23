@@ -15,6 +15,7 @@
   --text-rgb:       26 26 46;
   --text-light-rgb: 247 246 242;
   --accent-rgb:     58 107 196;
+  --mid-rgb:        232 230 224;
 
   /* Semantic alpha tiers */
   --alpha-texture: 0.04;   /* grid texture, barely-visible patterns */

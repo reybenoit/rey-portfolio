@@ -234,7 +234,7 @@ nav {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr 300px;
   min-height: 100dvh;
   max-width: var(--max);
   margin: 0 auto;
@@ -247,18 +247,22 @@ nav {
 .hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding: var(--space-10) var(--pad) var(--space-11);
 }
 
 .hero-right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding: var(--space-10) var(--space-8) var(--space-11);
-  border-left: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
   opacity: 0;
   animation: fadeRight 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+.hero-right-inner {
+  padding-left: var(--space-6);
+  border-left: 1px solid rgb(var(--mid-rgb) / var(--alpha-muted));
 }
 
 .hero-label {
@@ -278,17 +282,17 @@ nav {
   letter-spacing: var(--text-display-tracking);
   line-height: var(--text-display-leading);
   color: var(--text-light);
-  margin-bottom: var(--space-7);
   text-wrap: balance;
 }
 
-.hero-descriptor {
-  font-family: var(--font-d);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgb(var(--text-light-rgb) / var(--alpha-subtle));
+.hero-dot {
+  display: inline-block;
+  width: 0.18em;
+  height: 0.18em;
+  margin-left: 0.08em;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: baseline;
 }
 
 /* ── Right panel: disciplines ── */
@@ -296,93 +300,26 @@ nav {
   margin-bottom: var(--space-8);
 }
 
-.hero-discipline-item {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-4);
-  padding: var(--space-4) 0;
-  border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
-}
-
-.hero-discipline-item:last-child {
-  border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));
-}
-
-.hero-discipline-num {
-  font-family: var(--font-d);
-  font-size: var(--text-eyebrow-size);
-  font-weight: var(--text-eyebrow-weight);
-  letter-spacing: var(--text-eyebrow-tracking);
-  color: rgb(var(--text-light-rgb) / var(--alpha-subtle));
-  flex-shrink: 0;
-}
-
 .hero-discipline-word {
   font-family: var(--font-d);
   font-size: clamp(17px, 1.6vw, 22px);
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: var(--text-light);
+  line-height: 1.45;
 }
 
-/* ── Availability pulse ── */
-.hero-avail {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-8);
-}
+.hero-discipline-1 { color: var(--text-light); }
+.hero-discipline-2 { color: var(--text-light); }
+.hero-discipline-3 { color: var(--text-light); }
 
-.hero-avail-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #4ade80;
-  flex-shrink: 0;
-  animation: pulseDot 2.4s ease-in-out infinite;
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.45; transform: scale(0.65); }
-}
-
+/* ── Availability ── */
 .hero-avail-text {
-  font-family: var(--font-d);
-  font-size: var(--text-eyebrow-size);
-  font-weight: var(--text-eyebrow-weight);
-  letter-spacing: var(--text-eyebrow-tracking);
-  text-transform: var(--text-eyebrow-transform);
-  color: rgb(var(--text-light-rgb) / var(--alpha-subtle));
-}
-
-/* ── Scroll indicator ── */
-.hero-scroll {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-2);
-}
-
-.hero-scroll span {
-  font-family: var(--font-d);
-  font-size: var(--text-eyebrow-size);
-  font-weight: var(--text-eyebrow-weight);
-  letter-spacing: var(--text-eyebrow-tracking);
-  text-transform: var(--text-eyebrow-transform);
-  color: rgb(var(--text-light-rgb) / var(--alpha-subtle));
-}
-
-.hero-scroll-line {
-  width: 1px;
-  height: 40px;
-  background: rgb(var(--text-light-rgb) / var(--alpha-subtle));
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; transform: scaleY(1); transform-origin: top; }
-  50%       { opacity: 1;   transform: scaleY(0.5); transform-origin: top; }
+  font-family: var(--font-b);
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 30ch;
+  color: var(--mid);
 }
 
 /* ── WHO I AM ── */
@@ -1179,36 +1116,21 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 
   <div class="hero-grid">
 
-    <!-- Left: name + role + descriptor -->
+    <!-- Left: name -->
     <div class="hero-left">
       <div class="hero-label fade-up">Portfolio · 2026</div>
-      <h1 class="hero-name fade-up">Rey<br>Benoit.</h1>
-      <p class="hero-descriptor fade-up">Senior UX Designer · Google Cloud</p>
+      <h1 class="hero-name fade-up">Rey<br>Benoit<span class="hero-dot"></span></h1>
     </div>
 
-    <!-- Right: disciplines + availability + scroll -->
+    <!-- Right: disciplines + availability -->
     <div class="hero-right">
-      <div class="hero-disciplines">
-        <div class="hero-discipline-item">
-          <span class="hero-discipline-num">01</span>
-          <span class="hero-discipline-word">Designer</span>
+      <div class="hero-right-inner">
+        <div class="hero-disciplines">
+          <div class="hero-discipline-word hero-discipline-1">Builder</div>
+          <div class="hero-discipline-word hero-discipline-2">UX Manager</div>
+          <div class="hero-discipline-word hero-discipline-3">Senior Designer</div>
         </div>
-        <div class="hero-discipline-item">
-          <span class="hero-discipline-num">02</span>
-          <span class="hero-discipline-word">Strategist</span>
-        </div>
-        <div class="hero-discipline-item">
-          <span class="hero-discipline-num">03</span>
-          <span class="hero-discipline-word">Builder</span>
-        </div>
-      </div>
-      <div class="hero-avail">
-        <span class="hero-avail-dot"></span>
-        <span class="hero-avail-text">Open to new roles</span>
-      </div>
-      <div class="hero-scroll">
-        <div class="hero-scroll-line"></div>
-        <span>Scroll</span>
+        <p class="hero-avail-text">I'm open to senior design and design leadership roles — particularly in AI, consumer products, and creative tools.</p>
       </div>
     </div>
 
