@@ -186,8 +186,8 @@ nav {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(to right, rgb(var(--text-rgb) / var(--alpha-overlay)) 0%, rgb(var(--text-rgb) / var(--alpha-muted)) 55%, rgb(var(--text-rgb) / var(--alpha-muted)) 100%),
-    url('assets/hero-bg.jpg') center / cover no-repeat,
+    linear-gradient(to right, rgb(var(--text-rgb) / min(1, calc(var(--alpha-overlay) * 1.25))) 0%, rgb(var(--text-rgb) / calc(var(--alpha-muted) * 1.25)) 55%, rgb(var(--text-rgb) / calc(var(--alpha-muted) * 1.25)) 100%),
+    url('assets/notebook-bg2.jpg') center / cover no-repeat,
     var(--bg-dark);
 }
 
