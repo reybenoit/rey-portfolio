@@ -26,12 +26,12 @@
   navCss.textContent =
     '.nav-toggle{display:none;background:none;border:0;padding:6px;margin-right:-6px;cursor:pointer;color:var(--text-light);}' +
     'nav.nav--light .nav-toggle{color:var(--text);}' +
-    '.nav-toggle span{display:block;width:22px;height:1.5px;border-radius:2px;background:currentColor;' +
+    '.nav-toggle span{display:block;width:22px;height:2px;border-radius:2px;background:currentColor;' +
       'transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .2s;}' +
     '.nav-toggle span + span{margin-top:5px;}' +
-    'nav.nav-open .nav-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}' +
+    'nav.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}' +
     'nav.nav-open .nav-toggle span:nth-child(2){opacity:0;}' +
-    'nav.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}' +
+    'nav.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}' +
     '@media (max-width:900px){' +
       '.nav-toggle{display:block;}' +
       'nav .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;' +
