@@ -10,7 +10,7 @@
       '<div class="nav-inner">' +
         '<a class="nav-logo" href="' + (root || '#') + '">Rey Benoit</a>' +
         '<ul class="nav-links">' +
-          '<li><a href="' + root + '#work">Work</a></li>' +
+          '<li><a href="' + root + '#work">Case Studies</a></li>' +
           '<li><a href="' + root + '#about">About</a></li>' +
           '<li><a href="' + root + '#contact">Contact</a></li>' +
         '</ul>' +
@@ -24,7 +24,7 @@
       '<div class="container footer-inner">' +
         '<div class="footer-name">Rey Benoit</div>' +
         '<ul class="footer-nav">' +
-          '<li><a href="' + root + '#work">Work</a></li>' +
+          '<li><a href="' + root + '#work">Case Studies</a></li>' +
           '<li><a href="' + root + '#about">About</a></li>' +
           '<li><a href="' + root + '#contact">Contact</a></li>' +
         '</ul>' +
