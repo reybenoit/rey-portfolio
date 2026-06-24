@@ -415,6 +415,16 @@ nav {
 .impact .label { margin-bottom: var(--space-9); color: var(--accent); }
 .impact .label::after { background: var(--accent); }
 
+.impact-headline {
+  font-family: var(--font-d);
+  font-size: clamp(36px, 5.5vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text-light);
+  margin-bottom: var(--space-9);
+}
+
 .outcome-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1174,6 +1184,7 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
 <section class="impact">
   <div class="container impact-inner">
     <div class="label">Impact at a glance</div>
+    <h2 class="impact-headline">Contributions I'm most proud of</h2>
     <div class="outcome-grid">
 
       <div class="outcome-item">
