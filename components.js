@@ -14,8 +14,40 @@
           '<li><a href="' + root + '#about">About</a></li>' +
           '<li><a href="' + root + '#contact">Contact</a></li>' +
         '</ul>' +
+        '<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">' +
+          '<span></span><span></span><span></span>' +
+        '</button>' +
       '</div>';
   }
+
+  // ── MOBILE NAV STYLES (injected so every page stays in sync) ─────────
+  var navCss = document.createElement('style');
+  navCss.id = 'nav-mobile-css';
+  navCss.textContent =
+    '.nav-toggle{display:none;background:none;border:0;padding:6px;margin-right:-6px;cursor:pointer;color:var(--text-light);}' +
+    'nav.nav--light .nav-toggle{color:var(--text);}' +
+    '.nav-toggle span{display:block;width:22px;height:1.5px;border-radius:2px;background:currentColor;' +
+      'transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .2s;}' +
+    '.nav-toggle span + span{margin-top:5px;}' +
+    'nav.nav-open .nav-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}' +
+    'nav.nav-open .nav-toggle span:nth-child(2){opacity:0;}' +
+    'nav.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}' +
+    '@media (max-width:900px){' +
+      '.nav-toggle{display:block;}' +
+      'nav .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;' +
+        'padding:0 var(--pad);background:var(--bg-dark);' +
+        'border-bottom:1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));' +
+        'max-height:0;overflow:hidden;opacity:0;visibility:hidden;' +
+        'transition:max-height .35s cubic-bezier(.16,1,.3,1),opacity .25s ease,visibility .35s;}' +
+      'nav.nav--light .nav-links{background:var(--bg);border-bottom-color:var(--mid);}' +
+      'nav.nav-open .nav-links{max-height:70vh;opacity:1;visibility:visible;}' +
+      'nav .nav-links li{width:100%;}' +
+      'nav .nav-links a{display:block;padding:16px 0;font-size:13px;' +
+        'border-bottom:1px solid rgb(var(--text-light-rgb) / var(--alpha-faint));}' +
+      'nav .nav-links li:last-child a{border-bottom:none;}' +
+      'nav.nav--light .nav-links a{border-bottom-color:var(--mid);}' +
+    '}';
+  document.head.appendChild(navCss);
 
   // ── FOOTER ───────────────────────────────────────────────────────────
   var footerEl = document.getElementById('site-footer');
@@ -86,6 +118,22 @@
   // ── NAV SCROLL BEHAVIOUR ─────────────────────────────────────────────
   var nav  = document.querySelector('nav');
   if (!nav) return;
+
+  // ── MOBILE NAV TOGGLE ────────────────────────────────────────────────
+  var navToggle = nav.querySelector('.nav-toggle');
+  if (navToggle) {
+    var setNavOpen = function (open) {
+      nav.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    navToggle.addEventListener('click', function () {
+      setNavOpen(!nav.classList.contains('nav-open'));
+    });
+    // Close after picking a destination
+    nav.querySelectorAll('.nav-links a').forEach(function (link) {
+      link.addEventListener('click', function () { setNavOpen(false); });
+    });
+  }
 
   var hero = document.querySelector('.hero');
   if (hero) {
