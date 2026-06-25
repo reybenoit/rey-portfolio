@@ -1064,7 +1064,7 @@ footer {
 
   .outcome-grid { grid-template-columns: repeat(2, 1fr); }
   .outcome-item { padding: var(--space-8) 0; border-right: none; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .outcome-item:nth-child(odd) { padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:nth-child(odd) { padding-left: 0; padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
   .outcome-item:nth-child(even) { padding-left: var(--space-6); }
   .outcome-item:last-child { padding-right: 0; }
 
@@ -1088,7 +1088,7 @@ footer {
 @media (max-width: 600px) {
   .outcome-grid { grid-template-columns: 1fr; }
   .outcome-item { padding: var(--space-8) 0; border-right: none; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .outcome-item:nth-child(odd) { padding-right: 0; }
+  .outcome-item:nth-child(odd) { padding-left: 0; padding-right: 0; }
   .outcome-item:nth-child(even) { padding-left: 0; }
   .cs-metrics { gap: var(--space-6); }
   .footer-nav { display: none; }
