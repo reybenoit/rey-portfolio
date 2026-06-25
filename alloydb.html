@@ -563,7 +563,7 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 
   .outcome-grid { grid-template-columns: repeat(2, 1fr); }
   .outcome-item { padding: var(--space-7) 0 var(--space-7) 0; border-right: none; border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
-  .outcome-item:nth-child(odd) { padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:nth-child(odd) { padding-left: 0; padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
   .outcome-item:nth-child(even) { padding-left: var(--space-6); }
   .outcome-item:last-child { border-bottom: none; }
   .outcome-item:nth-last-child(2) { border-bottom: none; }
@@ -603,6 +603,12 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
 }
 
 @media (max-width: 600px) {
+  .outcome-grid { grid-template-columns: 1fr; }
+  .outcome-item:nth-child(odd) { padding-left: 0; padding-right: 0; border-right: none; }
+  .outcome-item:nth-child(even) { padding-left: 0; }
+  .outcome-item:nth-last-child(2) { border-bottom: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .outcome-item:last-child { border-bottom: none; }
+
   .cs-section, .takeaways { padding: var(--space-11) 0; }
   .cs-statement, .cs-methodology { padding: var(--space-10) 0; }
   .cs-stats { padding: var(--space-10) 0; }
