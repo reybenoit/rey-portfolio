@@ -1058,11 +1058,6 @@ footer {
 @media (max-width: 900px) {
   :root { --pad: 32px; }
 
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-left { padding: var(--space-12) var(--space-7) var(--space-8); justify-content: flex-end; }
-  .hero-right { padding: 0 var(--space-7) var(--space-12); justify-content: flex-start; opacity: 1; animation: none; }
-  .hero-right-inner { padding-left: 0; padding-top: 0; border-left: none; border-top: none; }
-
   .who-grid { grid-template-columns: 1fr; gap: var(--space-9); }
   .who-portrait { aspect-ratio: 4 / 3; max-width: 100%; }
 
@@ -1080,6 +1075,13 @@ footer {
 
   .cs-inner { grid-template-columns: 1fr; gap: var(--space-7); }
   .nav-links { display: none; }
+}
+
+@media (max-width: 767.98px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-left { padding: var(--space-12) var(--space-7) var(--space-8); justify-content: flex-end; }
+  .hero-right { padding: 0 var(--space-7) var(--space-12); justify-content: flex-start; opacity: 1; animation: none; }
+  .hero-right-inner { padding-left: 0; padding-top: 0; border-left: none; border-top: none; }
 }
 
 @media (max-width: 600px) {
