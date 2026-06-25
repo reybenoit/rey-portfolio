@@ -498,6 +498,20 @@ footer { background: var(--bg-dark); border-top: 1px solid rgb(var(--text-light-
   .takeaway { grid-template-columns: 48px 1fr; gap: var(--space-4); }
 }
 
+/* Impact stats: 4 cols (desktop) → 2 cols (≤1040) → 1 col (≤760) */
+@media (max-width: 1040px) {
+  .takeaways--dark .outcome-grid { grid-template-columns: repeat(2, 1fr); border-top: none; }
+  .takeaways--dark .outcome-item { padding: var(--space-7) 0; border-right: none; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .takeaways--dark .outcome-item:nth-child(odd) { padding-left: 0; padding-right: var(--space-6); border-right: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
+  .takeaways--dark .outcome-item:nth-child(even) { padding-left: var(--space-6); padding-right: 0; }
+}
+
+@media (max-width: 759.98px) {
+  .takeaways--dark .outcome-grid { grid-template-columns: 1fr; }
+  .takeaways--dark .outcome-item:nth-child(odd) { padding-right: 0; border-right: none; }
+  .takeaways--dark .outcome-item:nth-child(even) { padding-left: 0; }
+}
+
 </style>
 </head>
 <body>
