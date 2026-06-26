@@ -16,7 +16,28 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-Deploy by uploading `index.html` to any static host (Netlify, Vercel, GitHub Pages).
+## Deployment
+
+Hosted on **Netlify**, auto-deployed from this GitHub repo. Production is the `main` branch.
+
+To avoid metered production builds for in-progress work, use the **PR deploy preview** flow — never commit directly to `main`:
+
+1. Work on the `develop` branch (or a feature branch).
+2. Commit and push to that branch.
+3. Open a **pull request** into `main`. Netlify builds a free, unlimited **Deploy Preview** at `deploy-preview-<#>--<site>.netlify.app` and posts the link in the PR. Each subsequent push updates the same preview — no production deploy.
+4. When the preview looks right, **merge the PR into `main`** → triggers the single production deploy.
+
+```bash
+# on develop
+git add -A && git commit -m "..." && git push   # updates the PR's Deploy Preview only
+# after merging the PR on GitHub:
+git checkout main && git pull
+git checkout develop && git merge main && git push   # keep develop in sync
+```
+
+Netlify dashboard settings (Site configuration → Build & deploy): **Deploy Previews** enabled for PRs; **Branch deploys** set to **None** (so plain `develop` pushes don't trigger metered builds — only PR previews, which are free).
+
+`netlify.toml` pins `publish = "."` with no build command (static site, no build step).
 
 ## Architecture
 
