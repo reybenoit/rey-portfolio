@@ -3,6 +3,19 @@
   var isHome = path === '/' || path.endsWith('/index.html') || path.endsWith('/');
   var root   = isHome ? '' : 'index.html';
 
+  // ── FAVICON (injected so every page stays in sync) ───────────────────
+  var icons = [
+    { rel: 'icon', href: 'assets/favicon/favicon.svg', type: 'image/svg+xml' },
+    { rel: 'apple-touch-icon', href: 'assets/favicon/apple-touch-icon.png' }
+  ];
+  icons.forEach(function (icon) {
+    var link = document.createElement('link');
+    link.rel = icon.rel;
+    link.href = icon.href;
+    if (icon.type) link.type = icon.type;
+    document.head.appendChild(link);
+  });
+
   // ── NAV ──────────────────────────────────────────────────────────────
   var navEl = document.getElementById('site-nav');
   if (navEl) {
