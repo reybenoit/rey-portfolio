@@ -117,7 +117,7 @@
 
   window.checkPw = function () {
     var val = document.getElementById('pw-input').value;
-    if (val === 'portfolio2026') {
+    if (val === 'p2026') {
       localStorage.setItem('pw_ok', '1');
       document.getElementById('pw-overlay').style.display = 'none';
     } else {
