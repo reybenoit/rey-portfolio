@@ -3,6 +3,23 @@
   var isHome = path === '/' || path.endsWith('/index.html') || path.endsWith('/');
   var root   = isHome ? '' : 'index.html';
 
+  // ── GOOGLE ANALYTICS (GA4) ───────────────────────────────────────────
+  // Loaded on every page except the internal *-audit.html dev tools.
+  var isAudit = /-audit\.html$/.test(path);
+  if (!isAudit) {
+    var GA_ID = 'G-EPBR4C2H78';
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(ga);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  }
+
   // ── FAVICON (injected so every page stays in sync) ───────────────────
   var icons = [
     { rel: 'icon', href: 'assets/favicon/favicon.svg', type: 'image/svg+xml' },
@@ -117,7 +134,7 @@
 
   window.checkPw = function () {
     var val = document.getElementById('pw-input').value;
-    if (val === 'portfolio2026') {
+    if (val === 'p2026') {
       localStorage.setItem('pw_ok', '1');
       document.getElementById('pw-overlay').style.display = 'none';
     } else {

@@ -1,0 +1,8 @@
+# Netlify configuration
+# Static site: no build step. Netlify publishes the repo root as-is.
+# Deploy Previews are generated per pull request (free/unlimited).
+# Production deploys happen only when a PR is merged into main.
+
+[build]
+  publish = "."
+  command = ""
