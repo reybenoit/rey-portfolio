@@ -333,7 +333,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr 340px;
   gap: var(--space-11);
-  align-items: center;
+  align-items: start;
 }
 
 .who-body .label {
@@ -362,11 +362,12 @@ nav {
 .who-body p:last-child { margin-bottom: 0; }
 
 .who-portrait {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   background: var(--mid);
   position: relative;
   overflow: hidden;
-  border-top: 3px solid var(--accent);
+  /* align top with the lede paragraph (skip the "About" label + its margin) */
+  margin-top: calc(var(--text-eyebrow-size) * var(--text-body-leading) + var(--space-8));
 }
 
 .who-portrait img {
@@ -374,21 +375,6 @@ nav {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.who-portrait-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-4) var(--space-5);
-  background: linear-gradient(to top, rgb(var(--text-rgb) / var(--alpha-hover)) 0%, transparent 100%);
-  font-family: var(--font-d);
-  font-size: var(--text-eyebrow-size);
-  font-weight: var(--text-eyebrow-weight);
-  letter-spacing: var(--text-eyebrow-tracking);
-  text-transform: var(--text-eyebrow-transform);
-  color: rgb(var(--text-light-rgb) / var(--alpha-muted));
 }
 
 /* ── IMPACT ── */
@@ -1059,8 +1045,8 @@ footer {
   :root { --pad: 32px; }
 
   .who-grid { grid-template-columns: 1fr; gap: var(--space-9); }
-  .who-portrait { aspect-ratio: 4 / 3; max-width: 100%; }
-  .who-portrait img { object-position: top; }
+  .who-portrait { aspect-ratio: 1 / 1; max-width: 100%; margin-top: 0; }
+  .who-portrait img { object-position: center; }
 
   .outcome-grid { grid-template-columns: repeat(2, 1fr); }
   .outcome-item { padding: var(--space-8) 0; border-right: none; border-top: 1px solid rgb(var(--text-light-rgb) / var(--alpha-faint)); }
@@ -1176,8 +1162,7 @@ nav.nav--light .nav-links a { color: var(--mid-text); }
       </div>
 
       <div class="who-portrait">
-        <img src="assets/rey-benoit.jpeg" alt="Rey Benoit" loading="lazy">
-        <div class="who-portrait-caption">Rey Benoit</div>
+        <img src="assets/rey-benoit-profile.jpg" alt="Rey Benoit" loading="lazy">
       </div>
 
     </div>
