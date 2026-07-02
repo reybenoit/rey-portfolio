@@ -366,6 +366,8 @@ nav {
   background: var(--mid);
   position: relative;
   overflow: hidden;
+  /* align top with the lede paragraph (skip the "About" label + its margin) */
+  margin-top: calc(var(--text-eyebrow-size) * var(--text-body-leading) + var(--space-8));
 }
 
 .who-portrait img {
@@ -1043,7 +1045,7 @@ footer {
   :root { --pad: 32px; }
 
   .who-grid { grid-template-columns: 1fr; gap: var(--space-9); }
-  .who-portrait { aspect-ratio: 1 / 1; max-width: 100%; }
+  .who-portrait { aspect-ratio: 1 / 1; max-width: 100%; margin-top: 0; }
   .who-portrait img { object-position: center; }
 
   .outcome-grid { grid-template-columns: repeat(2, 1fr); }
